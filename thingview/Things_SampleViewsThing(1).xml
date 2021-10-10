@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-10-07T00:40:12.126Z" name="SampleViewsThing" projectName="PTCDefaultProject" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="Views" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="Views" ordinal="2"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetViews"><ResultType aspect.dataShape="Views" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetViews"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var data = [
+  {
+    "name": "Figure 1",
+    "type": "BLOWER_COMPLETE_K01.PRT",
+    "value": 18,
+     "partPath":""
+  },
+     {
+    "name": "Figure 2",
+    "type": "BLOWER_COMPLETE_K01.PRT",
+    "value": 18,
+     "partPath":""
+  }
+  
+];
+
+var result = DataShapes.Views.CreateValues();
+
+for(var i =0;i<data.length;i++) {
+  result.AddRow(data[i]);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="Views"/></AlertConfigurations><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2021-10-07T00:40:12.123Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>

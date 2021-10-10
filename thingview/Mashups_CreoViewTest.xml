@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-10-10T06:47:54.551Z" name="CreoViewTest" projectName="PTCDefaultProject" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="STRING" description="" name="thingviewLink" ordinal="0"/></ParameterDefinitions><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_SampleViewsThing" : {
+      "DataName" : "Things_SampleViewsThing",
+      "EntityName" : "SampleViewsThing",
+      "EntityType" : "Things",
+      "Id" : "7e2d6d6a-d913-4c0f-a4e1-2de9e63f5fe4",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "ba194489-8e06-4169-8175-40a33aea0ca2",
+        "Name" : "GetProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetProperties"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "364fa9d5-7bef-40d6-b9ba-502d8204495b",
+        "Name" : "SetProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "SetProperties"
+      } ]
+    },
+    "Things_ThingViewTest.TH" : {
+      "DataName" : "Things_ThingViewTest.TH",
+      "EntityName" : "ThingViewTest.TH",
+      "EntityType" : "Things",
+      "Id" : "719f052b-9161-4f02-b14a-5465efb2b636",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "5506a3bb-db2d-4943-ba9a-50d2f429d25a",
+        "Name" : "GetThingViewList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetThingViewList"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "240ce584-a2d6-4eaf-a40c-4dd1e183d622",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Views",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Views",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetProperties",
+    "SourceSection" : "Things_SampleViewsThing",
+    "TargetArea" : "UI",
+    "TargetId" : "thingview-7",
+    "TargetSection" : ""
+  }, {
+    "Id" : "203e8afa-16b7-416e-b3b4-caaa5f56042e",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Views",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "Views",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "thingview-7",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "SetProperties",
+    "TargetSection" : "Things_SampleViewsThing"
+  }, {
+    "Id" : "23a4ac85-1ef7-441a-b661-7f93089a5487",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Views",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetProperties",
+    "SourceName" : "GetProperties",
+    "SourceSection" : "Things_SampleViewsThing",
+    "TargetArea" : "UI",
+    "TargetId" : "dhxgrid-13",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_SampleViewsThing",
+    "EventHandlerService" : "GetProperties",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "SetProperties",
+    "EventTriggerSection" : "Things_SampleViewsThing",
+    "Id" : "821f9f10-9c80-4959-bc09-5b1cb205dd8d"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_SampleViewsThing",
+    "EventHandlerService" : "SetProperties",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "thingview-7",
+    "EventTriggerSection" : "",
+    "Id" : "c52e7a5e-ce6d-4e42-8b64-4d9ebc70b103"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_ThingViewTest.TH",
+    "EventHandlerService" : "GetThingViewList",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "ea9e4be3-4653-4551-bc53-535050e131c4"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : { },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "_currentParameterDefs" : [ {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "STRING",
+        "Description" : "",
+        "ParameterName" : "thingviewLink"
+      } ],
+      "id_index" : 13,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "row",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "AnchorLocation" : "left",
+          "AnimationSpeed" : "200ms",
+          "Area" : "UI",
+          "Behavior" : "push",
+          "ClickOutsideToClose" : false,
+          "CollapseByDefault" : false,
+          "Disabled" : false,
+          "DisplayName" : "ptcs-dynamicpanel-4",
+          "Height" : 260,
+          "HideDragHandle" : false,
+          "HideTriggerButton" : false,
+          "Id" : "ptcsdynamicpanel-4",
+          "LastContainer" : false,
+          "Left" : 214.01141357421875,
+          "MaxSizeWhenExpanded" : "100%",
+          "MinSizeWhenExpanded" : "50",
+          "PanelSize" : "320",
+          "ResponsiveLayout" : true,
+          "ShowDataLoading" : true,
+          "SizeWhenCollapsed" : "0",
+          "TabSequence" : 0,
+          "Top" : 97.11238098144531,
+          "TriggerButtonLocation" : "top",
+          "TriggerButtonType" : "type1",
+          "Type" : "ptcsdynamicpanel",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Width" : 360,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Dynamic Panel"
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "ptcs-dynamicpanel-4 #1",
+            "EnableExpandCollapse" : false,
+            "ExpandCollapseTabLocation" : "inside",
+            "Expanded" : true,
+            "Id" : "flexcontainer-5",
+            "LastContainer" : false,
+            "Overlay" : false,
+            "ResponsiveLayout" : true,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : 1,
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : 1,
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : true
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "AcknowledgeStepText" : "",
+              "AllowCORSCredentials" : false,
+              "AllowClientRedirect" : true,
+              "Area" : "UI",
+              "BackgroundStyle" : "DefaultShapeUnfilledBackgroundStyle",
+              "DataFormatter_StateParameters" : [ ],
+              "DisplayAlternateRep" : false,
+              "DisplayExplodeState" : false,
+              "DisplayFilter" : "{  \"ModelAnnotation\":   {    \"HiddenByDefault\": true,    \"PlanarAnnotation\": true,    \"FloatingAnnotation\": false,    \"MiscAnnotation\": false   } } ",
+              "DisplayName" : "thingview-7",
+              "DisplayPlaybackControls" : true,
+              "DisplaySectionCut" : false,
+              "DisplayViewState" : true,
+              "EnablePartDragger" : false,
+              "EnablePartSelection" : true,
+              "EnableWindchillFileCache" : false,
+              "Gnomon" : false,
+              "Height" : 0,
+              "Id" : "thingview-7",
+              "LastContainer" : false,
+              "Left" : 0,
+              "MouseNavigation" : "CREOVIEW",
+              "Orientation" : "",
+              "Orientations" : "ISO1",
+              "PerspectiveHFOV" : 60,
+              "Position" : "",
+              "PreSelectedOccurrencePath" : "",
+              "ProductToView" : "/Thingworx/CADFiles/worldcar-brake-multi-figure.pvz",
+              "ProjectionMode" : "PERSPECTIVE",
+              "ResponsiveLayout" : true,
+              "SelectedParts" : {
+                "dataShape" : {
+                  "aspects" : {
+                    "isExtension" : true
+                  },
+                  "avatar" : "",
+                  "baseDataShape" : "",
+                  "configurationTableDefinitions" : { },
+                  "configurationTables" : { },
+                  "description" : "Shape represents idpath selection in ThingView",
+                  "designTimePermissions" : {
+                    "Create" : [ ],
+                    "Delete" : [ ],
+                    "Metadata" : [ ],
+                    "Read" : [ ],
+                    "Update" : [ ]
+                  },
+                  "documentationContent" : "",
+                  "effectiveFieldDefinitions" : {
+                    "idPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "idPath",
+                      "ordinal" : 1
+                    },
+                    "propPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "propPath",
+                      "ordinal" : 2
+                    },
+                    "propValue" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "propValue",
+                      "ordinal" : 3
+                    }
+                  },
+                  "fieldDefinitions" : {
+                    "idPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "idPath",
+                      "ordinal" : 1
+                    },
+                    "propPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "propPath",
+                      "ordinal" : 1
+                    },
+                    "propValue" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "propValue",
+                      "ordinal" : 1
+                    }
+                  },
+                  "homeMashup" : "",
+                  "lastModifiedDate" : 1611030777958,
+                  "name" : "Selection",
+                  "owner" : {
+                    "name" : "SuperUser",
+                    "type" : "User"
+                  },
+                  "projectName" : "",
+                  "runTimePermissions" : {
+                    "permissions" : [ {
+                      "EventInvoke" : [ ],
+                      "EventSubscribe" : [ ],
+                      "PropertyRead" : [ ],
+                      "PropertyWrite" : [ ],
+                      "ServiceInvoke" : [ ],
+                      "resourceName" : "*"
+                    } ]
+                  },
+                  "tags" : [ ],
+                  "visibilityPermissions" : {
+                    "Visibility" : [ ]
+                  }
+                },
+                "rows" : [ ]
+              },
+              "SelectedPartsSelectionMode" : "IDPATH",
+              "SelectionPropertyGroupName" : "",
+              "SelectionPropertyName" : "",
+              "SequenceStepName" : "",
+              "SequenceStepNumber" : "",
+              "ShowDataLoading" : true,
+              "SpinCenter" : false,
+              "ThingViewControls" : true,
+              "Top" : 0,
+              "Type" : "thingview",
+              "Views" : {
+                "dataShape" : {
+                  "aspects" : {
+                    "isExtension" : true
+                  },
+                  "avatar" : "",
+                  "baseDataShape" : "",
+                  "configurationTableDefinitions" : { },
+                  "configurationTables" : { },
+                  "description" : "Views",
+                  "designTimePermissions" : {
+                    "Create" : [ ],
+                    "Delete" : [ ],
+                    "Metadata" : [ ],
+                    "Read" : [ ],
+                    "Update" : [ ]
+                  },
+                  "documentationContent" : "Annotations, Viewstates",
+                  "effectiveFieldDefinitions" : {
+                    "name" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "name",
+                      "ordinal" : 1
+                    },
+                    "partPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "partPath",
+                      "ordinal" : 4
+                    },
+                    "type" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "type",
+                      "ordinal" : 2
+                    },
+                    "value" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "value",
+                      "ordinal" : 3
+                    }
+                  },
+                  "fieldDefinitions" : {
+                    "name" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "name",
+                      "ordinal" : 1
+                    },
+                    "partPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "partPath",
+                      "ordinal" : 4
+                    },
+                    "type" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "type",
+                      "ordinal" : 2
+                    },
+                    "value" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "value",
+                      "ordinal" : 3
+                    }
+                  },
+                  "homeMashup" : "",
+                  "lastModifiedDate" : 1611030777957,
+                  "name" : "Views",
+                  "owner" : {
+                    "name" : "SuperUser",
+                    "type" : "User"
+                  },
+                  "projectName" : "",
+                  "runTimePermissions" : {
+                    "permissions" : [ {
+                      "EventInvoke" : [ ],
+                      "EventSubscribe" : [ ],
+                      "PropertyRead" : [ ],
+                      "PropertyWrite" : [ ],
+                      "ServiceInvoke" : [ ],
+                      "resourceName" : "*"
+                    } ]
+                  },
+                  "tags" : [ ],
+                  "visibilityPermissions" : {
+                    "Visibility" : [ ]
+                  }
+                },
+                "rows" : [ ]
+              },
+              "Visible" : true,
+              "Width" : 0,
+              "WindchillCacheSize" : 1000,
+              "WindchillSourceData" : true,
+              "Z-index" : 10,
+              "__TypeDisplayName" : "ThingView",
+              "baseUrl" : "",
+              "mapUrl" : "",
+              "markupUrl" : "",
+              "oid" : ""
+            },
+            "Widgets" : [ ]
+          } ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "ptcs-dynamicpanel-4 #2",
+            "EnableExpandCollapse" : false,
+            "ExpandCollapseTabLocation" : "inside",
+            "Expanded" : true,
+            "Id" : "flexcontainer-6",
+            "LastContainer" : false,
+            "Overlay" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : 1,
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : 1,
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : true
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "AlignHeader" : false,
+              "Area" : "UI",
+              "AutoSelectFirstRow" : false,
+              "CellTextWrapping" : false,
+              "ColumnFormat" : {
+                "formatInfo" : [ {
+                  "Align" : "left",
+                  "AllowEdit" : false,
+                  "FieldName" : "name",
+                  "FormatOptions" : {
+                    "FormatString" : "full",
+                    "renderer" : "STRING"
+                  },
+                  "Title" : "name",
+                  "ValidationExpression" : "",
+                  "ValidationMessage" : "",
+                  "Width" : "auto"
+                }, {
+                  "Align" : "left",
+                  "AllowEdit" : false,
+                  "FieldName" : "type",
+                  "FormatOptions" : {
+                    "FormatString" : "full",
+                    "renderer" : "STRING"
+                  },
+                  "Title" : "type",
+                  "ValidationExpression" : "",
+                  "ValidationMessage" : "",
+                  "Width" : "auto"
+                }, {
+                  "Align" : "left",
+                  "AllowEdit" : false,
+                  "FieldName" : "value",
+                  "FormatOptions" : {
+                    "FormatString" : "full",
+                    "renderer" : "STRING"
+                  },
+                  "Title" : "value",
+                  "ValidationExpression" : "",
+                  "ValidationMessage" : "",
+                  "Width" : "auto"
+                }, {
+                  "Align" : "left",
+                  "AllowEdit" : false,
+                  "FieldName" : "partPath",
+                  "FormatOptions" : {
+                    "FormatString" : "full",
+                    "renderer" : "STRING"
+                  },
+                  "Title" : "partPath",
+                  "ValidationExpression" : "",
+                  "ValidationMessage" : "",
+                  "Width" : "auto"
+                } ]
+              },
+              "CurrentScrollTop" : 0,
+              "DisplayName" : "dhxgrid-13",
+              "FocusStyle" : "DefaultFocusStyle",
+              "GridBackgroundStyle" : "DefaultGridBackgroundStyle",
+              "GridEditableFieldStyle" : "DefaultGridEditableFieldStyle",
+              "GridHeaderStyle" : "DefaultGridHeaderStyle",
+              "GridHeaderTextCase" : "capitalize",
+              "GridInvalidFieldStyle" : "DefaultGridInvalidFieldStyle",
+              "Height" : 200,
+              "Id" : "dhxgrid-13",
+              "IsEditable" : false,
+              "IsPrintLayout" : false,
+              "LastContainer" : false,
+              "Left" : 0,
+              "MultiSelect" : false,
+              "ResponsiveLayout" : true,
+              "RowAlternateBackgroundStyle" : "DefaultRowAlternateBackgroundStyle",
+              "RowBackgroundStyle" : "DefaultRowBackgroundStyle",
+              "RowFormat_StateParameters" : [ ],
+              "RowHeight" : 30,
+              "RowHoverStyle" : "DefaultRowHoverStyle",
+              "RowSelectedStyle" : "DefaultRowSelectedStyle",
+              "ScrollTop" : 0,
+              "ShowAllColumns" : false,
+              "ShowDataLoading" : true,
+              "TabSequence" : 0,
+              "Top" : 0,
+              "Type" : "dhxgrid",
+              "Visible" : true,
+              "Width" : 400,
+              "Z-index" : 10,
+              "__TypeDisplayName" : "Grid"
+            },
+            "Widgets" : [ ]
+          } ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#xA;" timestamp="2021-10-08T06:23:58.931Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#xA;" timestamp="2021-10-08T06:25:07.173Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#xA;" timestamp="2021-10-10T06:45:25.481Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#xA;" timestamp="2021-10-10T06:47:54.551Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups></Entities>

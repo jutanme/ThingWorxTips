@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-09-29T06:13:25.987Z" name="WidgetTest" projectName="PTC.Demo" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPaginatedEntries"><ResultType aspect.dataShape="Pagination_DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="NUMBER" description="" name="CurrentPage" ordinal="2"/><FieldDefinition baseType="NUMBER" description="" name="PageSize" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetPaginatedEntries"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var data = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape( {
+          infoTableName : "InfoTable",
+          dataShapeName : "EntityList" });
+
+
+for( var x = 0; x < 105; x++ ) {
+    data.AddRow( {
+        name: "Test Value: " + (x+1),
+        description:"This is a testing value of " + ( x + 1 ) } );
+}
+
+var dataShort = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape( {
+          infoTableName : "InfoTable",
+          dataShapeName : "EntityList" });
+
+for( var x = ( CurrentPage * PageSize ); x < data.getRowCount() && dataShort.getRowCount() < PageSize; x++ )
+{
+    dataShort.AddRow( data.getRow( x ) );
+}
+
+//Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue({
+//	name: undefined /* STRING */,
+//	value: undefined /* INFOTABLE */
+//});
+
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape( {
+     infoTableName : "InfoTable",
+     dataShapeName : "Pagination_DS" } );
+
+result.AddRow( {CurrentPage:CurrentPage, TotalItems:(data.getRowCount()-PageSize), Data:dataShort} );
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-09-22T03:38:35.319Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service added&#10;" timestamp="2021-09-22T03:40:03.867Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : output updated&#10;" timestamp="2021-09-22T03:47:35.470Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:05:25.523Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:10:30.154Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:11:39.372Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:12:18.433Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:13:25.985Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
