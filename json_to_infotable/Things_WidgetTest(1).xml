@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-10-11T02:32:06.715Z" name="WidgetTest" projectName="PTC.Demo" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetJSON2Infotable"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="jsonPath" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPaginatedEntries"><ResultType aspect.dataShape="Pagination_DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="NUMBER" description="" name="CurrentPage" ordinal="2"/><FieldDefinition baseType="NUMBER" description="" name="PageSize" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetJSON2Infotable"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[if (jsonPath === undefined) jsonPath = "/CADFiles/worldcar-brake-multi-figure.pvz-bomlist.json";
+var params = {
+	path: jsonPath
+};
+var Content = Things["SystemRepository"].LoadJSON(params).array;
+
+if (Content && Content.length>0) {
+    var paramsIn = {
+        infoTableName: undefined /* STRING */
+    };
+    // result: INFOTABLE
+    var result = Resources["InfoTableFunctions"].CreateInfoTable(paramsIn);
+    var typeArr = {"number":"NUMBER","boolean":"BOOLEAN","string":"STRING"}, typeStr;
+    var obj = Content[0];
+    
+    //Add a new field to the InfoTable:
+    Object.keys(obj).forEach(function (key) {
+        logger.error("test");
+        typeStr = typeof obj[key];
+    	result.AddField({name: key, baseType: typeArr[typeStr]});
+    });
+    
+    // add data row
+    for(var i in Content){
+        result.AddRow(Content[i]);
+    }
+
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPaginatedEntries"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var data = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape( {
+          infoTableName : "InfoTable",
+          dataShapeName : "EntityList" });
+
+
+for( var x = 0; x < 105; x++ ) {
+    data.AddRow( {
+        name: "Test Value: " + (x+1),
+        description:"This is a testing value of " + ( x + 1 ) } );
+}
+
+var dataShort = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape( {
+          infoTableName : "InfoTable",
+          dataShapeName : "EntityList" });
+
+for( var x = ( CurrentPage * PageSize ); x < data.getRowCount() && dataShort.getRowCount() < PageSize; x++ )
+{
+    dataShort.AddRow( data.getRow( x ) );
+}
+
+//Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue({
+//	name: undefined /* STRING */,
+//	value: undefined /* INFOTABLE */
+//});
+
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape( {
+     infoTableName : "InfoTable",
+     dataShapeName : "Pagination_DS" } );
+
+result.AddRow( {CurrentPage:CurrentPage, TotalItems:(data.getRowCount()-PageSize), Data:dataShort} );
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-09-22T03:38:35.319Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service added&#10;" timestamp="2021-09-22T03:40:03.867Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : output updated&#10;" timestamp="2021-09-22T03:47:35.470Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:05:25.523Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:10:30.154Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:11:39.372Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:12:18.433Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPaginatedEntries : service updated&#10;" timestamp="2021-09-29T06:13:25.985Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service added&#10;" timestamp="2021-10-11T01:12:36.833Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : output updated&#10;" timestamp="2021-10-11T01:15:37.550Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : output updated&#10;" timestamp="2021-10-11T01:16:52.730Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : output updated&#10;" timestamp="2021-10-11T01:19:01.747Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : output updated&#10;" timestamp="2021-10-11T01:23:34.953Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:39:14.013Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : output updated&#10;" timestamp="2021-10-11T01:39:44.438Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:41:23.272Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:42:47.813Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:46:06.236Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:49:40.209Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:51:14.894Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:58:25.247Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T01:59:52.445Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T02:05:50.552Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : service updated&#10;" timestamp="2021-10-11T02:15:54.929Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetJSON2Infotable : input parameter jsonPath added, inputs updated&#10;" timestamp="2021-10-11T02:32:06.713Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
