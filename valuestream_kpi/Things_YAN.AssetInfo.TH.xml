@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-10-10T23:51:38.698Z" name="YAN.AssetInfo.TH" projectName="PTC.Demo" published="false" tags="" thingTemplate="GenericThing" valueStream="KPILocalProgram.VS"><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isLogged="true" aspect.isPersistent="true" baseType="NUMBER" category="" description="" isLocalOnly="false" name="statusCriticality" ordinal="2"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="count_Redtime_day"><ResultType baseType="INTEGER" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="AssetID" ordinal="1"/><FieldDefinition baseType="DATETIME" description="" name="end" ordinal="3"/><FieldDefinition baseType="DATETIME" description="" name="start" ordinal="2"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DowntimeByStartEnd"><ResultType baseType="INTEGER" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="AssetID" ordinal="3"/><FieldDefinition baseType="DATETIME" description="" name="end" ordinal="2"/><FieldDefinition baseType="DATETIME" description="" name="start" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DownTimeByWeek"><ResultType aspect.dataShape="Asset_count_ds" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DowntimeByWeek2"><ResultType aspect.dataShape="Asset_count_ds" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="RuntimeRateByWeek"><ResultType aspect.dataShape="Asset_count_ds" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="TestTime"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="count_Redtime_day"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = 40;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="DowntimeByStartEnd"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[let down = "60";
+//down = "50";
+// INFOTABLE dataShape: "PropertyDefinition"
+let prop = Things[AssetID].GetPropertyDefinition({
+    name: "statusCriticality" /* STRING */
+});
+
+// result: INFOTABLE dataShape: ""
+let list = Things[AssetID].QueryNamedPropertyHistory({
+    oldestFirst: true /* BOOLEAN */,
+    maxItems: undefined /* NUMBER */,
+    endDate: end /* DATETIME */,
+    propertyNames: prop /* INFOTABLE */,
+    query: undefined /* QUERY */,
+    startDate: start /* DATETIME */
+});
+
+var result1 = 0, startDate = null;
+for each (var row in list.rows) {
+    if (row.statusCriticality == down) {
+    	if (!startDate) startDate = row.timestamp;
+    } else if (startDate) {
+    	result1 += row.timestamp.getTime() - startDate.getTime();
+    	startDate = null;
+    }
+}
+
+//var hour = parseInt(result1 / (60*60000),10);
+//var temp = result1-(hour*60*60000);
+var result = parseInt(result1 / 60000,10); // minute
+//var sec = parseInt((temp-min*60000) / 1000,10);
+//// dateFormat（dateValue：DATETIME、dateFormat：STRING）：STRING
+//result = ('0' + hour).slice(-2) + ":" + ('0' + min).slice(-2) + ":" + ('0' + sec).slice(-2);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="DownTimeByWeek"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+infoTableName : "InfoTable",
+dataShapeName : "Asset_count_ds"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(Asset_count_ds)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+var now = new Date();
+now.setHours(0,0,0,0);
+
+for (var i=7 ; i>0 ; i--) {
+	var start = new Date(now.getTime());
+    start.setDate(start.getDate() - i);
+    var end = new Date(start.getTime());
+	end.setHours(23, 59, 59, 999);
+	var dateStr = (end.getMonth()+1) + "月" + end.getDate() + "日";
+	var minTot = 0;
+
+	minTot += me.count_Redtime_day({
+        AssetID: "andon_01" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+	});
+	minTot += me.count_Redtime_day({
+        AssetID: "andon_02" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+	});
+	minTot += me.count_Redtime_day({
+        AssetID: "andon_03" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+	});
+	minTot += me.count_Redtime_day({
+        AssetID: "andon_04" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+	});
+	minTot += me.count_Redtime_day({
+        AssetID: "andon_05" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+	});
+	minTot += me.count_Redtime_day({
+        AssetID: "andon_06" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+	});
+   
+	var row = Object();
+	row.AssetID = dateStr;
+	row.Count = minTot;
+	result.AddRow(row);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="DowntimeByWeek2"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+infoTableName : "InfoTable",
+dataShapeName : "Asset_count_ds"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(Asset_count_ds)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+let down = "60";
+//down = "50";
+// INFOTABLE dataShape: "PropertyDefinition"
+let prop = me.GetPropertyDefinition({
+    name: "statusCriticality" /* STRING */
+});
+
+let queryDown = {
+    "filters": {
+        "type": "EQ",
+        "fieldName": "statusCriticality",
+        "value": down
+    }
+};
+
+var now = new Date();
+var start = new Date(now.getTime());
+start.setHours(0,0,0,0);
+start.setDate(start.getDate() - 6);
+var end = new Date(now.getTime());
+end.setHours(23, 59, 59, 999);
+
+let lastDown = me.QueryNamedPropertyHistory({
+    oldestFirst: undefined /* BOOLEAN */,
+    maxItems: 1 /* NUMBER */,
+    endDate: start /* DATETIME */,
+    propertyNames: prop /* INFOTABLE */,
+    query: undefined /* QUERY */,
+    startDate: undefined /* DATETIME */
+});
+var lastDownFlag = lastDown.getRowCount() > 0 && lastDown.rows[0].statusCriticality == down ? true : false;
+
+// result: INFOTABLE dataShape: ""
+let list = me.QueryNamedPropertyHistory({
+    oldestFirst: true /* BOOLEAN */,
+    maxItems: undefined /* NUMBER */,
+    endDate: undefined /* DATETIME */,
+    propertyNames: prop /* INFOTABLE */,
+    query: undefined /* QUERY */,
+    startDate: start /* DATETIME */
+});
+
+var downTot = 0, downDate = null, prevDate = null, curDate = null, cnt = list.getRowCount();
+if (lastDownFlag) downDate = lastDown.rows[0].timestamp;
+
+for (var i=0; i<cnt; i++) {
+    curDate = list.rows[i].timestamp;
+    if (!prevDate) prevDate = curDate.getDate();   
+    
+    if (list.rows[i].statusCriticality == down) {
+    	if (!downDate) downDate = curDate;
+    } else if (downDate) {
+    	downTot += curDate.getTime() - downDate.getTime();
+    	downDate = null;
+    }
+
+    if (prevDate !== curDate.getDate() || i == cnt-1) {
+        var dateStr = (curDate.getMonth()+1) + "月" +curDate.getDate() + "日";
+        if (i == cnt-1) downTot += now.getTime() - curDate.getTime();
+        var row = Object();
+        row.AssetID = dateStr;
+        row.Count = parseInt(downTot / 60000,10); // minute
+        row.reason = "test";
+        result.AddRow(row);
+		prevDate = null;
+        downTot = 0;
+    }
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="RuntimeRateByWeek"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+infoTableName : "InfoTable",
+dataShapeName : "Asset_count_ds"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(Asset_count_ds)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+//計画稼働時間(分)
+var plantime = 10 * 60;
+
+var now = new Date();
+now.setHours(0,0,0,0);
+
+for (var i=7 ; i>0 ; i--) {
+    var start = new Date(now.getTime());
+    start.setDate(start.getDate() - i);
+    var end = new Date(start.getTime());
+    end.setHours(23, 59, 59, 999);
+    var dateStr = (end.getMonth()+1) + "月" + end.getDate() + "日";
+    //ダウンタイム（分）取得
+    var redtime =  me.count_Redtime_day({
+        AssetID: "main" /* STRING */,
+        start: start /* DATETIME */,
+        end: end /* DATETIME */
+    });
+    //稼働率計算
+    var rate = (plantime - redtime) / plantime * 100;
+   
+    var row = Object();
+    row.AssetID = dateStr;
+    row.Count = rate;
+    row.reason = "test";
+    result.AddRow(row);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="TestTime"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var now = new Date();
+
+now.setHours(0,0,0,0);
+for (var i=7 ; i>0 ; i--){
+	var start = new Date(now.getTime());
+    start.setDate(start.getDate() - i);
+    var end = new Date(start.getTime());
+	end.setHours(23, 59, 59, 999);
+
+    logger.error("s:"+start+" e:"+end);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="statusCriticality"/></AlertConfigurations><ImplementedShapes/><ThingProperties><statusCriticality><Value>60.0</Value><Timestamp>2021-10-10T23:27:09.449Z</Timestamp><Quality>GOOD</Quality></statusCriticality></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-09-14T06:23:33.781Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestTime : service added&#10;" timestamp="2021-09-14T06:25:13.107Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestTime : service updated&#10;" timestamp="2021-09-14T06:28:00.463Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestTime : service updated&#10;" timestamp="2021-09-14T06:36:25.801Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DownTimeByWeek : service added&#10;" timestamp="2021-09-14T06:41:40.120Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DownTimeByWeek : output updated&#10;" timestamp="2021-09-14T06:43:17.139Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : count_Redtime_day : service added&#10;" timestamp="2021-09-14T06:45:35.553Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : count_Redtime_day : service updated&#10;" timestamp="2021-09-14T06:49:45.739Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service added&#10;" timestamp="2021-10-01T05:45:31.819Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service updated&#10;" timestamp="2021-10-01T05:46:11.585Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service updated&#10;" timestamp="2021-10-01T06:10:36.332Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service updated&#10;" timestamp="2021-10-01T06:34:48.443Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service updated&#10;" timestamp="2021-10-01T06:35:27.935Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service updated&#10;" timestamp="2021-10-01T07:10:32.538Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : count_Redtime_day : service updated&#10;" timestamp="2021-10-10T07:41:13.256Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DownTimeByWeek : service updated&#10;" timestamp="2021-10-10T07:42:44.167Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : RuntimeRateByWeek : service updated&#10;DowntimeByStartEnd : service added&#10;" timestamp="2021-10-10T11:23:48.826Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByStartEnd : service updated&#10;DowntimeByWeek2 : service added, input parameter start deleted, inputs updated, input parameter end deleted, inputs updated&#10;" timestamp="2021-10-10T11:35:14.228Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T11:41:35.703Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : valueStream : updated&#10;" timestamp="2021-10-10T11:42:20.296Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : statusCriticality : added&#10;" timestamp="2021-10-10T11:43:21.808Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : input parameter AssetID deleted, inputs updated, output updated&#10;" timestamp="2021-10-10T11:47:23.380Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T12:56:19.699Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:16:41.898Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:20:33.717Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:22:55.971Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:23:18.230Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:26:39.636Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:31:23.009Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:41:33.895Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:43:21.610Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:45:42.915Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DowntimeByWeek2 : service updated&#10;" timestamp="2021-10-10T23:51:38.697Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
