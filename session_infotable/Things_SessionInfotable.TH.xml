@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-10-12T01:51:12.049Z" name="SessionInfotable.TH" projectName="PTCDefaultProject" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="selectData" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="selectValue" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCostInstruction"><ResultType aspect.dataShape="InstructionName.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSessionInfoTable"><ResultType aspect.dataShape="InstructionName.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetCostInstruction"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+// 123
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = "123";
+obj.Name = "123";
+obj.Data1 = "11";
+obj.Data2 = "12";
+obj.Data3 = "13";
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "123";
+obj.Id = "123/1234";
+obj.Name = "1234";
+obj.Data1 = "21";
+obj.Data2 = "22";
+obj.Data3 = "23";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12345";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12345";
+obj.Name = "12345";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12346";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12346";
+obj.Name = "12346";
+obj.Data1 = "31";
+obj.Data2 = "32";
+obj.Data3 = "33";
+result.AddRow(obj);
+// 223
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = "223";
+obj.Name = "223";
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "223";
+obj.Id = "223/2234";
+obj.Name = "2234";
+obj.Data1 = "41";
+obj.Data2 = "42";
+obj.Data3 = "43";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "22345";
+obj.ParentId = "223/2234";
+obj.Id = "223/1234/22345";
+obj.Name = "22345";
+obj.Data1 = "51";
+obj.Data2 = "52";
+obj.Data3 = "53";
+result.AddRow(obj);
+
+Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue({
+	name: "SessionInfotable" /* STRING */,
+	value: result /* INFOTABLE */
+});
+
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSessionInfoTable"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+
+let data = Resources["CurrentSessionInfo"].GetGlobalSessionValues();
+if (data) result = data.rows[0].SessionInfotable;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="selectData"/><AlertDefinitions name="selectValue"/></AlertConfigurations><ImplementedShapes/><ThingProperties><selectData><Value/><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></selectData><selectValue><Value/><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></selectValue></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2021-10-11T16:21:05.485Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;EditRowData1Copy : service deleted&#10;GetConfigurationData1 : service deleted&#10;GetConfigurationData2 : service deleted&#10;GetConfigurationStr : service deleted&#10;GetConfigurationStr1 : service deleted&#10;GetPartDocumentList : service deleted&#10;GetSelectData : service deleted&#10;GetVariableInstruction : service deleted&#10;GetVariableInstructionData1 : service deleted&#10;SelectRowData1 : service deleted&#10;SetData1 : service deleted&#10;SetData2 : service deleted&#10;SetData3 : service deleted&#10;" timestamp="2021-10-11T16:35:47.365Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;" timestamp="2021-10-11T16:48:11.442Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;" timestamp="2021-10-12T01:38:45.301Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;" timestamp="2021-10-12T01:39:32.613Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;" timestamp="2021-10-12T01:40:45.898Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;" timestamp="2021-10-12T01:43:32.829Z" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2021-10-12T01:43:37.498Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;" timestamp="2021-10-12T01:48:29.701Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction : service updated&#10;GetSessionInfoTable : service added&#10;" timestamp="2021-10-12T01:49:22.251Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSessionInfoTable : service updated&#10;" timestamp="2021-10-12T01:51:12.047Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
