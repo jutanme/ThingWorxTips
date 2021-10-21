@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b123" majorVersion="8" minorVersion="5" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="3" schemaVersion="1052" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2021-10-21T16:38:56.594+09:00" name="WindchillAPI_TestLee" projectName="" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" aspect.isReadOnly="false" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUrl" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" aspect.isReadOnly="false" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserId" ordinal="3"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" aspect.isReadOnly="false" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserPassword" ordinal="4"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBase64"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBlob"><ResultType baseType="BLOB" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="IMAGE" description="" name="image" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getBom"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="csrftoken" ordinal="4"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="password" ordinal="2"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="username" ordinal="1"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="windchillURL" ordinal="3"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getBomByPartNo"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSRFToken"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedNumber"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedObjectId"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="4"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedUrl"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="wrsPartsUrl" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartStructure"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="csrftoken" ordinal="4"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartStructureSelectedLevel"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="csrftoken" ordinal="4"/><FieldDefinition aspect.defaultValue="max" aspect.isRequired="true" baseType="STRING" description="" name="level" ordinal="6"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThingView"><ResultType baseType="HYPERLINK" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThumbnail"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThumbnailBinary"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetBase64"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[function convertImgToBase64URL(url, callback, outputFormat){
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function(){
+        var canvas = document.createElement('CANVAS'),
+        ctx = canvas.getContext('2d'), dataURL;
+        canvas.height = img.height;
+        canvas.width = img.width;
+        ctx.drawImage(img, 0, 0);
+        dataURL = canvas.toDataURL(outputFormat);
+        callback(dataURL);
+        canvas = null; 
+    };
+    img.src = url;
+}
+var result = "";
+convertImgToBase64URL('http://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png', function(base64Img){
+  result = base64Img; 
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBlob"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = image;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getBom"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: windchillURL + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/PTC.ProdMgmt.GetBOM?$expand=Components($expand=Part($select=Name,Number),PartUse,Occurrences;$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: password /* STRING */,
+	domain: undefined /* STRING */,
+	username: username /* STRING */
+};
+
+logger.trace("GetBom: " + params.url);
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getBomByPartNo"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var csrftoken =  Things["WindchillApi"].GetCSRFToken();
+
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts?$filter=contains(PARTNO2,'"+objectId+"')",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserId /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserPassword /* STRING */
+};
+
+logger.trace("getBomByPartNo: " + params.url);
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].GetJSON(params);
+
+//logger.trace(JSON.stringify(result));
+
+logger.trace("getBomByPartNo(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetCSRFToken"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: true /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/PTC/GetCSRFToken()" /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response["NonceValue"];]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedNumber"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts?$filter=startswith(Number,\'" + number + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedObjectId"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedUrl"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: undefined /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: wrsPartsUrl /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+logger.trace("GetPartsSelectedUrl: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartStructure"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+//logger.trace("GetPartstructure(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number,PARTNO),PartUse;$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+//logger.trace("GetPartstructure(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartStructureSelectedLevel"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number),PartUse;$levels=" + level + ")",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThingView"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var csrftoken = me.GetCSRFToken();
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/vnd.mspowerpoint";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/WindchillAuthGW/com.ptc.wvs.server.util.WVSContentHelper/redirectDownload/thingview_test.pvt?ContentHolder=wt.viewmarkup.DerivedImage%3A708132&HttpOperationItem=wt.content.ApplicationData%3A708141&u8=1",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+//logger.trace("GetBom: " + params.url);
+
+// result: JSON
+var imageBlob = Resources["ContentLoaderFunctions"].LoadBinary(params);
+Things["SystemRepository"].SaveBinary({
+	path: "test_thview.pvt" /* STRING */,
+	content: imageBlob /* BLOB */
+});
+// result: base 64 STRING
+var result = "/Thingworx/FileRepositories/SystemRepository/test_thview.pvt";
+//var result = "https://pp-2012250512ye.portal.ptc.io:8443/Thingworx/test_thview.pvt";
+//var result = imageBlob;
+
+//var result = Resources["ContentLoaderFunctions"].LoadImage(params);
+//logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThumbnail"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var csrftoken = me.GetCSRFToken();
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "image/jpeg";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/WindchillAuthGW/wt.content.ContentHttp/viewContent/nut_1_4.jpg?u8&HttpOperationItem=wt.content.ApplicationData%3A86040&ofn=nut_1_4.jpg&ContentHolder=wt.viewmarkup.DerivedImage%3A86037&forceDownload=true",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+//logger.trace("GetBom: " + params.url);
+
+// result: JSON
+var image = Resources["ContentLoaderFunctions"].LoadImage(params);
+//var imageBlob = me.GetBlob({
+//	image: image /* IMAGE */
+//});
+// result: base 64 STRING
+var result = base64EncodeString(image);
+
+//var result = Resources["ContentLoaderFunctions"].LoadImage(params);
+logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThumbnailBinary"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var csrftoken = me.GetCSRFToken();
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/vnd.mspowerpoint";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/WindchillAuthGW/wt.content.ContentHttp/viewContent/nut_1_4.jpg?u8&HttpOperationItem=wt.content.ApplicationData%3A86040&ofn=nut_1_4.jpg&ContentHolder=wt.viewmarkup.DerivedImage%3A86037&forceDownload=true",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+//logger.trace("GetBom: " + params.url);
+
+// result: JSON
+var imageBlob = Resources["ContentLoaderFunctions"].LoadBinary(params);
+
+// result: base 64 STRING
+var result = base64EncodeString(imageBlob);
+
+//var result = Resources["ContentLoaderFunctions"].LoadImage(params);
+logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="WindchillUrl"/><AlertDefinitions name="WindchillUserId"/><AlertDefinitions name="WindchillUserPassword"/></AlertConfigurations><ImplementedShapes/><ThingProperties><WindchillUserId><Value><![CDATA[wcadmin]]></Value><Timestamp>2021-07-16T15:01:07.607+09:00</Timestamp><Quality>GOOD</Quality></WindchillUserId><WindchillUserPassword><Value><![CDATA[wcadmin]]></Value><Timestamp>2021-07-16T15:01:13.571+09:00</Timestamp><Quality>GOOD</Quality></WindchillUserPassword><WindchillUrl><Value><![CDATA[https://pp-2012250512ye.portal.ptc.io/Windchill/]]></Value><Timestamp>2021-07-16T15:00:53.384+09:00</Timestamp><Quality>GOOD</Quality></WindchillUrl></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated, tags : updated&#10;" timestamp="2021-07-16T14:55:56.515+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBom : service updated&#10;getBomByPartNo : service added&#10;" timestamp="2021-07-16T15:04:20.442+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T15:04:57.035+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : input parameter username deleted, inputs updated, input parameter password deleted, inputs updated, input parameter windchillURL deleted, inputs updated&#10;" timestamp="2021-07-16T15:08:18.829+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : input parameter csrftoken deleted, inputs updated&#10;" timestamp="2021-07-16T15:12:44.709+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T15:48:52.501+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T16:14:54.919+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T16:23:09.745+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T16:45:27.441+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T16:57:43.518+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T17:08:08.507+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-16T17:08:52.288+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T09:49:33.408+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T09:50:00.454+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T09:50:49.140+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T09:51:00.999+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBom : input parameter password deleted, inputs updated, input parameter username deleted, inputs updated, input parameter windchillURL deleted, inputs updated, input parameter csrftoken deleted, inputs updated&#10;" timestamp="2021-07-19T09:55:01.041+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBom : service updated&#10;" timestamp="2021-07-19T09:56:04.743+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsSelectedNumber : service updated&#10;GetPartsSelectedName : service added&#10;" timestamp="2021-07-19T14:22:53.845+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsSelectedName : service updated&#10;" timestamp="2021-07-19T14:25:32.250+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsSelectedName : service updated&#10;" timestamp="2021-07-19T14:26:09.453+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2021-07-19T14:27:31.174+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T14:27:31.205+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2021-07-19T14:32:21.547+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsSelectedName : service updated&#10;" timestamp="2021-07-19T14:32:21.578+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2021-07-19T14:44:16.401+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T14:44:16.448+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getBomByPartNo : service updated&#10;" timestamp="2021-07-19T14:59:16.005+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service added&#10;" timestamp="2021-07-29T10:16:09.485+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-29T10:26:03.702+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-29T10:28:09.562+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2021-07-29T11:33:44.829+09:00" user="pm"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-29T12:44:00.986+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-29T12:55:26.947+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-29T13:09:45.229+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-29T13:10:22.983+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-29T13:11:21.201+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-29T13:12:35.324+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-29T14:21:45.601+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-29T14:25:48.459+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;GetBase64 : service added&#10;" timestamp="2021-07-30T11:20:24.404+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBase64 : service updated&#10;" timestamp="2021-07-30T11:43:48.131+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-30T11:44:33.490+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-30T11:45:26.177+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T11:47:11.864+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T11:47:41.645+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : output updated&#10;" timestamp="2021-07-30T11:48:01.583+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T11:49:16.785+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;GetBlob : service added&#10;" timestamp="2021-07-30T11:50:48.440+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBlob : service updated&#10;" timestamp="2021-07-30T11:52:41.412+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T11:58:39.318+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T11:59:32.273+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T12:01:16.635+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T12:05:50.998+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;" timestamp="2021-07-30T12:06:05.373+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnail : service updated&#10;GetThumbnailBinary : service added&#10;" timestamp="2021-07-30T12:09:16.860+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnailBinary : service updated&#10;" timestamp="2021-07-30T12:12:23.471+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnailBinary : service updated&#10;" timestamp="2021-07-30T12:21:18.504+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service added&#10;" timestamp="2021-10-08T16:49:16.222+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T16:50:26.409+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T16:50:44.596+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:43:18.966+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:43:55.918+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:45:33.401+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:46:08.182+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:46:23.182+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:50:51.007+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:51:24.038+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-08T17:52:16.178+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : output updated&#10;" timestamp="2021-10-16T21:22:57.760+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-16T21:30:39.644+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated&#10;" timestamp="2021-10-16T21:37:32.667+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnailBinary : output updated&#10;" timestamp="2021-10-21T16:38:09.627+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThumbnailBinary : output updated&#10;" timestamp="2021-10-21T16:38:56.594+09:00" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>

@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b123" majorVersion="8" minorVersion="5" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="3" schemaVersion="1052" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2021-10-21T19:26:26.506+09:00" name="WindchillAPI_TestLee3" projectName="PTCDefaultProject" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="csrftoken" ordinal="5"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="ImageUrl" ordinal="7"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="ObjectNo" ordinal="6"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="IMAGE" category="" description="" isLocalOnly="false" name="PartImage" ordinal="8"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" aspect.isReadOnly="false" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUrl" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" aspect.isReadOnly="false" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserId" ordinal="3"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" aspect.isReadOnly="false" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserPassword" ordinal="4"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getBom"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="csrftoken" ordinal="4"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="password" ordinal="2"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="username" ordinal="1"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="windchillURL" ordinal="3"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getBomByPartNo"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSRFToken"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedNumber"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedObjectId"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="4"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedUrl"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="wrsPartsUrl" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartStructure"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartStructureSelectedLevel"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="csrftoken" ordinal="4"/><FieldDefinition aspect.defaultValue="max" aspect.isRequired="true" baseType="STRING" description="" name="level" ordinal="6"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="objectId" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRepresentations"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRepresentationsCopy"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThumbnail"><ResultType baseType="IMAGE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="contentUrl" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThumbnailBinary"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThumbnailByPartID"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="PartID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="SetObjectID"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="JSON" description="" name="data" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="SetPartInfo"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="SetThumbnail"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="TestObjectID"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="getBom"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// トークン取得
+if (!me.csrftoken) csrftoken =  me.GetCSRFToken();
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: usernamewindchillURL + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/PTC.ProdMgmt.GetBOM?$expand=Components($expand=Part($select=Name,Number),PartUse,Occurrences;$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: password /* STRING */,
+	domain: undefined /* STRING */,
+	username: username /* STRING */
+};
+
+logger.trace("GetBom: " + params.url);
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getBomByPartNo"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var csrftoken =  Things["WindchillApi"].GetCSRFToken();
+
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts?$filter=contains(PARTNO2,'"+objectId+"')",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserId /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserPassword /* STRING */
+};
+
+logger.trace("getBomByPartNo: " + params.url);
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].GetJSON(params);
+
+//logger.trace(JSON.stringify(result));
+
+logger.trace("getBomByPartNo(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetCSRFToken"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: true /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/PTC/GetCSRFToken()" /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response["NonceValue"];]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedNumber"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts?$filter=startswith(Number,\'" + number + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedObjectId"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedUrl"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: undefined /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: wrsPartsUrl /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+logger.trace("GetPartsSelectedUrl: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartStructure"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.GetCSRFToken();
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+//logger.trace("GetPartstructure(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number,PARTNO),PartUse;$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+//logger.trace("GetPartstructure(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartStructureSelectedLevel"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number),PartUse;$levels=" + level + ")",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetRepresentations"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = {};
+if (!me.csrftoken || me.csrftoken.length<1) me.csrftoken =  me.GetCSRFToken();
+
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v1/ProdMgmt/Parts(\'" + objectId + "\')/Representations",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: JSON
+result = Resources["ContentLoaderFunctions"].GetJSON(params);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetRepresentationsCopy"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result;
+if (!me.csrftoken || me.csrftoken.length<1) me.csrftoken =  me.GetCSRFToken();
+
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v1/ProdMgmt/Parts(\'" + me.ObjectNo + "\')/Representations",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: JSON
+jsonRep = Resources["ContentLoaderFunctions"].GetJSON(params);
+    logger.warn("jsonRep: " + JSON.stringify(jsonRep));
+    if (jsonRep && jsonRep["value"] && jsonRep["value"].length>0 && jsonRep["value"][0]["2DThumbnailURL"]) {
+        result = decodeURI(jsonRep["value"][0]["2DThumbnailURL"]["URL"]);
+        if (result) {
+            logger.warn("2DThumbnailURL:" + result);
+            me.ImageUrl = result;
+            Things["PTC.Demo.WrenchThing"].PartImage = me.GetThumbnail({
+                contentUrl: result /* STRING */
+            });
+            if (Things["PTC.Demo.WrenchThing"].Warning) Things["PTC.Demo.WrenchThing"].ImageFlag = true;
+            //if (image)  Things["PTC.Demo.WrenchThing"].PartImag = image;
+        }
+    }
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThumbnail"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result;
+if (contentUrl) {
+	if (!me.csrftoken || me.csrftoken.length<1) me.csrftoken =  me.GetCSRFToken();
+    // Build Headers
+    var headerObject = new Object();
+    headerObject["Content-Type"] = "image/jpeg";
+    headerObject["CSRF_NONCE"] = me.csrftoken;
+    headerObject["Accept"] = "application/json;odata.metadata=full";
+    var header = JSON.stringify(headerObject);
+
+    // Build Body
+    var bodyObject = new Object();
+    var body = JSON.stringify(bodyObject);
+
+    var params = {
+        proxyScheme: undefined /* STRING */,
+        headers: header /* JSON */,
+        ignoreSSLErrors: true /* BOOLEAN */,
+        useNTLM: undefined /* BOOLEAN */,
+        workstation: undefined /* STRING */,
+        useProxy: undefined /* BOOLEAN */,
+        withCookies: undefined /* BOOLEAN */,
+        proxyHost: undefined /* STRING */,
+        url: contentUrl,
+        content: body /* JSON */,
+        timeout: undefined /* NUMBER */,
+        proxyPort: undefined /* INTEGER */,
+        password: me.WindchillUserPassword/* STRING */,
+        domain: undefined /* STRING */,
+        username: me.WindchillUserId/* STRING */
+    };
+
+    //logger.trace("GetBom: " + params.url);
+
+    // result: JSON
+    result = Resources["ContentLoaderFunctions"].LoadImage(params);
+}
+//var imageBlob = me.GetBlob({
+//	image: image /* IMAGE */
+//});
+//// result: base 64 STRING
+//var result = base64EncodeString(imageBlob);
+
+//var result = Resources["ContentLoaderFunctions"].LoadImage(params);
+//logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThumbnailBinary"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var csrftoken = me.GetCSRFToken();
+// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/vnd.mspowerpoint";
+headerObject["CSRF_NONCE"] = csrftoken;
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+logger.trace("GetBom(header): " + header);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/WindchillAuthGW/wt.content.ContentHttp/viewContent/nut_1_4.jpg?u8&HttpOperationItem=wt.content.ApplicationData%3A86040&ofn=nut_1_4.jpg&ContentHolder=wt.viewmarkup.DerivedImage%3A86037&forceDownload=true",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+//logger.trace("GetBom: " + params.url);
+
+// result: JSON
+var imageBlob = Resources["ContentLoaderFunctions"].LoadBinary(params);
+
+// result: base 64 STRING
+var result = base64EncodeString(imageBlob);
+
+//var result = Resources["ContentLoaderFunctions"].LoadImage(params);
+logger.trace("GetBom(response): " + result);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThumbnailByPartID"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = "";
+if (PartID && PartID.indexOf("OR:wt.part") === 0) {
+	var jsonRep = me.GetRepresentations({
+        objectId: PartID /* STRING */
+    });
+
+    if (jsonRep && jsonRep["value"] && jsonRep["value"].length>0 && jsonRep["value"][0]["TwoDThumbnailURL"]) {
+        result = jsonRep["value"][0]["TwoDThumbnailURL"]["URL"];
+        if (result) {
+            logger.trace(result);
+            var image = me.GetThumbnail({
+                contentUrl: result /* STRING */
+            });
+            if (image) Things["PTC.Demo.WrenchThing"].PartImag = image;
+        }
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="SetObjectID"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[logger.warn("data: "+JSON.stringify(data));
+
+if (data && data["CO_WTParts"]) {
+    logger.warn("data CO_WTParts: " + JSON.stringify(data["CO_WTParts"]));
+	if (data["CO_WTParts"].length>0) me.ObjectNo = data["CO_WTParts"][0];
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="SetPartInfo"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[if (me.ObjectNo && me.ObjectNo.indexOf("OR:wt.part") === 0) {
+    var partInfo = me.GetPartsSelectedObjectId({
+        objectId: me.ObjectNo /* STRING */
+    });
+
+    logger.warn("partInfo: " + JSON.stringify(partInfo));
+    if (partInfo) {
+        if (partInfo.Name) Things["PTC.Demo.WrenchThing"].PartName = partInfo["Name"];
+        if (partInfo.Number) Things["PTC.Demo.WrenchThing"].PartNumber = partInfo["Number"];
+        if (partInfo.Version) Things["PTC.Demo.WrenchThing"].PartVersion = partInfo["Version"];
+        if (partInfo.State.Display) Things["PTC.Demo.WrenchThing"].PartState = partInfo["State"]["Display"];
+        Things["PTC.Demo.WrenchThing"].InfoFlag = true;
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="SetThumbnail"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = "";
+try {
+if (me.ObjectNo && me.ObjectNo.indexOf("OR:wt.part") === 0) {
+	var jsonRep = me.GetRepresentations({
+        objectId: me.ObjectNo /* STRING */
+    });
+
+    logger.warn("jsonRep: " + JSON.stringify(jsonRep));
+    if (jsonRep && jsonRep["value"] && jsonRep["value"].length>0 && jsonRep["value"][0]["2DThumbnailURL"]) {
+        result = decodeURI(jsonRep["value"][0]["2DThumbnailURL"]["URL"]);
+        if (result) {
+            logger.warn("2DThumbnailURL:" + result);
+            me.ImageUrl = result;
+            me.PartImage = me.GetThumbnail({
+                contentUrl: result /* STRING */
+            });
+            //if (image)  Things["PTC.Demo.WrenchThing"].PartImag = image;
+        }
+    }
+}
+} catch(err) {
+	logger.error("SetThumbnail: " + err);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="TestObjectID"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[me.ObjectNo = "OR:wt.part.WTPart:4355051";]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="csrftoken"/><AlertDefinitions name="ImageUrl"/><AlertDefinitions name="ObjectNo"/><AlertDefinitions name="PartImage"/><AlertDefinitions name="WindchillUrl"/><AlertDefinitions name="WindchillUserId"/><AlertDefinitions name="WindchillUserPassword"/></AlertConfigurations><ImplementedShapes/><ThingProperties><WindchillUserId><Value><![CDATA[wcadmin]]></Value><Timestamp>2021-07-16T15:01:07.607+09:00</Timestamp><Quality>GOOD</Quality></WindchillUserId><WindchillUserPassword><Value><![CDATA[wcadmin]]></Value><Timestamp>2021-10-21T19:22:40.278+09:00</Timestamp><Quality>GOOD</Quality></WindchillUserPassword><WindchillUrl><Value><![CDATA[https://pp-2012250512ye.portal.ptc.io//Windchill/]]></Value><Timestamp>2021-10-21T19:23:01.605+09:00</Timestamp><Quality>GOOD</Quality></WindchillUrl><ImageUrl><Value><![CDATA[https://PP-2012250512YE.portal.ptc.io/Windchill/servlet/WindchillAuthGW/wt.content.ContentHttp/viewContent/wheel_axle.jpg?u8&HttpOperationItem=wt.content.ApplicationData%3A86801&ofn=wheel_axle.jpg&ContentHolder=wt.viewmarkup.DerivedImage%3A86798&forceDownload=true]]></Value><Timestamp>2021-10-21T19:25:08.790+09:00</Timestamp><Quality>GOOD</Quality></ImageUrl><csrftoken><Value><![CDATA[29uHckmSQgVK3fRun6jSAjD9JjQ/t4UaiJXuRSHWd1cj6MNbmbXRGg/Rd18E7rdFipHlIBveJThw7MJc7OK/RXCndTx67s42iKP0QhPzF10trsU+mJPVADHxEUwt4Mk=]]></Value><Timestamp>2021-08-03T19:52:38.148+09:00</Timestamp><Quality>GOOD</Quality></csrftoken><PartImage><Value>/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADAASADASIA
+AhEBAxEB/8QAHAABAQACAwEBAAAAAAAAAAAAAAIFBgMEBwEI/8QAOhAAAQQBAgQEBAQEBAcAAAAA
+EQABAgMEBRIGITFhE0FRcSKBkaEHFDKxIzNCwSQ0UvBDU2NzkrPh/8QAFQEBAQAAAAAAAAAAAAAA
+AAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD0kIFQQIJCBUECCQgVBAgk
+IFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgk
+IFQQIJCBUECCQgVBAgoIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgk
+IFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgsIFQQIJCBUECCQgVBAgk
+IFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgkIFQQIJCBUECCQgVBAgk
+IFQQIJCBUECCQgVBAgoIFYXFkXV4uNbkXSeNVUHnNw7hmYvybm6CggXnmoaldqOVbZbZOVTy/h1P
+yjCLHb8Jdtwdy/mfQM32jVM3HeMq8u5tjBovJ5MzADa/L7IPQggWl0cTajVu3TrvLt+uDMPbaPuu
+7TxdJmg2Rixf/XKuQ8/KPPy7/RBs4QLEU8T6dZKTT8akMTOBZ+3wldurWNNur3xzaYsQLJbH+kg6
+DuBArCBBAQKwgQQECsIEEBArCBBAQKwgQQECsIEEBArCBBAQKwgQQECsIEEBArCBBAQKwgQQECsI
+EEBArCBBAQKwgQUFq3HeZGjRqsY1O+RdFpQk/wAW2PxbosfKTQL8+vdltYXnH4qT8K7Rp9r2/wDW
+g19svuuVsnutcjm91yxze6DYmyG9VbXssBHN7rljmd1EZ1rmVtazrCxzO65Y5fdBmab5U2eJVZKF
+jMN8JOzt82Xco1rUaN2zMtfc7O+99/03EfJa+2T3XI2T3QbZXxXnR2b66LIsN3wuzyb3IZ39vku9
+TxfVKbtfhzhEcnhNpO7+gdm/daS2Q3quRr2QegQ4l0qdcZSunW79YyrkW9wzt9136s7DvsaurKos
+sfm0YWM7/QrzJrmV+Izqq9SCBeZ05uRRB66cm6qBLxhN4s7+vJ136uItUretmyt8Yh9s4xfczeTu
+C/uSg30IFqdHGGRHd4+JVZ02+HJ4D1JK7lfF+G9cXtxr4z/qjHa7N83dv2QbAEC6FOu6XfKUY5lc
+XixfxGeDfWTMu7TdTkQ30W12wI3Qk0mPyQUFwZeXTg40r75bYR+rv6M3m67IWjcT6o+VqEsWE38C
+hw7eTzbq/Ty6fLl1QcWfr+fmT+CyWPWzmMapPF/PrLq/X25dEp4i1Sl4u+RG2MYjbZBn8hzdg7/V
+Yncm5RGyUcX5Ed3j4lVnTb4cngPUkru4/FuHY1bX021Tk4lt+KMfnyd2+S08r715IN/p13S75SjH
+Mri8WL+Izwb6yC7tN1WRW1lNsLYP/VCTSb6svOJN+XpefLxH5N2XzG1W/GuhbWGnFyWYO6qvTAgW
+s43GmPKP+JxbYSZm51u0md/PqB91sGFl152LG+pnZpdYyBi/o4d0HMECoIEEhAqCBBIQKggQWFpH
+4i6Fkavj6fPHlXuqnOG2cg8nkzOw/wDBbyFxZGNTl486L642VWNtlCTcnZB4HkcM6tjc54Vo9WiW
+WNsxb6nEqpN7svbJcGV1VjC1TNomf1Sm0mHswXWu4a1xpvGObhZVXrk1Ozv7szP+6Dxn44+Tr61s
+m816dkcPZnhznl8M0zZmLyxrGaXyZnd3+iwuXoukQlGGRi6hgWSYxjZDdy9eYdBpzZEmXJHMdln5
+cL4F3+W1ak+lsXrdcFvBupMxoavIb1pm0kGMjm91zRze64cjRNRxn/i4tsfeLrpyptrfnF2QZeOb
+3XPHM7rAGTeqprpN5oNijl91yxy+61xsmTK45joNlbJ7q2yO616Ob3XLHN7oNgbIb1XI17LAxzO6
+5Y5ndRGca1l93RdYeOX3XK2X3QZ2GsZ2G0Z1Zt0djbYweTyizADa/L7LEtauvdkFmYrja1B32mvr
+WLotara1B3msXbw47neb9G6e6xDWrNxb8thkc2Yv7oOtm27rtvlHkusju7uX5uiDsYVTW5UN0WlX
+H4pM/R2bycevT5ra+HtRjVmyxZ2s8bv0mXSbfPz6e4Ws0iuiEGLW2Puk5blHy9vN+voj3DlD4W+7
+oPUggXl9GVfi7vy+RbTvG7w5vEjoQu/RxDqmO0GjlvZCH9NsWfdzId35/dVXoIQLTqeMsuMpPfi0
+TiPhaEnhz93P7Lv4vF9FzC3DvjM9K3jNmb1d3AQbEEC4cXOxcw/l7ozdurdH9w/MLsBBQQKggQSE
+CoIEEhAqCBB0LtG03I8R7cDGlKwvOT1Nud36uep7rFX8E6NY8XphfjOzuXptf4vfcVsgQINVfhHJ
+qsf8rrmTXUOULYeI7fMs32WNyOHNdjU0rcbTM53cPHaJe+4RW+BAg8tyuHdsmjl8M5DSdjuxJvNv
+sW+Sw1+haK9sq3vy8S2Lu0oX0na/o4XtYUW0VX1SqurhZXLrCcWdn+ToPDZcIwt/yupYlnZ5bX+6
+6t/CGr0sWxpTj61vub7L2vJ4Z0XK2+Jp1DbXLeHHwz77QfmsdbwPpu+U8S/LxJO3wtXb8LOOvPm/
+r1QeJXabmUOLaLI+8XZcDxnHqzr2q3hXWKq2/L6zHIkecMirkPf4nWOyuGdW3NG3R9OzWdjKdUmr
++XMfsg8m8STebr618m81vmToeF4U7crQtSxIR5ysiz7W+rLFz4e0e7+RqT1v6X1O33ZBrjZcmXLH
+NWWlwdkS54uTi5Df9O1j9HXSyOGtWxuc8S0erRLIJjkbmZyuRrlizKl3hJnZ4uHb0VtegyjXKmuW
+La/uuRr+6DM4f8fLqqBZ5c2Pl5rOZ1pk1TdG5usDw/KNmoPOTv8Aw6nmw+n91k5SeyTyfq6iPiuq
+LWWs0neMesnZiGbq49lC5L5NjaPkXu4sm7V1826efIffs6BLINb3O23xJCLMQzN5MfLp9FxNd3WN
+vyNr11nlGqL/AFbd/dS2R3QZdrlTWrFNkd1bZHdBlYz3OzNzd+jMslGLVV7GHd283WK0qTTy9zs0
+mhF3Dnr0bp5sT8l1dV4ibC1CzEfFrvrizbmsPXryD+yDatPy5YObXc0pRgWabRY7onmy38LyPR9U
+o1Ku2NGM+P4YLeI8m5noenResYc5XYOPbY7POdcZScDm7Kq7IQKggQSECoIEEhAqCBBIQKggQSEC
+oIEEhAqCBBIQKggQSECoIEEhcGRhYuXt/M41N207fFraQPUFdkIEGAv4O0K97Jfktk5l91dkm2u/
+oxDewHZdKfBFdUP8Dqubj2H9UpNNh7MFtgQIPztxVpstJ4nzcOeQ+ROM2nK147d0pRaXQv8A6lhi
+vRvxC4dyLOJ7cymMrI5FcJuI/pdm2jv+k/NaTbpeRV+qmTfJB0ChXPLElHqzsuN6ZMgzHDkJZGZk
+VNOUXehw8Qf1R9VmnotZoNC8v5vbFnP0CxPCcXbVrT/yH/dlsuTXttLdJc0HQaORucxqeLM7s+52
+d+wH91HE1kG0fHep38NrWaJYP0fqxcP6t6ruLG6vRbk4D0QYibWs31Z2b6n6oMFn3vHU8qPlG2UW
+b0ZnDMuJsldvV9PuhkfmvClGvJ/iMeYd2Z3b5O6xjwk3kg7kcvuuVsnusZzbyTc7IN34cd50XWnk
+8mb6N/8AVrmTiyvvsukwnOTycerrYOE3Ok2/99/2ZfZYjeiDg4Woeh8s+e3+69vrrjVXGuEdsIM0
+Ys3kzLzbhnTmlnY1YgZ2NOTSbk8W5u3fkz/VemhBQQKwgQQECsIEEBArCBBAQKwgQQECsIEEBArC
+BBAQKwgQQECsIEEBArCBBAQKwgQYTiPGy7NNlfgxezIp+JqdrP4jebc/Pz+QHNefx4lps5ZOBXL2
+ZethYrN4b0fULPEyMCp57nk84GDyd+ru8Qfmg87/ADXD+X/Nx3rd1EtD0HL/AJOU0Xf1W5X/AIfa
+Lba84PlUxf8AohYzt92d/usNkfhrfGs4upVzsPSyp4M7e7O/7IMLj8MtgXvlY2RCcGi7SZnbmy5b
+q/FqdvPqy5LuCeI8ScWx2hcwO6q5mZu3xB1TYWoUVSfMw8imVT7ZzlB9pILS6OXURiUaU65QtpcW
+wcxfv/vl7OszXw1qea1l2PjvtDTZrPh3n0d+T+v+2PBk8O6vivFrNPuluI8NvE6eu0jr5qq4KMu3
+IN2RjV2TeJat2EJdPpLkurZbol7u2RpllM/Pw36Lv6PiW5GqR012eE5zfk7B4D9XLl05uOvVepPi
+Y8sVsWVMJ0NFo+HNtzBunXr0QeMS0Xh7J/lZ1lD+lkV158GRtY4ufjXdtwdevZPC2h5e3xdMoba5
+bwo+GffaD81iL/w70mx7JUXZVMpF4M0meMH8uQLs3v8ANBo2k6Vk6O1mPkszNY/iVhyfJ/7Lu+BB
+7Nzn2WenwDnURjLE1ZrXaTfw7oPCLt7s7/su7icH3va3526tq9v/AAJPuPu7IOXhLAlGNmfMtvZ6
+629WJd/qG+TrZwqjFoxaMWZoswZmbovoQUECoIEEhAqCBBIQKggQSECoIEEhAqCBBIQKggQSECoI
+EEhAqCBBIQKggQSECoIEEhAqCBBIQKggQSECoIEEhAqCBBIQKggQSECoIEEhAqCBBIQKggQWECoI
+EEhAqCBBIQKggQSECoIEEhAqCBBIQKggQSECoIEEhAqCBBIQKggQSECoIEEhAqCBBIQKggQSECoI
+EEhAqCBBIQKggQSECoIEEhAqCBBIQKggQUECsIEEBArCBBAQKwgQQECsIEEBArCBBAQKwgQQECsI
+EEBArCBBAQKwgQQECsIEEBArCBBAQKwgQQECsIEEBArCBBAQKwgQQECsIEEBArCBBAQKwgQf/9kA
+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAo
+oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igAooooAKKKKAP/Z</Value><Timestamp>2021-10-21T19:25:08.852+09:00</Timestamp><Quality>GOOD</Quality></PartImage><ObjectNo><Value><![CDATA[OR:wt.part.WTPart:86796]]></Value><Timestamp>2021-10-21T19:24:58.227+09:00</Timestamp><Quality>GOOD</Quality></ObjectNo></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2021-10-21T19:22:00.498+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : PartImage : added&#10;" timestamp="2021-10-21T19:23:58.385+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : SetThumbnail : service updated&#10;" timestamp="2021-10-21T19:25:05.352+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="subscriptions : UpdatePartInfo : removed&#10;UpdatePartInfo2 : removed&#10;" timestamp="2021-10-21T19:26:26.506+09:00" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
