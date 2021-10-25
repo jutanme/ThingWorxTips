@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b123" majorVersion="8" minorVersion="5" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="3" schemaVersion="1052" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2021-09-30T18:58:25.237+09:00" name="ThingViewTest.TH" projectName="" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBomStruct"><ResultType aspect.dataShape="BomListStruct" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartList"><ResultType aspect.dataShape="PartInfoTest" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThingViewList"><ResultType aspect.dataShape="ThingViewTest.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetBomStruct"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	path: "/CADFiles/worldcar-brake-multi-figure.pvz-bomlist.json" /* STRING */
+// path it set to the input argument 
+//  example for such setting value 
+// --> "/json_lists/Machine-complete-CV.PVZ-bomlist.json" 
+};
+
+var Content = Things["SystemRepository"].LoadJSON(params);
+//This will call the method LoadJSON(params) of the thing CAD-File-Reposistory
+var params1 = {
+infoTableName: undefined /* STRING */,
+dataShapeName: "BomListStruct" /* DATASHAPENAME */
+};
+// result: INFOTABLE
+var jsonTable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params1);
+
+// working fine
+for(i in Content.array){
+    jsonTable.AddRow({Part:Content.array[i].part,
+                      Description:Content.array[i].description,
+                      sBOMDepth:Content.array[i].sBOMDepth,
+                      sBOMID:Content.array[i].sBOMID,
+                      sBOMIDPath:Content.array[i].sBOMIDPath,
+                      sBOMName:Content.array[i].sBOMName,
+                      sBOMPath:Content.array[i].sBOMPath,                      
+                      path:Content.array[i].sBOMIDPath,
+                      parentPath:Content.array[i].sBOMIDPath.substring(0,Content.array[i].sBOMIDPath.lastIndexOf('/'))        
+                      });
+}
+
+var result = jsonTable;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartList"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//var data = [
+//  {
+//    "IDPath": "/39",
+//    "PartName": "BLOWER_COMPLETE_K01.PRT",
+//    "Stock": 18
+//  },
+//  {
+//    "IDPath": "/40",
+//    "PartName": "LOWER_HOUSING_COMPLETE_K01.PRT",
+//    "Stock": 35
+//  },
+//  {
+//    "IDPath": "/41",
+//    "PartName": "UPPER_HOUSING_COMPLETE_K01.PRT",
+//    "Stock": 57
+//  }
+//];
+var params = {
+	path: "/CADFiles/worldcar-brake-multi-figure.pvz-bomlist.json" /* STRING */
+// path it set to the input argument 
+//  example for such setting value 
+// --> "/json_lists/Machine-complete-CV.PVZ-bomlist.json" 
+};
+
+var Content = Things["SystemRepository"].LoadJSON(params);
+//This will call the method LoadJSON(params) of the thing CAD-File-Reposistory
+var params1 = {
+infoTableName: undefined /* STRING */,
+dataShapeName: "PartInfoTest" /* DATASHAPENAME */
+};
+// result: INFOTABLE
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params1);
+
+// working fine
+for(i in Content.array){
+    result.AddRow({
+                      IDPath:Content.array[i].sBOMIDPath,
+                      PartName:Content.array[i].sBOMName,
+                      Stock:Content.array[i].sBOMDepth      
+                      });
+}
+
+
+//for(var i =0;i<data.length;i++) {
+//  result.AddRow(data[i]);
+//}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThingViewList"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var data = [
+//  {
+//    "FileName": "Machine-complete-CV.PVZ",
+//    "repository_link": "https://mrerot7o.studio-trial.thingworx.io:8443/Thingworx/FileRepositories/SystemRepository/CADFiles/Machine-complete-CV.PVZ",
+//    "json_bom": "/CADFiles/json_lists/Machine-complete-CV.PVZ-bomlist.json",
+//    "json_viewable_list": "/CADFiles/json_lists/Machine-complete-CV.PVZ-viewablelist.json",
+//    "json_viewable_stepList": "/CADFiles/json_lists/Machine-complete-CV.PVZ-viewableSteplist.json"
+//  },
+  {
+    "FileName": "worldcar-brake-multi-figure.pvz",
+    "repository_link": "https://pp-2012250512ye.portal.ptc.io:8443/Thingworx/FileRepositories/SystemRepository/CADFiles/worldcar-brake-multi-figure.pvz",
+    "json_bom": "/CADFiles/json_lists/worldcar-brake-multi-figure.pvz-bomlist.json",
+    "json_viewable_list": "/CADFiles/json_lists/worldcar-brake-multi-figure.pvz-viewablelist.json",
+    "json_viewable_stepList": "/CADFiles/json_lists/worldcar-brake-multi-figure.pvz-viewableSteplist.json"
+  }
+];
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "ThingViewTest.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(ThingViewTest.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+for(var i =0;i<data.length;i++) {
+ result.AddRow(data[i]);   
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2021-09-22T19:39:47.060+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewList : service added&#10;" timestamp="2021-09-22T19:40:41.356+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewList : service updated&#10;GetBomStruct : service added&#10;" timestamp="2021-09-22T19:52:29.072+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBomStruct : output updated&#10;" timestamp="2021-09-22T19:57:28.508+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBomStruct : service updated&#10;" timestamp="2021-09-22T19:59:17.742+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewList : service updated&#10;" timestamp="2021-09-30T17:26:15.815+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBomStruct : service updated&#10;" timestamp="2021-09-30T18:42:09.383+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewList : service updated&#10;GetPartList : service added&#10;" timestamp="2021-09-30T18:52:35.177+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartList : output updated&#10;" timestamp="2021-09-30T18:52:52.770+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartList : service updated&#10;" timestamp="2021-09-30T18:58:25.237+09:00" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
