@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b123" majorVersion="8" minorVersion="5" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="3" schemaVersion="1052" universal=""><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-10-27T18:22:33.654+09:00" name="ThingViewTest2" projectName="" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ParameterDefinitions/><Things><Thing>ThingViewTest.TH</Thing><Thing>WindchillAPI_TestLee</Thing><Thing>WindchillAPI_TestLee3</Thing></Things><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_ThingViewTest.TH" : {
+      "DataName" : "Things_ThingViewTest.TH",
+      "EntityName" : "ThingViewTest.TH",
+      "EntityType" : "Things",
+      "Id" : "ae91e9f7-d9ec-4201-b5c2-131e21a38009",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "6914039c-8973-4ede-9e36-965b7677d51d",
+        "Name" : "GetThingViewList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetThingViewList"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "faca96ba-4146-4579-b076-75dbc8c5da0f",
+        "Name" : "GetBomStruct",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetBomStruct"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "639d3ef7-7dfd-4d1a-82ca-9a929efe0d9e",
+        "Name" : "GetPartList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetPartList"
+      } ]
+    },
+    "Things_WindchillAPI_TestLee" : {
+      "DataName" : "Things_WindchillAPI_TestLee",
+      "EntityName" : "WindchillAPI_TestLee",
+      "EntityType" : "Things",
+      "Id" : "63c790b3-2489-43f8-9c0e-987140127c42",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "00291e40-1dba-4274-b87c-5d4910b7f7fd",
+        "Name" : "GetThingView",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetThingView"
+      } ]
+    },
+    "Things_WindchillAPI_TestLee3" : {
+      "DataName" : "Things_WindchillAPI_TestLee3",
+      "EntityName" : "WindchillAPI_TestLee3",
+      "EntityType" : "Things",
+      "Id" : "cb393052-ba94-4259-a235-2e0ce51565f9",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "f35d7ded-9c4a-48af-9a2e-353f1f4c3f1c",
+        "Name" : "GetImageLink",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetImageLink"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "29684f2e-61b3-4529-a78b-39c00cbd7190",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "repository_link",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "StructureUrl",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetThingViewList",
+    "SourceSection" : "Things_ThingViewTest.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "expression-9",
+    "TargetSection" : ""
+  }, {
+    "Id" : "9605929d-3a71-437e-bf0a-6fdd98167784",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "result",
+      "SourcePropertyBaseType" : "HYPERLINK",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "ProductToView",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetThingView",
+    "SourceSection" : "Things_WindchillAPI_TestLee",
+    "TargetArea" : "UI",
+    "TargetId" : "thingview-19",
+    "TargetSection" : ""
+  }, {
+    "Id" : "05fd1c70-5dc1-4ea6-a143-c9c5dbe9b714",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "result",
+      "SourcePropertyBaseType" : "IMAGELINK",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "SourceURL",
+      "TargetPropertyBaseType" : "IMAGELINK",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetImageLink",
+    "SourceSection" : "Things_WindchillAPI_TestLee3",
+    "TargetArea" : "UI",
+    "TargetId" : "image-31",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : {
+    "Create" : [ ],
+    "Delete" : [ ],
+    "Metadata" : [ ],
+    "Read" : [ ],
+    "Update" : [ ]
+  },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_ThingViewTest.TH",
+    "EventHandlerService" : "GetThingViewList",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "33882cab-1f40-4a78-950d-a572284f649d"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_ThingViewTest.TH",
+    "EventHandlerService" : "GetBomStruct",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "d4d5c5cd-ce89-42bf-846b-086cbb39a7d7"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_ThingViewTest.TH",
+    "EventHandlerService" : "GetPartList",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "8271ef95-4509-4eac-b530-c668f2c71afa"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_WindchillAPI_TestLee",
+    "EventHandlerService" : "GetThingView",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "106f861b-613a-4809-a955-6360560c2b0e"
+  }, {
+    "EventHandlerArea" : "Mashup",
+    "EventHandlerId" : "mashup-root",
+    "EventHandlerService" : "Refresh",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "GetThingView",
+    "EventTriggerSection" : "Things_WindchillAPI_TestLee",
+    "Id" : "edb6cbc3-b0ef-48a0-b093-a8c896df3e3c"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_WindchillAPI_TestLee3",
+    "EventHandlerService" : "GetImageLink",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "f2d54bcd-fd5e-4c4f-ab61-f1c651d5d44d"
+  } ],
+  "RunTimePermissions" : {
+    "permissions" : [ ]
+  },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 32,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "row",
+        "flex-grow" : "1",
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : "1",
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : true,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-21",
+          "EnableExpandCollapse" : false,
+          "Expanded" : true,
+          "Id" : "flexcontainer-21",
+          "LastContainer" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : "1",
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : "1",
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "container-10",
+            "EnableExpandCollapse" : false,
+            "Expanded" : true,
+            "Id" : "flexcontainer-10",
+            "LastContainer" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : "1",
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : "1",
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "isLocked" : false,
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : false
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "AcknowledgeStepText" : "",
+              "AllowCORSCredentials" : false,
+              "AllowClientRedirect" : true,
+              "Area" : "UI",
+              "BackgroundStyle" : "DefaultShapeUnfilledBackgroundStyle",
+              "DataFormatter_StateParameters" : [ ],
+              "DisplayAlternateRep" : false,
+              "DisplayExplodeState" : false,
+              "DisplayFilter" : "{ \"ModelAnnotation\": { \"HiddenByDefault\": true, \"PlanarAnnotation\": true, \"FloatingAnnotation\": false, \"MiscAnnotation\": false } }",
+              "DisplayName" : "thingview-17",
+              "DisplaySectionCut" : false,
+              "DisplayViewState" : true,
+              "EnablePartDragger" : false,
+              "EnablePartSelection" : true,
+              "EnableWindchillFileCache" : false,
+              "Gnomon" : false,
+              "Height" : 200,
+              "Id" : "thingview-17",
+              "LastContainer" : false,
+              "Left" : 130,
+              "MouseNavigation" : "CREOVIEW",
+              "OccurrenceField" : "treeId",
+              "Orientation" : "",
+              "Orientations" : "ISO1",
+              "PerspectiveHFOV" : 60,
+              "Position" : "",
+              "PreSelectedOccurrencePath" : "",
+              "ProductToView" : "/Thingworx/MediaEntities/WindchillTest/Content//Windchill/servlet/WindchillAuthGW/com.ptc.wvs.server.util.WVSContentHelper/redirectDownload/thingview_test.pvt?ContentHolder=wt.viewmarkup.DerivedImage%3A708132&HttpOperationItem=wt.content.ApplicationData%3A708141&u8=1",
+              "ProjectionMode" : "ORTHOGRAPHIC",
+              "ResponsiveLayout" : true,
+              "SelectedParts" : {
+                "dataShape" : {
+                  "aspects" : {
+                    "isExtension" : true
+                  },
+                  "avatar" : "",
+                  "baseDataShape" : "",
+                  "configurationTableDefinitions" : { },
+                  "configurationTables" : { },
+                  "description" : "Shape represents idpath selection in ThingView",
+                  "designTimePermissions" : {
+                    "Create" : [ ],
+                    "Delete" : [ ],
+                    "Metadata" : [ ],
+                    "Read" : [ ],
+                    "Update" : [ ]
+                  },
+                  "documentationContent" : "",
+                  "effectiveFieldDefinitions" : {
+                    "idPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "idPath",
+                      "ordinal" : 1
+                    }
+                  },
+                  "fieldDefinitions" : {
+                    "idPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "idPath",
+                      "ordinal" : 1
+                    }
+                  },
+                  "homeMashup" : "",
+                  "lastModifiedDate" : 1587745858586,
+                  "name" : "Selection",
+                  "owner" : {
+                    "name" : "SuperUser",
+                    "type" : "User"
+                  },
+                  "projectName" : "",
+                  "runTimePermissions" : {
+                    "permissions" : [ ]
+                  },
+                  "tags" : [ ],
+                  "visibilityPermissions" : {
+                    "Visibility" : [ ]
+                  }
+                },
+                "rows" : [ ]
+              },
+              "SequenceStepName" : "",
+              "SequenceStepNumber" : "",
+              "ShowDataLoading" : true,
+              "SpinCenter" : false,
+              "ThingViewControls" : true,
+              "Top" : 10,
+              "Type" : "thingview",
+              "Views" : {
+                "dataShape" : {
+                  "aspects" : {
+                    "isExtension" : true
+                  },
+                  "avatar" : "",
+                  "baseDataShape" : "",
+                  "configurationTableDefinitions" : { },
+                  "configurationTables" : { },
+                  "description" : "Views",
+                  "designTimePermissions" : {
+                    "Create" : [ ],
+                    "Delete" : [ ],
+                    "Metadata" : [ ],
+                    "Read" : [ ],
+                    "Update" : [ ]
+                  },
+                  "documentationContent" : "Annotations, Viewstates",
+                  "effectiveFieldDefinitions" : {
+                    "name" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "name",
+                      "ordinal" : 1
+                    },
+                    "type" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "type",
+                      "ordinal" : 2
+                    },
+                    "value" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "value",
+                      "ordinal" : 3
+                    }
+                  },
+                  "fieldDefinitions" : {
+                    "name" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "name",
+                      "ordinal" : 1
+                    },
+                    "type" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "type",
+                      "ordinal" : 2
+                    },
+                    "value" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "value",
+                      "ordinal" : 3
+                    }
+                  },
+                  "homeMashup" : "",
+                  "lastModifiedDate" : 1587745858584,
+                  "name" : "Views",
+                  "owner" : {
+                    "name" : "SuperUser",
+                    "type" : "User"
+                  },
+                  "projectName" : "",
+                  "runTimePermissions" : {
+                    "permissions" : [ ]
+                  },
+                  "tags" : [ ],
+                  "visibilityPermissions" : {
+                    "Visibility" : [ ]
+                  }
+                },
+                "rows" : [ ]
+              },
+              "Visible" : true,
+              "Width" : 300,
+              "WindchillCacheSize" : 1000,
+              "WindchillSourceData" : true,
+              "Z-index" : 10,
+              "__TypeDisplayName" : "ThingView",
+              "baseUrl" : "",
+              "mapUrl" : "",
+              "markupUrl" : "",
+              "oid" : ""
+            },
+            "Widgets" : [ ]
+          } ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "container-18",
+            "EnableExpandCollapse" : false,
+            "Expanded" : true,
+            "Id" : "flexcontainer-18",
+            "LastContainer" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : "1",
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : "1",
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "isLocked" : false,
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : false
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "AcknowledgeStepText" : "",
+              "AllowCORSCredentials" : true,
+              "AllowClientRedirect" : true,
+              "Area" : "UI",
+              "BackgroundStyle" : "DefaultShapeUnfilledBackgroundStyle",
+              "DataFormatter_StateParameters" : [ ],
+              "DisplayAlternateRep" : false,
+              "DisplayExplodeState" : false,
+              "DisplayFilter" : "{ \"ModelAnnotation\": { \"HiddenByDefault\": true, \"PlanarAnnotation\": true, \"FloatingAnnotation\": false, \"MiscAnnotation\": false } }",
+              "DisplayName" : "thingview-19",
+              "DisplaySectionCut" : false,
+              "DisplayViewState" : true,
+              "EnablePartDragger" : false,
+              "EnablePartSelection" : true,
+              "EnableWindchillFileCache" : false,
+              "Gnomon" : false,
+              "Height" : 200,
+              "Id" : "thingview-19",
+              "LastContainer" : false,
+              "Left" : 130,
+              "MouseNavigation" : "EXPLORE",
+              "OccurrenceField" : "treeId",
+              "Orientation" : "",
+              "Orientations" : "ISO1",
+              "PerspectiveHFOV" : 60,
+              "Position" : "",
+              "PreSelectedOccurrencePath" : "",
+              "ProductToView" : "/Thingworx/FileRepositories/SystemRepository/CADFiles/worldcar-brake-multi-figure.pvz",
+              "ProjectionMode" : "ORTHOGRAPHIC",
+              "ResponsiveLayout" : true,
+              "SelectedParts" : {
+                "dataShape" : {
+                  "aspects" : {
+                    "isExtension" : true
+                  },
+                  "avatar" : "",
+                  "baseDataShape" : "",
+                  "configurationTableDefinitions" : { },
+                  "configurationTables" : { },
+                  "description" : "Shape represents idpath selection in ThingView",
+                  "designTimePermissions" : {
+                    "Create" : [ ],
+                    "Delete" : [ ],
+                    "Metadata" : [ ],
+                    "Read" : [ ],
+                    "Update" : [ ]
+                  },
+                  "documentationContent" : "",
+                  "effectiveFieldDefinitions" : {
+                    "idPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "idPath",
+                      "ordinal" : 1
+                    }
+                  },
+                  "fieldDefinitions" : {
+                    "idPath" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "idPath",
+                      "ordinal" : 1
+                    }
+                  },
+                  "homeMashup" : "",
+                  "lastModifiedDate" : 1587745858586,
+                  "name" : "Selection",
+                  "owner" : {
+                    "name" : "SuperUser",
+                    "type" : "User"
+                  },
+                  "projectName" : "",
+                  "runTimePermissions" : {
+                    "permissions" : [ ]
+                  },
+                  "tags" : [ ],
+                  "visibilityPermissions" : {
+                    "Visibility" : [ ]
+                  }
+                },
+                "rows" : [ ]
+              },
+              "SequenceStepName" : "",
+              "SequenceStepNumber" : "",
+              "ShowDataLoading" : true,
+              "SpinCenter" : false,
+              "ThingViewControls" : true,
+              "Top" : 10,
+              "Type" : "thingview",
+              "Views" : {
+                "dataShape" : {
+                  "aspects" : {
+                    "isExtension" : true
+                  },
+                  "avatar" : "",
+                  "baseDataShape" : "",
+                  "configurationTableDefinitions" : { },
+                  "configurationTables" : { },
+                  "description" : "Views",
+                  "designTimePermissions" : {
+                    "Create" : [ ],
+                    "Delete" : [ ],
+                    "Metadata" : [ ],
+                    "Read" : [ ],
+                    "Update" : [ ]
+                  },
+                  "documentationContent" : "Annotations, Viewstates",
+                  "effectiveFieldDefinitions" : {
+                    "name" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "name",
+                      "ordinal" : 1
+                    },
+                    "type" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "type",
+                      "ordinal" : 2
+                    },
+                    "value" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "value",
+                      "ordinal" : 3
+                    }
+                  },
+                  "fieldDefinitions" : {
+                    "name" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "name",
+                      "ordinal" : 1
+                    },
+                    "type" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "type",
+                      "ordinal" : 2
+                    },
+                    "value" : {
+                      "aspects" : { },
+                      "baseType" : "STRING",
+                      "description" : "",
+                      "name" : "value",
+                      "ordinal" : 3
+                    }
+                  },
+                  "homeMashup" : "",
+                  "lastModifiedDate" : 1587745858584,
+                  "name" : "Views",
+                  "owner" : {
+                    "name" : "SuperUser",
+                    "type" : "User"
+                  },
+                  "projectName" : "",
+                  "runTimePermissions" : {
+                    "permissions" : [ ]
+                  },
+                  "tags" : [ ],
+                  "visibilityPermissions" : {
+                    "Visibility" : [ ]
+                  }
+                },
+                "rows" : [ ]
+              },
+              "Visible" : true,
+              "Width" : 300,
+              "WindchillCacheSize" : 1000,
+              "WindchillSourceData" : true,
+              "Z-index" : 10,
+              "__TypeDisplayName" : "ThingView",
+              "baseUrl" : "",
+              "mapUrl" : "",
+              "markupUrl" : "",
+              "oid" : ""
+            },
+            "Widgets" : [ ]
+          } ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-22",
+          "EnableExpandCollapse" : false,
+          "Expanded" : true,
+          "Id" : "flexcontainer-22",
+          "LastContainer" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : "1",
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : "1",
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "container-23",
+            "EnableExpandCollapse" : false,
+            "Expanded" : true,
+            "Id" : "flexcontainer-23",
+            "LastContainer" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : "1",
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : "1",
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "isLocked" : false,
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : false
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "AlternateText" : "",
+              "Area" : "UI",
+              "BorderStyle" : "DefaultImageBorderStyle",
+              "DisplayName" : "image-31",
+              "Height" : 100,
+              "Id" : "image-31",
+              "LastContainer" : false,
+              "Left" : 110,
+              "PreventCaching" : false,
+              "ResponsiveLayout" : true,
+              "Scaling" : "none",
+              "ShowDataLoading" : true,
+              "SourceURL" : "",
+              "ToolTipField" : "",
+              "ToolTipStyle" : "DefaultTooltipStyle",
+              "Top" : 125,
+              "Type" : "image",
+              "Visible" : true,
+              "Width" : 100,
+              "Z-index" : 10,
+              "__TypeDisplayName" : "Image",
+              "__supportsTooltip" : true
+            },
+            "Widgets" : [ ]
+          } ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "container-24",
+            "EnableExpandCollapse" : false,
+            "Expanded" : true,
+            "Id" : "flexcontainer-24",
+            "LastContainer" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : "1",
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : "1",
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "isLocked" : false,
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : false
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "AlternateText" : "",
+              "Area" : "UI",
+              "BorderStyle" : "DefaultImageBorderStyle",
+              "DisplayName" : "image-32",
+              "Height" : 100,
+              "Id" : "image-32",
+              "LastContainer" : false,
+              "Left" : 110,
+              "PreventCaching" : false,
+              "ResponsiveLayout" : true,
+              "Scaling" : "none",
+              "ShowDataLoading" : true,
+              "SourceURL" : "/Thingworx/MediaEntities/ptc-windchill-integration-connector-proxy/Content//Windchill/sslClientAuth/servlet/WindchillAuthGW/wt.content.ContentHttp/viewContent/thingview_test.jpg?u8&HttpOperationItem=wt.content.ApplicationData%3A708135&ofn=thingview_test.jpg&ContentHolder=wt.viewmarkup.DerivedImage%3A708132&forceDownload=true&twxME_ClientFollowRedirect=true\",\"_5\":\"WindchillDemoPartResourceProvider:OR:wt.part.WTPart:710154\",\"_7\":\"PART DETAILS\",\"_10\":\"Design\",\"_11\":\"1.1\",\"_13\":\"https://PP-2012250512YE.portal.ptc.io/Windchill/app/#ptc1/tcomp/infoPage?oid=VR%3Awt.part.WTPart%3A710152&u8=1",
+              "ToolTipField" : "",
+              "ToolTipStyle" : "DefaultTooltipStyle",
+              "Top" : 90,
+              "Type" : "image",
+              "Visible" : true,
+              "Width" : 100,
+              "Z-index" : 10,
+              "__TypeDisplayName" : "Image",
+              "__supportsTooltip" : true
+            },
+            "Widgets" : [ ]
+          } ]
+        } ]
+      } ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "AutoEvaluate" : true,
+        "DataChangeType" : "VALUE",
+        "DisplayName" : "viewUrl",
+        "Expression" : "location.protocol + \"//\" + location.host + StructureUrl",
+        "FireOnFirstValue" : false,
+        "Height" : 28,
+        "Id" : "expression-9",
+        "LastContainer" : false,
+        "Left" : 0,
+        "OutputBaseType" : "STRING",
+        "ShowDataLoading" : true,
+        "Top" : 0,
+        "Type" : "expression",
+        "Visible" : true,
+        "Width" : 200,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Expression",
+        "_currentParameterDefs" : [ {
+          "BaseType" : "STRING",
+          "Description" : "",
+          "ParameterName" : "StructureUrl",
+          "bindingDirection" : "Target",
+          "bindingStatus" : false,
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "name" : "StructureUrl"
+        } ]
+      },
+      "Widgets" : [ ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2021-09-30T19:14:18.373+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-09-30T19:14:56.966+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-09-30T19:15:35.435+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T15:26:52.997+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T15:28:16.687+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T15:29:00.578+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T15:44:19.111+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:01:08.770+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:02:14.284+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:02:49.846+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:12:27.110+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:18:25.338+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:19:34.259+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:20:59.539+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:27:24.834+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:30:42.440+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:35:27.138+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:37:44.120+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:38:48.416+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:43:00.932+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:44:55.477+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:46:43.553+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:51:34.595+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:51:59.704+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:52:27.407+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:53:11.078+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:54:49.204+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:57:16.407+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:58:01.517+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T16:59:02.579+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:31:50.066+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:32:57.315+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:33:18.393+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:34:16.376+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:36:02.875+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:37:33.374+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:42:33.575+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-08T17:52:37.725+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-14T15:11:47.504+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:15:21.731+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:20:48.525+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:21:21.587+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:23:25.966+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:25:12.206+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:26:47.145+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:28:23.926+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:32:07.611+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-16T21:33:52.047+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-21T19:32:35.307+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T14:12:44.278+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T14:13:44.135+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T14:14:28.571+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T14:16:16.771+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:08:01.381+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:08:59.582+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:14:16.463+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:29:06.327+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:34:03.865+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:45:17.908+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:47:51.919+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:49:01.276+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-25T15:49:40.415+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-26T14:42:23.842+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T17:14:57.714+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T17:18:09.026+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T17:55:46.653+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T17:57:39.222+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T17:59:00.139+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:00:56.883+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:01:42.288+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:02:12.786+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:04:46.111+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:06:47.988+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:07:05.117+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:19:51.505+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:20:55.832+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:22:08.641+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-10-27T18:22:33.654+09:00" user="Administrator"/></ConfigurationChanges></Mashup></Mashups></Entities>
