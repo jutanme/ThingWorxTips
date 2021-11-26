@@ -1,0 +1,2415 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><StyleDefinitions/><Networks/><PersistenceProviderPackages/><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-11-26T06:18:29.773Z" name="MMAD.MonthlyDetail.Mash" projectName="NSN.MMAD" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="BOOLEAN" description="" name="BadItemA" ordinal="0"/><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="BOOLEAN" description="" name="BadItemB" ordinal="0"/><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="BOOLEAN" description="" name="BadItemC" ordinal="0"/><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="BOOLEAN" description="" name="BadItemD" ordinal="0"/><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="STRING" description="" name="TypeStr" ordinal="0"/><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="STRING" description="" name="YYYYMM" ordinal="0"/></ParameterDefinitions><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_MMAD.MainService.TH" : {
+      "DataName" : "Things_MMAD.MainService.TH",
+      "EntityName" : "MMAD.MainService.TH",
+      "EntityType" : "Things",
+      "Id" : "a7e0a422-15ff-4fd1-a465-828a0db5a901",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "de58a1c4-a63a-4f85-96a5-9320eb8c9733",
+        "Name" : "GetHeaderInfo",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetHeaderInfo"
+      } ]
+    },
+    "Things_TIPC_Thing" : {
+      "DataName" : "Things_TIPC_Thing",
+      "EntityName" : "TIPC_Thing",
+      "EntityType" : "Things",
+      "Id" : "b78b8a2c-6a2f-4850-bb69-24d382f04630",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "0166e5cd-f0c3-47fa-8f0a-43b80f0848ad",
+        "Name" : "GetParetList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetParetList"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "0cc18f60-cb5c-49f4-bac6-c680720cc861",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "YearMonthList",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-35",
+    "TargetSection" : ""
+  }, {
+    "Id" : "c3a4afdf-b939-41fc-8860-45f8bfb2cdaa",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "TypeList",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-36",
+    "TargetSection" : ""
+  }, {
+    "Id" : "7fbe454d-1d4d-4a5e-9e8e-deffd24bb051",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "YYYYMM",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "SelectedText",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-35",
+    "TargetSection" : ""
+  }, {
+    "Id" : "0e30feec-9be1-40b3-a3d8-1e722129e4be",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "TypeStr",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "SelectedText",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-36",
+    "TargetSection" : ""
+  }, {
+    "Id" : "f6f0f906-ad70-4c94-b8dd-3d45e9797243",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetParetList",
+    "SourceSection" : "Things_TIPC_Thing",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcschartpareto-31",
+    "TargetSection" : ""
+  }, {
+    "Id" : "ad25127a-5d30-4fca-b218-9b829b455558",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemA",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-38",
+    "TargetSection" : ""
+  }, {
+    "Id" : "ad34c783-b43b-4dda-a223-9589f29cb007",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemB",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-39",
+    "TargetSection" : ""
+  }, {
+    "Id" : "b9c42550-6153-49a6-ac59-40c5eaacec23",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemC",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-40",
+    "TargetSection" : ""
+  }, {
+    "Id" : "ffe3c45f-fc3b-4d89-a173-e0a5284ad024",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemD",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-41",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetHeaderInfo",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "7bf64263-4c37-456c-8857-14d13558a97b"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_TIPC_Thing",
+    "EventHandlerService" : "GetParetList",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "SelectedItemsChanged",
+    "EventTriggerId" : "ptcsdropdown-35",
+    "EventTriggerSection" : "",
+    "Id" : "ba3e8997-0e23-4982-a12d-b071298d8981"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "BadItemA" : false,
+      "BadItemB" : false,
+      "BadItemC" : false,
+      "BadItemD" : false,
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupResolution" : "1366x768",
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : {
+          "ptcschartline-19" : {
+            "parts" : {
+              "area" : {
+                "serie2" : {
+                  "fill" : "rgba(255,255,255,1)"
+                }
+              },
+              "line" : {
+                "serie2" : {
+                  "stroke" : "rgba(191,48,48,1)"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-line"
+          },
+          "ptcschartline-21" : {
+            "parts" : {
+              "area" : {
+                "serie2" : {
+                  "fill" : "rgba(191,48,48,1)",
+                  "opacity" : "1"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-line"
+          },
+          "ptcschartpareto-7" : {
+            "parts" : {
+              "bar" : {
+                "serie1" : {
+                  "background" : "inherit"
+                },
+                "serie2" : {
+                  "background" : "inherit"
+                },
+                "serie3" : {
+                  "background" : "inherit"
+                }
+              },
+              "legend-marker" : {
+                "$" : {
+                  "background" : "inherit"
+                },
+                "serie1" : {
+                  "background" : "inherit"
+                },
+                "serie2" : {
+                  "background" : "inherit"
+                },
+                "serie3" : {
+                  "background" : "inherit"
+                }
+              },
+              "line" : {
+                "$" : {
+                  "stroke" : "rgba(51,153,255,1)"
+                }
+              },
+              "marker" : {
+                "$" : {
+                  "fill" : "inherit"
+                }
+              },
+              "xaxis-label" : {
+                "$" : {
+                  "font-size" : "9px"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-pareto"
+          }
+        },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "_currentParameterDefs" : [ {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "STRING",
+        "Description" : "",
+        "ParameterName" : "YYYYMM"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "STRING",
+        "Description" : "",
+        "ParameterName" : "TypeStr"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "BOOLEAN",
+        "DefaultValue" : false,
+        "Description" : "",
+        "ParameterName" : "BadItemA"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "BOOLEAN",
+        "DefaultValue" : false,
+        "Description" : "",
+        "ParameterName" : "BadItemB"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "BOOLEAN",
+        "DefaultValue" : false,
+        "Description" : "",
+        "ParameterName" : "BadItemC"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "BOOLEAN",
+        "DefaultValue" : false,
+        "Description" : "",
+        "ParameterName" : "BadItemD"
+      } ],
+      "id_index" : 41,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "column",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : false,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-34",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-34",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "47px",
+          "flex-max-width" : "",
+          "flex-min-height" : "47px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Alignment" : "left",
+            "AllLabel" : "[[all]]",
+            "Area" : "UI",
+            "AutoSelectFirstRow" : false,
+            "ClearSelectedItemsLabel" : "[[clearSelectedItems]]",
+            "ClearSelectionItem" : true,
+            "ClearSelectionLabel" : "(None)",
+            "Disabled" : false,
+            "DisplayField" : "Item",
+            "DisplayFieldBaseType" : "STRING",
+            "DisplayName" : "ptcs-dropdown-35",
+            "FilterHintText" : "Filter",
+            "HintText" : "Select...",
+            "Id" : "ptcsdropdown-35",
+            "ItemMeta" : {
+              "type" : "text"
+            },
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 114,
+            "ListFormat_StateParameters" : [ ],
+            "Margin" : "5",
+            "MultiSelect" : false,
+            "ResponsiveLayout" : false,
+            "RowHeight" : 34,
+            "SelectAllLabel" : "[[selectAll]]",
+            "SelectedLabel" : "[[selected]]",
+            "ShowDataLoading" : true,
+            "ShowListFilter" : false,
+            "TabSequence" : 0,
+            "Top" : 37.19999694824219,
+            "Type" : "ptcsdropdown",
+            "UseTheme" : true,
+            "ValueField" : "Value",
+            "Visible" : true,
+            "Width" : 160,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "DropDown"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Alignment" : "left",
+            "AllLabel" : "[[all]]",
+            "Area" : "UI",
+            "AutoSelectFirstRow" : false,
+            "ClearSelectedItemsLabel" : "[[clearSelectedItems]]",
+            "ClearSelectionItem" : true,
+            "ClearSelectionLabel" : "(None)",
+            "Disabled" : false,
+            "DisplayField" : "Item",
+            "DisplayFieldBaseType" : "STRING",
+            "DisplayName" : "ptcs-dropdown-36",
+            "FilterHintText" : "Filter",
+            "HintText" : "Select...",
+            "Id" : "ptcsdropdown-36",
+            "ItemMeta" : {
+              "type" : "text"
+            },
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 364,
+            "ListFormat_StateParameters" : [ ],
+            "Margin" : "5",
+            "MultiSelect" : false,
+            "ResponsiveLayout" : false,
+            "RowHeight" : 34,
+            "SelectAllLabel" : "[[selectAll]]",
+            "SelectedLabel" : "[[selected]]",
+            "ShowDataLoading" : true,
+            "ShowListFilter" : false,
+            "TabSequence" : 0,
+            "Top" : 27.199996948242188,
+            "Type" : "ptcsdropdown",
+            "UseTheme" : true,
+            "ValueField" : "Value",
+            "Visible" : true,
+            "Width" : 160,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "DropDown"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-33",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-33",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "CumulativeLineLabel" : "Percentage",
+            "CumulativeLineMarkerShape" : "circle",
+            "CumulativeLineMarkerSize" : 8,
+            "DataField1" : "excess_temperature",
+            "DataSeriesStyle10_StateParameters" : [ ],
+            "DataSeriesStyle11_StateParameters" : [ ],
+            "DataSeriesStyle12_StateParameters" : [ ],
+            "DataSeriesStyle13_StateParameters" : [ ],
+            "DataSeriesStyle14_StateParameters" : [ ],
+            "DataSeriesStyle15_StateParameters" : [ ],
+            "DataSeriesStyle16_StateParameters" : [ ],
+            "DataSeriesStyle17_StateParameters" : [ ],
+            "DataSeriesStyle18_StateParameters" : [ ],
+            "DataSeriesStyle19_StateParameters" : [ ],
+            "DataSeriesStyle1_StateParameters" : [ ],
+            "DataSeriesStyle20_StateParameters" : [ ],
+            "DataSeriesStyle21_StateParameters" : [ ],
+            "DataSeriesStyle22_StateParameters" : [ ],
+            "DataSeriesStyle23_StateParameters" : [ ],
+            "DataSeriesStyle24_StateParameters" : [ ],
+            "DataSeriesStyle2_StateParameters" : [ ],
+            "DataSeriesStyle3_StateParameters" : [ ],
+            "DataSeriesStyle4_StateParameters" : [ ],
+            "DataSeriesStyle5_StateParameters" : [ ],
+            "DataSeriesStyle6_StateParameters" : [ ],
+            "DataSeriesStyle7_StateParameters" : [ ],
+            "DataSeriesStyle8_StateParameters" : [ ],
+            "DataSeriesStyle9_StateParameters" : [ ],
+            "DataSeriesStyle_StateParameters" : [ ],
+            "DirectSelectionZoom" : "none",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-chartpareto-31",
+            "DragSelectionZoom" : "none",
+            "EmphasizeThresholdFactors" : false,
+            "ExternalPadding" : 1,
+            "Height" : 476,
+            "HideCumulativeLine" : false,
+            "HideLegend" : true,
+            "HideNotes" : true,
+            "HideSecondYAxis" : false,
+            "HideXAxis" : false,
+            "HideYAxis" : false,
+            "HorizontalAxisMaxHeight" : 85,
+            "HorizontalEndZoomLabel" : "",
+            "HorizontalRangeZoom" : false,
+            "HorizontalSliderZoom" : false,
+            "HorizontalSliderZoomMaxLabel" : "",
+            "HorizontalSliderZoomMinLabel" : "",
+            "HorizontalStartZoomLabel" : "",
+            "HorizontalZoom" : false,
+            "Id" : "ptcschartpareto-31",
+            "InternalPadding" : 1,
+            "Label" : "Pareto Chart",
+            "LabelAlignment" : "left",
+            "LabelPosition" : "top",
+            "LabelReset" : "Reset",
+            "LabelType" : "sub-header",
+            "LastContainer" : false,
+            "Left" : 119,
+            "LegendAlignment" : "start",
+            "LegendFilter" : false,
+            "LegendMarkerShapes" : "square",
+            "LegendMaxWidth" : 736,
+            "LegendPosition" : "right",
+            "LineValuesPosition" : "above",
+            "MultipleDataSources" : false,
+            "Notes" : "",
+            "NotesAlignment" : "left",
+            "NotesPosition" : "bottom",
+            "ResponsiveLayout" : true,
+            "RulersInFront" : true,
+            "SecondYAxisLabel" : "Percentage",
+            "SecondYAxisLabelAlignment" : "center",
+            "ShowDataLoading" : true,
+            "ShowLineValues" : true,
+            "ShowValues" : true,
+            "ShowXAxisRuler" : false,
+            "ShowYAxisRuler" : false,
+            "SparkView" : false,
+            "StringEnd" : "[[endRange]]",
+            "StringStart" : "[[startRange]]",
+            "TabSequence" : 0,
+            "ThresholdLine" : "none",
+            "ThresholdValue" : 80,
+            "Top" : 97.19999694824219,
+            "Type" : "ptcschartpareto",
+            "UseSampleDataInRuntime" : false,
+            "UseTheme" : true,
+            "ValuesAlignment" : "end",
+            "ValuesPosition" : "outside",
+            "VerticalAxisMaxWidth" : 85,
+            "Visible" : true,
+            "Width" : 471,
+            "XAxisField" : "month",
+            "XAxisLabel" : "",
+            "XAxisLabelAlignment" : "center",
+            "YAxisFormat" : "0000.0",
+            "YAxisLabel" : "Y-axis",
+            "YAxisLabelAlignment" : "center",
+            "YAxisMaximumValues" : 23,
+            "YAxisRulerAlignment" : "primary",
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Pareto Chart"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-37",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-37",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "59px",
+          "flex-max-width" : "",
+          "flex-min-height" : "59px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-38",
+            "Id" : "ptcscheckbox-38",
+            "Label" : "不良項目A",
+            "LastContainer" : false,
+            "Left" : 154,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 27.199996948242188,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-39",
+            "Id" : "ptcscheckbox-39",
+            "Label" : "不良項目B",
+            "LastContainer" : false,
+            "Left" : 264,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 37.19999694824219,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-40",
+            "Id" : "ptcscheckbox-40",
+            "Label" : "不良項目C",
+            "LastContainer" : false,
+            "Left" : 259,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 37.19999694824219,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-41",
+            "Id" : "ptcscheckbox-41",
+            "Label" : "不良項目D",
+            "LastContainer" : false,
+            "Left" : 399,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 27.199996948242188,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-11-24T12:53:00.467Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:53:37.224Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:58:13.601Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T05:35:29.690Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T05:37:18.347Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T05:40:56.399Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T05:41:37.658Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T06:18:29.773Z" user="Administrator"/></ConfigurationChanges></Mashup><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-11-26T06:30:06.033Z" name="MMAD.Main.Mash" projectName="NSN.MMAD" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_MMAD.MainService.TH" : {
+      "DataName" : "Things_MMAD.MainService.TH",
+      "EntityName" : "MMAD.MainService.TH",
+      "EntityType" : "Things",
+      "Id" : "cdcd881b-7228-4caf-9bd0-7bd37736fd4f",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "cd37453a-786e-4d89-93b5-cceba0c8d07f",
+        "Name" : "GetSelectedRow",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetSelectedRow"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "dc627864-b1a6-4156-9814-58ce1c680001",
+        "Name" : "GetHeaderInfo",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetHeaderInfo"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "0e6875c4-a7ab-43fa-a02b-c3f29a5e6e6c",
+        "Name" : "GetDefectiveList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetDefectiveList"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "9d091716-62c1-4974-8a5e-deec0d8dd7a3",
+        "Name" : "GetBadItemList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetBadItemList"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "bb18a59e-6637-48ab-8005-9c1d07ba0eb9",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "SelectedItems",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetSelectedRow",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-30",
+    "TargetSection" : ""
+  }, {
+    "Id" : "a8d58c29-bb3b-4eab-b7ba-2c9d0a0a1d8c",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "MonthlyCount",
+      "SourcePropertyBaseType" : "INTEGER",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Text",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcstextfield-35",
+    "TargetSection" : ""
+  }, {
+    "Id" : "4a44ff7c-dadf-4623-880e-3c655d741fda",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "YearMonthList",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-30",
+    "TargetSection" : ""
+  }, {
+    "Id" : "0126348a-5bc1-4541-9085-92bb428f0150",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SublineList",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-31",
+    "TargetSection" : ""
+  }, {
+    "Id" : "ba6f22cf-bc9d-4e9e-9e02-0fbc9c738494",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "TypeList",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-32",
+    "TargetSection" : ""
+  }, {
+    "Id" : "678f4369-e740-4ecf-b21a-3049eb525276",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectedText",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "YYYYMM",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcsdropdown-30",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-37",
+    "TargetSection" : ""
+  }, {
+    "Id" : "ec8f4fcd-4fcd-4d95-a8d9-972692b249a7",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectedText",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "TypeStr",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcsdropdown-32",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-37",
+    "TargetSection" : ""
+  }, {
+    "Id" : "bca82c5d-8ed7-4470-845e-9b796361bcce",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemA",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-39",
+    "TargetSection" : ""
+  }, {
+    "Id" : "47eb7f40-9902-48b4-888b-0c56a37e0682",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemB",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-40",
+    "TargetSection" : ""
+  }, {
+    "Id" : "2f71cf0f-d157-42d6-8ca6-faa8a134cf75",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemC",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-41",
+    "TargetSection" : ""
+  }, {
+    "Id" : "149cd30e-4f30-4ee6-acd7-fb6648ee1bc5",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "BadItemD",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "State",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetHeaderInfo",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcscheckbox-42",
+    "TargetSection" : ""
+  }, {
+    "Id" : "7c976edb-6d40-48c6-aa73-097d43587c8d",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemA",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-39",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetDefectiveList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "6053578f-68e3-40f5-87c7-8bd9da7d90c2",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemB",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-40",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetDefectiveList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "45e6d2f5-3901-4745-b67e-3b430720b6de",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemC",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-41",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetDefectiveList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "12e1ec04-abe4-44b9-b713-a13b29b21471",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemD",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-42",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetDefectiveList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "2734d386-fc57-4270-837d-5f69f66f79be",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemA",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-39",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetBadItemList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "5f8226cc-5571-4dfe-a3cb-6f1a648327b4",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemB",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-40",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetBadItemList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "406c6599-1e4a-4e84-b685-a250c34a950d",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemC",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-41",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetBadItemList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "d695902f-e03a-4a1b-89b0-f0932a00324c",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemD",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-42",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetBadItemList",
+    "TargetSection" : "Things_MMAD.MainService.TH"
+  }, {
+    "Id" : "534e7986-a255-48a1-9462-74f610b12df3",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetBadItemList",
+    "SourceSection" : "Things_MMAD.MainService.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcschartbar-26",
+    "TargetSection" : ""
+  }, {
+    "Id" : "a8a2e366-0240-4ae5-8746-e36c1f54684e",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemA",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-39",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-37",
+    "TargetSection" : ""
+  }, {
+    "Id" : "96a58dae-f325-4840-8b2c-3abca2f9ef8e",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemB",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-40",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-37",
+    "TargetSection" : ""
+  }, {
+    "Id" : "a7d32c6a-90ec-4882-9a85-77a6db85d22d",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemC",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-41",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-37",
+    "TargetSection" : ""
+  }, {
+    "Id" : "b8744d33-b97c-4465-9743-340014fbbae6",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "State",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "BadItemD",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcscheckbox-42",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-37",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "UI",
+    "EventHandlerId" : "navigationfunction-27",
+    "EventHandlerService" : "Navigate",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "SeriesClicked",
+    "EventTriggerId" : "ptcschartbar-26",
+    "EventTriggerSection" : "",
+    "Id" : "66c09197-fe5c-4f51-8c31-0f6deb29086f"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetHeaderInfo",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "b342a06d-0770-4c3e-b5d0-3f8d05d32f7a"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetSelectedRow",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "GetHeaderInfo",
+    "EventTriggerSection" : "Things_MMAD.MainService.TH",
+    "Id" : "b81d29e6-05aa-478a-ab44-1dcc42c7ea89"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetDefectiveList",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "SelectedItemsChanged",
+    "EventTriggerId" : "ptcsdropdown-30",
+    "EventTriggerSection" : "",
+    "Id" : "2b63ad58-51f8-49fc-9c93-a9e0ac106518"
+  }, {
+    "EventHandlerArea" : "UI",
+    "EventHandlerId" : "navigationfunction-37",
+    "EventHandlerService" : "Navigate",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Clicked",
+    "EventTriggerId" : "ptcsbutton-36",
+    "EventTriggerSection" : "",
+    "Id" : "8a9e97fa-1575-4e9d-8409-4661f607c964"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetBadItemList",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "GetHeaderInfo",
+    "EventTriggerSection" : "Things_MMAD.MainService.TH",
+    "Id" : "0de86c79-dc13-4970-92c3-8644e708d5eb"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetBadItemList",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Changed",
+    "EventTriggerId" : "ptcscheckbox-39",
+    "EventTriggerSection" : "",
+    "Id" : "10c18fa1-3b14-45b8-83be-cd8ec28e18f7"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetBadItemList",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Changed",
+    "EventTriggerId" : "ptcscheckbox-40",
+    "EventTriggerSection" : "",
+    "Id" : "b5c92cc2-b345-497b-8cf3-1e718c84b9ee"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetBadItemList",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Changed",
+    "EventTriggerId" : "ptcscheckbox-41",
+    "EventTriggerSection" : "",
+    "Id" : "4708061f-787c-44f8-a31a-73510f080648"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_MMAD.MainService.TH",
+    "EventHandlerService" : "GetBadItemList",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Changed",
+    "EventTriggerId" : "ptcscheckbox-42",
+    "EventTriggerSection" : "",
+    "Id" : "69b74afb-a27d-413c-93de-08e4f3df3b46"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : {
+          "ptcsbutton-36" : {
+            "parts" : {
+              "label" : {
+                "$" : {
+                  "font-size" : "20px"
+                },
+                "hover" : {
+                  "font-size" : "20px"
+                }
+              }
+            },
+            "widget" : "ptcs-button"
+          },
+          "ptcschartline-19" : {
+            "parts" : {
+              "area" : {
+                "serie2" : {
+                  "fill" : "rgba(255,255,255,1)"
+                }
+              },
+              "line" : {
+                "serie2" : {
+                  "stroke" : "rgba(191,48,48,1)"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-line"
+          },
+          "ptcschartline-21" : {
+            "parts" : {
+              "area" : {
+                "serie2" : {
+                  "fill" : "rgba(191,48,48,1)",
+                  "opacity" : "1"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-line"
+          },
+          "ptcschartpareto-7" : {
+            "parts" : {
+              "xaxis-label" : {
+                "$" : {
+                  "font-size" : "9px"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-pareto"
+          },
+          "ptcslabel-34" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "font-size" : "20px"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          }
+        },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 42,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "column",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : false,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-29",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-29",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "52px",
+          "flex-max-width" : "",
+          "flex-min-height" : "52px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Alignment" : "left",
+            "AllLabel" : "[[all]]",
+            "Area" : "UI",
+            "AutoSelectFirstRow" : false,
+            "ClearSelectedItemsLabel" : "[[clearSelectedItems]]",
+            "ClearSelectionItem" : true,
+            "ClearSelectionLabel" : "(None)",
+            "Disabled" : false,
+            "DisplayField" : "Item",
+            "DisplayFieldBaseType" : "STRING",
+            "DisplayName" : "ptcs-dropdown-30",
+            "FilterHintText" : "Filter",
+            "HintText" : "Select...",
+            "Id" : "ptcsdropdown-30",
+            "ItemMeta" : {
+              "type" : "text"
+            },
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 74,
+            "ListFormat_StateParameters" : [ ],
+            "Margin" : "5",
+            "MultiSelect" : false,
+            "ResponsiveLayout" : false,
+            "RowHeight" : 34,
+            "SelectAllLabel" : "[[selectAll]]",
+            "SelectedLabel" : "[[selected]]",
+            "ShowDataLoading" : true,
+            "ShowListFilter" : false,
+            "TabSequence" : 0,
+            "Top" : 37.19999694824219,
+            "Type" : "ptcsdropdown",
+            "UseTheme" : true,
+            "ValueField" : "Value",
+            "Visible" : true,
+            "Width" : 160,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "DropDown"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Alignment" : "left",
+            "AllLabel" : "[[all]]",
+            "Area" : "UI",
+            "AutoSelectFirstRow" : true,
+            "ClearSelectedItemsLabel" : "[[clearSelectedItems]]",
+            "ClearSelectionItem" : true,
+            "ClearSelectionLabel" : "(None)",
+            "Disabled" : false,
+            "DisplayField" : "Item",
+            "DisplayFieldBaseType" : "STRING",
+            "DisplayName" : "ptcs-dropdown-31",
+            "FilterHintText" : "Filter",
+            "HintText" : "Select...",
+            "Id" : "ptcsdropdown-31",
+            "ItemMeta" : {
+              "type" : "text"
+            },
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 374,
+            "ListFormat_StateParameters" : [ ],
+            "Margin" : "5",
+            "MultiSelect" : false,
+            "ResponsiveLayout" : false,
+            "RowHeight" : 34,
+            "SelectAllLabel" : "[[selectAll]]",
+            "SelectedLabel" : "[[selected]]",
+            "ShowDataLoading" : true,
+            "ShowListFilter" : false,
+            "TabSequence" : 0,
+            "Top" : 32.19999694824219,
+            "Type" : "ptcsdropdown",
+            "UseTheme" : true,
+            "ValueField" : "Value",
+            "Visible" : true,
+            "Width" : 200,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "DropDown"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Alignment" : "left",
+            "AllLabel" : "[[all]]",
+            "Area" : "UI",
+            "AutoSelectFirstRow" : true,
+            "ClearSelectedItemsLabel" : "[[clearSelectedItems]]",
+            "ClearSelectionItem" : true,
+            "ClearSelectionLabel" : "(None)",
+            "Disabled" : false,
+            "DisplayField" : "Item",
+            "DisplayFieldBaseType" : "STRING",
+            "DisplayName" : "ptcs-dropdown-32",
+            "FilterHintText" : "Filter",
+            "HintText" : "Select...",
+            "Id" : "ptcsdropdown-32",
+            "ItemMeta" : {
+              "type" : "text"
+            },
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 614,
+            "ListFormat_StateParameters" : [ ],
+            "Margin" : "5",
+            "MultiSelect" : false,
+            "ResponsiveLayout" : false,
+            "RowHeight" : 34,
+            "SelectAllLabel" : "[[selectAll]]",
+            "SelectedLabel" : "[[selected]]",
+            "ShowDataLoading" : true,
+            "ShowListFilter" : false,
+            "TabSequence" : 0,
+            "Top" : 17.199996948242188,
+            "Type" : "ptcsdropdown",
+            "UseTheme" : true,
+            "ValueField" : "Value",
+            "Visible" : true,
+            "Width" : 160,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "DropDown"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "ButtonType" : "primary",
+            "ContextID" : "",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-button-36",
+            "Id" : "ptcsbutton-36",
+            "Label" : "月次集計",
+            "LabelAlignment" : "center",
+            "LastContainer" : false,
+            "Left" : 569,
+            "Margin" : "5",
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "Top" : 27.199996948242188,
+            "Type" : "ptcsbutton",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Button"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Counter" : false,
+            "Disabled" : false,
+            "DisplayName" : "ptcs-textfield-35",
+            "Id" : "ptcstextfield-35",
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 664,
+            "Margin" : "5",
+            "MaxNumberOfCharacters" : 100,
+            "Password" : false,
+            "ReadOnly" : false,
+            "ResponsiveLayout" : false,
+            "ShowClearText" : true,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "TextAlignment" : "left",
+            "Top" : 27.199996948242188,
+            "Type" : "ptcstextfield",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Width" : 160,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Text Field"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-28",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-28",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "ChartType" : "column",
+            "DataField1" : "不良項目A",
+            "DataField2" : "不良項目B",
+            "DataField3" : "不良項目C",
+            "DataField4" : "不良項目D",
+            "DataSeriesStyle10_StateParameters" : [ ],
+            "DataSeriesStyle11_StateParameters" : [ ],
+            "DataSeriesStyle12_StateParameters" : [ ],
+            "DataSeriesStyle13_StateParameters" : [ ],
+            "DataSeriesStyle14_StateParameters" : [ ],
+            "DataSeriesStyle15_StateParameters" : [ ],
+            "DataSeriesStyle16_StateParameters" : [ ],
+            "DataSeriesStyle17_StateParameters" : [ ],
+            "DataSeriesStyle18_StateParameters" : [ ],
+            "DataSeriesStyle19_StateParameters" : [ ],
+            "DataSeriesStyle1_StateParameters" : [ ],
+            "DataSeriesStyle20_StateParameters" : [ ],
+            "DataSeriesStyle21_StateParameters" : [ ],
+            "DataSeriesStyle22_StateParameters" : [ ],
+            "DataSeriesStyle23_StateParameters" : [ ],
+            "DataSeriesStyle24_StateParameters" : [ ],
+            "DataSeriesStyle2_StateParameters" : [ ],
+            "DataSeriesStyle3_StateParameters" : [ ],
+            "DataSeriesStyle4_StateParameters" : [ ],
+            "DataSeriesStyle5_StateParameters" : [ ],
+            "DataSeriesStyle6_StateParameters" : [ ],
+            "DataSeriesStyle7_StateParameters" : [ ],
+            "DataSeriesStyle8_StateParameters" : [ ],
+            "DataSeriesStyle9_StateParameters" : [ ],
+            "DataSeriesStyle_StateParameters" : [ ],
+            "DirectSelectionZoom" : "none",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-chartbar-26",
+            "DragSelectionZoom" : "none",
+            "ExternalPadding" : 25,
+            "GroupPadding" : 25,
+            "Height" : 476,
+            "HideLegend" : true,
+            "HideNotes" : true,
+            "HideValues" : true,
+            "HideXAxis" : false,
+            "HideYAxis" : false,
+            "HorizontalAxisMaxHeight" : 85,
+            "HorizontalEndZoomLabel" : "",
+            "HorizontalIntervalAnchorPoint" : "start",
+            "HorizontalIntervalAnchorPointLabel" : "",
+            "HorizontalIntervalControl" : "none",
+            "HorizontalIntervalControlLabel" : "",
+            "HorizontalRangeZoom" : false,
+            "HorizontalSliderZoom" : false,
+            "HorizontalSliderZoomMaxLabel" : "",
+            "HorizontalSliderZoomMinLabel" : "",
+            "HorizontalStartZoomLabel" : "",
+            "HorizontalZoom" : false,
+            "Id" : "ptcschartbar-26",
+            "InternalPadding" : 25,
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LabelPosition" : "top",
+            "LabelReset" : "Reset",
+            "LabelType" : "sub-header",
+            "LastContainer" : false,
+            "Left" : 99,
+            "LegendAlignment" : "center",
+            "LegendFilter" : true,
+            "LegendMarkerShapes" : "square",
+            "LegendMaxWidth" : 200,
+            "LegendPosition" : "bottom",
+            "MultipleDataSources" : false,
+            "Notes" : "",
+            "NotesAlignment" : "left",
+            "NotesPosition" : "bottom",
+            "ResponsiveLayout" : true,
+            "ReverseSecondYAxis" : false,
+            "ReverseXAxis" : false,
+            "ReverseYAxis" : false,
+            "RulersInFront" : false,
+            "SecondYAxis" : false,
+            "SecondYAxisFormat" : "0000.0",
+            "SecondYAxisLabel" : "Secondary Y-axis",
+            "SecondYAxisLabelAlignment" : "center",
+            "SecondYAxisSeriesDisplay" : "grouped",
+            "SeriesDisplay" : "auto",
+            "ShowDataLoading" : true,
+            "ShowHorizontalAnchorPointControl" : false,
+            "ShowXAxisRuler" : false,
+            "ShowYAxisRuler" : false,
+            "ShowZeroValueRuler" : false,
+            "SparkView" : false,
+            "StringEnd" : "[[endRange]]",
+            "StringStart" : "[[startRange]]",
+            "TabSequence" : 0,
+            "Top" : 102.19999694824219,
+            "Type" : "ptcschartbar",
+            "UseSampleDataInRuntime" : false,
+            "UseSecondYAxis1" : false,
+            "UseSecondYAxis10" : false,
+            "UseSecondYAxis11" : false,
+            "UseSecondYAxis12" : false,
+            "UseSecondYAxis13" : false,
+            "UseSecondYAxis14" : false,
+            "UseSecondYAxis15" : false,
+            "UseSecondYAxis16" : false,
+            "UseSecondYAxis17" : false,
+            "UseSecondYAxis18" : false,
+            "UseSecondYAxis19" : false,
+            "UseSecondYAxis2" : false,
+            "UseSecondYAxis20" : false,
+            "UseSecondYAxis21" : false,
+            "UseSecondYAxis22" : false,
+            "UseSecondYAxis23" : false,
+            "UseSecondYAxis24" : false,
+            "UseSecondYAxis3" : false,
+            "UseSecondYAxis4" : false,
+            "UseSecondYAxis5" : false,
+            "UseSecondYAxis6" : false,
+            "UseSecondYAxis7" : false,
+            "UseSecondYAxis8" : false,
+            "UseSecondYAxis9" : false,
+            "UseTheme" : true,
+            "ValuesAlignment" : "end",
+            "ValuesPosition" : "outside",
+            "VerticalAxisMaxWidth" : 85,
+            "VerticalSliderZoom" : false,
+            "VerticalSliderZoomMaxLabel" : "",
+            "VerticalSliderZoomMinLabel" : "",
+            "VerticalZoom" : false,
+            "Visible" : true,
+            "Width" : 471,
+            "XAxisField" : "DateStr",
+            "XAxisLabel" : "",
+            "XAxisLabelAlignment" : "center",
+            "YAxisFormat" : "0000",
+            "YAxisLabel" : "",
+            "YAxisLabelAlignment" : "center",
+            "YAxisRulerAlignment" : "primary",
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Bar Chart"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-38",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-38",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "53px",
+          "flex-max-width" : "",
+          "flex-min-height" : "53px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-39",
+            "Id" : "ptcscheckbox-39",
+            "Label" : "不良項目A",
+            "LastContainer" : false,
+            "Left" : 89,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 22.199996948242188,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-40",
+            "Id" : "ptcscheckbox-40",
+            "Label" : "不良項目B",
+            "LastContainer" : false,
+            "Left" : 89,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 22.199996948242188,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-41",
+            "Id" : "ptcscheckbox-41",
+            "Label" : "不良項目C",
+            "LastContainer" : false,
+            "Left" : 89,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 22.199996948242188,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-checkbox-42",
+            "Id" : "ptcscheckbox-42",
+            "Label" : "不良項目D",
+            "LastContainer" : false,
+            "Left" : 89,
+            "Margin" : "5",
+            "PartialState" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "State" : false,
+            "TabSequence" : 0,
+            "Top" : 22.199996948242188,
+            "Type" : "ptcscheckbox",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Checkbox"
+          },
+          "Widgets" : [ ]
+        } ]
+      } ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "ClickOutsideToClose" : false,
+        "CloseButton" : true,
+        "DisplayName" : "NaviParetoChart",
+        "Id" : "navigationfunction-27",
+        "LastContainer" : false,
+        "Left" : null,
+        "MashupParameters" : [ ],
+        "MissingMashupMessage" : "",
+        "PopupHeight" : "600",
+        "PopupScrollbar" : "auto",
+        "PopupTitle" : "パレットチャート",
+        "PopupWidth" : "900",
+        "ReloadOnReplace" : false,
+        "ResponsiveLayout" : false,
+        "ShowDataLoading" : true,
+        "TargetMashup" : "ParetoChart",
+        "TargetWindow" : "new",
+        "TargetWindowType" : "popup",
+        "Text" : "tw.navigationfunction-ide.properties.text.default-value",
+        "Top" : null,
+        "Type" : "navigationfunction",
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "navigationfunction",
+        "_currentParameterDefs" : [ ]
+      },
+      "Widgets" : [ ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "ClickOutsideToClose" : false,
+        "CloseButton" : true,
+        "DisplayName" : "NaviMonthlyDetail",
+        "Id" : "navigationfunction-37",
+        "LastContainer" : false,
+        "Left" : null,
+        "MashupParameters" : [ {
+          "BaseType" : "BOOLEAN",
+          "Description" : "",
+          "ParameterName" : "BadItemA",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "isMandatory" : "false"
+            },
+            "baseType" : "BOOLEAN",
+            "description" : "",
+            "name" : "BadItemA",
+            "ordinal" : 0
+          }
+        }, {
+          "BaseType" : "BOOLEAN",
+          "Description" : "",
+          "ParameterName" : "BadItemC",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "isMandatory" : "false"
+            },
+            "baseType" : "BOOLEAN",
+            "description" : "",
+            "name" : "BadItemC",
+            "ordinal" : 0
+          }
+        }, {
+          "BaseType" : "BOOLEAN",
+          "Description" : "",
+          "ParameterName" : "BadItemB",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "isMandatory" : "false"
+            },
+            "baseType" : "BOOLEAN",
+            "description" : "",
+            "name" : "BadItemB",
+            "ordinal" : 0
+          }
+        }, {
+          "BaseType" : "BOOLEAN",
+          "Description" : "",
+          "ParameterName" : "BadItemD",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "isMandatory" : "false"
+            },
+            "baseType" : "BOOLEAN",
+            "description" : "",
+            "name" : "BadItemD",
+            "ordinal" : 0
+          }
+        }, {
+          "BaseType" : "STRING",
+          "Description" : "",
+          "ParameterName" : "TypeStr",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "isMandatory" : "false"
+            },
+            "baseType" : "STRING",
+            "description" : "",
+            "name" : "TypeStr",
+            "ordinal" : 0
+          }
+        }, {
+          "BaseType" : "STRING",
+          "Description" : "",
+          "ParameterName" : "YYYYMM",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "isMandatory" : "false"
+            },
+            "baseType" : "STRING",
+            "description" : "",
+            "name" : "YYYYMM",
+            "ordinal" : 0
+          }
+        } ],
+        "MissingMashupMessage" : "",
+        "PopupHeight" : 0,
+        "PopupScrollbar" : "auto",
+        "PopupTitle" : "",
+        "PopupWidth" : 0,
+        "ReloadOnReplace" : false,
+        "ResponsiveLayout" : false,
+        "ShowDataLoading" : true,
+        "TargetMashup" : "MMAD.MonthlyDetail.Mash",
+        "TargetWindow" : "new",
+        "TargetWindowType" : "popup",
+        "Text" : "tw.navigationfunction-ide.properties.text.default-value",
+        "Top" : null,
+        "Type" : "navigationfunction",
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "navigationfunction",
+        "_currentParameterDefs" : [ {
+          "BaseType" : "BOOLEAN",
+          "DefaultValue" : false,
+          "Description" : "",
+          "ParameterName" : "BadItemA",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        }, {
+          "BaseType" : "BOOLEAN",
+          "DefaultValue" : false,
+          "Description" : "",
+          "ParameterName" : "BadItemB",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        }, {
+          "BaseType" : "BOOLEAN",
+          "DefaultValue" : false,
+          "Description" : "",
+          "ParameterName" : "BadItemC",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        }, {
+          "BaseType" : "BOOLEAN",
+          "DefaultValue" : false,
+          "Description" : "",
+          "ParameterName" : "BadItemD",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        }, {
+          "BaseType" : "STRING",
+          "Description" : "",
+          "ParameterName" : "TypeStr",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        }, {
+          "BaseType" : "STRING",
+          "Description" : "",
+          "ParameterName" : "YYYYMM",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        } ]
+      },
+      "Widgets" : [ ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-11-24T08:30:59.691Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T08:35:53.054Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T11:25:02.943Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T11:52:22.049Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:03:00.146Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:09:28.710Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:17:18.778Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:24:19.648Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:39:21.938Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:40:52.170Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:41:40.826Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:44:16.232Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:45:23.665Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:48:32.580Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-24T12:55:27.002Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T05:36:41.463Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T05:42:11.938Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-25T10:43:14.206Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T00:14:44.115Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T00:15:34.195Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T00:16:44.034Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T05:14:22.613Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T05:35:59.882Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T05:49:27.141Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T05:50:15.872Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T05:51:20.658Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T06:19:51.386Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-11-26T06:30:06.033Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups><ScriptFunctionLibraries/><Projects><Project artifactId="" aspect.projectType="Component" dependsOn="{&quot;extensions&quot;:&quot;&quot;,&quot;projects&quot;:&quot;PTC.Demo:1.0.0,BOM:1.0.0&quot;}" description="" documentationContent="" groupId="" homeMashup="" lastModifiedDate="2021-11-24T08:31:00.145Z" minPlatformVersion="" name="NSN.MMAD" packageVersion="1.0.0" projectName="NSN.MMAD" publishResult="" state="DRAFT" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2021-11-24T08:29:53.774Z" user="Administrator"/></ConfigurationChanges></Project></Projects><Users/><DirectoryServices/><Widgets/><MediaEntities/><Groups/><PersistenceProviders/><ModelTags/><LocalizationTables/><Dashboards/><StyleThemes/><DataShapes><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-11-26T05:39:21.099Z" name="MMAD.BadItem.DS" projectName="NSN.MMAD" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="DateStr" ordinal="1"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2021-11-26T05:38:55.002Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : 不良項目A : deleted, 不良項目B : deleted, 不良項目C : deleted, 不良項目D : deleted&#10;" timestamp="2021-11-26T05:39:11.746Z" user="Administrator"/></ConfigurationChanges></DataShape><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-11-26T05:12:29.273Z" name="MMAD.HeaderInfo.DS" projectName="NSN.MMAD" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.defaultValue="true" aspect.isPrimaryKey="false" baseType="BOOLEAN" description="" name="BadItemA" ordinal="5"/><FieldDefinition aspect.defaultValue="true" aspect.isPrimaryKey="false" baseType="BOOLEAN" description="" name="BadItemB" ordinal="6"/><FieldDefinition aspect.defaultValue="true" aspect.isPrimaryKey="false" baseType="BOOLEAN" description="" name="BadItemC" ordinal="7"/><FieldDefinition aspect.defaultValue="true" aspect.isPrimaryKey="false" baseType="BOOLEAN" description="" name="BadItemD" ordinal="8"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="MonthlyCount" ordinal="4"/><FieldDefinition aspect.dataShape="MMAD.SelectItem.DS" aspect.isPrimaryKey="false" baseType="INFOTABLE" description="" name="SublineList" ordinal="2"/><FieldDefinition aspect.dataShape="MMAD.SelectItem.DS" aspect.isPrimaryKey="false" baseType="INFOTABLE" description="" name="TypeList" ordinal="3"/><FieldDefinition aspect.dataShape="MMAD.SelectItem.DS" aspect.isPrimaryKey="false" baseType="INFOTABLE" description="" name="YearMonthList" ordinal="1"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2021-11-24T12:29:35.965Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : DateStrCopy : added, 不良項目ACopy : added, 不良項目BCopy : added, 不良項目CCopy : added, 不良項目DCopy : added, DateStr : deleted, 不良項目A : deleted, 不良項目B : deleted, 不良項目C : deleted, 不良項目D : deleted, DateStrCopy : deleted, 不良項目ACopy : deleted, 不良項目BCopy : deleted, 不良項目CCopy : deleted, 不良項目DCopy : deleted, YearMonthList : added, SublineList : added, TypeList : added, MonthlyCount : added&#10;" timestamp="2021-11-24T12:32:55.633Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : BadItemA : added, BadItemB : added, BadItemC : added, BadItemD : added&#10;" timestamp="2021-11-26T05:12:29.273Z" user="Administrator"/></ConfigurationChanges></DataShape><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-11-24T11:28:27.150Z" name="MMAD.SelectItem.DS" projectName="NSN.MMAD" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;fields : Item : added, Value : added&#10;" timestamp="2021-11-24T11:28:27.150Z" user="Administrator"/></ConfigurationChanges></DataShape><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-11-24T11:20:54.507Z" name="MMAD.Defective.DS" projectName="NSN.MMAD" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="DateStr" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目A" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目B" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目C" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目D" ordinal="5"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-11-24T11:20:54.507Z" user="Administrator"/></ConfigurationChanges></DataShape></DataShapes><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-11-26T05:47:42.903Z" name="MMAD.MainService.TH" projectName="NSN.MMAD" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="BadItem" ordinal="4"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.Defective.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="DefectiveList" ordinal="7"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="TypeList" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBadItemList"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="BOOLEAN" description="" name="BadItemA" ordinal="2"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemB" ordinal="3"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemC" ordinal="4"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemD" ordinal="5"/><FieldDefinition baseType="STRING" description="" name="YYYYMM" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDefectiveList"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="BOOLEAN" description="" name="BadItemA" ordinal="2"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemB" ordinal="3"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemC" ordinal="4"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemD" ordinal="5"/><FieldDefinition baseType="STRING" description="" name="YYYYMM" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetHeaderInfo"><ResultType aspect.dataShape="MMAD.HeaderInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSelectedRow"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSublineList"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetYearMonthList"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetBadItemList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// TODO inputs
+var defList = me.DefectiveList;
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.Defective.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadItem.DS"
+});
+
+var newField = new Object();
+newField.baseType = 'INTEGER';
+
+if (BadItemA) {
+    newField.name = "不良項目A";
+    result.AddField(newField);
+}
+if (BadItemB) {
+    newField.name = "不良項目B";
+    result.AddField(newField);
+}
+if (BadItemC) {
+    newField.name = "不良項目C";
+    result.AddField(newField);
+}
+if (BadItemD) {
+    newField.name = "不良項目D";
+    result.AddField(newField);
+}
+for each (var row in defList.rows) {
+    var obj = new Object();
+    obj.DateStr = row.DateStr;
+	if (BadItemA) obj["不良項目A"] = row["不良項目A"];
+	if (BadItemB) obj["不良項目B"] = row["不良項目B"];
+	if (BadItemC) obj["不良項目C"] = row["不良項目C"];
+	if (BadItemD) obj["不良項目D"] = row["不良項目D"];
+    result.AddRow(obj);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDefectiveList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// TODO inputs
+var result = me.DefectiveList;
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetHeaderInfo"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.HeaderInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.HeaderInfo.DS"
+});
+row = {};
+row.YearMonthList = me.GetYearMonthList();
+row.SublineList = me.GetSublineList();
+row.TypeList = me.TypeList;
+row.MonthlyCount = 20;
+row.BadItemA = true;
+row.BadItemB = true;
+row.BadItemC = true;
+row.BadItemD = true;
+result.AddRow(row);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSelectedRow"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+var now = new Date();
+var yyyymm = now.getFullYear() + "/" + (now.getMonth()+1);
+result.AddRow({"Item" : yyyymm, "Value" : yyyymm });]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSublineList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+
+result.AddRow({"Item" : "PEB", "Value" : "PEB" });
+result.AddRow({"Item" : "その他", "Value" : "その他" });]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetYearMonthList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+var now = new Date();
+var yyyy = now.getFullYear();
+var i = 1;
+while (i<13) {
+	result.AddRow({"Item" : yyyy+"/"+i, "Value" : yyyy+"/"+i });
+    i++;
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="BadItem"/><AlertDefinitions name="DefectiveList"/><AlertDefinitions name="TypeList"/></AlertConfigurations><ImplementedShapes/><ThingProperties><DefectiveList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="DateStr" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目A" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目B" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目C" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目D" ordinal="5"/></FieldDefinitions></DataShape><Rows><Row><DateStr><![CDATA[11/1]]></DateStr><不良項目A>11.0</不良項目A><不良項目B>8.0</不良項目B><不良項目C>5.0</不良項目C><不良項目D>3.0</不良項目D></Row><Row><DateStr><![CDATA[11/2]]></DateStr><不良項目A>3.0</不良項目A><不良項目B>2.0</不良項目B><不良項目C>6.0</不良項目C><不良項目D>8.0</不良項目D></Row><Row><DateStr><![CDATA[11/3]]></DateStr><不良項目A>4.0</不良項目A><不良項目B>7.0</不良項目B><不良項目C>8.0</不良項目C><不良項目D>3.0</不良項目D></Row><Row><DateStr><![CDATA[11/4]]></DateStr><不良項目A>5.0</不良項目A><不良項目B>7.0</不良項目B><不良項目C>8.0</不良項目C><不良項目D>4.0</不良項目D></Row><Row><DateStr><![CDATA[11/5]]></DateStr><不良項目A>6.0</不良項目A><不良項目B>8.0</不良項目B><不良項目C>4.0</不良項目C><不良項目D>9.0</不良項目D></Row><Row><DateStr><![CDATA[11/6]]></DateStr><不良項目A>5.0</不良項目A><不良項目B>4.0</不良項目B><不良項目C>7.0</不良項目C><不良項目D>4.0</不良項目D></Row><Row><DateStr><![CDATA[11/7]]></DateStr><不良項目A>7.0</不良項目A><不良項目B>4.0</不良項目B><不良項目C>7.0</不良項目C><不良項目D>5.0</不良項目D></Row></Rows></infoTable></Value><Timestamp>2021-11-24T11:23:21.050Z</Timestamp><Quality>GOOD</Quality></DefectiveList><BadItem><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[不良項目A]]></Item><Value><![CDATA[不良項目A]]></Value></Row><Row><Item><![CDATA[不良項目B]]></Item><Value><![CDATA[不良項目B]]></Value></Row><Row><Item><![CDATA[不良項目C]]></Item><Value><![CDATA[不良項目C]]></Value></Row><Row><Item><![CDATA[不良項目D]]></Item><Value><![CDATA[不良項目D]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-11-25T05:49:20.928Z</Timestamp><Quality>GOOD</Quality></BadItem><TypeList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[不良件数]]></Item><Value><![CDATA[不良件数]]></Value></Row><Row><Item><![CDATA[廃棄数]]></Item><Value><![CDATA[廃棄数]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-11-24T12:20:55.809Z</Timestamp><Quality>GOOD</Quality></TypeList></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-11-24T08:38:54.984Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : changePage : service deleted&#10;getBread : service deleted&#10;GetParetList : service deleted&#10;GetDefectiveList : service added&#10;" timestamp="2021-11-24T11:19:56.671Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : Info_Breadcrumb : removed, Info_BreadcrumbCopy : removed, InfoTable_Property : removed, InfoTable_PropertyCopy : removed, InfoTable_PropertyCopy1 : removed, DefectiveList : updated&#10;" timestamp="2021-11-24T11:21:31.878Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service added&#10;" timestamp="2021-11-24T11:32:45.362Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;" timestamp="2021-11-24T11:33:08.148Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;" timestamp="2021-11-24T11:33:39.373Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;" timestamp="2021-11-24T11:34:30.615Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;GetSelectedRow : service added&#10;" timestamp="2021-11-24T12:08:05.963Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : output updated&#10;" timestamp="2021-11-24T12:08:27.289Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : service updated&#10;" timestamp="2021-11-24T12:12:11.815Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : service updated&#10;" timestamp="2021-11-24T12:12:30.081Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : service updated&#10;GetSublineList : service added&#10;" timestamp="2021-11-24T12:14:57.696Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : TypeList : added&#10;" timestamp="2021-11-24T12:20:11.471Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service added&#10;" timestamp="2021-11-24T12:27:58.114Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : output updated&#10;" timestamp="2021-11-24T12:36:41.326Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service updated&#10;" timestamp="2021-11-24T12:42:54.251Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : BadItem : added, BadItem : updated&#10;" timestamp="2021-11-25T05:48:15.363Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service updated&#10;" timestamp="2021-11-26T05:18:08.025Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service updated&#10;GetDefectiveList : input parameter BadItemA added, inputs updated, input parameter BadItemB added, inputs updated, input parameter BadItemC added, inputs updated, input parameter BadItemD added, inputs updated&#10;" timestamp="2021-11-26T05:20:50.199Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;" timestamp="2021-11-26T05:21:13.409Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;" timestamp="2021-11-26T05:34:25.252Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;GetBadItemList : service added&#10;" timestamp="2021-11-26T05:38:10.345Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2021-11-26T05:43:07.048Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2021-11-26T05:43:35.891Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;" timestamp="2021-11-26T05:47:42.898Z" user="Administrator"/></ConfigurationChanges></Thing></Things><Logs/><Authenticators/><ThingPackages/><NotificationDefinitions/><ApplicationKeys/><StateDefinitions/><ThingTemplates/><ExtensionPackages/><Organizations/><Menus/><ThingGroups/><Resources/><DataTags/><ThingShapes/><Subsystems/><NotificationContents/></Entities>
