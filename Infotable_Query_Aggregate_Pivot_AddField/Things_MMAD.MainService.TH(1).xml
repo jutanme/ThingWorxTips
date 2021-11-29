@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2021-11-29T13:23:27.531Z" name="MMAD.MainService.TH" projectName="NSN.MMAD" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="BadItem" ordinal="4"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="{&quot;外観不良&quot;:0,&quot;外観不良3&quot;:0,&quot;外観不良1&quot;:0,&quot;外観不良2&quot;:0}" aspect.isPersistent="true" baseType="JSON" category="" description="" isLocalOnly="false" name="DefectiveInfo" ordinal="6"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.Defective.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="DefectiveList" ordinal="7"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="TypeList" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBadItemList"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="BOOLEAN" description="" name="BadItemA" ordinal="2"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemB" ordinal="3"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemC" ordinal="4"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemD" ordinal="5"/><FieldDefinition baseType="STRING" description="" name="YYYYMM" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBatItemList"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadItemA" ordinal="4"/><FieldDefinition baseType="STRING" description="" name="BadItemB" ordinal="5"/><FieldDefinition baseType="STRING" description="" name="BadItemC" ordinal="6"/><FieldDefinition baseType="STRING" description="" name="BadItemD" ordinal="7"/><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="3"/><FieldDefinition baseType="STRING" description="" name="SubLine" ordinal="2"/><FieldDefinition baseType="STRING" description="" name="YYYYMM" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDefectiveList"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="BOOLEAN" description="" name="BadItemA" ordinal="2"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemB" ordinal="3"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemC" ordinal="4"/><FieldDefinition baseType="BOOLEAN" description="" name="BadItemD" ordinal="5"/><FieldDefinition baseType="STRING" description="" name="YYYYMM" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetHeaderInfo"><ResultType aspect.dataShape="MMAD.HeaderInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSelectedRow"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSublineList"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetYearMonthList"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="InsertBadItemFromCSV"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="filepath" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetBadItemList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// TODO inputs
+var defList = me.DefectiveList;
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.Defective.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadItem.DS"
+});
+
+var newField = new Object();
+newField.baseType = 'INTEGER';
+
+if (BadItemA) {
+    newField.name = "不良項目A";
+    result.AddField(newField);
+}
+if (BadItemB) {
+    newField.name = "不良項目B";
+    result.AddField(newField);
+}
+if (BadItemC) {
+    newField.name = "不良項目C";
+    result.AddField(newField);
+}
+if (BadItemD) {
+    newField.name = "不良項目D";
+    result.AddField(newField);
+}
+for each (var row in defList.rows) {
+    var obj = new Object();
+    obj.DateStr = row.DateStr;
+	if (BadItemA) obj["不良項目A"] = row["不良項目A"];
+	if (BadItemB) obj["不良項目B"] = row["不良項目B"];
+	if (BadItemC) obj["不良項目C"] = row["不良項目C"];
+	if (BadItemD) obj["不良項目D"] = row["不良項目D"];
+    result.AddRow(obj);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBatItemList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start, end;
+if (YYYYMM) {
+    var yyyy = YYYYMM.substr(0,4), mm = parseInt(YYYYMM.slice(-2))-1;
+    start = new Date(yyyy, mm);
+    end = new Date(yyyy, (mm+1));
+    end.setTime(end.getTime() -1);
+} else {
+    var now = new Date();
+    start = new Date(now.getFullYear(), now.getMonth());
+    end = new Date(now.getFullYear(), (now.getMonth()+1));
+    end.setTime(end.getTime() -1);
+}
+logger.trace("GetBatItemList start: " + start + " end: " + end);
+var query = {
+	"filters": {
+		"type": "AND",
+	    "filters": [ 
+			{
+				"type": "OR",
+				"filters": [
+				]
+			},
+			{ "fieldName": "Process", "type": "EQ", "value": SubLine },
+		]
+	}
+};
+if (BadItemA) {
+	query.filters.filters[0].filters.push({ "fieldName": "DefectiveCategory", "type": "EQ", "value": "外観不良" });
+}
+if (BadItemB) {
+	query.filters.filters[0].filters.push({ "fieldName": "DefectiveCategory", "type": "EQ", "value": "外観不良1" });
+}
+if (BadItemC) {
+	query.filters.filters[0].filters.push({ "fieldName": "DefectiveCategory", "type": "EQ", "value": "外観不良2" });
+}
+if (BadItemD) {
+	query.filters.filters[0].filters.push({ "fieldName": "DefectiveCategory", "type": "EQ", "value": "外観不良3" });
+}
+logger.trace("GetBatItemList query: " + JSON.stringify(query));
+// result: INFOTABLE dataShape: ""
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamEntriesWithData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+//var defInfo = {}, mmdd;
+//for each (var row in itemList.rows) {
+//    mmdd = (row.RegistDate.getMonth()+1) + "/" + (row.RegistDate.getDate()) ;
+//    if (!defInfo[mmdd]) defInfo[mmdd] = {};
+//    if (!defInfo[mmdd]) defInfo[mmdd] = {};
+//}
+
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "YearMonthDay,DefectiveCategory"
+});
+//var result = sumItemList;
+
+//Pivot sumItemList
+var resultP = Resources["InfoTableFunctions"].Pivot({
+    t: sumItemList ,
+    nameColumn: "DefectiveCategory" ,
+    valueColumn: "SUM_Count" ,
+    timestampColumn: "YearMonthDay" 
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemView.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadItemView.DS"
+});
+// Add Field
+var table_json = Resources["InfoTableFunctions"].ToJSON({table: resultP});
+for(var key in table_json.dataShape.fieldDefinitions) {
+	if (key !== "DateStr") result.AddField(table_json.dataShape.fieldDefinitions[key]);
+}
+// set result
+for each(var row in resultP.rows) {
+    var obj = new Object();
+    obj.DateStr = (row["timestamp"].getMonth()+1) + "/" + row["timestamp"].getDate();
+    for(var key in table_json.dataShape.fieldDefinitions) {
+		if (key !== "DateStr") obj[key] = row[key];  
+	}
+//    if (row["外観不良"]) obj["外観不良"] = row["外観不良"];
+//    if (row["外観不良1"]) obj["外観不良1"] = row["外観不良1"];
+//    if (row["外観不良2"]) obj["外観不良2"] = row["外観不良2"];
+//    if (row["外観不良3"]) obj["外観不良3"] = row["外観不良3"];
+    result.AddRow(obj);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDefectiveList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// TODO inputs
+var result = me.DefectiveList;
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetHeaderInfo"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.HeaderInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.HeaderInfo.DS"
+});
+row = {};
+row.YearMonthList = me.GetYearMonthList();
+row.SublineList = me.GetSublineList();
+row.TypeList = me.TypeList;
+row.MonthlyCount = 20;
+row.BadItemA = true;
+row.BadItemB = true;
+row.BadItemC = true;
+row.BadItemD = true;
+result.AddRow(row);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSelectedRow"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+var now = new Date();
+var yyyymm = now.getFullYear() + "/" + (now.getMonth()+1);
+result.AddRow({"Item" : yyyymm, "Value" : yyyymm });]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSublineList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+
+result.AddRow({"Item" : "PEB", "Value" : "PEB" });
+result.AddRow({"Item" : "その他", "Value" : "その他" });]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetYearMonthList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+var now = new Date();
+var yyyy = now.getFullYear();
+var i = 1;
+while (i<13) {
+    var yyyymm = yyyy+"/"+("0"+i).slice(-2);
+	result.AddRow({"Item" : yyyymm, "Value" : yyyymm });
+    i++;
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="InsertBadItemFromCSV"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var sdf = "yyyyMMddHHmmss";
+var result = "";
+
+try {
+    var paramsCSV = {
+        path: filepath /* STRING */,
+        columnMappings: "SerialNo;RegistDate;Process;Registrant;DefectiveCategory;DefectiveDrawing;DetailsLocationNo;DefectiveType;ImageFileName;TerminalNumber;ItemNameCheck;OPNumberCheck;Layer" /* STRING */,
+        hasHeader: true /* BOOLEAN */,
+        longitudeField: undefined /* NUMBER */,
+        dateFormat: undefined /* STRING */,
+        fileRepository: "MMAD.BadItem.Repo" /* THINGNAME */,
+        latitudeField: undefined /* NUMBER */,
+        fieldDelimiter: "," /* STRING */,
+        stringDelimiter: undefined /* STRING */,
+        content: "SA Data Input\n" /* STRING */,
+        dataShape: "MMAD.BadItem.DS" /* DATASHAPENAME */
+    };
+
+    // result: INFOTABLE
+    var dataList = Resources["CSVParserFunctions"].ReadCSVFile(paramsCSV);
+    logger.trace("InsertBadItemFromCSV: "+dataList.ToJSON());
+    // create a new InfoTable based on AddStreamEntries parameters (timestamp, location, source, sourceType, tags, values)
+    var myInfoTable = { dataShape: { fieldDefinitions : {} }, rows: [] };
+    myInfoTable.dataShape.fieldDefinitions['timestamp']  = { name: 'timestamp', baseType: 'DATETIME' };
+    myInfoTable.dataShape.fieldDefinitions['location']  = { name: 'location', baseType: 'LOCATION' };
+    myInfoTable.dataShape.fieldDefinitions['source']    = { name: 'source', baseType: 'STRING' };
+    myInfoTable.dataShape.fieldDefinitions['sourceType'] = { name: 'sourceType', baseType: 'STRING' };
+    myInfoTable.dataShape.fieldDefinitions['tags']      = { name: 'tags', baseType: 'TAGS' };
+    myInfoTable.dataShape.fieldDefinitions['values']    = { name: 'values', baseType: 'INFOTABLE' };
+
+    // create new meta data
+    var row, cnt=0, tags = new Array(), location = new Object();
+    location.latitude = 0;
+    location.longitude = 0;
+    location.elevation = 0;
+    location.units = "WGS84";
+
+    // add rows to Stream
+    for (var idx=0; idx<dataList.length; idx++) {
+        row = dataList[idx];
+        var values = Things["MMAD.BadItem.ST"].CreateValues();
+        values.SerialNo=row.SerialNo;
+        values.RegistDate = row.RegistDate;
+        values.Process=row.Process;
+        values.Registrant=row.Registrant;
+        values.DefectiveCategory=row.DefectiveCategory;
+        values.DefectiveDrawing=row.DefectiveDrawing;
+        values.DetailsLocationNo=row.DetailsLocationNo;
+        values.DefectiveType=row.DefectiveType;
+        values.ImageFileName=row.ImageFileName;
+        values.TerminalNumber=row.TerminalNumber;
+        values.ItemNameCheck=row.ItemNameCheck == "TRUE" ? true : false;
+        values.OPNumberCheck=row.OPNumberCheck == "TRUE" ? true : false;
+        values.Layer=row.Layer;      
+        values.DateStr=row.RegistDate.substr(4,2)+"/"+row.RegistDate.substr(6,2);
+        values.YearMonthDay=new Date (row.RegistDate.substr(0,4),(parseInt(row.RegistDate.substr(4,2),10)-1),row.RegistDate.substr(6,2));
+        values.Count=1;
+
+        var newEntry = new Object();
+        newEntry.location = location;
+        newEntry.source = row.TerminalNumber;
+        newEntry.tags = tags;
+        newEntry.timestamp = parseDate(row.RegistDate, sdf);
+        newEntry.values = values;
+
+        // add new Info Table row to Info Table
+        myInfoTable.rows[cnt] = newEntry;
+        cnt++;
+    }
+	//logger.trace("InsertBadItemFromCSV: "+JSON.stringify(myInfoTable));
+    // add stream entries in the InfoTable
+    var params = {
+        values: myInfoTable /* INFOTABLE */
+    };
+    // no return
+    Things["MMAD.BadItem.ST"].AddStreamEntries(params);
+    result = cnt + "件登録しました";
+} catch(err) {
+    result = "Error: " + err;
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="BadItem"/><AlertDefinitions name="DefectiveInfo"/><AlertDefinitions name="DefectiveList"/><AlertDefinitions name="TypeList"/></AlertConfigurations><ImplementedShapes/><ThingProperties><DefectiveList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="DateStr" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目A" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目B" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目C" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" description="" name="不良項目D" ordinal="5"/></FieldDefinitions></DataShape><Rows><Row><DateStr><![CDATA[11/1]]></DateStr><不良項目A>11.0</不良項目A><不良項目B>8.0</不良項目B><不良項目C>5.0</不良項目C><不良項目D>3.0</不良項目D></Row><Row><DateStr><![CDATA[11/2]]></DateStr><不良項目A>3.0</不良項目A><不良項目B>2.0</不良項目B><不良項目C>6.0</不良項目C><不良項目D>8.0</不良項目D></Row><Row><DateStr><![CDATA[11/3]]></DateStr><不良項目A>4.0</不良項目A><不良項目B>7.0</不良項目B><不良項目C>8.0</不良項目C><不良項目D>3.0</不良項目D></Row><Row><DateStr><![CDATA[11/4]]></DateStr><不良項目A>5.0</不良項目A><不良項目B>7.0</不良項目B><不良項目C>8.0</不良項目C><不良項目D>4.0</不良項目D></Row><Row><DateStr><![CDATA[11/5]]></DateStr><不良項目A>6.0</不良項目A><不良項目B>8.0</不良項目B><不良項目C>4.0</不良項目C><不良項目D>9.0</不良項目D></Row><Row><DateStr><![CDATA[11/6]]></DateStr><不良項目A>5.0</不良項目A><不良項目B>4.0</不良項目B><不良項目C>7.0</不良項目C><不良項目D>4.0</不良項目D></Row><Row><DateStr><![CDATA[11/7]]></DateStr><不良項目A>7.0</不良項目A><不良項目B>4.0</不良項目B><不良項目C>7.0</不良項目C><不良項目D>5.0</不良項目D></Row></Rows></infoTable></Value><Timestamp>2021-11-24T11:23:21.050Z</Timestamp><Quality>GOOD</Quality></DefectiveList><BadItem><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[不良項目A]]></Item><Value><![CDATA[不良項目A]]></Value></Row><Row><Item><![CDATA[不良項目B]]></Item><Value><![CDATA[不良項目B]]></Value></Row><Row><Item><![CDATA[不良項目C]]></Item><Value><![CDATA[不良項目C]]></Value></Row><Row><Item><![CDATA[不良項目D]]></Item><Value><![CDATA[不良項目D]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-11-25T05:49:20.928Z</Timestamp><Quality>GOOD</Quality></BadItem><DefectiveInfo><Value><json><![CDATA[{"外観不良":0,"外観不良3":0,"外観不良1":0,"外観不良2":0}]]></json></Value><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></DefectiveInfo><TypeList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[不良件数]]></Item><Value><![CDATA[不良件数]]></Value></Row><Row><Item><![CDATA[廃棄数]]></Item><Value><![CDATA[廃棄数]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-11-24T12:20:55.809Z</Timestamp><Quality>GOOD</Quality></TypeList></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-11-24T08:38:54.984Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : changePage : service deleted&#10;getBread : service deleted&#10;GetParetList : service deleted&#10;GetDefectiveList : service added&#10;" timestamp="2021-11-24T11:19:56.671Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : Info_Breadcrumb : removed, Info_BreadcrumbCopy : removed, InfoTable_Property : removed, InfoTable_PropertyCopy : removed, InfoTable_PropertyCopy1 : removed, DefectiveList : updated&#10;" timestamp="2021-11-24T11:21:31.878Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service added&#10;" timestamp="2021-11-24T11:32:45.362Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;" timestamp="2021-11-24T11:33:08.148Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;" timestamp="2021-11-24T11:33:39.373Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;" timestamp="2021-11-24T11:34:30.615Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetYearMonthList : service updated&#10;GetSelectedRow : service added&#10;" timestamp="2021-11-24T12:08:05.963Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : output updated&#10;" timestamp="2021-11-24T12:08:27.289Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : service updated&#10;" timestamp="2021-11-24T12:12:11.815Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : service updated&#10;" timestamp="2021-11-24T12:12:30.081Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectedRow : service updated&#10;GetSublineList : service added&#10;" timestamp="2021-11-24T12:14:57.696Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : TypeList : added&#10;" timestamp="2021-11-24T12:20:11.471Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service added&#10;" timestamp="2021-11-24T12:27:58.114Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : output updated&#10;" timestamp="2021-11-24T12:36:41.326Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service updated&#10;" timestamp="2021-11-24T12:42:54.251Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : BadItem : added, BadItem : updated&#10;" timestamp="2021-11-25T05:48:15.363Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service updated&#10;" timestamp="2021-11-26T05:18:08.025Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetHeaderInfo : service updated&#10;GetDefectiveList : input parameter BadItemA added, inputs updated, input parameter BadItemB added, inputs updated, input parameter BadItemC added, inputs updated, input parameter BadItemD added, inputs updated&#10;" timestamp="2021-11-26T05:20:50.199Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;" timestamp="2021-11-26T05:21:13.409Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;" timestamp="2021-11-26T05:34:25.252Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;GetBadItemList : service added&#10;" timestamp="2021-11-26T05:38:10.345Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2021-11-26T05:43:07.048Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2021-11-26T05:43:35.891Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDefectiveList : service updated&#10;" timestamp="2021-11-26T05:47:42.898Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;InsertBadItemFromCSV : service added&#10;" timestamp="2021-11-29T03:53:42.477Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : output updated&#10;" timestamp="2021-11-29T03:53:57.737Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:07:19.186Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:09:10.214Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:11:42.669Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:11:52.598Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:12:11.356Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:15:46.225Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:16:52.220Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:18:11.843Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:19:21.866Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:20:07.510Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:22:24.763Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:22:42.547Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:23:35.975Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:24:14.449Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:25:03.993Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:31:32.888Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:32:08.686Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:48:45.823Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:50:51.305Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:51:28.862Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T04:52:16.596Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;GetBatItemList : service added&#10;" timestamp="2021-11-29T07:02:02.586Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T07:03:01.437Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : output updated&#10;" timestamp="2021-11-29T07:04:20.605Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : input parameter YYYYMM added, inputs updated&#10;" timestamp="2021-11-29T07:44:02.636Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T07:44:39.978Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T07:45:00.864Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T07:45:14.941Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T07:45:41.625Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T07:47:07.971Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : input parameter SubLine added, inputs updated, input parameter BadType added, inputs updated, input parameter BadItemA added, inputs updated, input parameter BadItemB added, inputs updated, input parameter BadItemC added, inputs updated, input parameter BadItemD added, inputs updated&#10;" timestamp="2021-11-29T07:52:23.911Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:36:56.037Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:37:23.680Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:38:03.843Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:38:20.432Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:40:29.523Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:40:48.588Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:41:44.264Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:43:30.688Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T08:47:08.056Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : DefectiveType : added&#10;" timestamp="2021-11-29T08:57:39.337Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : DefectiveInfo : added, DefectiveType : removed&#10;services : GetDefectiveList : service updated&#10;" timestamp="2021-11-29T09:35:42.598Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T09:40:26.967Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T09:46:29.452Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:03:14.959Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:03:42.910Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:07:41.214Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:11:00.426Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:11:54.664Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:24:51.269Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:25:29.664Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:26:40.750Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:26:54.058Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:27:05.527Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:27:30.798Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:28:06.978Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:28:32.906Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:39:18.416Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:42:48.470Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:43:16.582Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:46:07.789Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:46:25.909Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:48:45.996Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2021-11-29T10:51:22.733Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:51:36.920Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:56:27.720Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:56:50.834Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:57:08.801Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T10:57:25.266Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : output updated&#10;" timestamp="2021-11-29T11:35:14.076Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:42:32.801Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:45:48.730Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:47:16.049Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:49:22.682Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:50:59.444Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:51:28.933Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T11:52:48.786Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T13:20:25.416Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : output updated&#10;" timestamp="2021-11-29T13:20:34.908Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T13:20:56.600Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T13:22:01.886Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T13:22:37.376Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBatItemList : service updated&#10;" timestamp="2021-11-29T13:23:27.509Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
