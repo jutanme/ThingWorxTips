@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2021-12-01T11:41:46.078Z" name="MHI.Progress.Mash" projectName="PTC.Demo" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_ProgressTest.TH" : {
+      "DataName" : "Things_ProgressTest.TH",
+      "EntityName" : "ProgressTest.TH",
+      "EntityType" : "Things",
+      "Id" : "7b065b37-545f-426d-9ce0-854f4c933453",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "72e7ccdc-3f4b-4908-952c-e89928ca9c00",
+        "Name" : "GetProgress",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetProgress"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "06b85a3f-a592-49bd-b873-f00b07ad00fa",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Output",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "LabelText",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceId" : "expression-5",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcslabel-3",
+    "TargetSection" : ""
+  }, {
+    "Id" : "5fb201e2-c561-4deb-a6a7-358ead46b8ee",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "result",
+      "SourcePropertyBaseType" : "INTEGER",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "progress",
+      "TargetPropertyBaseType" : "NUMBER",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetProgress",
+    "SourceSection" : "Things_ProgressTest.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "expression-5",
+    "TargetSection" : ""
+  }, {
+    "Id" : "9b5087c3-beb0-4d77-87c4-3cc851f7c08b",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "result",
+      "SourcePropertyBaseType" : "INTEGER",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "ProgressNow",
+      "TargetPropertyBaseType" : "INTEGER",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetProgress",
+    "SourceSection" : "Things_ProgressTest.TH",
+    "TargetArea" : "Data",
+    "TargetId" : "GetProgress",
+    "TargetSection" : "Things_ProgressTest.TH"
+  }, {
+    "Id" : "d471e286-baee-4353-b722-cf31b0728d72",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "result",
+      "SourcePropertyBaseType" : "INTEGER",
+      "SourcePropertyType" : "Field",
+      "TargetProperty" : "progress",
+      "TargetPropertyBaseType" : "NUMBER",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetProgress",
+    "SourceSection" : "Things_ProgressTest.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "validator-7",
+    "TargetSection" : ""
+  }, {
+    "Id" : "9a0702c0-d65d-4a7a-82b4-df16a40839c4",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Output",
+      "SourcePropertyBaseType" : "BOOLEAN",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "AutoRefresh",
+      "TargetPropertyBaseType" : "BOOLEAN",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceId" : "validator-7",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "autorefreshfunction-4",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_ProgressTest.TH",
+    "EventHandlerService" : "GetProgress",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "fbe1ac10-5dc4-488b-8cb4-549395e72424"
+  }, {
+    "EventHandlerArea" : "UI",
+    "EventHandlerId" : "expression-5",
+    "EventHandlerService" : "Evaluate",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "GetProgress",
+    "EventTriggerSection" : "Things_ProgressTest.TH",
+    "Id" : "fd62b537-5cfb-4263-93ab-da575dafc8bb"
+  }, {
+    "EventHandlerArea" : "UI",
+    "EventHandlerId" : "autorefreshfunction-4",
+    "EventHandlerService" : "ActivateWidgetRefresh",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "0cbaf977-91b3-40be-b18a-c41f31524ef5"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_ProgressTest.TH",
+    "EventHandlerService" : "GetProgress",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Refresh",
+    "EventTriggerId" : "autorefreshfunction-4",
+    "EventTriggerSection" : "",
+    "Id" : "b3a32f5d-4bf9-4cd1-9ba8-403c9b2579ca"
+  }, {
+    "EventHandlerArea" : "UI",
+    "EventHandlerId" : "validator-7",
+    "EventHandlerService" : "Evaluate",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "GetProgress",
+    "EventTriggerSection" : "Things_ProgressTest.TH",
+    "Id" : "9bb2a4fa-44a0-497e-bf7e-256c77af8c3c"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 7,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "row",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisclosureControl" : "show-more",
+          "DisplayName" : "ptcs-label-3",
+          "Height" : 70,
+          "HorizontalAlignment" : "left",
+          "Id" : "ptcslabel-3",
+          "LabelText" : "Label",
+          "LabelType" : "label",
+          "LastContainer" : false,
+          "Left" : 214,
+          "Margin" : "5",
+          "MultiLine" : true,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "Top" : 171.60000610351562,
+          "Type" : "ptcslabel",
+          "UseTheme" : true,
+          "VerticalAlignment" : "flex-start",
+          "Visible" : true,
+          "Width" : 201,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Label",
+          "overflowShowLessTxt" : "[[showLess]]",
+          "overflowShowMoreTxt" : "[[showMore]]"
+        },
+        "Widgets" : [ ]
+      } ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "AutoRefresh" : false,
+        "DisplayName" : "CheckProgress",
+        "Id" : "autorefreshfunction-4",
+        "LastContainer" : false,
+        "Left" : null,
+        "RefreshInterval" : "1",
+        "ResponsiveLayout" : false,
+        "ShowDataLoading" : true,
+        "Top" : null,
+        "Type" : "autorefreshfunction",
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "autorefreshfunction"
+      },
+      "Widgets" : [ ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "AutoEvaluate" : false,
+        "DataChangeType" : "VALUE",
+        "DisplayName" : "ProgressExp",
+        "Expression" : "Output = progress+\"%\";",
+        "FireOnFirstValue" : false,
+        "Height" : 28,
+        "Id" : "expression-5",
+        "LastContainer" : false,
+        "Left" : null,
+        "OutputBaseType" : "STRING",
+        "ResponsiveLayout" : false,
+        "ShowDataLoading" : true,
+        "Top" : null,
+        "Type" : "expression",
+        "Visible" : true,
+        "Width" : 200,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Expression",
+        "_currentParameterDefs" : [ {
+          "BaseType" : "NUMBER",
+          "DefaultValue" : "",
+          "Description" : "",
+          "ParameterName" : "progress",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        } ]
+      },
+      "Widgets" : [ ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "AutoEvaluate" : false,
+        "DisplayName" : "ProgressVal",
+        "Expression" : "Output = progress >= 100 ? false : true;",
+        "Height" : 28,
+        "Id" : "validator-7",
+        "LastContainer" : false,
+        "Left" : null,
+        "Output" : true,
+        "ResponsiveLayout" : false,
+        "ShowDataLoading" : true,
+        "Top" : null,
+        "Type" : "validator",
+        "Visible" : true,
+        "Width" : 200,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Validator",
+        "_currentParameterDefs" : [ {
+          "BaseType" : "NUMBER",
+          "Description" : "",
+          "ParameterName" : "progress",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        } ]
+      },
+      "Widgets" : [ ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2021-12-01T09:51:24.737Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-12-01T10:29:01.379Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-12-01T10:31:19.782Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-12-01T10:32:46.114Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2021-12-01T10:33:31.163Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2021-12-01T11:41:46.078Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups></Entities>
