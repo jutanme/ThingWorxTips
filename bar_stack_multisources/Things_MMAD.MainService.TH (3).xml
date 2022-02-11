@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2022-02-06T01:23:37.275Z" name="MMAD.MainService.TH" projectName="NSN.MMAD" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="BarChartMultiData.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="BarMulti" ordinal="14"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="BarChartMultiData.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="BarMultiCopy" ordinal="15"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data1" ordinal="6"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data2" ordinal="7"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data3" ordinal="8"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data4" ordinal="9"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data5" ordinal="10"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data6" ordinal="11"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data7" ordinal="12"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data8" ordinal="13"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="MonthList" ordinal="7"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="SonotaStr" ordinal="5"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="SublineList" ordinal="5"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="MMAD.SelectItem.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="TypeList" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DelayVisible"><ResultType baseType="BOOLEAN" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="false" baseType="BOOLEAN" description="" name="Visible" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBadItemList"><ResultType aspect.dataShape="MMAD.BadItemView.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="3"/><FieldDefinition aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="CheckInfo" ordinal="5"/><FieldDefinition baseType="INTEGER" description="" name="MM" ordinal="9"/><FieldDefinition baseType="STRING" description="" name="Subline" ordinal="2"/><FieldDefinition baseType="INTEGER" description="" name="YYYY" ordinal="8"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBadTypeList"><ResultType aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="BadType" ordinal="3"/><FieldDefinition aspect.isRequired="false" baseType="INTEGER" description="" name="MM" ordinal="4"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="Subline" ordinal="2"/><FieldDefinition aspect.isRequired="false" baseType="INTEGER" description="" name="YYYY" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBadTypeListDay"><ResultType aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="BadType" ordinal="3"/><FieldDefinition aspect.dataShape="MMAD.BadItemView.DS" baseType="INFOTABLE" description="" name="DayInfo" ordinal="5"/><FieldDefinition aspect.isRequired="false" baseType="INTEGER" description="" name="MM" ordinal="4"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="Subline" ordinal="2"/><FieldDefinition aspect.isRequired="false" baseType="INTEGER" description="" name="YYYY" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBadVisible"><ResultType aspect.dataShape="MMAD.BadItemInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="BadType" ordinal="3"/><FieldDefinition aspect.isRequired="false" baseType="INTEGER" description="" name="MM" ordinal="4"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="Subline" ordinal="2"/><FieldDefinition aspect.isRequired="false" baseType="INTEGER" description="" name="YYYY" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDailyDetail"><ResultType aspect.dataShape="MMAD.ParetoInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="6"/><FieldDefinition aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="CheckInfo" ordinal="5"/><FieldDefinition aspect.dataShape="MMAD.BadItemView.DS" baseType="INFOTABLE" description="" name="DayInfo" ordinal="6"/><FieldDefinition baseType="STRING" description="" name="MM" ordinal="4"/><FieldDefinition baseType="STRING" description="" name="Subline" ordinal="4"/><FieldDefinition baseType="STRING" description="" name="YYYY" ordinal="3"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetHeaderInfo"><ResultType aspect.dataShape="MMAD.HeaderInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetMonthlyChartData"><ResultType aspect.dataShape="MMAD.ParetoInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="5"/><FieldDefinition aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="CheckInfo" ordinal="7"/><FieldDefinition baseType="INTEGER" description="" name="MM" ordinal="6"/><FieldDefinition baseType="STRING" description="" name="Subline" ordinal="4"/><FieldDefinition baseType="INTEGER" description="" name="YYYY" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetMonthlyDetail"><ResultType aspect.dataShape="MMAD.ParetoInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="5"/><FieldDefinition aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="CheckInfo" ordinal="7"/><FieldDefinition baseType="INTEGER" description="" name="MM" ordinal="6"/><FieldDefinition baseType="STRING" description="" name="Subline" ordinal="4"/><FieldDefinition baseType="INTEGER" description="" name="YYYY" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetMonthlyDetailBar"><ResultType aspect.dataShape="MMAD.ParetoInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="5"/><FieldDefinition aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="CheckInfo" ordinal="7"/><FieldDefinition baseType="INTEGER" description="" name="MM" ordinal="6"/><FieldDefinition baseType="STRING" description="" name="Subline" ordinal="4"/><FieldDefinition baseType="INTEGER" description="" name="YYYY" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetMonthlyDetailCopy"><ResultType aspect.dataShape="MMAD.ParetoInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="BadType" ordinal="5"/><FieldDefinition aspect.dataShape="MMAD.CheckBoxInfo.DS" baseType="INFOTABLE" description="" name="CheckInfo" ordinal="7"/><FieldDefinition baseType="INTEGER" description="" name="MM" ordinal="6"/><FieldDefinition baseType="STRING" description="" name="Subline" ordinal="4"/><FieldDefinition baseType="INTEGER" description="" name="YYYY" ordinal="5"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetParetoMultiData"><ResultType aspect.dataShape="ParetoMultiSource.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetYearList"><ResultType aspect.dataShape="MMAD.SelectItem.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="ImportCSVFiles"><ResultType baseType="INTEGER" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="InsertBadItemFromCSV"><ResultType baseType="INTEGER" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="filepath" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="DelayVisible"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[pause(100);
+var result = Visible;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBadItemList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start = new Date(YYYY, (MM-1));
+var end = new Date(YYYY, MM);
+end.setTime(end.getTime() -1);
+var cntCheckInfo = CheckInfo.getRowCount();
+//logger.trace("GetBadItemList Subline start end: " + Subline + start + end);
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var sublineArr = Subline.split(",");
+for (var i=0; i < sublineArr.length; i++) {
+	query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (sublineArr[i]+"*") });
+}
+// TODO add BadType
+
+//search
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+
+//Aggregate
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "YearMonthDay,DefectiveType"
+});
+
+//Pivot 
+var resultP = Resources["InfoTableFunctions"].Pivot({
+    t: sumItemList ,
+    nameColumn: "DefectiveType" ,
+    valueColumn: "SUM_Count" ,
+    timestampColumn: "YearMonthDay" 
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemView.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadItemView.DS"
+});
+
+// Add Field
+var cntSLT = 0;
+for each(var row in CheckInfo.rows) {
+	if (row.Checked) {
+        result.AddField({name : row.Title, baseType : "INTEGER", aspects : {defaultValue:0}});
+        cntSLT++;
+    }
+}
+if (cntCheckInfo !== cntSLT) result.AddField({name : me.SonotaStr, baseType : "INTEGER", aspects : {defaultValue:0}});
+
+// set result
+var dataFields = Resources["InfoTableFunctions"].ToJSON({table: resultP}).dataShape.fieldDefinitions;
+var resultFields = Resources["InfoTableFunctions"].ToJSON({table: result}).dataShape.fieldDefinitions;
+for each(var row in resultP.rows) {
+    var obj = new Object();
+    obj.DateStr = (row["timestamp"].getMonth()+1) + "月" + row["timestamp"].getDate() + "日";
+    if (cntCheckInfo !== cntSLT) obj[me.SonotaStr] = 0;
+    for(var key in dataFields) {
+		if (key !== "timestamp") {
+            if (resultFields[key] !== undefined) {
+            	obj[key] = row[key];
+        	} else {
+            	if (cntCheckInfo !== cntSLT && row[key] !== undefined) obj[me.SonotaStr] = obj[me.SonotaStr] + row[key];
+            }
+        }
+	}
+    result.AddRow(obj);
+}
+logger.trace("GetBadItemList result: " + result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBadTypeList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.CheckBoxInfo.DS) 
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.CheckBoxInfo.DS"
+});    
+
+var start = new Date(YYYY, (MM-1));
+var end = new Date(YYYY, MM);
+end.setTime(end.getTime() -1);
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var subArr = Subline.split(",");
+for (var i=0; i < subArr.length; i++) {
+    query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (subArr[i]+"*") });
+}
+// TODO add BadType
+//logger.trace("GetBadTypeList result: " + JSON.stringify(query));
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+    oldestFirst: undefined /* BOOLEAN */,
+    maxItems: undefined /* NUMBER */,
+    sourceTags: undefined /* TAGS */,
+    endDate: end /* DATETIME */,
+    query: query /* QUERY */,
+    source: undefined /* STRING */,
+    startDate: start /* DATETIME */,
+    tags: undefined /* TAGS */
+});
+
+if (itemList.getRowCount() > 0) {
+    var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+        t: itemList,
+        columns: "Count",
+        aggregates: "SUM",
+        groupByColumns: "DefectiveType"
+    });
+    
+    // set result
+    for each (var row in sumItemList.rows) {
+        var obj = new Object();
+        obj.Title = row.DefectiveType;
+        obj.Checked = true;
+        result.AddRow(obj);
+    }
+}
+//logger.trace("GetBadTypeList result: " + result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBadTypeListDay"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//logger.trace("GetBadTypeListDay DayInfo: "+DayInfo.ToJSON());
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.CheckBoxInfo.DS) 
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.CheckBoxInfo.DS"
+});   
+
+var day = parseInt((DayInfo["DateStr"]).split("月")[1].split("日")[0],10);
+var start = new Date(YYYY, (MM-1), day);
+var end = new Date(YYYY, (MM-1), day, 23, 59, 59);
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var subArr = Subline.split(",");
+for (var i=0; i < subArr.length; i++) {
+    query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (subArr[i]+"*") });
+}
+// TODO add BadType
+
+// result: INFOTABLE dataShape: ""
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+    oldestFirst: undefined /* BOOLEAN */,
+    maxItems: undefined /* NUMBER */,
+    sourceTags: undefined /* TAGS */,
+    endDate: end /* DATETIME */,
+    query: query /* QUERY */,
+    source: undefined /* STRING */,
+    startDate: start /* DATETIME */,
+    tags: undefined /* TAGS */
+});
+
+if (itemList.getRowCount() > 0) {
+    var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+        t: itemList,
+        columns: "Count",
+        aggregates: "SUM",
+        groupByColumns: "DefectiveType"
+    });
+    
+    // set result
+    for each (var row in sumItemList.rows) {
+        var obj = new Object();
+        obj.Title = row.DefectiveType;
+        obj.Checked = true;
+        result.AddRow(obj);
+    }
+}
+//logger.trace("GetBadTypeListDay result: " + result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBadVisible"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start = new Date(YYYY, (MM-1));
+var end = new Date(YYYY, MM);
+end.setTime(end.getTime() -1);
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var subArr = Subline.split(",");
+for (var i=0; i < subArr.length; i++) {
+    query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (subArr[i]+"*") });
+}
+// TODO add BadType
+
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+    oldestFirst: undefined /* BOOLEAN */,
+    maxItems: undefined /* NUMBER */,
+    sourceTags: undefined /* TAGS */,
+    endDate: end /* DATETIME */,
+    query: query /* QUERY */,
+    source: undefined /* STRING */,
+    startDate: start /* DATETIME */,
+    tags: undefined /* TAGS */
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadItemInfo.DS"
+});
+
+var total = itemList.getRowCount();
+var objr = new Object();
+objr.Total = total > 0 ? "総数　"  + total : "データがありません";
+objr.Visible = total > 0 ? true : false;
+result.AddRow(objr);
+//logger.trace("GetBadVisible result: " + result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDailyDetail"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var day = parseInt((DayInfo["DateStr"]).split("月")[1].split("日")[0],10);
+var start = new Date(YYYY, (MM-1), day);
+var end = new Date(YYYY, (MM-1), day, 23, 59, 59);
+var cntCheckInfo = CheckInfo.getRowCount();
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var sublineArr = Subline.split(",");
+for (var i=0; i < sublineArr.length; i++) {
+	query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (sublineArr[i]+"*") });
+}
+// TODO add BadType
+
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "DefectiveType"
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadType.DS)
+var dataList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+
+// Add Field
+var cntSLT = 0;
+for each(var row in CheckInfo.rows) {
+	if (row.Checked) {
+        dataList.AddField({name : row.Title, baseType : "INTEGER", aspects : {defaultValue:0}});
+        cntSLT++;
+    }
+}
+if (cntCheckInfo !== cntSLT) dataList.AddField({name : me.SonotaStr, baseType : "INTEGER", aspects : {defaultValue:0}});
+
+// set selected result 
+var resultFields = Resources["InfoTableFunctions"].ToJSON({table: dataList}).dataShape.fieldDefinitions;
+var sumSonota = 0, maxP = 0;
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    var row = sumItemList.rows[i];
+    var obj = new Object();
+    if (resultFields[row.DefectiveType] !== undefined) {    
+    	obj.DefectiveType = row.DefectiveType;
+        obj[row.DefectiveType] = row.SUM_Count;
+    	dataList.AddRow(obj);
+    } else {
+         if (cntCheckInfo !== cntSLT && row.SUM_Count !== undefined) sumSonota = sumSonota + row.SUM_Count;
+    }
+    if (row.SUM_Count > maxP) maxP = row.SUM_Count;
+}
+// set Max
+if (sumSonota > maxP) maxP = sumSonota;
+
+// set not selected dataList
+if (cntCheckInfo !== cntSLT) {
+	var objS = new Object();
+    objS.DefectiveType = me.SonotaStr;
+    objS[me.SonotaStr] = sumSonota;
+    dataList.AddRow(objS);
+}
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.ParetoInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.ParetoInfo.DS"
+});
+
+var total = itemList.getRowCount();
+var objr = new Object();
+objr.DataList = dataList;
+objr.MaxPareto = maxP;
+objr.Total = total > 0 ? "総数　"  + total : "データがありません";
+objr.Visible = total > 0 ? true : false;
+objr.DateStr = YYYY + "/" + ("0"+MM).slice(-2) + "/" + ("0"+day).slice(-2);
+result.AddRow(objr);
+//logger.trace("GetDailyDetail　result: "+result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetHeaderInfo"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.HeaderInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.HeaderInfo.DS"
+});
+row = {};
+//row.YearMonthList = me.GetYearMonthList();
+row.YearList = me.GetYearList();
+row.MonthList = me.MonthList;
+row.SublineList = me.SublineList;
+row.TypeList = me.TypeList;
+
+result.AddRow(row);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetMonthlyChartData"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start = new Date(YYYY, (MM-1), 1);
+var end = new Date(YYYY, MM, 1);
+end.setTime(end.getTime() -1);
+var cntCheckInfo = CheckInfo.getRowCount();
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var sublineArr = Subline.split(",");
+for (var i=0; i < sublineArr.length; i++) {
+	query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (sublineArr[i]+"*") });
+}
+// TODO add BadType
+
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+//logger.trace("GetDailyDatail itemList: "+SubLine+SelectedItem+itemList.ToJSON());
+
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "DefectiveType"
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemView.DS)
+var dataList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+var perList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadPercent.DS"
+});
+// Aperield
+var cntSLT = 0;
+for each(var row in CheckInfo.rows) {
+	if (row.Checked) {
+        dataList.AddField({name : row.Title, baseType : "INTEGER", aspects : {defaultValue:0}});
+        cntSLT++;
+    }
+}
+if (cntCheckInfo !== cntSLT) dataList.AddField({name : me.SonotaStr, baseType : "INTEGER", aspects : {defaultValue:0}});
+
+// set selected result 
+var resultFields = Resources["InfoTableFunctions"].ToJSON({table: dataList}).dataShape.fieldDefinitions;
+var sum = 0, sumSonota = 0, maxP = 0, percent = 0;
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    sum += sumItemList.rows[i].SUM_Count;
+}
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    var row = sumItemList.rows[i];
+    var obj = new Object();
+    if (resultFields[row.DefectiveType] !== undefined) {    
+    	obj.DefectiveType = row.DefectiveType;
+        obj[row.DefectiveType] = row.SUM_Count;
+    	list.AddRow(obj);
+        percent += (row.SUM_Count/sum)*100;
+        obj.Value = percent.toFixed(1);
+    	perList.AddRow(obj);
+    } else {
+         if (cntCheckInfo !== cntSLT && row.SUM_Count !== undefined) sumSonota = sumSonota + row.SUM_Count;
+    }
+    if (row.SUM_Count > maxP) maxP = row.SUM_Count;
+}
+// set Max
+if (sumSonota > maxP) maxP = sumSonota;
+
+// set not selected dataList
+if (cntCheckInfo !== cntSLT) {
+	var obj = new Object();
+    obj[row.DefectiveType] = me.SonotaStr;
+    obj.Value = sumSonota;
+    list.AddRow(obj);
+    percent += (sumSonota/sum)*100;
+    obj.Value = percent.toFixed(1);
+    perList.AddRow(obj);
+}
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.ParetoInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.ParetoInfo.DS"
+});
+
+var total = itemList.getRowCount();
+var objr = new Object();
+objr.DataList = dataList;
+objr.PercentList = perList;
+objr.MaxPareto = maxP;
+objr.Total = total > 0 ? "総数　"  + total : "データがありません";
+objr.Visible = total > 0 ? true : false;
+result.AddRow(objr);
+//logger.trace("GetMonthlyDetail　result: "+result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetMonthlyDetail"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start = new Date(YYYY, (MM-1), 1);
+var end = new Date(YYYY, MM, 1);
+end.setTime(end.getTime() -1);
+var cntCheckInfo = CheckInfo.getRowCount();
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var sublineArr = Subline.split(",");
+for (var i=0; i < sublineArr.length; i++) {
+	query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (sublineArr[i]+"*") });
+}
+// TODO add BadType
+
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+//logger.trace("GetDailyDatail itemList: "+SubLine+SelectedItem+itemList.ToJSON());
+
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "DefectiveType"
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemView.DS)
+var dataList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+var list = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+var perList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+// Aperield
+var cntSLT = 0;
+for each(var row in CheckInfo.rows) {
+	if (row.Checked) {
+        dataList.AddField({name : row.Title, baseType : "INTEGER", aspects : {defaultValue:0}});
+        cntSLT++;
+    }
+}
+if (cntCheckInfo !== cntSLT) dataList.AddField({name : me.SonotaStr, baseType : "INTEGER", aspects : {defaultValue:0}});
+
+// set selected result 
+var resultFields = Resources["InfoTableFunctions"].ToJSON({table: dataList}).dataShape.fieldDefinitions;
+var sum = 0, sumSonota = 0, maxP = 0, percent = 0;
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    sum += sumItemList.rows[i].SUM_Count;
+}
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    var row = sumItemList.rows[i];
+    var obj = new Object();
+    if (resultFields[row.DefectiveType] !== undefined) {    
+    	obj.DefectiveType = row.DefectiveType;
+        obj.Value = row.SUM_Count;
+    	list.AddRow(obj);
+        percent += (row.SUM_Count/sum)*100;
+        obj.Value = percent.toFixed(1);
+    	perList.AddRow(obj);
+    } else {
+         if (cntCheckInfo !== cntSLT && row.SUM_Count !== undefined) sumSonota = sumSonota + row.SUM_Count;
+    }
+    if (row.SUM_Count > maxP) maxP = row.SUM_Count;
+}
+// set Max
+if (sumSonota > maxP) maxP = sumSonota;
+
+// set not selected dataList
+if (cntCheckInfo !== cntSLT) {
+	var obj = new Object();
+    obj.DefectiveType = me.SonotaStr;
+    obj.Value = sumSonota;
+    list.AddRow(obj);
+    percent += (sumSonota/sum)*100;
+    obj.Value = percent.toFixed(1);
+    perList.AddRow(obj);
+}
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.ParetoInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.ParetoInfo.DS"
+});
+
+var total = itemList.getRowCount();
+var objr = new Object();
+objr.DataList = list;
+objr.PercentList = perList;
+objr.MaxPareto = maxP;
+objr.Total = total > 0 ? "総数　"  + total : "データがありません";
+objr.Visible = total > 0 ? true : false;
+result.AddRow(objr);
+logger.trace("GetMonthlyDetail　result: "+result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetMonthlyDetailBar"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start = new Date(YYYY, (MM-1), 1);
+var end = new Date(YYYY, MM, 1);
+end.setTime(end.getTime() -1);
+var cntCheckInfo = CheckInfo.getRowCount();
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var sublineArr = Subline.split(",");
+for (var i=0; i < sublineArr.length; i++) {
+	query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (sublineArr[i]+"*") });
+}
+// TODO add BadType
+
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+//logger.trace("GetDailyDatail itemList: "+SubLine+SelectedItem+itemList.ToJSON());
+
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "DefectiveType"
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemView.DS)
+var dataList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+var perList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadPercent.DS"
+});
+// Aperield
+var cntSLT = 0;
+for each(var row in CheckInfo.rows) {
+	if (row.Checked) {
+        dataList.AddField({name : row.Title, baseType : "INTEGER", aspects : {defaultValue:0}});
+        cntSLT++;
+    }
+}
+if (cntCheckInfo !== cntSLT) dataList.AddField({name : me.SonotaStr, baseType : "INTEGER", aspects : {defaultValue:0}});
+
+// set selected result 
+var resultFields = Resources["InfoTableFunctions"].ToJSON({table: dataList}).dataShape.fieldDefinitions;
+var sum = 0, sumSonota = 0, maxP = 0, percent = 0, obj, objp;
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    sum += sumItemList.rows[i].SUM_Count;
+}
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    var row = sumItemList.rows[i];
+    if (resultFields[row.DefectiveType] !== undefined) {
+        obj = new Object();
+    	obj.DefectiveType = row.DefectiveType;
+        obj[row.DefectiveType] = row.SUM_Count;
+    	dataList.AddRow(obj);
+        objp = new Object();
+    	objp.DefectiveType = row.DefectiveType;
+        percent += (row.SUM_Count/sum)*100;
+        objp.Value = percent.toFixed(1);
+    	perList.AddRow(objp);
+    } else {
+         if (cntCheckInfo !== cntSLT && row.SUM_Count !== undefined) sumSonota = sumSonota + row.SUM_Count;
+    }
+    if (row.SUM_Count > maxP) maxP = row.SUM_Count;
+}
+// set Max
+if (sumSonota > maxP) maxP = sumSonota;
+
+// set not selected dataList
+if (cntCheckInfo !== cntSLT) {
+	obj = new Object();
+    obj.DefectiveType = me.SonotaStr;
+    obj[me.SonotaStr] = sumSonota;
+    dataList.AddRow(obj);
+	objp = new Object();
+    obj.DefectiveType = me.SonotaStr;
+    percent += (sumSonota/sum)*100;
+    objp.Value = percent.toFixed(1);
+    perList.AddRow(objp);
+}
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.ParetoInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.ParetoInfo.DS"
+});
+
+var total = itemList.getRowCount();
+var objr = new Object();
+objr.DataList = dataList;
+objr.PercentList = perList;
+objr.MaxPareto = maxP;
+objr.Total = total > 0 ? "総数　"  + total : "データがありません";
+objr.Visible = total > 0 ? true : false;
+result.AddRow(objr);
+//logger.trace(me.name+"GetMonthlyDetailBar　result: "+result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetMonthlyDetailCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var start = new Date(YYYY, (MM-1), 1);
+var end = new Date(YYYY, MM, 1);
+end.setTime(end.getTime() -1);
+var cntCheckInfo = CheckInfo.getRowCount();
+
+var query = {
+	"filters": {
+		"type": "OR",
+	    "filters": [
+		]
+	}
+};
+// add Subline
+var sublineArr = Subline.split(",");
+for (var i=0; i < sublineArr.length; i++) {
+	query.filters.filters.push({ "fieldName": "Process", "type": "LIKE", "value": (sublineArr[i]+"*") });
+}
+// TODO add BadType
+
+var itemList = Things["MMAD.BadItem.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: end /* DATETIME */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: start /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+//logger.trace("GetDailyDatail itemList: "+SubLine+SelectedItem+itemList.ToJSON());
+
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "DefectiveType"
+});
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.BadItemView.DS)
+var dataList = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.BadType.DS"
+});
+// Add Field
+var cntSLT = 0;
+for each(var row in CheckInfo.rows) {
+	if (row.Checked) {
+        dataList.AddField({name : row.Title, baseType : "INTEGER", aspects : {defaultValue:0}});
+        cntSLT++;
+    }
+}
+if (cntCheckInfo !== cntSLT) dataList.AddField({name : me.SonotaStr, baseType : "INTEGER", aspects : {defaultValue:0}});
+
+// set selected result 
+var resultFields = Resources["InfoTableFunctions"].ToJSON({table: dataList}).dataShape.fieldDefinitions;
+var sumSonota = 0, maxP = 0;
+for (var i=0; i<sumItemList.getRowCount(); i++) {
+    var row = sumItemList.rows[i];
+    var obj = new Object();
+    if (resultFields[row.DefectiveType] !== undefined) {    
+    	obj.DefectiveType = row.DefectiveType;
+        obj[row.DefectiveType] = row.SUM_Count;
+    	//dataList.AddRow(obj);
+    } else {
+         if (cntCheckInfo !== cntSLT && row.SUM_Count !== undefined) sumSonota = sumSonota + row.SUM_Count;
+    }
+    if (row.SUM_Count > maxP) maxP = row.SUM_Count;
+}
+// set Max
+if (sumSonota > maxP) maxP = sumSonota;
+
+// set not selected dataList
+if (cntCheckInfo !== cntSLT) {
+	var objS = new Object();
+    objS.DefectiveType = me.SonotaStr;
+    objS[me.SonotaStr] = sumSonota;
+    dataList.AddRow(objS);
+}
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.ParetoInfo.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.ParetoInfo.DS"
+});
+
+var total = itemList.getRowCount();
+var objr = new Object();
+objr.DataList = dataList;
+objr.MaxPareto = maxP;
+objr.Total = total > 0 ? "総数　"  + total : "データがありません";
+objr.Visible = cntCheckInfo !== cntSLT ? true : false;
+result.AddRow(objr);
+//logger.trace("GetMonthlyDetail　result: "+result.ToJSON());]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetParetoMultiData"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(ParetoMultiSource.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "ParetoMultiSource.DS"
+});
+
+var obj = {};
+obj.data1 = me.data1;
+obj.data2 = me.data2;
+obj.data3 = me.data3;
+obj.data4 = me.data4;
+result.AddRow(obj);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetYearList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MMAD.SelectItem.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MMAD.SelectItem.DS"
+});
+var now = new Date();
+var yyyy = now.getFullYear();
+
+var i = 0;
+while (i<3) {
+    var year = (yyyy-i).toFixed();
+	result.AddRow({"Item" : year, "Value" : year });
+    i++;
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="ImportCSVFiles"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = 0;
+// Getting the directory structure of the repo
+var dirList = Things["MMAD.BadItem.Repo"].GetDirectoryStructure();
+for each (var row in dirList.rows) {
+    var fileList = Things["MMAD.BadItem.Repo"].GetFileListing({
+        path: row.path /* STRING */,
+        nameMask: undefined /* STRING */
+    });
+
+	for each (var rowf in fileList.rows) {
+        var filePath = rowf.path;
+        if (filePath && filePath.slice(-4) === ".csv") {
+        	result = result + me.InsertBadItemFromCSV({
+            	filepath: filePath /* STRING */
+        	});
+        }
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="InsertBadItemFromCSV"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var sdf = "yyyyMMddHHmmss";
+var result = 0;
+var tempFile = filepath + "_utf8.csv";
+try {
+    Resources["ConvertFileFunctions"].ConvertCharSet({
+        pathFrom: filepath /* STRING */,
+        charsetFrom: "Shift-JIS" /* STRING */,
+        fileRepository: "MMAD.BadItem.Repo" /* THINGNAME */,
+        pathTo: tempFile /* STRING */,
+        charsetTo: "UTF-8" /* STRING */
+    });
+    var paramsCSV = {
+        path: tempFile /* STRING */,
+        columnMappings: "SerialNo;RegistDate;Process;Registrant;DefectiveCategory;DefectiveDrawing;DetailsLocationNo;DefectiveType;ImageFileName;TerminalNumber;ItemNameCheck;OPNumberCheck;Layer" /* STRING */,
+        hasHeader: true /* BOOLEAN */,
+        longitudeField: undefined /* NUMBER */,
+        dateFormat: undefined /* STRING */,
+        fileRepository: "MMAD.BadItem.Repo" /* THINGNAME */,
+        latitudeField: undefined /* NUMBER */,
+        fieldDelimiter: "," /* STRING */,
+        stringDelimiter: undefined /* STRING */,
+        content: "SA Data Input\n" /* STRING */,
+        dataShape: "MMAD.BadItem.DS" /* DATASHAPENAME */
+    };
+
+    // result: INFOTABLE
+    var dataList = Resources["CSVParserFunctions"].ReadCSVFile(paramsCSV);
+    logger.trace("InsertBadItemFromCSV: "+dataList.ToJSON());
+    // create a new InfoTable based on AddStreamEntries parameters (timestamp, location, source, sourceType, tags, values)
+    var myInfoTable = { dataShape: { fieldDefinitions : {} }, rows: [] };
+    myInfoTable.dataShape.fieldDefinitions['timestamp']  = { name: 'timestamp', baseType: 'DATETIME' };
+    myInfoTable.dataShape.fieldDefinitions['location']  = { name: 'location', baseType: 'LOCATION' };
+    myInfoTable.dataShape.fieldDefinitions['source']    = { name: 'source', baseType: 'STRING' };
+    myInfoTable.dataShape.fieldDefinitions['sourceType'] = { name: 'sourceType', baseType: 'STRING' };
+    myInfoTable.dataShape.fieldDefinitions['tags']      = { name: 'tags', baseType: 'TAGS' };
+    myInfoTable.dataShape.fieldDefinitions['values']    = { name: 'values', baseType: 'INFOTABLE' };
+
+    // create new meta data
+    var row, tags = new Array(), location = new Object();
+    location.latitude = 0;
+    location.longitude = 0;
+    location.elevation = 0;
+    location.units = "WGS84";
+
+    // add rows to Stream
+    for (result=0; result<dataList.length; result++) {
+        row = dataList[result];
+        var values = Things["MMAD.BadItem.ST"].CreateValues();
+        values.SerialNo=row.SerialNo;
+        values.RegistDate = row.RegistDate;
+        values.Process=row.Process;
+        values.Registrant=row.Registrant;
+        values.DefectiveCategory=row.DefectiveCategory;
+        values.DefectiveDrawing=row.DefectiveDrawing;
+        values.DetailsLocationNo=row.DetailsLocationNo;
+        values.DefectiveType=row.DefectiveType;
+        values.ImageFileName=row.ImageFileName;
+        values.TerminalNumber=row.TerminalNumber;
+        values.ItemNameCheck=row.ItemNameCheck == "TRUE" ? true : false;
+        values.OPNumberCheck=row.OPNumberCheck == "TRUE" ? true : false;
+        values.Layer=row.Layer;      
+        values.DateStr=row.RegistDate.substr(4,2)+"/"+row.RegistDate.substr(6,2);
+        values.YearMonthDay=new Date (row.RegistDate.substr(0,4),(parseInt(row.RegistDate.substr(4,2),10)-1),row.RegistDate.substr(6,2));
+        values.Count=1;
+        // TODO values.DisposalCount=row.Temp1;
+
+        var newEntry = new Object();
+        newEntry.location = location;
+        newEntry.source = row.TerminalNumber;
+        newEntry.tags = tags;
+        newEntry.timestamp = parseDate(row.RegistDate, sdf);
+        newEntry.values = values;
+
+        // add new Info Table row to Info Table
+        myInfoTable.rows[result] = newEntry;
+    }
+	//logger.trace("InsertBadItemFromCSV: "+JSON.stringify(myInfoTable));
+    // add stream entries in the InfoTable
+    var params = {
+        values: myInfoTable /* INFOTABLE */
+    };
+    // add stream
+    Things["MMAD.BadItem.ST"].AddStreamEntries(params);
+    // delete temp file
+    Things["MMAD.BadItem.Repo"].DeleteFile({
+        path: tempFile /* STRING */
+    });
+} catch(err) {
+    logger.error("InsertBadItemFromCSV Error: " + err);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="BarMulti"/><AlertDefinitions name="BarMultiCopy"/><AlertDefinitions name="data1"/><AlertDefinitions name="data2"/><AlertDefinitions name="data3"/><AlertDefinitions name="data4"/><AlertDefinitions name="data5"/><AlertDefinitions name="data6"/><AlertDefinitions name="data7"/><AlertDefinitions name="data8"/><AlertDefinitions name="MonthList"/><AlertDefinitions name="SonotaStr"/><AlertDefinitions name="SublineList"/><AlertDefinitions name="TypeList"/></AlertConfigurations><ImplementedShapes/><ThingProperties><BarMulti><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4" ordinal="5"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="label" ordinal="1"/></FieldDefinitions></DataShape><Rows/></infoTable></Value><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></BarMulti><data8><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[lbl8]]></Item><Value>5</Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T08:22:06.512Z</Timestamp><Quality>GOOD</Quality></data8><data7><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[lbl7]]></Item><Value>7</Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T08:21:57.699Z</Timestamp><Quality>GOOD</Quality></data7><data6><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[lbl6]]></Item><Value>1</Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T08:21:50.059Z</Timestamp><Quality>GOOD</Quality></data6><data5><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[lbl5]]></Item><Value>4</Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T08:21:40.516Z</Timestamp><Quality>GOOD</Quality></data5><data4><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[d4]]></Item><Value><![CDATA[4]]></Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T07:34:27.319Z</Timestamp><Quality>GOOD</Quality></data4><data3><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[d3]]></Item><Value><![CDATA[3]]></Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T07:34:17.461Z</Timestamp><Quality>GOOD</Quality></data3><data2><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[d]]></Item><Value><![CDATA[2]]></Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T08:16:23.471Z</Timestamp><Quality>GOOD</Quality></data2><data1><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[d]]></Item><Value><![CDATA[1]]></Value></Row></Rows></infoTable></Value><Timestamp>2022-02-05T08:16:12.576Z</Timestamp><Quality>GOOD</Quality></data1><MonthList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[1]]></Item><Value><![CDATA[1]]></Value></Row><Row><Item><![CDATA[2]]></Item><Value><![CDATA[2]]></Value></Row><Row><Item><![CDATA[3]]></Item><Value><![CDATA[3]]></Value></Row><Row><Item><![CDATA[4]]></Item><Value><![CDATA[4]]></Value></Row><Row><Item><![CDATA[5]]></Item><Value><![CDATA[5]]></Value></Row><Row><Item><![CDATA[6]]></Item><Value><![CDATA[6]]></Value></Row><Row><Item><![CDATA[7]]></Item><Value><![CDATA[7]]></Value></Row><Row><Item><![CDATA[8]]></Item><Value><![CDATA[8]]></Value></Row><Row><Item><![CDATA[9]]></Item><Value><![CDATA[9]]></Value></Row><Row><Item><![CDATA[10]]></Item><Value><![CDATA[10]]></Value></Row><Row><Item><![CDATA[11]]></Item><Value><![CDATA[11]]></Value></Row><Row><Item><![CDATA[12]]></Item><Value><![CDATA[12]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-12-19T03:35:33.743Z</Timestamp><Quality>GOOD</Quality></MonthList><SublineList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[STATOR]]></Item><Value><![CDATA[OP1,OP2]]></Value></Row><Row><Item><![CDATA[HSG]]></Item><Value><![CDATA[OP3]]></Value></Row><Row><Item><![CDATA[ROTOR]]></Item><Value><![CDATA[OP4]]></Value></Row><Row><Item><![CDATA[PEB]]></Item><Value><![CDATA[OP5]]></Value></Row><Row><Item><![CDATA[MAIN]]></Item><Value><![CDATA[OP6]]></Value></Row><Row><Item><![CDATA[e-PT]]></Item><Value><![CDATA[OP7]]></Value></Row><Row><Item><![CDATA[その他]]></Item><Value><![CDATA[その]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-12-16T00:07:17.788Z</Timestamp><Quality>GOOD</Quality></SublineList><BarMultiCopy><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1Copy" ordinal="6"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1Copy1" ordinal="10"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1Copy1Copy" ordinal="26"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1Copy2" ordinal="18"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1CopyCopy" ordinal="14"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1CopyCopy1" ordinal="22"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data1CopyCopyCopy" ordinal="30"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2Copy" ordinal="7"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2Copy1" ordinal="11"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2Copy1Copy" ordinal="27"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2Copy2" ordinal="19"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2CopyCopy" ordinal="15"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2CopyCopy1" ordinal="23"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data2CopyCopyCopy" ordinal="31"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3Copy" ordinal="8"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3Copy1" ordinal="12"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3Copy1Copy" ordinal="28"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3Copy2" ordinal="20"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3CopyCopy" ordinal="16"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3CopyCopy1" ordinal="24"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data3CopyCopyCopy" ordinal="32"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4" ordinal="5"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4Copy" ordinal="9"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4Copy1" ordinal="13"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4Copy1Copy" ordinal="29"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4Copy2" ordinal="21"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4CopyCopy" ordinal="17"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4CopyCopy1" ordinal="25"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="data4CopyCopyCopy" ordinal="33"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="label" ordinal="1"/></FieldDefinitions></DataShape><Rows><Row><data1>1</data1><label><![CDATA[1]]></label></Row><Row><data2>2</data2><label><![CDATA[2]]></label></Row><Row><data3>3</data3><label><![CDATA[3]]></label></Row><Row><data4>4</data4><label><![CDATA[4]]></label></Row><Row><data1Copy>5</data1Copy><label><![CDATA[5]]></label></Row><Row><data2Copy>6</data2Copy><label><![CDATA[6]]></label></Row><Row><data3Copy>7</data3Copy><label><![CDATA[7]]></label></Row><Row><data4Copy>8</data4Copy><label><![CDATA[8]]></label></Row><Row><data1Copy1>9</data1Copy1><label><![CDATA[9]]></label></Row><Row><data2Copy1>10</data2Copy1><label><![CDATA[10]]></label></Row><Row><data3Copy1>11</data3Copy1><label><![CDATA[11]]></label></Row><Row><data4Copy1>12</data4Copy1><label><![CDATA[12]]></label></Row><Row><data1CopyCopy>13</data1CopyCopy><label><![CDATA[13]]></label></Row><Row><data2CopyCopy>14</data2CopyCopy><label><![CDATA[14]]></label></Row><Row><data3CopyCopy>15</data3CopyCopy><label><![CDATA[15]]></label></Row><Row><data4CopyCopy>16</data4CopyCopy><label><![CDATA[16]]></label></Row><Row><data1Copy2>17</data1Copy2><label><![CDATA[17]]></label></Row><Row><data2Copy2>18</data2Copy2><label><![CDATA[18]]></label></Row><Row><data3Copy2>19</data3Copy2><label><![CDATA[19]]></label></Row><Row><data4Copy2>20</data4Copy2><label><![CDATA[20]]></label></Row><Row><data1CopyCopy1>21</data1CopyCopy1><label><![CDATA[21]]></label></Row><Row><data2CopyCopy1>22</data2CopyCopy1><label><![CDATA[22]]></label></Row><Row><data3CopyCopy1>23</data3CopyCopy1><label><![CDATA[23]]></label></Row><Row><data4CopyCopy1>24</data4CopyCopy1><label><![CDATA[24]]></label></Row><Row><data1Copy1Copy>25</data1Copy1Copy><label><![CDATA[25]]></label></Row><Row><data2Copy1Copy>26</data2Copy1Copy><label><![CDATA[26]]></label></Row><Row><data3Copy1Copy>27</data3Copy1Copy><label><![CDATA[27]]></label></Row><Row><data4Copy1Copy>28</data4Copy1Copy><label><![CDATA[28]]></label></Row><Row><data1CopyCopyCopy>29</data1CopyCopyCopy><label><![CDATA[29]]></label></Row><Row><data2CopyCopyCopy>30</data2CopyCopyCopy><label><![CDATA[30]]></label></Row><Row><data3CopyCopyCopy>31</data3CopyCopyCopy><label><![CDATA[31]]></label></Row><Row><data4CopyCopyCopy>32</data4CopyCopyCopy><label><![CDATA[32]]></label></Row></Rows></infoTable></Value><Timestamp>2022-02-05T09:33:48.850Z</Timestamp><Quality>GOOD</Quality></BarMultiCopy><SonotaStr><Value><![CDATA[その他1]]></Value><Timestamp>2021-12-16T03:24:24.959Z</Timestamp><Quality>GOOD</Quality></SonotaStr><TypeList><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Item" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Value" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><Item><![CDATA[不良件数]]></Item><Value><![CDATA[不良件数]]></Value></Row><Row><Item><![CDATA[廃棄数]]></Item><Value><![CDATA[廃棄数]]></Value></Row></Rows></infoTable></Value><Timestamp>2021-11-24T12:20:55.809Z</Timestamp><Quality>GOOD</Quality></TypeList></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2022-01-12T04:05:24.056Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : InsertBadItemFromCSV : service updated&#10;" timestamp="2022-01-12T13:31:47.047Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-01-12T13:38:41.870Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-01-13T06:36:11.564Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2022-01-14T06:13:02.886Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2022-01-14T06:15:11.491Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBadItemList : service updated&#10;" timestamp="2022-01-14T06:24:48.471Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-01-15T07:36:16.050Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-02-04T07:57:26.972Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T08:12:57.812Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-02-04T08:17:51.296Z" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-02-04T08:33:01.070Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T08:33:01.145Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyChartData : service updated&#10;" timestamp="2022-02-04T09:02:01.432Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T15:21:46.946Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T15:34:11.619Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T15:39:47.557Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T15:48:58.558Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetail : service updated&#10;" timestamp="2022-02-04T15:54:27.791Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : data1 : added, data2 : added, data3 : added, data4 : added&#10;" timestamp="2022-02-05T07:33:43.929Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetParetoMultiData : service added&#10;" timestamp="2022-02-05T07:55:39.403Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : data5 : added, data6 : added, data7 : added, data8 : added&#10;" timestamp="2022-02-05T08:17:33.451Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : data5 : updated, data6 : updated, BarMulti : added&#10;" timestamp="2022-02-05T09:11:14.616Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : BarMulti : updated&#10;" timestamp="2022-02-05T09:20:16.433Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : BarMultiCopy : added&#10;" timestamp="2022-02-05T09:24:39.023Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyChartData : service updated&#10;" timestamp="2022-02-06T00:27:27.382Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyChartData : service updated&#10;" timestamp="2022-02-06T00:46:27.987Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyChartData : service updated&#10;" timestamp="2022-02-06T00:46:42.659Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyChartData : service updated&#10;GetMonthlyDetailBar : service added&#10;" timestamp="2022-02-06T00:50:41.455Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetailBar : service updated&#10;" timestamp="2022-02-06T00:58:55.925Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetailBar : service updated&#10;" timestamp="2022-02-06T01:07:28.994Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetailBar : service updated&#10;" timestamp="2022-02-06T01:19:10.903Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetMonthlyDetailBar : service updated&#10;" timestamp="2022-02-06T01:23:37.269Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
