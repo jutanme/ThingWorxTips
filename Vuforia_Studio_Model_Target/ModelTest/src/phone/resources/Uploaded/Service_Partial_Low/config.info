@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo>
+<TargetSet version="27.0" toolVersion="10.5.5">
+<ModelTarget name="Service_Partial_Low" targetId="c70e5f71a197453f811c4e669c1685c8" version="14.0" toolVersion="10.5.5" bbox="-0.210774 -0.000152 -0.640205 0.556369 0.756373 0.122220" motionHint="static" trackingMode="default" upVector="0.000000 1.000000 0.000000"/>
+
+</TargetSet>
+
+<Assembly name="Service_Partial_Lows_assembly" assemblyId="d7e5252a80a4496d8a9ee800c9c60b67">
+<Part name="Service_Partial_Low" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-0.3051 0.303372 2.22579" rotation="AD: 0.998704 0.141156 -0.411703 214.897" image="" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARInfo>

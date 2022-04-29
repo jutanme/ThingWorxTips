@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Service_Partial_Low" motionHint="static" trackingMode="default"/>
+
+</Tracking>
+
+<Assembly name="Service_Partial_Lows_assembly" assemblyId="d7e5252a80a4496d8a9ee800c9c60b67">
+<Part name="Service_Partial_Low" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-0.3051 0.303372 2.22579" rotation="AD: 0.998704 0.141156 -0.411703 214.897" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

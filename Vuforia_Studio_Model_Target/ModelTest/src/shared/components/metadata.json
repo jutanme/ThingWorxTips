@@ -1,0 +1,62 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "requires": [
+    "w320dp"
+  ],
+  "experiences": [
+    {
+      "vumark": "",
+      "experienceType": "none",
+      "id": 1,
+      "index-keys": [],
+      "title": {
+        "en": "ModelTarget"
+      },
+      "description": {
+        "en": "",
+        "en-US": ""
+      },
+      "requires": [
+        "AR-tracking"
+      ],
+      "tags": [],
+      "icon": "",
+      "viewName": "Home",
+      "url-template": "index.html?expId=1",
+      "entryPoint": "index.html?expId=1",
+      "thumbnail": "",
+      "thingTemplateName": ""
+    }
+  ],
+  "widgetsUsage": [
+    {
+      "timestamp": "2022-04-29T12:22:17.587Z",
+      "action": "PUBLISH",
+      "usage": {
+        "twx-view": 1,
+        "twx-dt-view": 1,
+        "twx-dt-model": 1,
+        "octothreesixty-dt-target": 1,
+        "twx-overlay": 1,
+        "twx-overlay-container": 5,
+        "twx-overlay-body": 1
+      }
+    },
+    {
+      "timestamp": "2022-04-29T12:22:36.275Z",
+      "action": "PUBLISH",
+      "usage": {
+        "twx-view": 1,
+        "twx-dt-view": 1,
+        "twx-dt-model": 1,
+        "octothreesixty-dt-target": 1,
+        "twx-overlay": 1,
+        "twx-overlay-container": 5,
+        "twx-overlay-body": 1
+      }
+    }
+  ],
+  "accessType": "public",
+  "designedfor": []
+}
