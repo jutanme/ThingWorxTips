@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2022-07-14T10:51:09.746Z" name="3DModelService.TH" projectName="PTC.DEMO" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="YAN.ASMList.DS" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="ModelInfo" ordinal="2"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetModelPath"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="fullpath" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartListByPid"><ResultType aspect.dataShape="YAN.ASMList.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="parentPath" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSelectPartRow"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="idPath" ordinal="1"/><FieldDefinition baseType="INFOTABLE" description="" name="PartList" ordinal="2"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSelectRow"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="idPath" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="LoadASMList"><ResultType aspect.dataShape="YAN.ASMList.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="filename" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="LoadASMListCopy"><ResultType aspect.dataShape="YAN.ASMList.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="filename" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="LoadASMListCopyCopy"><ResultType aspect.dataShape="YAN.ASMList.DS" baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="filename" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetModelPath"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = "/Thingworx/FileRepositories/YAN.Plot.Repo/" + fullpath;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartListByPid"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//logger.warn("GetPartListByPid: " + parentPath);
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(YAN.ASMList.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "YAN.ASMList.DS"
+});
+
+if (parentPath) {
+    var query1 = {
+        "filters": {
+        	"type": "AND",
+        	"filters": []
+        } 
+    };
+    
+    if (parentPath && parentPath !== "/0") {
+        query1.filters.filters.push({
+              		"fieldName": "parentPath",
+              		"type": "EQ",
+              		"value": parentPath
+                });
+    }    
+    // result: INFOTABLE dataShape: ""
+    // Warning: Potential Performance issue, since query filter is performed in Memory
+    let datas = Things["YAN.PartList.DT"].QueryDataTableEntries({
+    	maxItems: undefined /* NUMBER {"defaultValue":500} */,
+    	values: undefined /* INFOTABLE */,
+    	query: query1 /* QUERY */,
+    	source: undefined /* STRING */,
+    	tags: undefined /* TAGS */
+    });
+    //logger.warn("GetPartListByPid: " + parentPath + ", " + datas.ToJSON());
+    datas.Sort({ name: "name", ascending: true });
+    datas.rows.forEach(function(row) {
+        let obj = {};
+        obj.name = row.name;
+        obj.idPath = row.idPath;
+    	result.AddRow(obj);
+    });
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSelectPartRow"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//pause(300);
+var result = "", idx = 1;
+if (PartList && PartList.rows) {
+    PartList.rows.forEach(function(row) {
+    	if (idPath == row.idPath) result = new String(idx);
+        idx++;
+    });
+}
+//logger.warn("GetSelectPartRow: " + idPath + result);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSelectRow"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// result: INFOTABLE dataShape: ""
+
+var result = "0", idx = 1;
+var idArr = idPath.split("/");
+
+if (idArr.length>3) idPath = "/" + idArr[1] + "/" + idArr[2];  
+me.ModelInfo.rows.forEach(function(row) {
+	if (idPath == row.idPath) result = new String(idx);
+    idx++;
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="LoadASMList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(YAN.ASMList.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "YAN.ASMList.DS"
+});
+
+// unzip
+var unflag = Things["YAN.Plot.Repo"].ExtractZipArchive({
+	path: "temp_model" /* STRING */,
+	zipFileName: filename /* STRING */
+});
+
+if (unflag) {
+    var params = {
+        ignoreSSLErrors: true /* BOOLEAN */,
+        url: "http://192.168.78.168:8080/Thingworx/yanrepo/temp_model/validation.xml" /* STRING */
+        //url: "http://192.168.78.168:8080/Thingworx/validation.xml" /* STRING */
+        //url: "http://192.168.78.168:8080/Thingworx/sample.xml" /* STRING */
+    };
+    
+    // result: XML
+    var foodXMLResult = Resources["ContentLoaderFunctions"].GetXML(params);
+    var xmlStr="";
+    
+    // iterate through each food element and add row to infotable
+    for each (var tag in foodXMLResult) {
+        xmlStr += tag;
+        break;
+    }
+    var xmlStrArr = xmlStr.split('</sbom>')[0].split('<instance id="'), 
+        idxs = [], preFlag = false;
+    for (i = 1; i < xmlStrArr.length; i++) {
+        var obj = {};
+        var len = xmlStrArr[i].indexOf('">');
+        var val = xmlStrArr[i].substr(0, len);
+        var subArr = xmlStrArr[i].split('<name>');
+    	var attrs = subArr[1].split('</name>');
+        obj.name = attrs[0];
+        var attrStrs = attrs[1].split('pvcidpath="')[1].split('"/>');
+        var subattrs = attrStrs[0].split('/');
+         
+        var idx = preFlag ? subattrs.length+1 : subattrs.length;
+        //logger.warn(idx + " : " + idxs);
+        idxs.splice(idx-1,1,val);
+        
+        obj.idPath = "";
+        for (j = 0; j < idx; j++) {
+        	obj.idPath += "/" + idxs[j];
+        }
+        result.AddRow(obj);
+        if (attrStrs[1].split('</instance>').length>2) preFlag = false;          
+        if (attrStrs[0].indexOf("/") === 0) preFlag = true; 
+    }
+}
+me.ModelInfo = result;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="LoadASMListCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(YAN.ASMList.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "YAN.ASMList.DS"
+});
+
+// unzip
+var unflag = Things["YAN.Plot.Repo"].ExtractZipArchive({
+	path: "temp_model" /* STRING */,
+	zipFileName: filename /* STRING */
+});
+
+if (unflag) {
+    var params = {
+        ignoreSSLErrors: true /* BOOLEAN */,
+        url: "http://192.168.78.168:8080/Thingworx/yanrepo/temp_model/validation.xml" /* STRING */
+        //url: "http://192.168.78.168:8080/Thingworx/validation.xml" /* STRING */
+        //url: "http://192.168.78.168:8080/Thingworx/sample.xml" /* STRING */
+    };
+    
+    // result: XML
+    var foodXMLResult = Resources["ContentLoaderFunctions"].GetXML(params);
+    var xmlStr="";
+    
+    
+    // iterate through each food element and add row to infotable
+    for each (var tag in foodXMLResult) {
+        xmlStr += tag;
+    }
+    var xmlStrArr = xmlStr.split("<instance");
+    for (i = 1; i < xmlStrArr.length; i++) {
+        var obj = {};
+    	var attrs = xmlStrArr[i].split('<name>')[1].split('</name>');
+        obj.name = attrs[0];
+        var subattrs = attrs[1].split('pvcidpath="')[1].split('"/>');
+        obj.idPath = subattrs[0].replace(":","/");
+    	result.AddRow(obj);
+    }
+}
+me.ModelInfo = result;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="LoadASMListCopyCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(YAN.ASMList.DS)
+//let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+//    infoTableName: "InfoTable",
+//    dataShapeName: "YAN.ASMList.DS"
+//});
+
+// unzip
+var unflag = Things["YAN.Plot.Repo"].ExtractZipArchive({
+	path: "temp_model" /* STRING */,
+	zipFileName: filename /* STRING */
+});
+
+if (unflag) {
+    var params = {
+        ignoreSSLErrors: true /* BOOLEAN */,
+        url: "http://192.168.78.168:8080/Thingworx/yanrepo/temp_model/validation.xml" /* STRING */
+        //url: "http://192.168.78.168:8080/Thingworx/validation.xml" /* STRING */
+        //url: "http://192.168.78.168:8080/Thingworx/sample.xml" /* STRING */
+    };
+    
+    // result: XML
+    var foodXMLResult = Resources["ContentLoaderFunctions"].GetXML(params);
+    var xmlStr="",xmlStr2="";
+    
+    
+    // iterate through each food element and add row to infotable
+    var int= 0;
+    for each (var tag in foodXMLResult) {
+        if (int>0) break;
+        xmlStr += tag;
+        int++;
+    }
+    var xmlObj = new XML(xmlStr);
+    for each (var tag in xmlObj) {
+        if (int>5) break;
+        xmlStr2 += tag;
+        int++;
+    }
+//    var xmlStrArr = xmlStr.split("<instance");
+//    for (i = 1; i < xmlStrArr.length; i++) {
+//        var obj = {};
+//    	var attrs = xmlStrArr[i].split('<name>')[1].split('</name>');
+//        obj.name = attrs[0];
+//        var subattrs = attrs[1].split('pvcidpath="')[1].split('"/>');
+//        obj.idPath = subattrs[0].replace(":","/");
+//    	result.AddRow(obj);
+//    }
+}
+var result = xmlStr2;
+//me.ModelInfo = result;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="ModelInfo"/></AlertConfigurations><ImplementedShapes/><ThingProperties><ModelInfo><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="true" baseType="STRING" description="" name="idPath" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="name" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><idPath><![CDATA[/0]]></idPath><name><![CDATA[AC-40.ASM]]></name></Row><Row><idPath><![CDATA[/0/1]]></idPath><name><![CDATA[ENGINE_COMPLETE.ASM]]></name></Row><Row><idPath><![CDATA[/0/1/0]]></idPath><name><![CDATA[ENGINE_BLOCK.PRT]]></name></Row><Row><idPath><![CDATA[/0/1/1]]></idPath><name><![CDATA[CRANKSHAFT.PRT]]></name></Row><Row><idPath><![CDATA[/0/1/1/3]]></idPath><name><![CDATA[PISTON_COMPLETE.PRT]]></name></Row><Row><idPath><![CDATA[/0/1/1/4]]></idPath><name><![CDATA[PISTON_PIN_COMPLETE.PRT]]></name></Row><Row><idPath><![CDATA[/0/1/1/5]]></idPath><name><![CDATA[CONNECTING_ROD_COMPLETE.PRT]]></name></Row><Row><idPath><![CDATA[/0/2]]></idPath><name><![CDATA[BLOWER.ASM]]></name></Row><Row><idPath><![CDATA[/0/2/0]]></idPath><name><![CDATA[IMPELLER_HOUSING.PRT]]></name></Row><Row><idPath><![CDATA[/0/2/1]]></idPath><name><![CDATA[IMPELLER.PRT]]></name></Row><Row><idPath><![CDATA[/0/2/2]]></idPath><name><![CDATA[FLANGE.PRT]]></name></Row><Row><idPath><![CDATA[/0/18]]></idPath><name><![CDATA[FASTENER]]></name></Row><Row><idPath><![CDATA[/0/18/0]]></idPath><name><![CDATA[NUT.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/1]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/2]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/3]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/4]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/5]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/6]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/7]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/8]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/9]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/10]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/11]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/12]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/13]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/18/14]]></idPath><name><![CDATA[BOLT_8.PRT]]></name></Row><Row><idPath><![CDATA[/0/19]]></idPath><name><![CDATA[FRAME]]></name></Row><Row><idPath><![CDATA[/0/19/0]]></idPath><name><![CDATA[FRAME.PRT]]></name></Row></Rows></infoTable></Value><Timestamp>2022-07-14T10:51:12.027Z</Timestamp><Quality>GOOD</Quality></ModelInfo></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-07-14T03:35:26.887Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;AddCartList : service deleted&#10;AddCommentList : service deleted&#10;AddKnowList : service deleted&#10;GetASMList : service deleted&#10;GetCommentsByPart : service deleted&#10;GetManualList : service deleted&#10;GetCartList : service deleted&#10;properties : ModelInfo : added&#10;" timestamp="2022-07-14T03:38:30.309Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T03:39:42.905Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSelectRow : input parameter idPath updated, inputs updated&#10;" timestamp="2022-07-14T03:40:06.700Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;GetModelPath : service added&#10;" timestamp="2022-07-14T05:22:13.450Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetModelPath : output updated&#10;" timestamp="2022-07-14T05:23:36.731Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetModelPath : service updated&#10;LoadASMListCopy : service added&#10;" timestamp="2022-07-14T05:40:47.028Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMListCopy : service updated&#10;" timestamp="2022-07-14T05:52:09.108Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;LoadASMListCopyCopy : service added, output updated&#10;" timestamp="2022-07-14T05:53:01.778Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMListCopyCopy : service updated&#10;" timestamp="2022-07-14T05:53:50.795Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMListCopyCopy : service updated&#10;" timestamp="2022-07-14T06:01:27.731Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMListCopyCopy : service updated&#10;" timestamp="2022-07-14T06:02:20.918Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMListCopyCopy : service updated&#10;" timestamp="2022-07-14T06:04:02.137Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:09:51.217Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:17:48.684Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:20:42.059Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:30:07.217Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:31:15.809Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:31:31.965Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:33:16.356Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:33:36.169Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:34:25.918Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:36:44.278Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:39:54.012Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:40:13.372Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:44:24.997Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:44:58.919Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T09:47:55.669Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : input parameter filename updated, inputs updated&#10;" timestamp="2022-07-14T09:53:08.856Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:12:21.076Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:22:01.559Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:23:43.809Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:27:01.075Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:28:47.872Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:33:13.920Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:39:58.488Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:41:20.231Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:45:28.668Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:47:34.341Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:47:57.403Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:49:36.763Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : LoadASMList : service updated&#10;" timestamp="2022-07-14T10:51:09.746Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
