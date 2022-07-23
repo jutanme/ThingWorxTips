@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2022-07-23T06:37:28.226Z" name="MEL.DynaDataShape.TH" projectName="MEL.QWG" published="false" tags="MEL:Dyna" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateTestDS"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDynaConfig"><ResultType baseType="TEXT" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="name" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDynaDataShape"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="name" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="TestFriendlyName"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="fieldname" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="CreateTestDS"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/***** CREATE DATASHAPE ****/
+var params = {
+name: "TestDataShape" /* STRING */,
+description: undefined /* STRING */,
+fields: undefined /* INFOTABLE */,
+tags: undefined /* TAGS */
+};
+
+
+Resources["EntityServices"].CreateDataShape(params);
+
+/******* ADD FIELD DEFINITION TO DATASHAPE *****/
+// Note: Datashape should contain one PrimaryKey for DataTable
+var params = {
+name: "TestField" /* STRING */,
+description: undefined /* STRING */,
+type: "STRING" /* BASETYPENAME */,
+ordinal: undefined /* INTEGER */,
+primaryKey: true /* BOOLEAN */,
+dataShape: undefined /* DATASHAPENAME */
+};
+
+// no return
+DataShapes["TestDataShape"].AddFieldDefinition(params);
+
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "TestDataShape"
+});
+var obj = {"TestField":"テスト"};
+result.AddRow(obj);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDynaConfig"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+var config = {
+    "columns": {
+        "columnDefs": [
+            {
+                "autoWidth": false,
+                "columnFormatter": {
+                    "format": "full",
+                    "type": "string"
+                },
+                "fieldName": "test1",
+                "headerTextAlignment": "left",
+                "hidden": false,
+                "inLayout": true,
+                "overflow": "fitted",
+                "targets": 0,
+                "textAlignment": "left",
+                "title": me.TestFriendlyName({	fieldname: "test1"}),
+                "width": "160px"
+            },
+            {
+                "autoWidth": false,
+                "columnFormatter": {
+                    "format": "full",
+                    "type": "string"
+                },
+                "fieldName": "テスト",
+                "headerTextAlignment": "left",
+                "hidden": false,
+                "inLayout": true,
+                "overflow": "fitted",
+                "targets": 1,
+                "textAlignment": "left",
+                "title": "項目２",
+                "width": "200px"
+            },
+            {
+                "autoWidth": false,
+                "columnFormatter": {
+                    "format": "full",
+                    "type": "string"
+                },
+                "fieldName": "テスト"+name,
+                "headerTextAlignment": "left",
+                "hidden": false,
+                "inLayout": true,
+                "overflow": "fitted",
+                "targets": 2,
+                "textAlignment": "left",
+                "title": "項目"+name,
+                "width": "200px"
+            }
+        ],
+        "enableSorting": false,
+        "header": {
+            "overflow": "fitted",
+            "titleCase": ""
+        },
+        "idFieldName": "Id"
+    },
+    "resetButton": {
+        "enabled": false,
+        "location": "top-right"
+    },
+    "search": {
+        "multiColumn": {
+            "enabled": false,
+            "location": "top-left"
+        }
+    },
+    "styles": {
+        "cellBorderStyle": {
+            "backgroundColor": "",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowAlternateBackgroundStyle": {
+            "backgroundColor": "#ffffff",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowBackgroundStyle": {
+            "backgroundColor": "#ffffff",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowCollapseIconStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomRowIconCollapse",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "rowExpansionIconStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomRowIconExpansion",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "rowHoverStyle": {
+            "backgroundColor": "#719fbf",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#ffffff",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowIconStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "",
+            "lineColor": "",
+            "lineStyle": "none",
+            "lineThickness": 0,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "rowSelectedStyle": {
+            "backgroundColor": "#d0dfea",
+            "displayString": "SelectedPartBackGroundSTyle",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "sortAscendingStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomSortArrowAsc",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "sortDescendingStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomSortArrowDesc",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "tableHeaderStyle": {
+            "backgroundColor": "#f2f4f4",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "tableWrapperStyle": {
+            "backgroundColor": "",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "",
+            "lineColor": "#d9dfdf",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "toolbarStyle": {
+            "backgroundColor": "#ffffff",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#4a4a4a",
+            "image": "",
+            "lineColor": "#d9dfdf",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        }
+    }
+};
+var result = JSON.stringify(config);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDynaDataShape"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var dsName = "MEL.DynaDataShape.DS";
+if (name == "bbb") dsName = "MEL.DynaDataShape2.DS";
+/******* ADD FIELD DEFINITION TO DATASHAPE *****/
+// Note: Datashape should contain one PrimaryKey for DataTable
+var params1 = {
+name: "テスト"+name /* STRING */,
+description: undefined /* STRING */,
+type: "STRING" /* BASETYPENAME */,
+ordinal: undefined /* INTEGER */,
+primaryKey: false /* BOOLEAN */,
+dataShape: undefined /* DATASHAPENAME */
+};
+
+let defs = DataShapes[dsName].GetFieldDefinitions();
+if (!name) name = "";
+var isExist = false;
+defs.rows.forEach(function(row) {
+    if (row.name == "テスト" + name) isExist = true;
+});
+// no return
+if (isExist === false) {
+    DataShapes[dsName].AddFieldDefinition(params1);
+//    defs = DataShapes["MEL.DynaDataShape.DS"].GetFieldDefinitions();
+//    logger.warn("row cnt: " + defs.rows.length);
+//    if (name) me.GetDynaDataShape({
+//	name: name /* STRING */
+//});
+}
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MEL.DynaDataShape.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: dsName
+});
+var obj = {"テスト":"テスト","test1":"test1"};
+obj["テスト"+name] = "テスト"+name;
+result.AddRow(obj);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="TestFriendlyName"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//DataShapes["MEL.DynaDataShape.DS"].UpdateFieldDefinition({
+//	name: undefined /* STRING */,
+//	description: undefined /* STRING {"defaultValue":""} */,
+//	type: undefined /* BASETYPENAME */,
+//	ordinal: undefined /* INTEGER {"defaultValue":0} */,
+//	primaryKey: undefined /* BOOLEAN {"defaultValue":false} */,
+//	dataShape: undefined /* DATASHAPENAME */
+//});
+var json = DataShapes["MEL.DynaDataShape.DS"].GetDataShapeMetadataAsJSON();				
+var result = json.fieldDefinitions[fieldname].aspects.friendlyName;			
+//var result = json.fieldDefinitions.test1.aspects.friendlyName;				
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;services : GetDynaDataShape : service added&#10;" timestamp="2022-06-22T08:55:55.882Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T08:56:18.473Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T08:56:38.118Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:00:06.863Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:00:49.316Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:01:19.238Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:03:37.435Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:12:06.314Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:12:23.666Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T09:12:40.693Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T12:54:18.436Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T12:54:45.405Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T12:55:21.545Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T12:56:27.077Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T12:58:44.891Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T12:59:19.452Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T13:00:25.686Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T13:01:42.030Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T13:41:48.811Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T13:45:40.579Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-22T13:48:07.437Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : output updated&#10;" timestamp="2022-06-22T14:10:38.124Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-06-23T02:55:51.321Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2022-06-23T04:58:47.859Z" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-06-24T03:43:22.114Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2022-06-24T03:43:22.192Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : input parameter name added, inputs updated&#10;" timestamp="2022-07-20T10:33:53.892Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:34:06.611Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:40:30.906Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:42:36.906Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:48:42.812Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:49:20.064Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:51:32.828Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:55:45.751Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:56:36.546Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:58:15.955Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T10:59:35.547Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:01:43.955Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:03:54.439Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:05:08.406Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:06:08.734Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;GetDynaConfig : service added&#10;" timestamp="2022-07-20T11:09:28.659Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:11:55.219Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : output updated&#10;" timestamp="2022-07-20T11:14:38.095Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:15:17.250Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:19:52.049Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;CreateTestDS : service added&#10;" timestamp="2022-07-20T11:23:59.250Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:24:56.501Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : CreateTestDS : service updated&#10;" timestamp="2022-07-20T11:26:25.281Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:29:10.640Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:30:19.704Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:30:33.344Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-20T11:31:58.140Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:32:17.191Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:32:57.202Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;TestFriendlyName : service added&#10;" timestamp="2022-07-20T11:41:32.172Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : service updated&#10;" timestamp="2022-07-20T11:44:49.268Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : service updated&#10;" timestamp="2022-07-20T11:46:24.783Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2022-07-20T11:47:10.921Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : input parameter fieldname added, inputs updated&#10;" timestamp="2022-07-20T11:49:16.065Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : service updated&#10;" timestamp="2022-07-20T11:49:28.314Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : service updated&#10;" timestamp="2022-07-20T11:50:28.048Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : service updated&#10;" timestamp="2022-07-20T11:52:26.891Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestFriendlyName : service updated&#10;" timestamp="2022-07-20T11:53:44.906Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : output updated&#10;" timestamp="2022-07-23T06:35:05.627Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2022-07-23T06:37:28.223Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
