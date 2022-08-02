@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="WaveFormChartPackage" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2022-08-01T00:55:04.893Z" name="WaveFromChartTest" projectName="PTC.DEMO" published="false" tags="" thingTemplate="WaveFormChart" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="TestDrawChart"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="TestDrawChart"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// result: INFOTABLE dataShape: ""
+var data = Things["OLY.StoreFoward.TH"].QueryPropertyHistory({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER {"defaultValue":500} */,
+	endDate: undefined /* DATETIME */,
+	query: undefined /* QUERY */,
+	startDate: undefined /* DATETIME */
+});
+    // -- finally, create and populate INFOTABLE to return.
+	var dataInfoTable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+        infoTableName : "InfoTable",
+        dataShapeName : "WV.GraphData.DS"
+    });
+
+    try {
+        for (var k = 0; k < data.length; k++) {
+            var newEntry = new Object();
+            newEntry.time = k;
+            newEntry.value = data[k].Simulation_Examples_Functions_Ramp1;
+
+            // -- debug output
+            // if (k === 0 || (k % 1000) === 0) debugLog("createGraphData() in for loop: k = " + k + ", xmin = " + xmin + ", data = " + resultDataSet[k]);
+
+            dataInfoTable.AddRow(newEntry);
+        }
+    } catch(e) {
+    }
+logger.error(dataInfoTable.ToJSON());
+me.drawChart({
+	chartTable: dataInfoTable /* INFOTABLE [Required] */,
+	title: "testdrawchart" /* STRING [Required] */,
+	yAxisMin: 0 /* NUMBER [Required] */,
+	yAxisMax: 200 /* NUMBER */,
+	width: 800 /* INTEGER [Required] */,
+	height: 600 /* INTEGER [Required] */,
+	labelX: 5 /* INTEGER [Required] */,
+	path: "test_image.jpg" /* STRING [Required] */,
+	repository: "MEL.CSV.Repo" /* THINGNAME [Required] */
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-07-31T14:05:50.668Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service added&#10;" timestamp="2022-07-31T14:09:24.917Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-07-31T14:16:06.778Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-07-31T14:17:24.483Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:47:32.330Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:49:16.879Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:50:58.268Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:51:45.005Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:53:21.221Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:54:00.111Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : TestDrawChart : service updated&#10;" timestamp="2022-08-01T00:55:04.893Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
