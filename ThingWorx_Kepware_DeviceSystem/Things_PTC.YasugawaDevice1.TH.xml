@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal="">
+	<Things>
+		<Thing description="" documentationContent="" effectiveThingPackage="RemoteThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2022-08-04T08:42:37.092Z" name="PTC.YasugawaDevice1.TH" projectName="PTC.DEMO" published="false" tags="" thingTemplate="RemoteThing" valueStream="">
+			<Owner name="Administrator" type="User"/>
+			<avatar/>
+			<DesignTimePermissions>
+				<Create/>
+				<Read/>
+				<Update/>
+				<Delete/>
+				<Metadata/>
+			</DesignTimePermissions>
+			<RunTimePermissions/>
+			<VisibilityPermissions>
+				<Visibility/>
+			</VisibilityPermissions>
+			<ConfigurationTableDefinitions/>
+			<ConfigurationTables>
+				<ConfigurationTable dataShapeName="" description="Reporting Settings" isMultiRow="false" name="ReportingConfiguration" ordinal="0">
+					<DataShape>
+						<FieldDefinitions>
+							<FieldDefinition aspect.defaultValue="NotReporting" aspect.isPrimaryKey="true" aspect.isReadOnly="false" aspect.thingTemplate="ReportingStrategy" baseType="THINGNAME" description="Strategy to determine health" name="reportingStrategy" ordinal="1"/>
+						</FieldDefinitions>
+					</DataShape>
+					<Rows>
+						<Row>
+							<reportingStrategy>
+								<![CDATA[AlwaysOnReporting]]>
+							</reportingStrategy>
+						</Row>
+					</Rows>
+				</ConfigurationTable>
+			</ConfigurationTables>
+			<ThingShape>
+				<PropertyDefinitions>
+					<PropertyDefinition aspect.dataChangeType="VALUE" aspect.isReadOnly="true" aspect.isRemote="true" baseType="BOOLEAN" category="" description="" isLocalOnly="false" name="Yasgawa_Device1_AutoDemoted" ordinal="4"/>
+					<PropertyDefinition aspect.dataChangeType="VALUE" aspect.isReadOnly="true" aspect.isRemote="true" baseType="BOOLEAN" category="" description="" isLocalOnly="false" name="Yasgawa_Device1_AutoDemo" ordinal="2"/>
+					<PropertyDefinition aspect.dataChangeType="VALUE" aspect.isReadOnly="false" aspect.isRemote="true" baseType="STRING" category="" description="" isLocalOnly="false" name="Yasgawa_Device1_tag2" ordinal="3"/>
+				</PropertyDefinitions>
+				<ServiceDefinitions/>
+				<EventDefinitions/>
+				<ServiceMappings/>
+				<ServiceImplementations/>
+				<Subscriptions/>
+			</ThingShape>
+			<PropertyBindings/>
+			<RemotePropertyBindings>
+				<RemotePropertyBinding aspect.dataShape="" aspect.industrialDataType="Boolean" aspect.scanRate="1000" aspect.source="" aspect.startType="readEdgeValue" aspect.tagAddress="Yasgawa.Device1._System._AutoDemoted" aspect.tagType="Static" foldType="NONE" name="Yasgawa_Device1_AutoDemoted" pushThreshold="0.0" pushType="VALUE" sourceName="" timeout="0"/>
+				<RemotePropertyBinding aspect.dataShape="" aspect.industrialDataType="Boolean" aspect.scanRate="1000" aspect.source="" aspect.startType="readEdgeValue" aspect.tagAddress="Yasgawa.Device1.AutoDemo" aspect.tagType="Static" foldType="NONE" name="Yasgawa_Device1_AutoDemo" pushThreshold="0.0" pushType="VALUE" sourceName="" timeout="0"/>
+				<RemotePropertyBinding aspect.dataShape="" aspect.industrialDataType="String" aspect.scanRate="1000" aspect.source="" aspect.startType="readEdgeValue" aspect.tagAddress="Yasgawa.Device1.tag2" aspect.tagType="Static" foldType="NONE" name="Yasgawa_Device1_tag2" pushThreshold="0.0" pushType="VALUE" sourceName="" timeout="0"/>
+			</RemotePropertyBindings>
+			<RemoteServiceBindings/>
+			<RemoteEventBindings/>
+			<AlertConfigurations>
+				<AlertDefinitions name="Yasgawa_Device1_AutoDemo"/>
+				<AlertDefinitions name="Yasgawa_Device1_tag2"/>
+			</AlertConfigurations>
+			<ImplementedShapes>
+				<ImplementedShape name="IndustrialThingShape" type="ThingShape"/>
+			</ImplementedShapes>
+			<ThingProperties>
+				<IndustrialThing>
+					<Value>
+						<![CDATA[KEPServerEX]]>
+					</Value>
+					<Timestamp>2022-08-04T08:42:37.341Z</Timestamp>
+					<Quality>UNKNOWN</Quality>
+				</IndustrialThing>
+				<reportingLastEvaluation>
+					<Value>2022-08-04T08:43:35.874Z</Value>
+					<Timestamp>2022-08-04T08:43:35.874Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</reportingLastEvaluation>
+				<reportingLastChange>
+					<Value>2022-08-04T08:43:35.874Z</Value>
+					<Timestamp>2022-08-04T08:43:35.874Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</reportingLastChange>
+				<lastConnection>
+					<Value>2022-08-04T08:43:35.859Z</Value>
+					<Timestamp>2022-08-04T08:43:35.859Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</lastConnection>
+			</ThingProperties>
+			<ConfigurationChanges>
+				<ConfigurationChange changeAction="CREATE" changeReason="properties : Yasgawa_Device1_AutoDemo : added, Yasgawa_Device1_tag2 : added
+header : name : updated, projectName : updated
+" timestamp="2022-08-04T08:42:37.078Z" user="Administrator"/>
+			</ConfigurationChanges>
+		</Thing>
+	</Things>
+</Entities>
