@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="1"
+ universal="password">
+    <ThingShapes>
+        <ThingShape
+         className=""
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="Cylinder.TS"
+         projectName="TechnicalValidation"
+         tags="Application:TechnicalValidation">
+            <PropertyDefinitions>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="5.0"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description="評価機関：過去何点分を積算するか"
+                 isLocalOnly="false"
+                 name="evaluate_duration"
+                 ordinal="17"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="7.0"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description="評価基準：このポイントを超えるとアラート発報"
+                 isLocalOnly="false"
+                 name="evaluate_point"
+                 ordinal="18"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="0.1"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description=""
+                 isLocalOnly="false"
+                 name="factor_limit1"
+                 ordinal="11"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="0.2"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description=""
+                 isLocalOnly="false"
+                 name="factor_limit2"
+                 ordinal="12"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="0.3"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description=""
+                 isLocalOnly="false"
+                 name="factor_limit3"
+                 ordinal="13"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.dataShape="pastValuesForAggregation.DS"
+                 aspect.isPersistent="true"
+                 baseType="INFOTABLE"
+                 category=""
+                 description="累計ポイント計算用"
+                 isLocalOnly="false"
+                 name="pastValuesForAggregation"
+                 ordinal="20"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="1.0"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description="管理値１に対する重みポイント：管理値１を超えたらこのポイントを付与する"
+                 isLocalOnly="false"
+                 name="weight_limit1"
+                 ordinal="14"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="3.0"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description="管理値２に対する重みポイント：管理値２を超えたらこのポイントを付与する"
+                 isLocalOnly="false"
+                 name="weight_limit2"
+                 ordinal="15"></PropertyDefinition>
+                <PropertyDefinition
+                 aspect.cacheTime="0.0"
+                 aspect.dataChangeType="VALUE"
+                 aspect.defaultValue="5.0"
+                 aspect.isPersistent="true"
+                 baseType="NUMBER"
+                 category=""
+                 description="管理値３に対する重みポイント：管理値３を超えたらこのポイントを付与する"
+                 isLocalOnly="false"
+                 name="weight_limit3"
+                 ordinal="16"></PropertyDefinition>
+            </PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="scoring">
+                    <ResultType
+                     aspect.dataShape="AnalyticsPredictionScores"
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="scoring">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // リアルタイムスコアリング
+                                    // 本プロジェクトでは使用しません
+                                    // プロパティが未定義です
+                                    
+                                    //create infotable with names
+                                    var modelFeatures = Resources["InfoTableFunctions"].CreateInfoTable({infoTableName: "modelFeatures"});
+                                    modelFeatures.AddField({name: "name", baseType: "STRING"});
+                                    modelFeatures.AddField({name: "description", baseType: "STRING"});
+                                    modelFeatures.AddRow({name: "operating_pressure",description: ""});
+                                    //modelFeatures.AddRow({name: "operating_time",description: ""});
+                                    
+                                    var datasetref = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    	infoTableName: "datasetref" /* STRING */,	dataShapeName: "AnalyticsDatasetRef"  /* DATASHAPENAME */
+                                    });
+                                    
+                                    var data = me.GetNamedPropertyValues({propertyNames: modelFeatures});
+                                    
+                                    datasetref.AddRow({data: data});
+                                    
+                                    // predictiveScores: INFOTABLE dataShape: "AnalyticsPredictionScores"
+                                    var result =  Things["AnalyticsServer_PredictionThing"].RealtimeScore({
+                                    	goalField: me.Goal /* STRING */,
+                                    	modelUri: "results:/models/" + me.ModelJobID /* STRING */,
+                                    	datasetRef: datasetref /* INFOTABLE */
+                                    });
+                                    
+                                    me.predicted_operating_time = result["operating_time"];
+                                    me.LCL1 = me.predicted_operating_time - me.predicted_operating_time * me.factor_limit1;
+                                    me.LCL2 = me.predicted_operating_time - me.predicted_operating_time * me.factor_limit2;
+                                    me.LCL3 = me.predicted_operating_time - me.predicted_operating_time * me.factor_limit3;
+                                    me.UCL1 = me.predicted_operating_time + me.predicted_operating_time * me.factor_limit1;
+                                    me.UCL2 = me.predicted_operating_time + me.predicted_operating_time * me.factor_limit2;
+                                    me.UCL3 = me.predicted_operating_time + me.predicted_operating_time * me.factor_limit3;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="evaluate_duration"></AlertDefinitions>
+                <AlertDefinitions
+                 name="evaluate_point"></AlertDefinitions>
+                <AlertDefinitions
+                 name="factor_limit1"></AlertDefinitions>
+                <AlertDefinitions
+                 name="factor_limit2"></AlertDefinitions>
+                <AlertDefinitions
+                 name="factor_limit3"></AlertDefinitions>
+                <AlertDefinitions
+                 name="pastValuesForAggregation"></AlertDefinitions>
+                <AlertDefinitions
+                 name="weight_limit1"></AlertDefinitions>
+                <AlertDefinitions
+                 name="weight_limit2"></AlertDefinitions>
+                <AlertDefinitions
+                 name="weight_limit3"></AlertDefinitions>
+            </AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

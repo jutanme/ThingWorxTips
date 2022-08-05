@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="1"
+ universal="password">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="DatabaseThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         inheritedValueStream=""
+         name="CylinderScoredDataHelper"
+         projectName="TechnicalValidation"
+         published="false"
+         tags="Application:TechnicalValidation"
+         thingTemplate="Database"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="JDBC Settings"
+                 isMultiRow="false"
+                 name="ConnectionInfo"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="SELECT NOW()"
+                             baseType="STRING"
+                             description="Connection test string/query"
+                             name="connectionValidationString"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="jdbc:mydb:/server:port/database?param=value"
+                             aspect.friendlyName="JDBC Connection String"
+                             baseType="STRING"
+                             description="JDBC Connection URL"
+                             name="jDBCConnectionURL"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="com.yourdatabase.yourDriver"
+                             aspect.friendlyName="JDBC Driver Class Name"
+                             baseType="STRING"
+                             description="JDBC Driver Class Name"
+                             name="jDBCDriverClass"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="5.0"
+                             aspect.friendlyName="Maxium Number of Connections"
+                             baseType="NUMBER"
+                             description="Maximum number of connections in the pool"
+                             name="maxConnections"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Database Password"
+                             baseType="PASSWORD"
+                             description="Database password"
+                             name="password"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Database User Name"
+                             baseType="STRING"
+                             description="Database user name"
+                             name="userName"
+                             ordinal="4"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <connectionValidationString>
+                            <![CDATA[
+                            SELECT NOW()
+                            ]]>
+                            </connectionValidationString>
+                            <jDBCConnectionURL>
+                            <![CDATA[
+                            jdbc:postgresql://localhost:5432/thingworx
+                            ]]>
+                            </jDBCConnectionURL>
+                            <jDBCDriverClass>
+                            <![CDATA[
+                            org.postgresql.Driver
+                            ]]>
+                            </jDBCDriverClass>
+                            <maxConnections>5.0</maxConnections>
+                            <password></password>
+                            <userName>
+                            <![CDATA[
+                            twadmin
+                            ]]>
+                            </userName>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Connection Monitoring Settings"
+                 isMultiRow="false"
+                 name="ConnectionMonitoring"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="30000.0"
+                             aspect.friendlyName="Monitor Rate (seconds)"
+                             baseType="NUMBER"
+                             description="Monitor rate in milliseconds"
+                             name="connectionMonitorRate"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Enable Monitoring"
+                             baseType="BOOLEAN"
+                             description="Enable connection monitoring"
+                             name="enableMonitor"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Number of Retries"
+                             baseType="NUMBER"
+                             description="Number of retries"
+                             name="numberOfRetries"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="2000.0"
+                             aspect.friendlyName="Retry Delay (milliseconds)"
+                             baseType="NUMBER"
+                             description="Retry delay in milliseconds"
+                             name="retryDelay"
+                             ordinal="3"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <connectionMonitorRate>30000.0</connectionMonitorRate>
+                            <enableMonitor>false</enableMonitor>
+                            <numberOfRetries>1.0</numberOfRetries>
+                            <retryDelay>2000.0</retryDelay>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Field/Column Name Aliases"
+                 isMultiRow="true"
+                 name="ColumnAliases"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Database Column Name"
+                             baseType="STRING"
+                             description="Database column name"
+                             name="columnName"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Thingworx Field Name"
+                             baseType="STRING"
+                             description="Thingworx field name"
+                             name="fieldName"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.dataShape="ScoredList.DS"
+                     aspect.defaultValue="{&quot;rows&quot;:[{&quot;dataSetName&quot;:&quot;abnormal1&quot;,&quot;streamName&quot;:&quot;abnormal1.ST&quot;},{&quot;dataSetName&quot;:&quot;abnormal2&quot;,&quot;streamName&quot;:&quot;abnormal2.ST&quot;}],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;dataSetName&quot;:{&quot;name&quot;:&quot;dataSetName&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:true},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;streamName&quot;:{&quot;name&quot;:&quot;streamName&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:2}}}}"
+                     aspect.isPersistent="true"
+                     baseType="INFOTABLE"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="scoredList"
+                     ordinal="4"></PropertyDefinition>
+                </PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="addScoredDataToStream1_agg">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="addScoredDataToStream2_agg">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="calcAggregatedPoints">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="point"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="predicted_operating_time"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="calcPoint">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="lcl1"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="lcl2"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="lcl3"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="operating_time"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="ucl1"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="ucl2"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="ucl3"
+                             ordinal="7"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="getScoreFromStream">
+                        <ResultType
+                         aspect.dataShape="CylinderStream_agg.DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="ScoredList.DS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="datasetName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="queryAggregatedPointsFromStream">
+                        <ResultType
+                         aspect.dataShape="aggregatedPointsDrawing.DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="ScoredList.DS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="datasetName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="queryGridFromStream">
+                        <ResultType
+                         aspect.dataShape="CylinderStream_agg.DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="datasetName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="queryPressureFromStream">
+                        <ResultType
+                         aspect.dataShape="pressureDrawing.DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="ScoredList.DS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="datasetName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="queryTimeFromStream">
+                        <ResultType
+                         aspect.dataShape="timeDrawing.DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="ScoredList.DS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="datasetName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="removePastValuesForAggregation">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="updateEvaluationFactors">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="evaluate_duration"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="evaluate_point"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="factor_limit1"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="factor_limit2"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="factor_limit3"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="weight_limit1"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="weight_limit2"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="weight_limit3"
+                             ordinal="6"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="addScoredDataToStream1_agg">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // read scored csv file
+                                        let params = {
+                                        	path: "abnormal1_scored.csv" /* STRING */,
+                                        	columnMappings: undefined /* STRING */,
+                                        	hasHeader: true /* BOOLEAN */,
+                                        	longitudeField: undefined /* NUMBER */,
+                                        	dateFormat: "yyyy/MM/dd HH:mm" /* STRING */,
+                                        	fileRepository: "SystemRepository" /* THINGNAME */,
+                                        	latitudeField: undefined /* NUMBER */,
+                                        	fieldDelimiter: undefined /* STRING */,
+                                        	stringDelimiter: undefined /* STRING */,
+                                        	dataShape: "ScoredCSV.DS" /* DATASHAPENAME */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        let csv = Resources["CSVParserFunctions"].ReadCSVFile(params);
+                                        
+                                        // delete existing stream data
+                                        let date1 = new Date();
+                                        Things["abnormal1_agg.ST"].PurgeStreamEntries({
+                                        	endDate: date1 /* DATETIME */,
+                                        	immediate: true /* BOOLEAN */,
+                                        	startDate: undefined /* DATETIME */
+                                        });
+                                        
+                                        // initialize aggregation buffer
+                                        me.removePastValuesForAggregation();
+                                        
+                                        // add scored data to stream
+                                        for (let x=0; x<csv.rows.length; x++) {
+                                            // tags:TAGS
+                                            let tags = new Array();
+                                        
+                                            // timestamp:DATETIME
+                                            let timestamp = new Date();
+                                        
+                                            // values:INFOTABLE(Datashape:CylinderStream.DS)
+                                            let values = Things["abnormal1_agg.ST"].CreateValues();
+                                        
+                                            // convert to JST
+                                        //  const date1 = new Date(csv.rows[x]["TimeStamp"]);
+                                        //	date1.setHours(date1.getHours() - 9);
+                                         
+                                            values.TimeStamp = csv.rows[x]["TimeStamp"]; //DATETIME
+                                            values.operating_pressure = csv.rows[x]["operating_pressure"]; //NUMBER
+                                        	values.operating_time = csv.rows[x]["operating_time"]; //NUMBER
+                                            values.predicted_operating_time = csv.rows[x]["predicted_operating_time"]; //NUMBER
+                                            values.LCL1 = values.predicted_operating_time - values.predicted_operating_time * me.factor_limit1; //NUMBER
+                                            values.LCL2 = values.predicted_operating_time - values.predicted_operating_time * me.factor_limit2; //NUMBER
+                                            values.LCL3 = values.predicted_operating_time - values.predicted_operating_time * me.factor_limit3; //NUMBER
+                                            values.UCL1 = values.predicted_operating_time + values.predicted_operating_time * me.factor_limit1; //NUMBER
+                                            values.UCL2 = values.predicted_operating_time + values.predicted_operating_time * me.factor_limit2; //NUMBER
+                                            values.UCL3 = values.predicted_operating_time + values.predicted_operating_time * me.factor_limit3; //NUMBER
+                                            
+                                            // ポイント計算ロジック
+                                            // 1. LCLn/UCLnを超えるとweight_limitnが付与される。(calcPoint)
+                                            // 2. 評価期間(evaluate_duration）分のポイントを合計する。(calcAggregatedPoints)
+                                            // 3. 上記合計値が評価ポイント（evaluate_point）以上になるとアラート発生
+                                            values.evaluate_point = me.evaluate_point;
+                                            values.point = me.calcPoint({
+                                                lcl1: values.LCL1 /* NUMBER */,
+                                                lcl2: values.LCL2 /* NUMBER */,
+                                                lcl3: values.LCL3 /* NUMBER */,
+                                                ucl1: values.UCL1 /* NUMBER */,
+                                                ucl2: values.UCL2 /* NUMBER */,
+                                                ucl3: values.UCL3 /* NUMBER */,
+                                           		operating_time: values.operating_time /* NUMBER */,
+                                        	});
+                                        	values.aggregated_points = me.calcAggregatedPoints({
+                                        		predicted_operating_time: values.predicted_operating_time /* NUMBER */,
+                                        		point: values.point /* NUMBER */
+                                        	});
+                                            if (values.aggregated_points >= me.evaluate_point) {
+                                                values.isAlert = true;
+                                            }
+                                            else { 
+                                                values.isAlert = false;
+                                            }
+                                            
+                                            // location:LOCATION
+                                            let location = {
+                                                latitude: 0,
+                                                longitude: 0,
+                                                elevation: 0,
+                                                units: "WGS84"
+                                            };
+                                        
+                                            let params2 = {
+                                                tags: tags,
+                                                timestamp: values.TimeStamp,
+                                                source: me.name,
+                                                values: values,
+                                                location: location
+                                            };
+                                        
+                                            // AddStreamEntry(tags:TAGS, timestamp:DATETIME, source:STRING("me.name"), values:INFOTABLE(CylinderStream.DS), location:LOCATION):NOTHING
+                                            Things["abnormal1_agg.ST"].AddStreamEntry(params2);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="addScoredDataToStream2_agg">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // read scored csv file
+                                        let params = {
+                                        	path: "abnormal2_scored.csv" /* STRING */,
+                                        	columnMappings: undefined /* STRING */,
+                                        	hasHeader: true /* BOOLEAN */,
+                                        	longitudeField: undefined /* NUMBER */,
+                                        	dateFormat: "yyyy/MM/dd HH:mm" /* STRING */,
+                                        	fileRepository: "SystemRepository" /* THINGNAME */,
+                                        	latitudeField: undefined /* NUMBER */,
+                                        	fieldDelimiter: undefined /* STRING */,
+                                        	stringDelimiter: undefined /* STRING */,
+                                        	dataShape: "ScoredCSV.DS" /* DATASHAPENAME */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        let csv = Resources["CSVParserFunctions"].ReadCSVFile(params);
+                                        
+                                        // delete existing stream data
+                                        let date1 = new Date();
+                                        Things["abnormal2_agg.ST"].PurgeStreamEntries({
+                                        	endDate: date1 /* DATETIME */,
+                                        	immediate: true /* BOOLEAN */,
+                                        	startDate: undefined /* DATETIME */
+                                        });
+                                        
+                                        // initialize aggregation buffer
+                                        me.removePastValuesForAggregation();
+                                        
+                                        // add scored data to stream
+                                        for (let x=0; x<csv.rows.length; x++) {
+                                            // tags:TAGS
+                                            let tags = new Array();
+                                        
+                                            // timestamp:DATETIME
+                                            let timestamp = new Date();
+                                        
+                                            // values:INFOTABLE(Datashape:CylinderStream.DS)
+                                            let values = Things["abnormal2_agg.ST"].CreateValues();
+                                        
+                                            // convert to JST
+                                        //  const date1 = new Date(csv.rows[x]["TimeStamp"]);
+                                        //	date1.setHours(date1.getHours() - 9);
+                                         
+                                            values.TimeStamp = csv.rows[x]["TimeStamp"]; //DATETIME
+                                            values.operating_pressure = csv.rows[x]["operating_pressure"]; //NUMBER
+                                        	values.operating_time = csv.rows[x]["operating_time"]; //NUMBER
+                                            values.predicted_operating_time = csv.rows[x]["predicted_operating_time"]; //NUMBER
+                                            values.LCL1 = values.predicted_operating_time - values.predicted_operating_time * me.factor_limit1; //NUMBER
+                                            values.LCL2 = values.predicted_operating_time - values.predicted_operating_time * me.factor_limit2; //NUMBER
+                                            values.LCL3 = values.predicted_operating_time - values.predicted_operating_time * me.factor_limit3; //NUMBER
+                                            values.UCL1 = values.predicted_operating_time + values.predicted_operating_time * me.factor_limit1; //NUMBER
+                                            values.UCL2 = values.predicted_operating_time + values.predicted_operating_time * me.factor_limit2; //NUMBER
+                                            values.UCL3 = values.predicted_operating_time + values.predicted_operating_time * me.factor_limit3; //NUMBER
+                                            
+                                            // ポイント計算ロジック
+                                            // 1. LCLn/UCLnを超えるとweight_limitnが付与される。(calcPoint)
+                                            // 2. 評価期間(evaluate_duration）分のポイントを合計する。(calcAggregatedPoints)
+                                            // 3. 上記合計値が評価ポイント（evaluate_point）以上になるとアラート発生
+                                            values.evaluate_point = me.evaluate_point;
+                                            values.point = me.calcPoint({
+                                                lcl1: values.LCL1 /* NUMBER */,
+                                                lcl2: values.LCL2 /* NUMBER */,
+                                                lcl3: values.LCL3 /* NUMBER */,
+                                                ucl1: values.UCL1 /* NUMBER */,
+                                                ucl2: values.UCL2 /* NUMBER */,
+                                                ucl3: values.UCL3 /* NUMBER */,
+                                           		operating_time: values.operating_time /* NUMBER */,
+                                        	});
+                                        	values.aggregated_points = me.calcAggregatedPoints({
+                                        		predicted_operating_time: values.predicted_operating_time /* NUMBER */,
+                                        		point: values.point /* NUMBER */
+                                        	});
+                                            if (values.aggregated_points >= me.evaluate_point) {
+                                                values.isAlert = true;
+                                            }
+                                            else { 
+                                                values.isAlert = false;
+                                            }
+                                            
+                                            // location:LOCATION
+                                            let location = {
+                                                latitude: 0,
+                                                longitude: 0,
+                                                elevation: 0,
+                                                units: "WGS84"
+                                            };
+                                        
+                                            let params2 = {
+                                                tags: tags,
+                                                timestamp: values.TimeStamp,
+                                                source: me.name,
+                                                values: values,
+                                                location: location
+                                            };
+                                        
+                                            // AddStreamEntry(tags:TAGS, timestamp:DATETIME, source:STRING("me.name"), values:INFOTABLE(CylinderStream.DS), location:LOCATION):NOTHING
+                                            Things["abnormal2_agg.ST"].AddStreamEntry(params2);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="calcAggregatedPoints">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        let len = me.pastValuesForAggregation.getRowCount();
+                                        let agg = 0;
+                                        
+                                        // 評価期間(evaluate_duration）に満たなければpastNumをインクリメントし、引数の行を追加する。
+                                        if (len < me.evaluate_duration) {
+                                            // propertyを直接++できないため、一回仮の変数に代入して戻す。（infotableごと代入しないとダメ）
+                                            let info = me.pastValuesForAggregation;
+                                            for (x=0; x<len; x++) {
+                                                info.rows[x]["pastNumber"]++;
+                                            }
+                                            me.pastValuesForAggregation = info;
+                                            
+                                            // 現在の値を１番目としてinfotableに設定
+                                            me.pastValuesForAggregation.AddRow({pastNumber : 1, pastValue : predicted_operating_time, point : point});
+                                        }
+                                        else { // すでに過去データが評価期間(evaluate_duration）分ある場合は、最も古い行を削除してpastNumをインクリメントし、引数の行を追加する。
+                                            // 最も古い行を削除
+                                        	me.pastValuesForAggregation.Delete({pastNumber : me.evaluate_duration});
+                                            
+                                            // propertyを直接++できないため、一回仮の変数に代入して戻す。（infotableごと代入しないとダメ）
+                                            // 削除した１行を引いている
+                                            let info = me.pastValuesForAggregation;
+                                            for (x=0; x<len - 1; x++) {
+                                                info.rows[x]["pastNumber"]++;
+                                            }
+                                            me.pastValuesForAggregation = info;
+                                            
+                                            // 現在の値を１番目としてinfotableに設定
+                                            me.pastValuesForAggregation.AddRow({pastNumber : 1, pastValue : predicted_operating_time, point : point}); 
+                                        }
+                                        
+                                        if (len >= me.evaluate_duration) {
+                                            for (x=0; x<len; x++) {
+                                                agg = agg + me.pastValuesForAggregation.rows[x].point;
+                                            }
+                                        }
+                                        
+                                        let result = agg;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="calcPoint">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = 0;
+                                        
+                                        if (operating_time < lcl3 || ucl3 < operating_time) {
+                                            result = me.weight_limit3;
+                                        }
+                                        else if (operating_time < lcl2 || ucl2 < operating_time) {
+                                            result = me.weight_limit2;
+                                        }
+                                        else if (operating_time < lcl1 || ucl1 < operating_time) {
+                                            result = me.weight_limit1;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="getScoreFromStream">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Datatable からStream Thing名を取得
+                                        let streamNm = datasetName["streamName"];
+                                        
+                                        
+                                        // result: INFOTABLE dataShape: ""
+                                        let result = Things[streamNm].QueryStreamData({
+                                        	oldestFirst: true /* BOOLEAN */,
+                                        	maxItems: 10000 /* NUMBER */,
+                                        	sourceTags: undefined /* TAGS */,
+                                        	endDate: undefined /* DATETIME */,
+                                        	query: undefined /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	startDate: undefined /* DATETIME */,
+                                        	tags: undefined /* TAGS */
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="queryAggregatedPointsFromStream">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Datatable からStream Thing名を取得
+                                        let streamNm = datasetName["streamName"];
+                                        
+                                        // result: INFOTABLE dataShape: ""
+                                        let stream = Things[streamNm].QueryStreamData({
+                                        	oldestFirst: true /* BOOLEAN */,
+                                        	maxItems: 10000 /* NUMBER */,
+                                        	sourceTags: undefined /* TAGS */,
+                                        	endDate: undefined /* DATETIME */,
+                                        	query: undefined /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	startDate: undefined /* DATETIME */,
+                                        	tags: undefined /* TAGS */
+                                        });
+                                        
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(pressureDrawing.DS)
+                                        let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                            infoTableName: "InfoTable",
+                                            dataShapeName: "aggregatedPointsDrawing.DS"
+                                        });
+                                        
+                                        for (x=0; x<stream.length; x++) {
+                                        	result.AddRow({TimeStamp: stream.rows[x]["TimeStamp"], evaluate_point: stream.rows[x]["evaluate_point"], aggregated_points: stream.rows[x]["aggregated_points"]});
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="queryGridFromStream">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Datatable からStream Thing名を取得
+                                        let streamNm = datasetName["streamName"];
+                                        
+                                        // OOSデータのみ抽出
+                                        let query = {
+                                         "filters": {
+                                           "type": "GT",
+                                           "fieldName": "point",
+                                           "value": 0
+                                         }
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: ""
+                                        let result = Things[streamNm].QueryStreamData({
+                                        	oldestFirst: true /* BOOLEAN */,
+                                        	maxItems: 10000 /* NUMBER */,
+                                        	sourceTags: undefined /* TAGS */,
+                                        	endDate: undefined /* DATETIME */,
+                                        	query: query /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	startDate: undefined /* DATETIME */,
+                                        	tags: undefined /* TAGS */
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="queryPressureFromStream">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Datatable からStream Thing名を取得
+                                        let streamNm = datasetName["streamName"];
+                                        
+                                        // result: INFOTABLE dataShape: ""
+                                        let stream = Things[streamNm].QueryStreamData({
+                                        	oldestFirst: true /* BOOLEAN */,
+                                        	maxItems: 10000 /* NUMBER */,
+                                        	sourceTags: undefined /* TAGS */,
+                                        	endDate: undefined /* DATETIME */,
+                                        	query: undefined /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	startDate: undefined /* DATETIME */,
+                                        	tags: undefined /* TAGS */
+                                        });
+                                        
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(pressureDrawing.DS)
+                                        let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                            infoTableName: "InfoTable",
+                                            dataShapeName: "pressureDrawing.DS"
+                                        });
+                                        
+                                        for (x=0; x<stream.length; x++) {
+                                        	result.AddRow({TimeStamp: stream.rows[x]["TimeStamp"], operating_pressure: stream.rows[x]["operating_pressure"]});
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="queryTimeFromStream">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Datatable からStream Thing名を取得
+                                        let streamNm = datasetName["streamName"];
+                                        
+                                        // result: INFOTABLE dataShape: ""
+                                        let stream = Things[streamNm].QueryStreamData({
+                                        	oldestFirst: true /* BOOLEAN */,
+                                        	maxItems: 10000 /* NUMBER */,
+                                        	sourceTags: undefined /* TAGS */,
+                                        	endDate: undefined /* DATETIME */,
+                                        	query: undefined /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	startDate: undefined /* DATETIME */,
+                                        	tags: undefined /* TAGS */
+                                        });
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(pressureDrawing.DS)
+                                        let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                            infoTableName: "InfoTable",
+                                            dataShapeName: "timeDrawing.DS"
+                                        });
+                                        
+                                        for (x=0; x<stream.length; x++) {
+                                        	result.AddRow({
+                                                TimeStamp: stream.rows[x]["TimeStamp"], 
+                                                operating_time: stream.rows[x]["operating_time"],
+                                                LCL1: stream.rows[x]["LCL1"],
+                                                LCL2: stream.rows[x]["LCL2"],
+                                                LCL3: stream.rows[x]["LCL3"],
+                                                UCL1: stream.rows[x]["UCL1"],
+                                                UCL2: stream.rows[x]["UCL2"],
+                                                UCL3: stream.rows[x]["UCL3"]
+                                            });
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="removePastValuesForAggregation">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        me.pastValuesForAggregation.RemoveAllRows();
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="updateEvaluationFactors">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // 評価用のプロパティを更新し、Streamを作り直す。
+                                        
+                                        me.factor_limit1 = factor_limit1;
+                                        me.factor_limit2 = factor_limit2;
+                                        me.factor_limit3 = factor_limit3;
+                                        me.weight_limit1 = weight_limit1;
+                                        me.weight_limit2 = weight_limit2;
+                                        me.weight_limit3 = weight_limit3;
+                                        me.evaluate_duration = evaluate_duration;
+                                        me.evaluate_point = evaluate_point;
+                                        
+                                        me.addScoredDataToStream1_agg();
+                                        me.addScoredDataToStream2_agg();
+                                        
+                                        // このあとMashupからServiceInvokedCompletedで描画用サービスを呼び出す。
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="scoredList"></AlertDefinitions>
+            </AlertConfigurations>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="Cylinder.TS"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <ThingProperties>
+                <evaluate_duration>
+                    <Value>5.0</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </evaluate_duration>
+                <factor_limit1>
+                    <Value>0.1</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </factor_limit1>
+                <factor_limit2>
+                    <Value>0.2</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </factor_limit2>
+                <pastValuesForAggregation>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="NUMBER"
+                                     description=""
+                                     name="pastNumber"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="NUMBER"
+                                     description=""
+                                     name="pastValue"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="NUMBER"
+                                     description=""
+                                     name="point"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <pastNumber>5.0</pastNumber>
+                                    <pastValue>2.382371671</pastValue>
+                                    <point>3.0</point>
+                                </Row>
+                                <Row>
+                                    <pastNumber>4.0</pastNumber>
+                                    <pastValue>2.369755793</pastValue>
+                                    <point>3.0</point>
+                                </Row>
+                                <Row>
+                                    <pastNumber>3.0</pastNumber>
+                                    <pastValue>2.370450866</pastValue>
+                                    <point>5.0</point>
+                                </Row>
+                                <Row>
+                                    <pastNumber>2.0</pastNumber>
+                                    <pastValue>2.382371671</pastValue>
+                                    <point>5.0</point>
+                                </Row>
+                                <Row>
+                                    <pastNumber>1.0</pastNumber>
+                                    <pastValue>2.370430522</pastValue>
+                                    <point>5.0</point>
+                                </Row>
+                            </Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>2021-09-10T15:51:22.513+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </pastValuesForAggregation>
+                <factor_limit3>
+                    <Value>0.3</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </factor_limit3>
+                <weight_limit3>
+                    <Value>5.0</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </weight_limit3>
+                <evaluate_point>
+                    <Value>7.0</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </evaluate_point>
+                <weight_limit2>
+                    <Value>3.0</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </weight_limit2>
+                <weight_limit1>
+                    <Value>1.0</Value>
+                    <Timestamp>2021-09-10T15:51:16.874+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </weight_limit1>
+                <scoredList>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="true"
+                                     baseType="STRING"
+                                     description=""
+                                     name="dataSetName"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description=""
+                                     name="streamName"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <dataSetName>
+                                    <![CDATA[
+                                    abnormal1
+                                    ]]>
+                                    </dataSetName>
+                                    <streamName>
+                                    <![CDATA[
+                                    abnormal1_agg.ST
+                                    ]]>
+                                    </streamName>
+                                </Row>
+                                <Row>
+                                    <dataSetName>
+                                    <![CDATA[
+                                    abnormal2
+                                    ]]>
+                                    </dataSetName>
+                                    <streamName>
+                                    <![CDATA[
+                                    abnormal2_agg.ST
+                                    ]]>
+                                    </streamName>
+                                </Row>
+                            </Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>2021-08-30T11:58:57.956+09:00</Timestamp>
+                    <Quality>GOOD</Quality>
+                </scoredList>
+            </ThingProperties>
+        </Thing>
+    </Things>
+</Entities>
