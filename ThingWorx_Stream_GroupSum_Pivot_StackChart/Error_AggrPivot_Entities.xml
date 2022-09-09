@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><StyleDefinitions/><Networks/><PersistenceProviderPackages/><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2022-09-06T11:25:54.614Z" name="OLY.ErrorSum.Mash" projectName="OLY.POC" rows="0.0" tags="OLY:AGG"><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "\n",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_OLY.ErrCode.TH" : {
+      "DataName" : "Things_OLY.ErrCode.TH",
+      "EntityName" : "OLY.ErrCode.TH",
+      "EntityType" : "Things",
+      "Id" : "e9394118-8010-4bfe-baaf-3d7fa542db66",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "eeef93ec-50e3-4fba-8091-c5ba8c2c7d24",
+        "Name" : "GetErrCodeSum",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetErrCodeSum"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "d6ce6751-4e93-41c1-a68e-dc8744d26949",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetErrCodeSum",
+    "SourceSection" : "Things_OLY.ErrCode.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcschartbar-26",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_OLY.ErrCode.TH",
+    "EventHandlerService" : "GetErrCodeSum",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "5c08810c-40ce-4d7e-b9bb-494e4fed8d79"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupResolution" : "1366x768",
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : {
+          "ptcsbutton-36" : {
+            "parts" : {
+              "label" : {
+                "$" : {
+                  "font-size" : "20px"
+                },
+                "hover" : {
+                  "font-size" : "20px"
+                }
+              }
+            },
+            "widget" : "ptcs-button"
+          },
+          "ptcschartline-19" : {
+            "parts" : {
+              "area" : {
+                "serie2" : {
+                  "fill" : "rgba(255,255,255,1)"
+                }
+              },
+              "line" : {
+                "serie2" : {
+                  "stroke" : "rgba(191,48,48,1)"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-line"
+          },
+          "ptcschartline-21" : {
+            "parts" : {
+              "area" : {
+                "serie2" : {
+                  "fill" : "rgba(191,48,48,1)",
+                  "opacity" : "1"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-line"
+          },
+          "ptcschartpareto-7" : {
+            "parts" : {
+              "xaxis-label" : {
+                "$" : {
+                  "font-size" : "9px"
+                }
+              }
+            },
+            "widget" : "ptcs-chart-pareto"
+          },
+          "ptcslabel-34" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "font-size" : "20px"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          },
+          "ptcslabel-47" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "font-size" : "24px"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          },
+          "ptcslabel-56" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "color" : "rgba(191,48,48,1)",
+                  "font-size" : "24px"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          },
+          "ptcslabel-57" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "color" : "rgba(191,48,48,1)",
+                  "font-size" : "24px"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          }
+        },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 57,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "column",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : false,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-45",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-45",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "60px",
+          "flex-max-width" : "",
+          "flex-min-height" : "60px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-47",
+            "HorizontalAlignment" : "center",
+            "Id" : "ptcslabel-47",
+            "LabelText" : "ErrorSum画面",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 304,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 36.69999694824219,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-44",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-44",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "container-29",
+            "EnableExpandCollapse" : false,
+            "ExpandCollapseTabLocation" : "inside",
+            "Expanded" : true,
+            "Id" : "flexcontainer-29",
+            "LastContainer" : false,
+            "Overlay" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "center",
+            "flex-basis" : "auto",
+            "flex-direction" : "row",
+            "flex-grow" : 1,
+            "flex-max-height" : "52px",
+            "flex-max-width" : "",
+            "flex-min-height" : "52px",
+            "flex-min-width" : "",
+            "flex-shrink" : 1,
+            "flex-size" : "fixed",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer-fixed",
+            "isLocked" : false,
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : false
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "container-28",
+            "EnableExpandCollapse" : false,
+            "ExpandCollapseTabLocation" : "inside",
+            "Expanded" : true,
+            "Id" : "flexcontainer-28",
+            "LastContainer" : true,
+            "Overlay" : false,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "ShowExpandCollapseTab" : false,
+            "SourceURL" : "",
+            "Style" : "DefaultContainerStyle",
+            "StyleProperties" : { },
+            "Type" : "flexcontainer",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Responsive Container",
+            "align-content" : "flex-start",
+            "align-items" : "flex-start",
+            "flex-basis" : "auto",
+            "flex-direction" : "column",
+            "flex-grow" : 1,
+            "flex-max-height" : "",
+            "flex-max-width" : "",
+            "flex-min-height" : "",
+            "flex-min-width" : "",
+            "flex-shrink" : 1,
+            "flex-size" : "default",
+            "flex-wrap" : "nowrap",
+            "iconClass" : "widgets-flexcontainer",
+            "isLocked" : true,
+            "justify-content" : "flex-start",
+            "positioning" : "responsive",
+            "userCannotRemove" : false
+          },
+          "Widgets" : [ {
+            "Properties" : {
+              "Area" : "UI",
+              "ChartType" : "column",
+              "CustomClass" : "",
+              "DataField1" : "不良項目A",
+              "DataField2" : "不良項目B",
+              "DataField3" : "不良項目C",
+              "DataField4" : "不良項目D",
+              "DataLabel1" : "",
+              "DataLabel10" : "",
+              "DataLabel11" : "",
+              "DataLabel12" : "",
+              "DataLabel13" : "",
+              "DataLabel14" : "",
+              "DataLabel15" : "",
+              "DataLabel16" : "",
+              "DataLabel17" : "",
+              "DataLabel18" : "",
+              "DataLabel19" : "",
+              "DataLabel2" : "",
+              "DataLabel20" : "",
+              "DataLabel21" : "",
+              "DataLabel22" : "",
+              "DataLabel23" : "",
+              "DataLabel24" : "",
+              "DataLabel3" : "",
+              "DataLabel4" : "",
+              "DataLabel5" : "",
+              "DataLabel6" : "",
+              "DataLabel7" : "",
+              "DataLabel8" : "",
+              "DataLabel9" : "",
+              "DataSeriesStyle10_StateParameters" : [ ],
+              "DataSeriesStyle11_StateParameters" : [ ],
+              "DataSeriesStyle12_StateParameters" : [ ],
+              "DataSeriesStyle13_StateParameters" : [ ],
+              "DataSeriesStyle14_StateParameters" : [ ],
+              "DataSeriesStyle15_StateParameters" : [ ],
+              "DataSeriesStyle16_StateParameters" : [ ],
+              "DataSeriesStyle17_StateParameters" : [ ],
+              "DataSeriesStyle18_StateParameters" : [ ],
+              "DataSeriesStyle19_StateParameters" : [ ],
+              "DataSeriesStyle1_StateParameters" : [ ],
+              "DataSeriesStyle20_StateParameters" : [ ],
+              "DataSeriesStyle21_StateParameters" : [ ],
+              "DataSeriesStyle22_StateParameters" : [ ],
+              "DataSeriesStyle23_StateParameters" : [ ],
+              "DataSeriesStyle24_StateParameters" : [ ],
+              "DataSeriesStyle2_StateParameters" : [ ],
+              "DataSeriesStyle3_StateParameters" : [ ],
+              "DataSeriesStyle4_StateParameters" : [ ],
+              "DataSeriesStyle5_StateParameters" : [ ],
+              "DataSeriesStyle6_StateParameters" : [ ],
+              "DataSeriesStyle7_StateParameters" : [ ],
+              "DataSeriesStyle8_StateParameters" : [ ],
+              "DataSeriesStyle9_StateParameters" : [ ],
+              "DataSeriesStyle_StateParameters" : [ ],
+              "DirectSelectionZoom" : "none",
+              "Disabled" : false,
+              "DisplayName" : "ptcs-chartbar-26",
+              "DragSelectionZoom" : "none",
+              "ExternalPadding" : 25,
+              "GroupPadding" : 25,
+              "Height" : 476,
+              "HideLegend" : false,
+              "HideNotes" : true,
+              "HideValues" : false,
+              "HideXAxis" : false,
+              "HideYAxis" : false,
+              "HorizontalAxisMaxHeight" : 85,
+              "HorizontalEndZoomLabel" : "",
+              "HorizontalIntervalAnchorPoint" : "start",
+              "HorizontalIntervalAnchorPointLabel" : "",
+              "HorizontalIntervalControl" : "none",
+              "HorizontalIntervalControlLabel" : "",
+              "HorizontalRangeZoom" : false,
+              "HorizontalSliderZoom" : false,
+              "HorizontalSliderZoomMaxLabel" : "",
+              "HorizontalSliderZoomMinLabel" : "",
+              "HorizontalStartZoomLabel" : "",
+              "HorizontalZoom" : false,
+              "Id" : "ptcschartbar-26",
+              "InternalPadding" : 25,
+              "Label" : "",
+              "LabelAlignment" : "left",
+              "LabelPosition" : "top",
+              "LabelReset" : "Reset",
+              "LabelType" : "sub-header",
+              "LastContainer" : false,
+              "Left" : 99,
+              "LegendAlignment" : "start",
+              "LegendFilter" : true,
+              "LegendMarkerShapes" : "square",
+              "LegendMaxWidth" : 736,
+              "LegendPosition" : "left",
+              "MultipleDataSources" : false,
+              "Notes" : "",
+              "NotesAlignment" : "left",
+              "NotesPosition" : "bottom",
+              "NumberOfReferenceLines" : 0,
+              "ResponsiveLayout" : true,
+              "ReverseSecondYAxis" : false,
+              "ReverseXAxis" : false,
+              "ReverseYAxis" : false,
+              "RulersInFront" : false,
+              "SecondYAxis" : false,
+              "SecondYAxisFormat" : "0000.0",
+              "SecondYAxisLabel" : "Secondary Y-axis",
+              "SecondYAxisLabelAlignment" : "center",
+              "SecondYAxisSeriesDisplay" : "grouped",
+              "SelectionMode" : "none",
+              "SeriesDisplay" : "auto",
+              "ShowDataLoading" : false,
+              "ShowHorizontalAnchorPointControl" : false,
+              "ShowXAxisRuler" : false,
+              "ShowYAxisRuler" : true,
+              "ShowZeroValueRuler" : false,
+              "SparkView" : false,
+              "StringClearAll" : "[[clearAll]]",
+              "StringEnd" : "[[endRange]]",
+              "StringSelectAll" : "[[selectAll]]",
+              "StringStart" : "[[startRange]]",
+              "TabSequence" : 0,
+              "Top" : 102.19999694824219,
+              "Type" : "ptcschartbar",
+              "UseSampleDataInRuntime" : false,
+              "UseSecondYAxis1" : false,
+              "UseSecondYAxis10" : false,
+              "UseSecondYAxis11" : false,
+              "UseSecondYAxis12" : false,
+              "UseSecondYAxis13" : false,
+              "UseSecondYAxis14" : false,
+              "UseSecondYAxis15" : false,
+              "UseSecondYAxis16" : false,
+              "UseSecondYAxis17" : false,
+              "UseSecondYAxis18" : false,
+              "UseSecondYAxis19" : false,
+              "UseSecondYAxis2" : false,
+              "UseSecondYAxis20" : false,
+              "UseSecondYAxis21" : false,
+              "UseSecondYAxis22" : false,
+              "UseSecondYAxis23" : false,
+              "UseSecondYAxis24" : false,
+              "UseSecondYAxis3" : false,
+              "UseSecondYAxis4" : false,
+              "UseSecondYAxis5" : false,
+              "UseSecondYAxis6" : false,
+              "UseSecondYAxis7" : false,
+              "UseSecondYAxis8" : false,
+              "UseSecondYAxis9" : false,
+              "UseTheme" : true,
+              "ValuesAlignment" : "end",
+              "ValuesPosition" : "outside",
+              "ValuesTooltip" : "[[BarChartDefaultTooltip]]",
+              "VerticalAxisMaxWidth" : 85,
+              "VerticalSliderZoom" : false,
+              "VerticalSliderZoomMaxLabel" : "",
+              "VerticalSliderZoomMinLabel" : "",
+              "VerticalZoom" : false,
+              "Visible" : true,
+              "Width" : 471,
+              "XAxisField" : "DateStr",
+              "XAxisLabel" : "",
+              "XAxisLabelAlignment" : "center",
+              "YAxisFormat" : "0000",
+              "YAxisLabel" : "",
+              "YAxisLabelAlignment" : "center",
+              "YAxisRulerAlignment" : "primary",
+              "Z-index" : 10,
+              "__TypeDisplayName" : "Bar Chart"
+            },
+            "Widgets" : [ ]
+          } ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-09-06T12:02:26.363Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-06T12:05:45.753Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-06T13:11:04.159Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-06T13:11:39.082Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-07T02:57:55.920Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-05T20:44:42.961Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-05T20:45:00.492Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2022-09-06T10:58:31.600Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-06T11:08:54.312Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-06T11:10:25.827Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-09-06T11:25:54.614Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups><ScriptFunctionLibraries/><Projects/><Users/><DirectoryServices/><Widgets/><MediaEntities/><Groups/><PersistenceProviders/><ModelTags/><LocalizationTables/><Dashboards/><StyleThemes/><DataShapes><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2022-09-06T10:59:00.163Z" name="OLY.ErrCode.DS" projectName="OLY.POC" tags="OLY:AGG"><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="Count" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="err_code" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="false" baseType="DATETIME" description="" name="regist_time" ordinal="1"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-09-06T01:34:38.316Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : regist_time : added, err_code : added&#10;" timestamp="2022-09-06T01:35:39.190Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : regist_time : updated&#10;" timestamp="2022-09-06T01:58:21.988Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : Count : added&#10;" timestamp="2022-09-06T02:19:12.954Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2022-09-06T10:59:00.163Z" user="Administrator"/></ConfigurationChanges></DataShape><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2022-09-06T10:59:06.319Z" name="OLY.ErrCodeView.DS" projectName="OLY.POC" tags="OLY:AGG"><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="DateStr" ordinal="1"/><FieldDefinition aspect.isPrimaryKey="false" baseType="DATETIME" description="" name="timestamp" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="DATETIME" description="" name="yyyymmdd" ordinal="2"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-09-06T02:04:59.378Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : yyyymmdd : added&#10;" timestamp="2022-09-06T11:55:23.455Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : timestamp : added&#10;" timestamp="2022-09-06T13:10:07.394Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2022-09-06T10:59:06.319Z" user="Administrator"/></ConfigurationChanges></DataShape></DataShapes><Things><Thing description="" documentationContent="" effectiveThingPackage="StreamThing" enabled="true" homeMashup="StreamMashup" identifier="" inheritedValueStream="" lastModifiedDate="2022-09-06T10:58:44.038Z" name="OLY.ErrCode.ST" projectName="OLY.POC" published="false" tags="OLY:AGG" thingTemplate="Stream" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Data Thing Configuration" isMultiRow="false" name="DataThingSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="Persistence Provider Name" name="persistenceProvider" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><persistenceProvider><![CDATA[ThingworxPersistenceProvider]]></persistenceProvider></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Data Shape Configuration" isMultiRow="false" name="Settings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Data Shape" baseType="DATASHAPENAME" description="Data shape" name="dataShape" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><accumulatedDataShape><json><![CDATA[{"fieldDefinitions":{"regist_time":{"name":"regist_time","aspects":{"isPrimaryKey":true},"description":"","baseType":"DATETIME","ordinal":1},"err_code":{"name":"err_code","aspects":{"isPrimaryKey":false},"description":"","baseType":"STRING","ordinal":0},"Count":{"name":"Count","aspects":{"isPrimaryKey":false},"description":"","baseType":"INTEGER","ordinal":2}}}]]></json></accumulatedDataShape><dataShape><![CDATA[OLY.ErrCode.DS]]></dataShape></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Configurable options to tune Stream performance" isMultiRow="false" name="PersistenceProviderCustomSettings" ordinal="2"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Persistence Provider Custom Settings Table" baseType="INFOTABLE" description="Persistence Provider Custom Config Table" name="customConfigTable" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><customConfigTable><infoTable><DataShape><FieldDefinitions/></DataShape><Rows/></infoTable></customConfigTable></Row></Rows></ConfigurationTable></ConfigurationTables><ThingShape><PropertyDefinitions/><ServiceDefinitions/><EventDefinitions/><ServiceMappings/><ServiceImplementations/><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;configuration : dataShape : updated&#10;" timestamp="2022-09-06T01:36:47.802Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2022-09-06T10:58:43.960Z" user="Administrator"/></ConfigurationChanges></Thing><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2022-09-06T11:26:26.942Z" name="OLY.ErrCode.TH" projectName="OLY.POC" published="false" tags="OLY:AGG" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetErrCodeAggr"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetErrCodeSum"><ResultType aspect.dataShape="OLY.ErrCodeView.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetErrCodeAggr"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//search
+var itemList = Things["OLY.ErrCode.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: undefined /* DATETIME */,
+	query: undefined /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: undefined /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+
+//Aggregate
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemList,
+    columns: "Count",
+    aggregates: "SUM",
+    groupByColumns: "regist_time,err_code"
+});
+
+//Pivot 
+var result = Resources["InfoTableFunctions"].Pivot({
+    t: sumItemList ,
+    nameColumn: "err_code" ,
+    valueColumn: "SUM_Count" ,
+    timestampColumn: "regist_time" 
+});
+////]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetErrCodeSum"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//search
+var itemList = Things["OLY.ErrCode.ST"].QueryStreamData({
+	oldestFirst: undefined /* BOOLEAN */,
+	maxItems: undefined /* NUMBER */,
+	sourceTags: undefined /* TAGS */,
+	endDate: undefined /* DATETIME */,
+	query: undefined /* QUERY */,
+	source: undefined /* STRING */,
+	startDate: undefined /* DATETIME */,
+	tags: undefined /* TAGS */
+});
+var itemListView = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "OLY.ErrCodeView.DS"
+});
+itemListView.AddField({name : "ErrCode", baseType : "STRING"});
+itemListView.AddField({name : "CNT", baseType : "INTEGER", aspects : {defaultValue:1}});
+for each(var row in itemList.rows) {
+    var obj = new Object();
+    //obj.DateStr = (row["timestamp"].getFullYear()) + "年" + (row["timestamp"].getMonth()+1) + "月" + row["timestamp"].getDate() + "日";
+    obj.yyyymmdd = new Date(row["timestamp"].getFullYear(),(row["timestamp"].getMonth()+1), row["timestamp"].getDate(),0,0,0);
+    obj.ErrCode = row.err_code;
+    obj.CNT = 1;
+    itemListView.AddRow(obj);
+}
+
+////Aggregate
+var sumItemList = Resources["InfoTableFunctions"].Aggregate({
+    t: itemListView,
+    columns: "CNT",
+    aggregates: "SUM",
+    groupByColumns: "yyyymmdd,ErrCode"
+});
+
+//Pivot 
+var result = Resources["InfoTableFunctions"].Pivot({
+    t: sumItemList ,
+    nameColumn: "ErrCode" ,
+    valueColumn: "SUM_CNT" ,
+    timestampColumn: "yyyymmdd" 
+});
+
+result.AddField({name : "DateStr", baseType : "STRING"});
+
+for each (var row in result.rows) {
+    row.DateStr = (row["timestamp"].getFullYear()) + "年" + (row["timestamp"].getMonth()+1) + "月" + row["timestamp"].getDate() + "日";
+}
+
+result.RemoveField("timestamp");]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-09-06T01:48:11.674Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service added&#10;" timestamp="2022-09-06T02:12:37.659Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : output updated&#10;" timestamp="2022-09-06T02:13:58.799Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:15:28.206Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:20:03.689Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:20:18.757Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:25:08.534Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:25:32.909Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:32:46.002Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:33:21.535Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:35:07.909Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T02:35:47.473Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;GetErrCodeAgr : service added&#10;" timestamp="2022-09-06T02:38:49.019Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeAgr : service updated, service deleted&#10;GetErrCodeAggr : service added&#10;" timestamp="2022-09-06T02:39:24.753Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:37:34.068Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:46:06.659Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:46:52.159Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:48:09.254Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:48:37.992Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:49:23.033Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:51:11.909Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:51:55.332Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:53:51.879Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T12:00:07.644Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T12:00:58.661Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T12:01:26.037Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : output updated&#10;" timestamp="2022-09-06T12:06:45.894Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T12:10:26.820Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:02:44.443Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:03:14.550Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:04:20.349Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:04:56.019Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:05:30.643Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:06:02.066Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:06:46.362Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:07:18.193Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:08:33.192Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T13:09:32.030Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeAggr : service updated&#10;" timestamp="2022-09-05T20:37:20.863Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeAggr : service updated&#10;" timestamp="2022-09-05T20:39:09.912Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-09-06T10:58:07.085Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeAggr : service updated&#10;" timestamp="2022-09-06T11:01:51.991Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:05:56.307Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:06:54.464Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:07:23.479Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:08:20.984Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:10:11.828Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:25:24.879Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetErrCodeSum : service updated&#10;" timestamp="2022-09-06T11:26:26.926Z" user="Administrator"/></ConfigurationChanges></Thing></Things><Logs/><Authenticators/><ThingPackages/><NotificationDefinitions/><ApplicationKeys/><StateDefinitions/><ThingTemplates/><ExtensionPackages/><Organizations/><Menus/><ThingGroups/><Resources/><DataTags/><ThingShapes/><Subsystems/><NotificationContents/></Entities>
