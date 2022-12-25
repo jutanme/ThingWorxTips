@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Mashups><Mashup aspect.isFlex="false" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2022-12-25T15:28:54.386+09:00" name="linkInGridColumn" projectName="PTCDefaultProject" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height/><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width/><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : ".widget-gridadvanced[themable] .objbox table.obj tbody tr td {\n    user-select: all;\n}",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_DemoLink" : {
+      "DataName" : "Things_DemoLink",
+      "EntityName" : "DemoLink",
+      "EntityType" : "Things",
+      "Id" : "28d9d0f6-6639-4d22-be6e-3b0aae7a85d3",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "5d5d50aa-8020-4ec9-8ae2-b0e1cd124c93",
+        "Name" : "serviceForLink",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "serviceForLink"
+      }, {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "96459966-cd61-4d51-a75f-ecd23819a7db",
+        "Name" : "saveRow",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "saveRow"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "59c320cc-f0da-4553-9f2b-d408ffc7635c",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "serviceForLink",
+    "SourceName" : "serviceForLink",
+    "SourceSection" : "Things_DemoLink",
+    "TargetArea" : "UI",
+    "TargetId" : "gridadvanced-2",
+    "TargetSection" : ""
+  }, {
+    "Id" : "5d7a2c9c-bb96-4263-b7d0-41c7e31cb178",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "EditedTable",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "rows",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "gridadvanced-2",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "saveRow",
+    "TargetSection" : "Things_DemoLink"
+  } ],
+  "DesignTimePermissions" : {
+    "Create" : [ ],
+    "Delete" : [ ],
+    "Metadata" : [ ],
+    "Read" : [ ],
+    "Update" : [ ]
+  },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_DemoLink",
+    "EventHandlerService" : "serviceForLink",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "3ed50d78-3b26-4dbd-8df6-d5036efcd543"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_DemoLink",
+    "EventHandlerService" : "saveRow",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "EditCompleted",
+    "EventTriggerId" : "gridadvanced-2",
+    "EventTriggerSection" : "",
+    "Id" : "6497d59c-0a84-45c4-b480-d6400a66acb8"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_DemoLink",
+    "EventHandlerService" : "saveRow",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "EditCellCompleted",
+    "EventTriggerId" : "gridadvanced-2",
+    "EventTriggerSection" : "",
+    "Id" : "1f68e29a-ccaf-40ad-b7c7-72cf74627b09"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_DemoLink",
+    "EventHandlerService" : "saveRow",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "DoubleClicked",
+    "EventTriggerId" : "gridadvanced-2",
+    "EventTriggerSection" : "",
+    "Id" : "e176a2d5-09e3-4217-910f-b717b25d510e"
+  } ],
+  "RunTimePermissions" : {
+    "permissions" : [ ]
+  },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleTheme" : "Base Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 2,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "AutoScroll" : true,
+        "CellBorderStyle" : "DefaultGridAdvancedCellBorderStyle",
+        "CellValidationErrorStyle" : "DefaultGridAdvancedCellValidationErrorStyle",
+        "CellValidationErrorTooltipStyle" : "DefaultGridAdvancedCellValidationErrorTooltipStyle",
+        "ColumnFormat" : {
+          "formatInfo" : [ {
+            "Align" : "left",
+            "AllowEdit" : false,
+            "Description" : "",
+            "FieldName" : "LinkName",
+            "FormatOptions" : {
+              "FormatString" : "_blank",
+              "formatInfo" : {
+                "FieldName" : "",
+                "StateDefinition" : "",
+                "StateDefinitionType" : "fixed",
+                "StateFormats" : [ {
+                  "state" : "",
+                  "stateName" : "fixed"
+                } ]
+              },
+              "formatText" : "View",
+              "renderer" : "HYPERLINK",
+              "roundingEnabled" : true,
+              "showDependentField" : false
+            },
+            "Title" : "LinkName",
+            "Width" : "auto",
+            "headerTextAlignment" : "left",
+            "hidden" : false,
+            "inLayout" : true
+          }, {
+            "Align" : "left",
+            "AllowEdit" : true,
+            "Description" : "",
+            "FieldName" : "Title",
+            "FormatOptions" : {
+              "FormatString" : "",
+              "renderer" : "STRING",
+              "roundingEnabled" : true,
+              "showDependentField" : false
+            },
+            "Title" : "Title",
+            "ValidationExpression" : "",
+            "ValidationMessage" : "",
+            "Width" : "auto",
+            "headerTextAlignment" : "left",
+            "hidden" : false,
+            "inLayout" : true
+          } ]
+        },
+        "Configuration" : "",
+        "ConfigurationId" : 8,
+        "CookiePersistence" : true,
+        "DataOverflow" : "fitted",
+        "DataServiceBindingDef" : {
+          "dataName" : "Things_DemoLink",
+          "entityName" : "DemoLink",
+          "entityType" : "Things",
+          "sourceId" : "serviceForLink",
+          "target" : "serviceForLink"
+        },
+        "DefaultSelectedRows" : "",
+        "DisplayName" : "gridadvanced-2",
+        "DisplayOnlyMode" : true,
+        "EditButtonsLocation" : "top-right",
+        "EnableAddDeleteButtons" : false,
+        "EnableCallbackOnSelectedRowsChange" : true,
+        "EnableContextMenu" : true,
+        "EnableEditButtons" : false,
+        "EnableFilterEventOnConfigChange" : true,
+        "EnableFooter" : false,
+        "EnableGridReset" : false,
+        "EnableGridSearch" : true,
+        "EnableKeyboardNavigation" : false,
+        "EnableSorting" : false,
+        "FocusStyle" : "DefaultFocusStyle",
+        "GridResetButtonLocation" : "top-right",
+        "GridSearchLocation" : "top-left",
+        "HeaderOverflow" : "tooltip",
+        "Height" : 200,
+        "IDFieldName" : "id",
+        "Id" : "gridadvanced-2",
+        "IsEditable" : true,
+        "LastContainer" : false,
+        "Left" : 255,
+        "MaxHeaderHeight" : 100,
+        "MinRowHeight" : 30,
+        "ResponsiveLayout" : true,
+        "RowAlternateBackgroundStyle" : "DefaultGridAdvancedRowAlternateBackgroundStyle",
+        "RowBackgroundStyle" : "DefaultGridAdvancedRowBackgroundStyle",
+        "RowBorderStyle" : "DefaultGridAdvancedRowBorderStyle",
+        "RowFormat_StateParameters" : [ ],
+        "RowHoverStyle" : "DefaultGridAdvancedRowHoverStyle",
+        "RowSelectedStyle" : "DefaultGridAdvancedRowSelectedStyle",
+        "RowSelection" : "none",
+        "SelectedRows" : "",
+        "ShowDataLoading" : false,
+        "SortAscendingStyle" : "DefaultSortAscendingStyle",
+        "SortDescendingStyle" : "DefaultSortDescendingStyle",
+        "TableFooterStyle" : "DefaultGridAdvancedFooterStyle",
+        "TableHeaderStyle" : "DefaultGridAdvancedHeaderStyle",
+        "TableWrapperStyle" : "DefaultGridAdvancedWrapperStyle",
+        "ToolbarStyle" : "DefaultToolbarStyle",
+        "TooltipStyle" : "DefaultTooltipStyle",
+        "Top" : 90,
+        "Type" : "gridadvanced",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Width" : 400,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Grid Advanced"
+      },
+      "Widgets" : [ ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2022-04-14T17:01:03.004+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-04-14T17:07:37.376+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-05-18T20:32:59.019+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-06-20T20:32:32.329+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-11-10T16:09:15.965+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-11-10T16:09:35.934+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-11-10T16:23:28.140+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-11-10T17:12:18.785+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-01T08:20:00.474+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-01T08:22:16.021+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-01T08:23:05.631+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-01T08:53:18.368+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-01T08:54:36.353+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-01T08:55:49.430+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-22T23:07:19.131+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-22T23:07:59.287+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-22T23:09:39.959+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2022-12-22T23:10:29.381+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2022-12-22T23:14:01.506+09:00" user="Administrator"/></ConfigurationChanges></Mashup></Mashups></Entities>
