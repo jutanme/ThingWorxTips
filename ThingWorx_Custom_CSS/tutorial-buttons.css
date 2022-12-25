@@ -1,0 +1,13 @@
+@keyframes buttonSlideIn {
+    0% { left: 100px; opacity: 0 }
+    100% { left: 0; opacity: 1 }
+}
+
+.widget-fieldset .widget-button {
+ 	animation: buttonSlideIn 2s;  
+    opacity: 0.5;   
+}
+
+.widget-fieldset .widget-button:hover {
+    opacity: 1;   
+}
