@@ -1,0 +1,2225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Entities build="b30" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1120" universal="">
+	<Things>
+		<Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-01-13T09:18:16.835Z" name="WindchillAPI_Base" projectName="PTC_DEMO" published="false" tags="" thingTemplate="GenericThing" valueStream="">
+			<Owner name="pat" type="User"/>
+			<avatar/>
+			<DesignTimePermissions>
+				<Create/>
+				<Read/>
+				<Update/>
+				<Delete/>
+				<Metadata/>
+			</DesignTimePermissions>
+			<RunTimePermissions/>
+			<VisibilityPermissions>
+				<Visibility/>
+			</VisibilityPermissions>
+			<ConfigurationTableDefinitions/>
+			<ConfigurationTables/>
+			<ThingShape>
+				<PropertyDefinitions>
+					<PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="ApiTest" ordinal="5"/>
+					<PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="https://pp-2210040822yn.portal.ptc.io/Windchill/" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUrl" ordinal="2"/>
+					<PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="wcadmin" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserId" ordinal="6"/>
+					<PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="ptc" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserPassword" ordinal="4"/>
+				</PropertyDefinitions>
+				<ServiceDefinitions>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="executeThingworxService">
+						<ResultType baseType="NOTHING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="Get2DThumbnailURL">
+						<ResultType aspect.dataShape="2DThumbnailURL.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetAttributesList">
+						<ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSRFToken">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSVDataFilter">
+						<ResultType aspect.dataShape="CSV.Sample.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="param1" ordinal="1"/>
+							<FieldDefinition baseType="STRING" description="" name="param4" ordinal="2"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSVDataGroup1">
+						<ResultType aspect.dataShape="CSV.Sample.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSVDataGroup4">
+						<ResultType aspect.dataShape="CSV.Sample.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDescribedByDocByObjectId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDescribedByDocList">
+						<ResultType aspect.dataShape="DescribedByDoc.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDocLinkByDocID">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="docId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetEcaNumberNameNeeddateByNumber">
+						<ResultType aspect.dataShape="EcaIdNumberNameNeeddate.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetEcaSelectedNumber">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetParentInfo">
+						<ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartAttributes">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartAttributesMechanicalPart">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartByPartId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartIdByNumber">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfo">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfoByAttribute">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="2"/>
+							<FieldDefinition baseType="STRING" description="" name="PartNumber" ordinal="2"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfoByNumber">
+						<ResultType aspect.dataShape="PartInfoBasic.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfoListByAttributes">
+						<ResultType aspect.dataShape="PartInfoBasic.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="2"/>
+							<FieldDefinition baseType="STRING" description="" name="PartNumber" ordinal="2"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfoSelectedNumber">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartRalatedCadDocSelectedObjectId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsSelectedObjectId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartStructureByPartId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartStructuresByPartId">
+						<ResultType aspect.dataShape="PartStructureDS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartUsedByPartId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRefDocLinkByDocID">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="docId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetReferencesDocByObjectId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetReferencesDocList">
+						<ResultType aspect.dataShape="ReferencesDoc.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRelatedCadDocFromPartId">
+						<ResultType aspect.dataShape="RelatedCadDocInfo.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRepresenIdByPartId">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="PartId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRepresentationsByobjectId">
+						<ResultType baseType="JSON" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThingViewMediaPath">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="ImportCSV">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="ImportCSVinstDB">
+						<ResultType baseType="STRING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions/>
+					</ServiceDefinition>
+					<ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="UpdateApiTest">
+						<ResultType baseType="NOTHING" description="" name="result" ordinal="0"/>
+						<ParameterDefinitions>
+							<FieldDefinition baseType="STRING" description="" name="str" ordinal="1"/>
+						</ParameterDefinitions>
+					</ServiceDefinition>
+				</ServiceDefinitions>
+				<EventDefinitions/>
+				<ServiceMappings/>
+				<ServiceImplementations>
+					<ServiceImplementation description="" handlerName="Script" name="executeThingworxService">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["appKey"] = "25cf0909-3844-4213-9645-3465596468e6";
+//headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+//logger.trace("GetPartstructure(header): " + header);
+
+// Build Body
+var bodyObject = { str: "ThingWorx Service Test" };
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: "https://pp-2212080214zp.portal.ptc.io:8443/Thingworx/Things/WindchillAPI_Base/Services/UpdateApiTest",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: undefined /* STRING */,
+	domain: undefined /* STRING */,
+	username: undefined /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="Get2DThumbnailURL">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+json =  me.GetRepresentationsByobjectId({
+    objectId: objectId /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "2DThumbnailURL.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(EcaIdNumberNameNeeddate.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    var obj = {};
+    obj.URL = val[i]["TwoDThumbnailURL"]["URL"];
+//    obj.Number = val[i]["Number"];
+//    obj.Name = val[i]["Name"];
+//    obj.NeedDate = val[i]["NeedDate"];    
+//    obj.State = val[i]["State"]["Value"];   
+    result.AddRow(obj);
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetAttributesList">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// /Windchill/sslClientAuth/servlet/rest/tableview/nav.list.part/attributes?wt.effectiveUid=pat
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	//url: me.WindchillUrl + "sslClientAuth/servlet/rest/tableview/nav.list.part/attributes?wt.effectiveUid=pat",
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')",  //OR:wt.part.WTPart:4609211
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var partInfo = Resources["ContentLoaderFunctions"].GetJSON(params);
+
+//Infotable to hold results
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+  infoTableName: "InfoTable",
+  dataShapeName: "PartStructureDS"
+});
+result.AddRow(partInfo);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetCSRFToken">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: true /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/PTC/GetCSRFToken()" /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response["NonceValue"];
+//var result =params;]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetCSVDataFilter">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[if ((param1 !== undefined && param1.length>0) || (param4 !== undefined && param4.length>0)) {
+    var query = {
+        "sorts": [
+            {
+                "fieldName": "ID",
+                "isAscending": true,
+                "isCaseSensitive": true
+            }
+        ],
+        "filters": {
+            type: "And",
+            filters: [
+            ]
+        }
+    };
+    if (param1 !== undefined && param1.length>0) {
+        query.filters.filters.push(
+                {
+                    "fieldName": "Data1",
+                    "type": "EQ",
+                    "value": param1 
+                });
+    }
+    if (param4 !== undefined && param4.length>0) {
+        query.filters.filters.push(
+                {
+                    "fieldName": "Data4",
+                    "type": "EQ",
+                    "value": param4 
+                });
+    }
+}
+// result: INFOTABLE dataShape: ""
+// Warning: Potential Performance issue, since query filter is performed in Memory
+let result = Things["CSV.Sample.DT"].QueryDataTableEntries({
+	maxItems: undefined /* NUMBER {"defaultValue":500} */,
+	values: undefined /* INFOTABLE */,
+	query: query /* QUERY */,
+	source: undefined /* STRING */,
+	tags: undefined /* TAGS */
+});]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetCSVDataGroup1">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// result: INFOTABLE dataShape: ""
+let result = Things["CSV.Sample.DT"].GetDataTableEntries({
+	maxItems: undefined /* NUMBER {"defaultValue":500} */
+});
+var params = {
+  t: result,
+    columns: "Data1"
+};
+
+// result: INFOTABLE dataShape: "undefined"
+result = Resources["InfoTableFunctions"].Distinct(params);]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetCSVDataGroup4">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// result: INFOTABLE dataShape: ""
+let result = Things["CSV.Sample.DT"].GetDataTableEntries({
+	maxItems: undefined /* NUMBER {"defaultValue":500} */
+});
+var params = {
+  t: result,
+    columns: "Data4"
+};
+
+// result: INFOTABLE dataShape: "undefined"
+result = Resources["InfoTableFunctions"].Distinct(params);]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetDescribedByDocByObjectId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/DescribedBy?$expand=DescribedBy($select=Identity,ID)",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetDescribedByDocList">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+var json =  me.GetDescribedByDocByObjectId({
+    objectId: objectId /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "DescribedByDoc.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(DescribedByDoc.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+//logger.warn(JSON.stringify(json));
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    if (val[i]["DescribedBy"]) {
+        var obj = {};
+        obj.Identity = val[i]["DescribedBy"]["Identity"];   
+        obj.ID = val[i]["DescribedBy"]["ID"];     
+        result.AddRow(obj);
+    }
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetDocLinkByDocID">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/DocMgmt/Documents(\'" + docId + "\')/PrimaryContent",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = "";
+if (response.Content) result = response.Content.URL;
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetEcaNumberNameNeeddateByNumber">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+json =  me.GetEcaSelectedNumber({
+    number: number /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "EcaIdNumberNameNeeddate.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(EcaIdNumberNameNeeddate.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    var obj = {};
+    obj.ID = val[i]["ID"];
+    obj.Number = val[i]["Number"];
+    obj.Name = val[i]["Name"];
+    obj.NeedDate = val[i]["NeedDate"];    
+    obj.State = val[i]["State"]["Value"];   
+    result.AddRow(obj);
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetEcaSelectedNumber">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v6/ChangeMgmt/ChangeTasks?$filter=startswith(Number,\'" + number + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetParentInfo">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// /Windchill/sslClientAuth/servlet/rest/tableview/nav.list.part/attributes?wt.effectiveUid=pat
+////Infotable to hold results
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+  infoTableName: "InfoTable",
+  dataShapeName: "PartStructureDS"
+});
+
+function getParent(JSONObject) {
+    if (JSONObject.value !== undefined && JSONObject.value.length >0) {      
+		result.AddRow(JSONObject.value[0]);
+        var parent = me.GetPartUsedByPartId({
+            partId: JSONObject.value[0].ID /* STRING */
+        });
+        getParent(parent);
+    }
+}
+
+var parent = me.GetPartUsedByPartId({
+    partId: partId /* STRING */
+});
+
+getParent(parent);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartAttributes">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/GetWindchillMetaInfo(EntityName='PTC.ProdMgmt.Part')",  
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartAttributesMechanicalPart">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/GetWindchillMetaInfo(EntityName='PTC.ProdMgmt.MechanicalPart')",  
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="getPartByPartId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[
+let params = {
+	proxyScheme: undefined /* STRING {"defaultValue":"http"} */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN {"defaultValue":false} */,
+	workstation: undefined /* STRING {"defaultValue":""} */,
+	useProxy: undefined /* BOOLEAN {"defaultValue":false} */,
+	withCookies: undefined /* BOOLEAN {"defaultValue":false} */,
+	proxyHost: undefined /* STRING {"defaultValue":""} */,
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')?$select=Name,Number,Version,State,Source,TypeIcon",
+	timeout: undefined /* NUMBER {"defaultValue":60} */,
+	proxyPort: undefined /* INTEGER {"defaultValue":8080} */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING {"defaultValue":""} */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+let result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartIdByNumber">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var json, objId, val, i;
+var result;
+// オブジェクト番号取得
+var getObjectId = function(json) {
+    var objectId;
+    if ("value" in json) {
+        var val = json["value"];
+        //logger.trace("value_length:" + val.length);
+        for (var i = 0; i < val.length; i++) {
+            //if (val[i]["View"] == "E-BOM") {
+                objectId = val[i]["ID"];
+                break;
+            //}
+        }
+    }
+    return objectId;
+};
+
+// オブジェクト番号の検索
+if (number) {
+    // json: JSON
+    json =  me.GetPartInfoSelectedNumber({
+        number: number /* STRING */
+    });
+    logger.trace("GetObjectIdFromNumber number:" + number + " json:" + JSON.stringify(json));
+    //result = getObjectId(json);
+    result = json.value[0].ID;
+}]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartInfo">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["Accept"] = "application/json;odata.metadata=full";
+headerObject["Prefer"] = "odata.maxpagesize=10";
+//"Prefer" + "odata.maxpagesize=<The number between 1 and 2000>"
+var header = JSON.stringify(headerObject);
+let params = {
+	proxyScheme: undefined /* STRING {"defaultValue":"http"} */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN {"defaultValue":false} */,
+	workstation: undefined /* STRING {"defaultValue":""} */,
+	useProxy: undefined /* BOOLEAN {"defaultValue":false} */,
+	withCookies: undefined /* BOOLEAN {"defaultValue":false} */,
+	proxyHost: undefined /* STRING {"defaultValue":""} */,
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/Parts?$select=Name,Number",
+	timeout: undefined /* NUMBER {"defaultValue":60} */,
+	proxyPort: undefined /* INTEGER {"defaultValue":8080} */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING {"defaultValue":""} */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+let result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartInfoByAttribute">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+//    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts/PTC.ProdMgmt.MechanicalPart?%24select=Number%2CName%2CVersion%2CID%2CFolderLocation&%24filter=startswith(Lixilpartnumber,\'" + PartNumber + "\')&%24count=false", 
+//    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts/PTC.ProdMgmt.MechanicalPart?%24select=Number%2CName%2CVersion%2CID%2CFolderLocation&%24filter=endswith(Lixilpartnumber,\'" + PartNumber + "\')&%24count=false", 
+    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts/PTC.ProdMgmt.MechanicalPart?%24select=Number%2CName%2CVersion%2CID%2CFolderLocation&%24filter=startswith(Number,\'" + number + "\')%20and%20Lixilpartnumber%20eq%20\'" + PartNumber + "\'&%24count=false",   
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartInfoByNumber">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+json =  me.GetPartInfoSelectedNumber({
+    number: number /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "PartInfoBasic.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(EcaIdNumberNameNeeddate.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    var obj = {};
+    obj.Number = val[i]["Number"];
+    obj.Name = val[i]["Name"];
+    obj.Version = val[i]["Version"];  
+    obj.ID = val[i]["ID"];      
+    obj.FolderLocation = val[i]["FolderLocation"];   
+    result.AddRow(obj);
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartInfoListByAttributes">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+var json =  me.GetPartInfoByAttribute({
+    number: number /* STRING */,
+    PartNumber: PartNumber /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "PartInfoBasic.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PartInfoBasic.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+//logger.warn(JSON.stringify(json));
+
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    var obj = {};
+    obj.Number = val[i]["Number"];
+    obj.Name = val[i]["Name"];
+    obj.Version = val[i]["Version"];  
+    obj.ID = val[i]["ID"];      
+    obj.FolderLocation = val[i]["FolderLocation"];   
+    result.AddRow(obj);
+}
+
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartInfoSelectedNumber">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=startswith(Number,\'" + number + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartRalatedCadDocSelectedObjectId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts(\'" + objectId + "\')/PartDocAssociations?&$expand=RelatedCADDoc&$count=false",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartsSelectedObjectId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="getPartStructureByPartId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.GetCSRFToken();
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number,Version,State,Source,TypeIcon),PartUse($select=Quantity,Unit);$levels=max)",
+	//url: me.WindchillUrl + "servlet/odata/v6/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=*);$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="getPartStructuresByPartId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[
+function formatPartStructure(JSONObject) {
+    JSONObject.Components.forEach(loopFunction);
+
+    function loopFunction(item) {
+        var newTableEntry = {};
+        newTableEntry = item; // grab all the "tree" fields
+        newTableEntry.Version = item.Part.Version;
+        newTableEntry.State = item.Part.State.Display;
+        newTableEntry.Source = item.Part.Source.Display;
+        newTableEntry.TypeIconURL = item.Part.TypeIcon.Path;
+        newTableEntry.Quantity = item.PartUse.Quantity;
+        newTableEntry.Unit = item.PartUse.Unit.Display;
+        result.AddRow(newTableEntry);
+        if (item.Components !== undefined && item.Components.length >0) {
+            formatPartStructure(item);
+        }
+    }
+}
+
+//Infotable to hold results
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+  infoTableName: "InfoTable",
+  dataShapeName: "PartStructureDS"
+});
+
+if (partId) {
+    try {
+        // Get Top Node
+        var parent =  me.getPartByPartId({
+        partId: partId /* STRING */
+        });
+
+        // Get Child Node
+        var partStructure = me.getPartStructureByPartId({
+        	partId: partId /* STRING */
+        });    
+
+        //grab some additional fields off the parent
+        partStructure.Version = parent.Version;
+        partStructure.State = parent.State.Display;
+        partStructure.Source = parent.Source.Display;
+        partStructure.TypeIconURL = parent.TypeIcon.Path;
+        result.AddRow(partStructure); // add the top node by hand
+        formatPartStructure(partStructure); // add the children
+    } catch (err) {
+        throw(err);
+    }
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetPartUsedByPartId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// /Windchill/sslClientAuth/servlet/rest/tableview/nav.list.part/attributes?wt.effectiveUid=pat
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	//url: me.WindchillUrl + "sslClientAuth/servlet/rest/tableview/nav.list.part/attributes?wt.effectiveUid=pat",
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/UsedBy",  //OR:wt.part.WTPart:4607260
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetRefDocLinkByDocID">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/DocMgmt/Documents(\'" + docId + "\')/PrimaryContent",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+//if (response.Content) result = response.Content.URL;
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetReferencesDocByObjectId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + objectId + "\')/References?$expand=References($select=Identity,ID)",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetReferencesDocList">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+json =  me.GetReferencesDocByObjectId({
+    objectId: objectId /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "ReferencesDoc.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(ReferencesDoc.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    var obj = {};
+    obj.Identity = val[i]["References"]["Identity"];   
+    obj.ID = val[i]["References"]["ID"];     
+    result.AddRow(obj);
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetRelatedCadDocFromPartId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[// json: JSON
+json =  me.GetPartRalatedCadDocSelectedObjectId({
+    objectId: objectId /* STRING */
+});
+
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "RelatedCadDocInfo.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(EcaIdNumberNameNeeddate.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+var val = json["value"];
+for (var i = 0; i < val.length; i++) {
+    var obj = {};
+    obj.ID = val[i]["RelatedCADDoc"]["ID"];
+    obj.FileName = val[i]["RelatedCADDoc"]["FileName"];
+    obj.FolderLocation = val[i]["RelatedCADDoc"]["FolderLocation"];
+    obj.AssociationType = val[i]["AssociationType"]["Value"];  
+    result.AddRow(obj);
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetRepresenIdByPartId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var json, objId, val, i, partNo;
+var result;
+
+// オブジェクト番号の検索
+if (PartId) {
+    var params = {
+        proxyScheme: undefined /* STRING */,
+        headers: undefined /* JSON */,
+        ignoreSSLErrors: true /* BOOLEAN */,
+        useNTLM: undefined /* BOOLEAN */,
+        workstation: undefined /* STRING */,
+        useProxy: undefined /* BOOLEAN */,
+        withCookies: undefined /* BOOLEAN */,
+        proxyHost: undefined /* STRING */,
+        url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + PartId + "\')/Representations?%24count=false",
+        timeout: undefined /* NUMBER */,
+        proxyPort: undefined /* INTEGER */,
+        password: me.WindchillUserPassword /* STRING */,
+        domain: undefined /* STRING */,
+        username: me.WindchillUserId /* STRING */
+    };
+    // response: JSON
+    json = Resources["ContentLoaderFunctions"].GetJSON(params);
+
+    logger.trace("Representation json:" + JSON.stringify(json));
+    result = json.value[0].ID;
+}]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetRepresentationsByobjectId">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v3/CADDocumentMgmt/CADDocuments(\'" + objectId + "\')/Representations",   
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="GetThingViewMediaPath">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var result;
+// オブジェクト番号の検索
+if (number) {
+    // json: JSON
+    json =  me.GetPartInfoSelectedNumber({
+        number: number /* STRING */
+    });
+    var partid = json.value[0].ID;
+    var repid = me.GetRepresenIdByPartId({
+        PartId: partid /* STRING */
+    });
+    
+    result = "/Thingworx/MediaEntities/Lee.Media/Content//Windchill/servlet/odata/v2/Visualization/Representations(\'" + repid + "\')/PTC.Visualization.GetPVZ(IncludeAnnotations=true)";
+}
+]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="ImportCSV">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var result = "";
+try {
+    var params = {
+        path: "dummy_data.csv" /* STRING */,
+        columnMappings: "ID;Data1;Data2;Data3;Data4" /* STRING */,
+        //columnMappings: undefined,
+        hasHeader: true /* BOOLEAN */,
+        longitudeField: undefined /* NUMBER */,
+        dateFormat: undefined /* STRING */,
+        fileRepository: "LIXIL.Repo" /* THINGNAME */,
+        latitudeField: undefined /* NUMBER */,
+        fieldDelimiter: "," /* STRING */,
+        stringDelimiter: "\"" /* STRING */,
+        content: "\n" /* STRING */,
+        dataShape: "CSV.Sample.DS" /* DATASHAPENAME */
+    };
+
+    // result: INFOTABLE
+    var dataList = Resources["CSVParserFunctions"].ReadCSVFile(params);
+    logger.warn("ImportCSV json: " + dataList.ToJSON());
+
+    Things["CSV.Sample.DT"].AddDataTableEntries({
+        sourceType: undefined /* STRING */,
+        values: dataList /* INFOTABLE */,
+        location: undefined /* LOCATION */,
+        source: undefined /* STRING */,
+        tags: undefined /* TAGS */
+    });
+//    for each (var row in dataList.rows) {
+//        // result: NUMBER
+//let result = Things["Lee.PG"].InstDB({
+//	data2: row.Data1 /* STRING */,
+//	data1: row.Data1 /* STRING */
+//});
+//    }    
+    result = dataList.getRowCount() + "件登録しました";
+} catch(err) {
+    result = err + "エラーが発生しました";
+    logger.error(me.name+" ImportCSVList : Unable to ImportCSVList Error: " + err);
+}]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="ImportCSVinstDB">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[var result = "";
+try {
+    var params = {
+        path: "dummy_data.csv" /* STRING */,
+        columnMappings: "ID;Data1;Data2;Data3;Data4" /* STRING */,
+        //columnMappings: undefined,
+        hasHeader: true /* BOOLEAN */,
+        longitudeField: undefined /* NUMBER */,
+        dateFormat: undefined /* STRING */,
+        fileRepository: "LIXIL.Repo" /* THINGNAME */,
+        latitudeField: undefined /* NUMBER */,
+        fieldDelimiter: "," /* STRING */,
+        stringDelimiter: "\"" /* STRING */,
+        content: "\n" /* STRING */,
+        dataShape: "CSV.Sample.DS" /* DATASHAPENAME */
+    };
+
+    // result: INFOTABLE
+    var dataList = Resources["CSVParserFunctions"].ReadCSVFile(params);
+    logger.warn("ImportCSV json: " + dataList.ToJSON());
+
+//    Things["CSV.Sample.DT"].AddDataTableEntries({
+//        sourceType: undefined /* STRING */,
+//        values: dataList /* INFOTABLE */,
+//        location: undefined /* LOCATION */,
+//        source: undefined /* STRING */,
+//        tags: undefined /* TAGS */
+//    });
+    for each (var row in dataList.rows) {
+        // result: NUMBER
+let result = Things["Lee.PG"].InstDB({
+	data2: row.Data1 /* STRING */,
+	data1: row.Data1 /* STRING */
+});
+    }    
+    result = dataList.getRowCount() + "件登録しました";
+} catch(err) {
+    result = err + "エラーが発生しました";
+    logger.error(me.name+" ImportCSVList : Unable to ImportCSVList Error: " + err);
+}]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+					<ServiceImplementation description="" handlerName="Script" name="UpdateApiTest">
+						<ConfigurationTables>
+							<ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0">
+								<DataShape>
+									<FieldDefinitions>
+										<FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/>
+									</FieldDefinitions>
+								</DataShape>
+								<Rows>
+									<Row>
+										<code>
+											<![CDATA[me.ApiTest = str;]]>
+										</code>
+									</Row>
+								</Rows>
+							</ConfigurationTable>
+						</ConfigurationTables>
+					</ServiceImplementation>
+				</ServiceImplementations>
+				<Subscriptions/>
+			</ThingShape>
+			<PropertyBindings/>
+			<RemotePropertyBindings/>
+			<RemoteServiceBindings/>
+			<RemoteEventBindings/>
+			<AlertConfigurations>
+				<AlertDefinitions name="ApiTest"/>
+				<AlertDefinitions name="WindchillUrl"/>
+				<AlertDefinitions name="WindchillUserId"/>
+				<AlertDefinitions name="WindchillUserPassword"/>
+			</AlertConfigurations>
+			<ImplementedShapes/>
+			<ThingProperties>
+				<WindchillUserId>
+					<Value>
+						<![CDATA[pm]]>
+					</Value>
+					<Timestamp>2022-12-29T08:17:55.188Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</WindchillUserId>
+				<WindchillUserPassword>
+					<Value>
+						<![CDATA[ptc]]>
+					</Value>
+					<Timestamp>2022-11-22T07:00:41.572Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</WindchillUserPassword>
+				<WindchillUrl>
+					<Value>
+						<![CDATA[https://pp-2212080214zp.portal.ptc.io/Windchill/]]>
+					</Value>
+					<Timestamp>2022-12-27T05:21:28.896Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</WindchillUrl>
+				<ApiTest>
+					<Value>
+						<![CDATA[ThingWorx Service Test]]>
+					</Value>
+					<Timestamp>2022-12-29T06:21:48.933Z</Timestamp>
+					<Quality>GOOD</Quality>
+				</ApiTest>
+			</ThingProperties>
+			<ConfigurationChanges>
+				<ConfigurationChange changeAction="CREATE" changeReason="header : name : updated
+" timestamp="2022-12-08T05:09:10.494Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSRFToken : service added
+" timestamp="2022-12-08T05:10:06.138Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="properties : WindchillUrl : added, WindchillUserId : added, WindchillUserPassword : added
+" timestamp="2022-12-08T05:11:54.879Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsSelectedNumber : service added
+" timestamp="2022-12-08T05:24:23.201Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsSelectedNumber : service updated
+GetPartInfoByNumber : service added
+" timestamp="2022-12-08T05:39:50.085Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByNumber : output updated
+" timestamp="2022-12-08T05:46:01.710Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByNumber : service updated
+GetRelatedCADDocByObjectId : service added
+" timestamp="2022-12-08T05:57:51.863Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : service updated
+" timestamp="2022-12-08T06:08:01.598Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : output updated
+" timestamp="2022-12-08T06:09:10.261Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : service updated
+" timestamp="2022-12-08T06:09:44.225Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : service updated
+" timestamp="2022-12-08T06:14:23.558Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : service updated
+" timestamp="2022-12-08T06:17:00.231Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : service updated
+" timestamp="2022-12-08T06:17:50.457Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocByObjectId : service updated
+GetRelatedCADDocList : service added
+" timestamp="2022-12-08T06:18:46.295Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocList : service updated
+" timestamp="2022-12-08T06:19:15.576Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocList : service updated
+" timestamp="2022-12-08T06:20:19.639Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocList : output updated
+" timestamp="2022-12-08T06:20:43.837Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocList : output updated
+" timestamp="2022-12-08T06:27:48.098Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocList : service updated
+" timestamp="2022-12-08T06:28:39.057Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRelatedCADDocList : service updated
+GetViewerInfoByObjectId : service added
+" timestamp="2022-12-08T06:33:37.134Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-08T06:33:46.924Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerInfoByObjectId : service updated
+" timestamp="2022-12-08T06:36:39.433Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerInfoByObjectId : service updated
+" timestamp="2022-12-08T06:37:02.077Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerInfoByObjectId : output updated
+" timestamp="2022-12-08T06:37:36.966Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerInfoByObjectId : service updated
+" timestamp="2022-12-08T06:38:41.024Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerInfoByObjectId : service updated
+Get2DImageFromViewerInfo : service added
+" timestamp="2022-12-08T06:42:06.631Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : Get2DImageFromViewerInfo : service updated
+" timestamp="2022-12-08T06:44:26.787Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : Get2DImageFromViewerInfo : service updated
+Get2DImageFromViewerInfoコピー : service added
+" timestamp="2022-12-08T06:45:01.332Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : Get2DImageFromViewerInfoコピー : service updated, service deleted
+GetViewerURLLink : service added
+" timestamp="2022-12-08T06:46:00.238Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerURLLink : service updated
+" timestamp="2022-12-08T06:46:29.986Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerURLLink : service updated
+" timestamp="2022-12-08T06:48:07.786Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerURLLink : service updated
+" timestamp="2022-12-08T06:51:41.051Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetViewerURLLink : service updated
+GetDocDescribedByByObjectId : service added
+" timestamp="2022-12-08T07:07:53.954Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByByObjectId : service updated
+" timestamp="2022-12-08T07:09:12.023Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByByObjectId : service updated
+" timestamp="2022-12-08T07:36:09.560Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByByObjectId : service updated
+" timestamp="2022-12-08T07:39:04.932Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByByObjectId : service updated
+GetDocDescribedByList : service added
+" timestamp="2022-12-08T07:46:55.401Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByList : service updated
+" timestamp="2022-12-08T07:50:53.240Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByList : service updated
+" timestamp="2022-12-08T07:52:06.304Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDocDescribedByList : output updated
+" timestamp="2022-12-08T07:55:51.925Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-09T04:09:04.464Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-09T04:11:27.408Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-09T04:11:34.929Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2022-12-09T04:16:52.684Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-09T04:17:00.459Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByNumber : output updated
+" timestamp="2022-12-09T04:21:14.707Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByNumber : output updated
+" timestamp="2022-12-09T04:23:35.742Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service added
+" timestamp="2022-12-09T05:02:16.127Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service updated
+" timestamp="2022-12-09T05:06:37.381Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service updated
+" timestamp="2022-12-09T05:09:00.286Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service updated
+" timestamp="2022-12-09T05:10:31.723Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service updated
+GetDataGroup1 : service added
+" timestamp="2022-12-09T05:30:17.699Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetDataGroup1 : service updated
+GetCSVDataGroup1 : service added
+GetCSVDataGroup2 : service added
+" timestamp="2022-12-09T05:31:08.201Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataGroup2 : service updated, service deleted
+GetDataGroup1 : service deleted
+GetCSVDataGroup4 : service added
+" timestamp="2022-12-09T05:31:37.489Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataGroup4 : service updated
+GetCSVDataFilter : service added
+" timestamp="2022-12-09T05:34:30.034Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : input parameter param1 added, inputs updated, input parameter param4 added, inputs updated
+" timestamp="2022-12-09T05:35:32.111Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:38:21.713Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:41:12.807Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:41:31.151Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:42:17.692Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:42:56.628Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:43:14.042Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:44:27.292Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetCSVDataFilter : service updated
+" timestamp="2022-12-09T05:45:21.567Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-09T06:20:20.829Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-09T06:22:48.094Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T00:48:53.200Z" user="lixil006"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T01:22:24.785Z" user="lixil005"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T03:16:19.594Z" user="lixil007"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T06:10:44.667Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T06:33:36.734Z" user="lixil003"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T06:36:00.769Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T06:36:22.813Z" user="lixil004"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T06:56:21.264Z" user="lixil001"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T07:56:06.692Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T07:58:01.320Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service updated
+" timestamp="2022-12-12T07:58:01.379Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSV : service updated
+ImportCSVinstDB : service added
+" timestamp="2022-12-12T07:58:48.041Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : ImportCSVinstDB : service updated
+" timestamp="2022-12-12T07:59:07.770Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service added
+" timestamp="2022-12-16T02:44:34.596Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="properties : ApiTest : added
+" timestamp="2022-12-16T02:44:53.054Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service updated
+UpdateApiTest : service added
+" timestamp="2022-12-16T02:45:38.583Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : UpdateApiTest : service updated
+" timestamp="2022-12-16T02:46:11.561Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-16T03:42:33.553Z" user="lixil007"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-16T04:56:20.043Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-16T05:19:23.032Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRepresenIdByPartId : service added
+" timestamp="2022-12-16T05:19:23.087Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRepresenIdByPartId : input parameter PartId added, inputs updated
+" timestamp="2022-12-16T05:19:33.061Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRepresenIdByPartId : service updated
+GetThingView : service added
+" timestamp="2022-12-16T05:20:49.266Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : input parameter number added, inputs updated
+" timestamp="2022-12-16T05:24:38.486Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated
+" timestamp="2022-12-16T05:27:24.328Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated
+GetThingViewURL : service added
+" timestamp="2022-12-16T05:29:55.920Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewURL : service updated
+" timestamp="2022-12-16T05:31:24.737Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-16T07:39:38.936Z" user="lixil005"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-16T08:02:57.477Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-16T08:03:34.175Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingView : service updated
+" timestamp="2022-12-16T08:03:34.364Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartIdByNumber : service updated
+" timestamp="2022-12-16T08:22:36.580Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetRepresenIdByPartId : output updated
+" timestamp="2022-12-16T08:27:10.167Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewURL : output updated
+" timestamp="2022-12-16T08:27:37.972Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewURL : service updated
+" timestamp="2022-12-16T08:27:48.949Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewURL : service updated
+" timestamp="2022-12-16T08:30:11.617Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewURL : service updated
+" timestamp="2022-12-16T08:30:53.978Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewURL : service updated
+GetThingViewMediaPath : service added
+" timestamp="2022-12-16T08:57:39.574Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewMediaPath : service updated
+" timestamp="2022-12-16T08:59:45.243Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewMediaPath : service updated
+GetThingView : service deleted
+GetThingViewURL : service deleted
+" timestamp="2022-12-16T09:00:04.000Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service added, input parameter PartNumber added, inputs updated, input parameter number deleted, inputs updated
+" timestamp="2022-12-17T09:24:46.234Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:25:09.053Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:25:33.435Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:25:59.988Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:26:41.042Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:27:01.977Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:27:41.854Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:28:12.169Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:29:05.776Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:29:51.077Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:30:10.939Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:30:30.899Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:30:49.627Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:31:20.386Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:32:31.895Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:32:42.196Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:32:54.221Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-17T09:34:05.699Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service added
+" timestamp="2022-12-19T01:54:45.781Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T01:55:22.086Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : output updated
+" timestamp="2022-12-19T01:56:32.468Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T01:57:00.074Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : input parameter PartNumber added, inputs updated, input parameter objectId deleted, inputs updated
+" timestamp="2022-12-19T01:57:30.923Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T01:57:48.690Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T01:58:37.132Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T02:00:31.829Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T02:01:09.347Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T02:11:43.378Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:11:56.065Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:12:15.144Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:12:42.282Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:14:52.571Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:16:57.958Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:18:00.497Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:18:57.385Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : input parameter number added, inputs updated
+" timestamp="2022-12-19T02:38:11.454Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : input parameter number added, inputs updated, input parameter PartNumber deleted, inputs updated, input parameter PartNumber added, inputs updated
+" timestamp="2022-12-19T02:44:39.328Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoListByAttributes : service updated
+" timestamp="2022-12-19T02:46:51.722Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:48:35.163Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T02:51:31.925Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T04:39:53.414Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T06:27:56.260Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T06:32:38.843Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T06:32:38.937Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoByAttribute : service updated
+" timestamp="2022-12-19T06:33:30.973Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T06:41:37.644Z" user="lixil005"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:13:37.526Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:31:26.606Z" user="lixil003"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:41:13.916Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:41:26.718Z" user="lixil005"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:41:30.673Z" user="lixil004"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:42:17.722Z" user="lixil007"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T07:44:52.169Z" user="lixil001"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-19T08:29:19.022Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service updated
+GetAttributesList : service added
+" timestamp="2022-12-19T08:29:19.084Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetAttributesList : service updated
+" timestamp="2022-12-19T08:38:01.176Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetAttributesList : input parameter partId added, inputs updated
+" timestamp="2022-12-19T08:38:21.585Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetAttributesList : output updated
+" timestamp="2022-12-19T08:42:49.105Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetAttributesList : service updated
+" timestamp="2022-12-19T08:56:10.126Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetAttributesList : service updated
+GetParentInfo : service added, output updated
+" timestamp="2022-12-19T09:14:52.229Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : service updated
+" timestamp="2022-12-19T09:17:10.749Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : service updated
+" timestamp="2022-12-19T09:17:56.897Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : service updated
+" timestamp="2022-12-19T09:19:47.834Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : service updated
+GetPartUsedByPartId : service added
+" timestamp="2022-12-19T09:20:45.346Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartUsedByPartId : service updated
+" timestamp="2022-12-19T09:28:34.184Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : service updated
+" timestamp="2022-12-19T09:29:11.442Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : output updated
+" timestamp="2022-12-19T09:29:28.939Z" user="wcadmin"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-20T04:24:53.358Z" user="lixil003"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartAttributes : service added, input parameter partId deleted, inputs updated
+" timestamp="2022-12-20T04:45:41.718Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartAttributesMechanicalPart : service added
+" timestamp="2022-12-20T04:49:47.370Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartAttributesMechanicalPart : service updated
+" timestamp="2022-12-20T04:51:18.807Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartAttributesMechanicalPart : service updated
+" timestamp="2022-12-20T04:51:40.936Z" user="pm"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service updated
+" timestamp="2022-12-22T03:16:10.095Z" user="lixil007"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service updated
+" timestamp="2022-12-22T03:17:04.504Z" user="lixil007"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service updated
+" timestamp="2022-12-22T03:18:14.787Z" user="lixil007"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : executeThingworxService : service updated
+" timestamp="2022-12-22T03:18:59.429Z" user="lixil007"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-22T06:55:44.062Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-30T03:14:06.036Z" user="lixil007"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-01-12T04:34:54.932Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service added, input parameter partId deleted, inputs updated
+" timestamp="2023-01-13T08:24:52.448Z" user="pm"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-01-13T08:50:40.239Z" user="pat"/>
+				<ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-01-13T08:51:01.893Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:51:01.956Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:52:02.432Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:52:33.009Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:53:34.494Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:54:52.260Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:55:09.764Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:56:03.093Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:57:24.704Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:59:08.643Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T08:59:59.271Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetParentInfo : service updated
+" timestamp="2023-01-13T09:09:39.268Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T09:10:11.219Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T09:13:44.296Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T09:14:52.034Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T09:17:41.650Z" user="pat"/>
+				<ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfo : service updated
+" timestamp="2023-01-13T09:18:16.835Z" user="pat"/>
+			</ConfigurationChanges>
+		</Thing>
+	</Things>
+</Entities>
