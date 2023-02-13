@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b30" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-02-10T08:29:15.664Z" name="LEE_TEST" projectName="PTC_DEMO" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="pat" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="https://pp-2210040822yn.portal.ptc.io/Windchill/" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUrl" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="pm" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserId" ordinal="3"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="ptc" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserPassword" ordinal="4"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getContainer"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="ContainerName" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfoSelectedNumber"><ResultType aspect.dataShape="PageTest.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/><FieldDefinition aspect.defaultValue="0" baseType="INTEGER" description="" name="page" ordinal="2"/><FieldDefinition baseType="INTEGER" description="" name="pageSize" ordinal="3"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="getContainer"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[ContainerName = encodeURIComponent(ContainerName);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl+ "servlet/odata/v5/DataAdmin/Containers?%24select=ID%2CName&%24filter=Name%20eq%20'" + ContainerName + "\'&%24count=false",  
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartInfoSelectedNumber"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PartStructureDS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "PageTest.DS"
+});
+
+var skipStr = page < 2 ? "" : "&$skiptoken="+(page-1)*pageSize;
+
+var headerObject = new Object();
+//headerObject["Content-Type"] = "application/json";
+//headerObject["Accept"] = "application/json;odata.metadata=full";
+headerObject["Prefer"] = "odata.maxpagesize="+pageSize;
+//headerObject["odata.maxpagesize"] = "200";
+//headerObject["Prefer: odata.maxpagesize"] = "200";
+//"Prefer" + "odata.maxpagesize=<The number between 1 and 2000>"
+var header = JSON.stringify(headerObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+//	url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=startswith(Number,\'" + number + "\')",
+//    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=Number eq 'AC-40'",
+//    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=Number%20eq%20'AC-40'",    
+//    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=contains(Number,'4')",
+    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=contains(Number,'"+number+"')"+skipStr,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+for (var i=0; i<response.value.length; i++) {
+    var row = {};
+    row = response.value[i];
+//    row.VersionID = response[i].VersionID;
+    result.AddRow(row);
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="WindchillUrl"/><AlertDefinitions name="WindchillUserId"/><AlertDefinitions name="WindchillUserPassword"/></AlertConfigurations><ImplementedShapes/><ThingProperties><WindchillUserId><Value><![CDATA[pm]]></Value><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></WindchillUserId><WindchillUserPassword><Value><![CDATA[ptc]]></Value><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></WindchillUserPassword><WindchillUrl><Value><![CDATA[https://pp-2212080214zp.portal.ptc.io/Windchill/]]></Value><Timestamp>2023-02-10T06:50:48.858Z</Timestamp><Quality>GOOD</Quality></WindchillUrl></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-02-10T06:50:15.670Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : input parameter number added, inputs updated, input parameter skip added, inputs updated&#10;" timestamp="2023-02-10T07:28:08.482Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:32:28.209Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : output updated&#10;" timestamp="2023-02-10T07:32:45.281Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:33:43.948Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : output updated&#10;" timestamp="2023-02-10T07:38:01.456Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : output updated&#10;" timestamp="2023-02-10T07:41:32.137Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:44:30.604Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:46:29.411Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:46:56.874Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : output updated&#10;" timestamp="2023-02-10T07:47:06.648Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : output updated&#10;" timestamp="2023-02-10T07:55:57.838Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:56:36.987Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:56:50.811Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:57:09.804Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-02-10T07:57:22.600Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : input parameter pageSize added, inputs updated, input parameter page updated, inputs updated, input parameter pageSize updated, inputs updated&#10;" timestamp="2023-02-10T08:29:15.664Z" user="pat"/></ConfigurationChanges></Thing></Things></Entities>
