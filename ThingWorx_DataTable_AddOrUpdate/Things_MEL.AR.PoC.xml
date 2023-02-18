@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="RemoteThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-02-18T19:43:33.022+09:00" name="MEL.AR.PoC" projectName="MEL.AR" published="false" tags="" thingTemplate="RemoteThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Reporting Settings" isMultiRow="false" name="ReportingConfiguration" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="NotReporting" aspect.isPrimaryKey="true" aspect.isReadOnly="false" aspect.thingTemplate="ReportingStrategy" baseType="THINGNAME" description="Strategy to determine health" name="reportingStrategy" ordinal="1"/></FieldDefinitions></DataShape><Rows><Row><reportingStrategy><![CDATA[AlwaysOnReporting]]></reportingStrategy></Row></Rows></ConfigurationTable></ConfigurationTables><ThingShape><PropertyDefinitions><PropertyDefinition aspect.dataChangeType="VALUE" aspect.isReadOnly="false" aspect.isRemote="true" baseType="STRING" category="" description="" isLocalOnly="false" name="MEL_AR_ErrorCode" ordinal="2"/><PropertyDefinition aspect.dataChangeType="VALUE" aspect.isReadOnly="false" aspect.isRemote="true" baseType="STRING" category="" description="" isLocalOnly="false" name="MEL_AR_ErrorDetail" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="ImportErrorMaster"><ResultType baseType="INTEGER" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="ImportErrorMaster"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = 0;
+try {
+    var paramsCSV = {
+        path: "error_master.csv" /* STRING */,
+        columnMappings: "MOTOR_LINE;UNIT_CODE;ERROR_CODE;ERROR_COMENT;ERROR_NOTE;ERROR_KBN;UP_DATE;MAKE_DATE" /* STRING */,
+        hasHeader: true /* BOOLEAN */,
+        longitudeField: undefined /* NUMBER */,
+        dateFormat: undefined /* STRING */,
+        fileRepository: "MEL.CSV.Repo" /* THINGNAME */,
+        latitudeField: undefined /* NUMBER */,
+        fieldDelimiter: "," /* STRING */,
+        stringDelimiter: undefined /* STRING */,
+        content: "SA Data Input\n" /* STRING */,
+        dataShape: "MEL.AR.ErrorMaster.DS" /* DATASHAPENAME */
+    };
+
+    // result: INFOTABLE
+    var dataList = Resources["CSVParserFunctions"].ReadCSVFile(paramsCSV);
+    var params = {
+        infoTableName : "InfoTable",
+        dataShapeName : "MEL.AR.ErrorMaster.DS"
+    };
+    var infoTable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);   
+
+    // add rows to Stream
+    for (result=0; result<dataList.length; result++) {
+        var row = dataList[result];
+        var values = {};
+        values.MOTOR_LINE=row.MOTOR_LINE;
+        values.UNIT_CODE=row.UNIT_CODE;
+        values.ERROR_CODE=row.ERROR_CODE;
+        values.ERROR_COMENT=row.ERROR_COMENT;
+        values.ERROR_NOTE=row.ERROR_NOTE;
+        values.ERROR_KBN=row.ERROR_KBN;
+        values.UP_DATE=row.UP_DATE;
+        values.MAKE_DATE=row.MAKE_DATE;
+		infoTable.AddRow(values);
+    }
+
+    Things["MEL.AR.ErrorMaster.DT"].AddOrUpdateDataTableEntries({
+        sourceType: undefined /* STRING */,
+        values: infoTable /* INFOTABLE */,
+        location: undefined /* LOCATION */,
+        source: undefined /* STRING */,
+        tags: undefined /* TAGS */
+    });
+} catch(err) {
+    logger.error("InsertBadItemFromCSV Error: " + err);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings><RemotePropertyBinding aspect.dataShape="" aspect.industrialDataType="String" aspect.scanRate="1000" aspect.source="" aspect.startType="readEdgeValue" aspect.tagAddress="MEL.AR.ErrorCode" aspect.tagType="Static" foldType="NONE" name="MEL_AR_ErrorCode" pushThreshold="0.0" pushType="VALUE" sourceName="" timeout="0"/><RemotePropertyBinding aspect.dataShape="" aspect.industrialDataType="String" aspect.scanRate="1000" aspect.source="" aspect.startType="readEdgeValue" aspect.tagAddress="MEL.AR.ErrorDetail" aspect.tagType="Static" foldType="NONE" name="MEL_AR_ErrorDetail" pushThreshold="0.0" pushType="VALUE" sourceName="" timeout="0"/></RemotePropertyBindings><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="MEL_AR_ErrorCode"/><AlertDefinitions name="MEL_AR_ErrorDetail"/></AlertConfigurations><ImplementedShapes><ImplementedShape name="IndustrialThingShape" type="ThingShape"/></ImplementedShapes><ThingProperties><IndustrialThing><Value><![CDATA[NGK_ARTest]]></Value><Timestamp>2023-02-07T09:22:08.917+09:00</Timestamp><Quality>UNKNOWN</Quality></IndustrialThing><reportingLastEvaluation><Value>2023-02-08T20:19:57.177+09:00</Value><Timestamp>2023-02-08T20:19:57.177+09:00</Timestamp><Quality>GOOD</Quality></reportingLastEvaluation><reportingLastChange><Value>2023-02-08T20:19:57.177+09:00</Value><Timestamp>2023-02-08T20:19:57.177+09:00</Timestamp><Quality>GOOD</Quality></reportingLastChange><lastConnection><Value>2023-02-08T20:04:57.459+09:00</Value><Timestamp>2023-02-08T20:04:57.459+09:00</Timestamp><Quality>GOOD</Quality></lastConnection></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="properties : MEL_AR_ErrorCode : added, MEL_AR_ErrorDetail : added&#10;header : name : updated, projectName : updated&#10;" timestamp="2023-02-07T09:22:08.903+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : ImportErrorMaster : service added&#10;" timestamp="2023-02-18T19:20:15.848+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:20:22.816+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:20:26.403+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : ImportErrorMaster : output updated&#10;" timestamp="2023-02-18T19:20:59.423+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:21:05.664+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:21:07.256+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : ImportErrorMaster : service updated&#10;" timestamp="2023-02-18T19:25:22.746+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : ImportErrorMaster : service updated&#10;" timestamp="2023-02-18T19:28:42.598+09:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : ImportErrorMaster : service updated&#10;" timestamp="2023-02-18T19:30:58.054+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:31:07.071+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:31:19.236+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:40:30.703+09:00" user="Administrator"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-02-18T19:43:31.648+09:00" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
