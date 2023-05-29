@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b103" majorVersion="9" minorVersion="0" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1100" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-05-29T10:15:06.297Z" name="SOAPTest.TH" projectName="PTCDefaultProject" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateTeamFile"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSOAPDemo"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSOAPLocalTest"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSOAPWCFLocal"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSOAPWCFLocalCopy"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetSOAPWCFLocalCopyCopy"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXML"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXMLCopy"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXMLCopy1"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXMLHelloTest"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXMLMHI"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXMLMHITest"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetXMLOpen"><ResultType baseType="XML" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="SendTeamMsg"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="CreateTeamFile"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+//headerObject["CSRF_NONCE"] = csrftoken;
+//headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+//logger.trace("GetPartstructure(header): " + header);
+
+// Build Body
+var bodyObject = {filename:"ThingWorxFlow_CreateFile.csv", csvdata:"para1,para2\naaa,bbb\nccc,ddd"};
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: "https://logictestlee.azurewebsites.net:443/api/TwxFlowTriger/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=CWMyBZhHV-SigSJ2xLhwXOT9JNQ0uztKSkepMjSd6hY",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: undefined /* STRING */,
+	domain: undefined /* STRING */,
+	username: undefined /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+//logger.trace("GetPartstructure(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSOAPDemo"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> \
+   <soapenv:Header/> \
+   <soapenv:Body> \
+      <SOAPDemo xmlns="https://www.crcind.com:443/csp/samples/SOAP.Demo.cls"> \
+         <GetByName> \
+            <name>g</name>\
+         </GetByName> \
+      </SOAPDemo> \
+   </soapenv:Body> \
+</soapenv:Envelope>';
+
+//      <SOAPDemo xmlns="https://www.crcind.com:443/csp/samples/SOAP.Demo.cls"> \
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+//url: "http://learnwebservices.com/services/hello" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+url: "https://www.crcind.com/csp/samples/SOAP.Demo.cls?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].GetXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSOAPLocalTest"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var headerObject = new Object();
+headerObject["Content-Type"] = "text/xml";
+headerObject["SOAPAction"] = "http://tempuri.org/IService1/NewProc";
+//headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+    
+var content = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">\
+  <s:Body>\
+    <NewProc xmlns="http://tempuri.org/">\
+      <dummy xmlns:d4p1="http://schemas.datacontract.org/2004/07/WcfService1" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">\
+        <d4p1:num>0</d4p1:num>\
+        <d4p1:nums xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />\
+        <d4p1:str i:nil="true" />\
+        <d4p1:strs xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">\
+          <d5p1:string>aaa</d5p1:string>\
+          <d5p1:string>bbb</d5p1:string>\
+        </d4p1:strs>\
+      </dummy>\
+    </NewProc>\
+  </s:Body>\
+</s:Envelope>';
+
+//      <SOAPDemo xmlns="https://www.crcind.com:443/csp/samples/SOAP.Demo.cls"> \
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: header /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+//url: "http://learnwebservices.com/services/hello" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+url: "http://localhost:56230/Service1.svc" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: "aaa" /* STRING */,
+domain: undefined /* STRING */,
+username: "aaa" /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSOAPWCFLocal"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> \
+   <soapenv:Header/> \
+   <soapenv:Body> \
+      <IService1 xmlns="http://localhost:56230/Service1.svc"> \
+         <GetData><value>12345</value></GetData> \
+         </IService1> \
+   </soapenv:Body> \
+</soapenv:Envelope>';
+
+//      <SOAPDemo xmlns="https://www.crcind.com:443/csp/samples/SOAP.Demo.cls"> \
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+url: "http://localhost:56230/Service1.svc?wsdl" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+//url: "https://www.crcind.com/csp/samples/SOAP.Demo.cls?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: "aaa" /* STRING */,
+domain: undefined /* STRING */,
+username: "aaa" /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSOAPWCFLocalCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">\
+  <soapenv:Header>\
+    <Action soapenv:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/IService1/GetData</Action>\
+  </soapenv:Header>\
+  <soapenv:Body>\
+    <GetData xmlns="http://localhost:49541/Service1.svc/IService1/GetData">\
+      <value>12345</value>\
+    </GetData>\
+  </soapenv:Body>\
+</soapenv:Envelope>';
+
+//      <SOAPDemo xmlns="https://www.crcind.com:443/csp/samples/SOAP.Demo.cls"> \
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+url: "http://localhost:49541/Service1.svc?wsdl" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+//url: "https://www.crcind.com/csp/samples/SOAP.Demo.cls?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: "aaa" /* STRING */,
+domain: undefined /* STRING */,
+username: "aaa" /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetSOAPWCFLocalCopyCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">\
+  <soapenv:Header>\
+    <Action soapenv:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://localhost:49541/IService1/GetData</Action>\
+  </soapenv:Header>\
+  <soapenv:Body>\
+    <GetData xmlns="http://localhost:49541/Service1.svc">\
+      <value>12345</value>\
+    </GetData>\
+  </soapenv:Body>\
+</soapenv:Envelope>';
+
+//      <SOAPDemo xmlns="https://www.crcind.com:443/csp/samples/SOAP.Demo.cls"> \
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+url: "http://localhost:49541/Service1.svc?wsdl" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+//url: "https://www.crcind.com/csp/samples/SOAP.Demo.cls?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: "aaa" /* STRING */,
+domain: undefined /* STRING */,
+username: "aaa" /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXML"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var contentXML = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hs="http://www.holidaywebservice.com/HolidayService_v2/"><soapenv:Body><hs:GetHolidaysAvailable><hs:countryCode>UnitedStates</hs:countryCode></hs:GetHolidaysAvailable></soapenv:Body></soapenv:Envelope>';
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+url: "http://www.holidaywebservice.com//HolidayService_v2/HolidayService2.asmx?wsdl" /* STRING */,
+//content: contentXML,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].GetXML(params1);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXMLCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content ='<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsd="https://mydomain.com/wsdl">\
+    <x:Header/>\
+    <x:Body>\
+        <wsd:remoteSoapServiceName/>\
+    </x:Body>\
+   </x:Envelope>';
+
+var result =
+
+  Resources["ContentLoaderFunctions"].PostXML({
+
+  proxyScheme: undefined /* STRING */,
+
+  headers: undefined /* JSON */,
+
+  ignoreSSLErrors: undefined /* BOOLEAN */,
+
+  useNTLM: undefined /* BOOLEAN */,
+
+  workstation: undefined /* STRING */,
+
+  useProxy: undefined /* BOOLEAN */,
+
+  withCookies: undefined /* BOOLEAN */,
+
+  proxyHost: undefined /* STRING */,
+
+  url: "https://mydomain.com/service/wsfia/compub" /* STRING */,
+
+  content: content,
+
+  timeout: undefined /* NUMBER */,
+
+  proxyPort: undefined /* INTEGER */,
+
+  password: undefined /* STRING */,
+
+  domain: undefined /* STRING */,
+
+  username: undefined /* STRING */
+
+});
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXMLCopy1"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hs="https://www.learnwebservices.com/services/hello?WSDL"><soapenv:Body><hs:SayHello></hs:SayHello></soapenv:Body></soapenv:Envelope>';
+//var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><hs:SayHello></hs:SayHello></soapenv:Body></soapenv:Envelope>';
+//var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hs="https://www.learnwebservices.com/services/hello"><soapenv:Body><hs:SayHello></hs:SayHello></soapenv:Body></soapenv:Envelope>';
+
+//<?xml version="1.0" encoding="shift_jis"?>
+//var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body><SayHello xmlns="http://learnwebservices.com/services/hello"><HelloRequest><Name>g</Name></HelloRequest></SayHello></soapenv:Body></soapenv:Envelope>';
+var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\
+   <soapenv:Header/>\
+   <soapenv:Body>\
+      <SayHello xmlns="http://learnwebservices.com/services/hello">\
+         <HelloRequest>\
+            <Name>g</Name>\
+         </HelloRequest>\
+      </SayHello>\
+   </soapenv:Body>\
+</soapenv:Envelope>';
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+//url: "http://learnwebservices.com/services/hello" /* STRING */,
+url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+
+
+
+// result: XML
+//let result = Resources["ContentLoaderFunctions"].PostXML({
+//	proxyScheme: undefined /* STRING {"defaultValue":"http"} */,
+//	headers: undefined /* JSON */,
+//	ignoreSSLErrors: undefined /* BOOLEAN */,
+//	useNTLM: undefined /* BOOLEAN {"defaultValue":false} */,
+//	workstation: undefined /* STRING {"defaultValue":""} */,
+//	useProxy: undefined /* BOOLEAN {"defaultValue":false} */,
+//	withCookies: undefined /* BOOLEAN {"defaultValue":false} */,
+//	proxyHost: undefined /* STRING {"defaultValue":""} */,
+//	url: undefined /* STRING */,
+//	content: undefined /* XML */,
+//	timeout: undefined /* NUMBER {"defaultValue":60} */,
+//	proxyPort: undefined /* INTEGER {"defaultValue":8080} */,
+//	password: undefined /* STRING */,
+//	domain: undefined /* STRING {"defaultValue":""} */,
+//	username: undefined /* STRING */
+//});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXMLHelloTest"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\
+   <soapenv:Header/>\
+   <soapenv:Body>\
+      <SayHello xmlns="http://learnwebservices.com/services/hello">\
+         <HelloRequest>\
+            <Name>John Doe</Name>\
+         </HelloRequest>\
+      </SayHello>\
+   </soapenv:Body>\
+</soapenv:Envelope>';
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+//url: "http://learnwebservices.com/services/hello" /* STRING */,
+url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+//url: "http://qmus0694.mhi.co.jp/FZMSWS/FZMSService.svc?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXMLMHI"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> \
+   <soapenv:Header/> \
+   <soapenv:Body> \
+      <FZMSService xmlns="http://qmus0694.mhi.co.jp/FZMSWS/FZMSService"> \
+         <GetDocAttributeComp> \
+            <allGetFlg>false</allGetFlg>\
+         </GetDocAttributeComp> \
+      </FZMSService> \
+   </soapenv:Body> \
+</soapenv:Envelope>';
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+//url: "http://learnwebservices.com/services/hello" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+url: "http://qmus0694.mhi.co.jp/FZMSWS/FZMSService.svc?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXMLMHITest"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\
+   <soapenv:Header/>\
+   <soapenv:Body>\
+      <FZMS.WebService xmlns="http://qmus0694.mhi.co.jp/FZMSWS/FZMSService.svc">\
+         <GetDocAttributeComp>\
+            <planNo></planNo>\
+         </GetDocAttributeComp>\
+      </FZMS.WebService>\
+   </soapenv:Body>\
+</soapenv:Envelope>';
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+//url: "http://learnwebservices.com/services/hello" /* STRING */,
+//url: "https://www.learnwebservices.com/services/hello?WSDL" /* STRING */,
+url: "http://qmus0694.mhi.co.jp/FZMSWS/FZMSService.svc?WSDL" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetXMLOpen"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var content = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hs="http://www.holidaywebservice.com/HolidayService_v2/">\
+<soapenv:Body>\
+<hs:GetHolidaysAvailable>\
+<hs:countryCode>UnitedStates</hs:countryCode>\
+</hs:GetHolidaysAvailable>\
+</soapenv:Body>\
+</soapenv:Envelope>';
+
+var params1 = {
+proxyScheme: undefined /* STRING */,
+headers: undefined /* JSON */,
+ignoreSSLErrors: true /* BOOLEAN */,
+useNTLM: undefined /* BOOLEAN */,
+workstation: undefined /* STRING */,
+useProxy: undefined /* BOOLEAN */,
+withCookies: undefined /* BOOLEAN */,
+proxyHost: undefined /* STRING */,
+url: "http://www.holidaywebservice.com//HolidayService_v2/HolidayService2.asmx?wsdl" /* STRING */,
+content: content,
+timeout: undefined /* NUMBER */,
+proxyPort: undefined /* INTEGER */,
+password: undefined /* STRING */,
+domain: undefined /* STRING */,
+username: undefined /* STRING */
+};
+
+// result: XML
+var result = Resources["ContentLoaderFunctions"].PostXML(params1);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="SendTeamMsg"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+//headerObject["CSRF_NONCE"] = csrftoken;
+//headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+//logger.trace("GetPartstructure(header): " + header);
+
+// Build Body
+var bodyObject = { text: "ThingWorx Service Test" };
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: "https://ptccloud.webhook.office.com/webhookb2/29a3a269-8852-4a7d-8f09-0fbd07e743a7@b9921086-ff77-4d0d-828a-cb3381f678e2/IncomingWebhook/306f06c52cf44d19a0b8f1e3e9c17f1b/d69a90c0-9bdb-4ede-a63b-6ea7031162e3",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: undefined /* STRING */,
+	domain: undefined /* STRING */,
+	username: undefined /* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+//logger.trace("GetPartstructure(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2022-05-29T08:16:34.474Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:20:02.268Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:20:15.314Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:20:25.896Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:20:56.939Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:22:25.603Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:31:18.057Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:31:46.961Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:52:34.628Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:52:48.749Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:53:00.142Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:54:13.938Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:55:05.288Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:55:36.762Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:55:55.859Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:56:09.770Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:56:40.405Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:57:11.463Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-29T08:58:14.747Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-30T00:34:58.775Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-30T00:40:48.198Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-30T00:43:38.165Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-30T00:56:43.718Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-30T00:59:17.037Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;GetSOAPWCFLocalCopy : service added&#10;" timestamp="2022-05-30T01:00:42.004Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopy : service updated&#10;" timestamp="2022-05-30T01:02:12.314Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopy : service updated&#10;" timestamp="2022-05-30T01:02:31.833Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopy : service updated&#10;" timestamp="2022-05-30T01:02:58.188Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2022-05-30T01:06:44.641Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopy : service updated&#10;" timestamp="2022-05-30T01:07:24.607Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopy : service updated&#10;GetSOAPWCFLocalCopyCopy : service added&#10;" timestamp="2022-05-30T01:08:05.072Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopyCopy : service updated&#10;" timestamp="2022-05-30T01:09:48.733Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopyCopy : service updated&#10;" timestamp="2022-05-30T01:15:38.741Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocalCopy : service updated&#10;" timestamp="2022-05-30T01:16:03.474Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPDemo : service updated&#10;CreateTeamFile : service added&#10;" timestamp="2022-06-07T00:56:05.450Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPDemo : service updated&#10;GetSOAPLocalTest : service added&#10;" timestamp="2023-05-29T09:31:27.854Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPLocalTest : service updated&#10;" timestamp="2023-05-29T09:36:12.302Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPLocalTest : service updated&#10;" timestamp="2023-05-29T09:37:07.706Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetXMLCopy : service updated&#10;" timestamp="2023-05-29T09:44:23.756Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPWCFLocal : service updated&#10;" timestamp="2023-05-29T10:14:47.235Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetSOAPLocalTest : service updated&#10;" timestamp="2023-05-29T10:15:06.297Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
