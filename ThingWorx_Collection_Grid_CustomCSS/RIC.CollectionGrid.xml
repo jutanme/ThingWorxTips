@@ -1,0 +1,1925 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b10877" majorVersion="9" minorVersion="1" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1110" universal=""><StyleDefinitions><StyleDefinition aspect.isThemeObject="true" description="Default Row Background Style for Grid Advanced in Thingworx Theme" documentationContent="" homeMashup="" lastModifiedDate="2023-08-05T08:26:58.140Z" name="RIC.GridBorder.Style" projectName="RIC.Sample" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><content><![CDATA[{
+  "backgroundColor" : "",
+  "displayString" : "",
+  "fontEmphasisBold" : false,
+  "fontEmphasisItalic" : false,
+  "fontEmphasisUnderline" : false,
+  "foregroundColor" : "",
+  "image" : "",
+  "lineColor" : "rgba(0,0,0,1)",
+  "lineStyle" : "solid",
+  "lineThickness" : 1,
+  "secondaryBackgroundColor" : "",
+  "textSize" : "small"
+}]]></content><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2023-08-05T08:26:39.249Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="style : lineColor : updated&#10;" timestamp="2023-08-05T08:26:58.140Z" user="Administrator"/></ConfigurationChanges></StyleDefinition></StyleDefinitions><Networks/><PersistenceProviderPackages/><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-08-05T08:24:24.760Z" name="RIC.CollectionTable.Mash" projectName="RIC.Sample" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_RIC.CollectionTable.TH" : {
+      "DataName" : "Things_RIC.CollectionTable.TH",
+      "EntityName" : "RIC.CollectionTable.TH",
+      "EntityType" : "Things",
+      "Id" : "92e55e9f-37c7-42ef-867a-31aed85a23b0",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "289cbf60-5979-4269-a06a-a0d8b56e3e99",
+        "Name" : "GetCostBomList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCostBomList"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "289add89-8450-40e7-bad9-8130c478c231",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetCostBomList",
+    "SourceName" : "GetCostBomList",
+    "SourceSection" : "Things_RIC.CollectionTable.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "collection-5",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_RIC.CollectionTable.TH",
+    "EventHandlerService" : "GetCostBomList",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "1a5267f9-3695-4047-abd3-f7b8483fcbb1"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 6,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "column",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-4",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-4",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "78px",
+          "flex-max-width" : "",
+          "flex-min-height" : "78px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisplayName" : "mashupcontainer-6",
+            "Height" : 300,
+            "Id" : "mashupcontainer-6",
+            "LastContainer" : false,
+            "Left" : 124,
+            "MashupParameters" : [ ],
+            "Name" : "RIC.TableHeader.Mash",
+            "ResponsiveLayout" : true,
+            "ShowDataLoading" : true,
+            "TabSequenceGroup" : 0,
+            "Top" : 32.19999694824219,
+            "Type" : "mashupcontainer",
+            "Visible" : true,
+            "Width" : 400,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Contained Mashup"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-3",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-3",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "AllowSelection" : false,
+            "AlwaysUseCustomScrollerOniOS" : true,
+            "Area" : "UI",
+            "AutoSelectFirstRow" : false,
+            "BottomPadding" : 22,
+            "CellActiveStyle" : "DefaultCollectionCellActiveStyle",
+            "CellAlternateStyle" : "DefaultCollectionCellAlternateStyle",
+            "CellBorderRadius" : 0,
+            "CellBoxShadow" : "",
+            "CellHoverStyle" : "DefaultCollectionCellHoverStyle",
+            "CellMashupSelectedField" : "",
+            "CellMenuStatesIconGravity" : "Left",
+            "CellMenuStatesIconSize" : 16,
+            "CellMenuStatesOrientation" : "Horizontal",
+            "CellMenuStatesUseBuiltin" : false,
+            "CellMultipleSelectionType" : "Disabled",
+            "CellPointer" : "Auto",
+            "CellSelectedStyle" : "DefaultCollectionCellSelectedStyle",
+            "CellStyle" : "DefaultCollectionCellStyle",
+            "DisableWrapping" : false,
+            "DisplayName" : "collection-5",
+            "FlowLayoutAlignment" : "Center",
+            "FlowLayoutContentGravity" : "Center",
+            "FlowLayoutGravity" : "Spaced",
+            "FooterHeight" : 44,
+            "FooterSectionParam" : "",
+            "HandleSelectionUpdates" : true,
+            "HasSelectedCells" : false,
+            "HeaderHeight" : 44,
+            "HeaderSectionParam" : "",
+            "Height" : 300,
+            "Id" : "collection-5",
+            "ItemLoadBehavior" : "loadUnload",
+            "LastContainer" : false,
+            "Left" : 134,
+            "LeftAlignFinalRow" : false,
+            "Mashup" : "RIC.TableInfo.Mash",
+            "MashupGlobalPropertyBinding" : "{}",
+            "MashupHeight" : 300,
+            "MashupPropertyBinding" : "{\"Id\":\"OrderNo\",\"InstructionNo\":\"PartNo\"}",
+            "MashupWidth" : 400,
+            "MinimumSpacing" : 0,
+            "MultiSelect" : false,
+            "OffScreenBufferFactor" : 0.1,
+            "PinFootersToBottom" : false,
+            "PinHeadersToTop" : false,
+            "PlaysIntroAnimation" : true,
+            "ResponsiveLayout" : true,
+            "RippleEffectStyle" : "DefaultCollectionRippleStyle",
+            "RowSpacing" : 44,
+            "ScrollbarType" : "hover",
+            "ScrollsToSelectedCell" : false,
+            "SectionField" : "Id",
+            "SectionInsetBottom" : 0,
+            "SectionInsetLeft" : 0,
+            "SectionInsetRight" : 0,
+            "SectionInsetTop" : 0,
+            "SelectedCellsCount" : 0,
+            "ShowDataLoading" : true,
+            "ShowFooters" : false,
+            "ShowHeaders" : false,
+            "SortAscending" : false,
+            "Top" : 82.19999694824219,
+            "TopPadding" : 22,
+            "Type" : "collection",
+            "UIDField" : "Id",
+            "UseCustomScrollerOnWindowsDesktops" : true,
+            "UseMashupDimensions" : false,
+            "UseRippleEffect" : false,
+            "View" : "table",
+            "Visible" : true,
+            "Width" : 400,
+            "Z-index" : 10,
+            "_CanDoubleClick" : false,
+            "_EventDataShape" : "{\"InstructionNo\":{\"name\":\"InstructionNo\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":1,\"type\":\"Field\"},\"ParentId\":{\"name\":\"ParentId\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":5,\"type\":\"Field\"},\"aaa\":{\"name\":\"aaa\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":6,\"type\":\"Field\"},\"HasChildren\":{\"name\":\"HasChildren\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"BOOLEAN\",\"ordinal\":3,\"type\":\"Field\"},\"ccc\":{\"name\":\"ccc\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":8,\"type\":\"Field\"},\"bbb\":{\"name\":\"bbb\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":7,\"type\":\"Field\"},\"eee\":{\"name\":\"eee\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":10,\"type\":\"Field\"},\"ddd\":{\"name\":\"ddd\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":9,\"type\":\"Field\"},\"Id\":{\"name\":\"Id\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":4,\"type\":\"Field\"},\"Name\":{\"name\":\"Name\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":2,\"type\":\"Field\"}}",
+            "_GlobalDataShape" : "{}",
+            "_MenuDefinition" : "[]",
+            "__TypeDisplayName" : "Collection"
+          },
+          "Widgets" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-08-04T07:17:58.308Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:56:44.344Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:57:56.019Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:01:06.518Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:02:02.820Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:02:38.769Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:07:21.902Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:08:25.960Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:10:12.850Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:14:46.415Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:15:37.651Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:19:55.830Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:22:48.500Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:24:24.760Z" user="Administrator"/></ConfigurationChanges></Mashup><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-08-05T08:36:04.247Z" name="RIC.TableInfo.Mash" projectName="RIC.Sample" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="STRING" description="" name="OrderNo" ordinal="0"/><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="STRING" description="" name="PartNo" ordinal="0"/></ParameterDefinitions><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : ".xhdr {\n  display : none !important;  \n}\n\n.twdhtmlxcell {\nborder: 1px solid !important;  \n}\n\n.objbox::-webkit-scrollbar {\n  display: none !important;\n}",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_RIC.CollectionTable.TH" : {
+      "DataName" : "Things_RIC.CollectionTable.TH",
+      "EntityName" : "RIC.CollectionTable.TH",
+      "EntityType" : "Things",
+      "Id" : "92e55e9f-37c7-42ef-867a-31aed85a23b0",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "d4d2ea75-e352-471f-a124-b6de793b5313",
+        "Name" : "GetCostInfoList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCostInfoList"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "9582e963-ef89-47b1-8b2d-eee5fa42610b",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetCostInfoList",
+    "SourceName" : "GetCostInfoList",
+    "SourceSection" : "Things_RIC.CollectionTable.TH",
+    "TargetArea" : "UI",
+    "TargetId" : "gridadvanced-10",
+    "TargetSection" : ""
+  }, {
+    "Id" : "3ca40469-ae71-4d11-b637-27c5bb6e7bab",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "OrderNo",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "orderNo",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetCostInfoList",
+    "TargetSection" : "Things_RIC.CollectionTable.TH"
+  }, {
+    "Id" : "4bb8941b-0b5f-460c-9b4c-cd2a99f51d68",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "PartNo",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "partNo",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "GetCostInfoList",
+    "TargetSection" : "Things_RIC.CollectionTable.TH"
+  }, {
+    "Id" : "1beac1d0-6da0-4ce2-a4ea-54afccd54d05",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "OrderNo",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "LabelText",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcslabel-8",
+    "TargetSection" : ""
+  }, {
+    "Id" : "3528506c-adf4-4c0e-b8ab-a0c1c33823f1",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "PartNo",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "property",
+      "TargetProperty" : "LabelText",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcslabel-12",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_RIC.CollectionTable.TH",
+    "EventHandlerService" : "GetCostInfoList",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "efcecc63-d051-4e7e-8ea9-cc4adf1597ad"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : {
+          "ptcslabel-11" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "color" : "rgba(51,153,255,1)"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          },
+          "ptcslabel-12" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "color" : "rgba(51,153,255,1)"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          },
+          "ptcslabel-8" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "color" : "rgba(51,153,255,1)"
+                }
+              }
+            },
+            "widget" : "ptcs-label"
+          }
+        },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "_currentParameterDefs" : [ {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "STRING",
+        "Description" : "",
+        "ParameterName" : "OrderNo"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "STRING",
+        "Description" : "",
+        "ParameterName" : "PartNo"
+      } ],
+      "id_index" : 12,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "column",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : true,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-7",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-7",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "37px",
+          "flex-max-width" : "",
+          "flex-min-height" : "37px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-8",
+            "HorizontalAlignment" : "left",
+            "Id" : "ptcslabel-8",
+            "LabelText" : "-",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 74,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 7.1999969482421875,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-11",
+            "HorizontalAlignment" : "left",
+            "Id" : "ptcslabel-11",
+            "LabelText" : "-",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 74,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 7.1999969482421875,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-12",
+            "HorizontalAlignment" : "left",
+            "Id" : "ptcslabel-12",
+            "LabelText" : "-",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 74,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 7.1999969482421875,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-6",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-6",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "AutoScroll" : true,
+            "CellBorderStyle" : "DefaultGridAdvancedCellBorderStyle",
+            "CellValidationErrorStyle" : "DefaultGridAdvancedCellValidationErrorStyle",
+            "CellValidationErrorTooltipStyle" : "DefaultGridAdvancedCellValidationErrorTooltipStyle",
+            "ColumnFormat" : {
+              "formatInfo" : [ {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "InstructionNo",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "InstructionNo",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "100px",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "Name",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "Name",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "200px",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "HasChildren",
+                "FormatOptions" : {
+                  "FormatString" : "checkbox",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "BOOLEAN",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "HasChildren",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "50px",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "Id",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "Id",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "50px",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "ParentId",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "ParentId",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "60px",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "aaa",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "aaa",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "bbb",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "bbb",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "ccc",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "ccc",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "ddd",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "ddd",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "Description" : "",
+                "FieldName" : "eee",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "formatInfo" : {
+                    "StateFormats" : [ ]
+                  },
+                  "formatText" : "View",
+                  "renderer" : "STRING",
+                  "roundingEnabled" : true,
+                  "showDependentField" : false
+                },
+                "Title" : "eee",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto",
+                "headerTextAlignment" : "left",
+                "hidden" : false,
+                "inLayout" : true
+              } ]
+            },
+            "Configuration" : "",
+            "ConfigurationId" : 2,
+            "CookiePersistence" : true,
+            "DataOverflow" : "clipped",
+            "DataServiceBindingDef" : {
+              "entityName" : "RIC.CollectionTable.TH",
+              "entityType" : "Things",
+              "target" : "GetCostInfoList"
+            },
+            "DefaultSelectedRows" : "1",
+            "DisplayName" : "gridadvanced-10",
+            "DisplayOnlyMode" : false,
+            "EditButtonsLocation" : "top-right",
+            "EnableAddDeleteButtons" : false,
+            "EnableCallbackOnSelectedRowsChange" : true,
+            "EnableContextMenu" : true,
+            "EnableEditButtons" : false,
+            "EnableFilterEventOnConfigChange" : true,
+            "EnableFooter" : false,
+            "EnableGridReset" : false,
+            "EnableGridSearch" : false,
+            "EnableKeyboardNavigation" : true,
+            "EnableSorting" : false,
+            "FocusStyle" : "DefaultFocusStyle",
+            "GridResetButtonLocation" : "top-right",
+            "GridSearchLocation" : "top-left",
+            "HeaderOverflow" : "tooltip",
+            "Height" : 0,
+            "IDFieldName" : "id",
+            "Id" : "gridadvanced-10",
+            "IsEditable" : false,
+            "LastContainer" : false,
+            "Left" : 99,
+            "MaxHeaderHeight" : 100,
+            "MinRowHeight" : 30,
+            "ResponsiveLayout" : true,
+            "RowAlternateBackgroundStyle" : "DefaultGridAdvancedRowAlternateBackgroundStyle",
+            "RowBackgroundStyle" : "DefaultGridAdvancedRowBackgroundStyle",
+            "RowBorderStyle" : "RIC.GridBorder.Style",
+            "RowFormat_StateParameters" : [ ],
+            "RowHoverStyle" : "DefaultGridAdvancedRowHoverStyle",
+            "RowSelectedStyle" : "DefaultGridAdvancedRowSelectedStyle",
+            "RowSelection" : "none",
+            "SelectedRows" : "",
+            "ShowDataLoading" : true,
+            "SortAscendingStyle" : "DefaultSortAscendingStyle",
+            "SortDescendingStyle" : "DefaultSortDescendingStyle",
+            "TableFooterStyle" : "DefaultGridAdvancedFooterStyle",
+            "TableHeaderStyle" : "DefaultGridAdvancedHeaderStyle",
+            "TableWrapperStyle" : "DefaultGridAdvancedWrapperStyle",
+            "ToolbarStyle" : "DefaultToolbarStyle",
+            "TooltipStyle" : "DefaultTooltipStyle",
+            "Top" : 117.19999694824219,
+            "Type" : "gridadvanced",
+            "UseTheme" : false,
+            "Visible" : true,
+            "Width" : 0,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Grid Advanced"
+          },
+          "Widgets" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-08-04T07:17:23.631Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-04T07:17:41.349Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:53:56.608Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:56:19.848Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:04:38.457Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:05:09.676Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T08:18:00.309Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:19:05.871Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:23:30.104Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:25:13.296Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:27:21.851Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T08:29:54.924Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T08:34:08.468Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T08:35:17.371Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T08:36:04.247Z" user="Administrator"/></ConfigurationChanges></Mashup><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-08-05T08:32:33.581Z" name="RIC.TableHeader.Mash" projectName="RIC.Sample" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "/*\nptcs-label::part(label) {\n  writing-mode: vertical-rl !important;\n  text-orientation: upright !important;\n}\n*/\nptcs-label::part(label)::-webkit-scrollbar {\n  display: none !important;\n}\n.tw-flex-column::-webkit-scrollbar {\n  display: none !important;\n}\n",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_RIC.CollectionTable.TH" : {
+      "DataName" : "Things_RIC.CollectionTable.TH",
+      "EntityName" : "RIC.CollectionTable.TH",
+      "EntityType" : "Things",
+      "Id" : "92e55e9f-37c7-42ef-867a-31aed85a23b0",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "289cbf60-5979-4269-a06a-a0d8b56e3e99",
+        "Name" : "GetCostBomList",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCostBomList"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_RIC.CollectionTable.TH",
+    "EventHandlerService" : "GetCostBomList",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "1a5267f9-3695-4047-abd3-f7b8483fcbb1"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : {
+          "flexcontainer-14" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "border-color" : "rgba(0,0,0,1)",
+                  "border-style" : "solid",
+                  "border-width" : "1px"
+                }
+              }
+            },
+            "widget" : "flex-container"
+          },
+          "flexcontainer-15" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "border-color" : "rgba(0,0,0,1)",
+                  "border-style" : "solid",
+                  "border-width" : "1px"
+                }
+              }
+            },
+            "widget" : "flex-container"
+          },
+          "flexcontainer-16" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "border-color" : "rgba(0,0,0,1)",
+                  "border-style" : "solid",
+                  "border-width" : "1px",
+                  "color" : "rgba(0,0,0,1)"
+                }
+              }
+            },
+            "widget" : "flex-container"
+          },
+          "flexcontainer-17" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "border-color" : "rgba(0,0,0,1)",
+                  "border-style" : "solid",
+                  "border-width" : "1px",
+                  "color" : "rgba(0,0,0,1)"
+                }
+              }
+            },
+            "widget" : "flex-container"
+          },
+          "flexcontainer-18" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "border-color" : "rgba(0,0,0,1)",
+                  "border-style" : "solid",
+                  "border-width" : "1px",
+                  "color" : "rgba(0,0,0,1)"
+                }
+              }
+            },
+            "widget" : "flex-container"
+          },
+          "flexcontainer-27" : {
+            "parts" : {
+              "$" : {
+                "$" : {
+                  "border-color" : "rgba(0,0,0,1)",
+                  "border-radius" : "0px",
+                  "border-style" : "solid",
+                  "border-width" : "1px",
+                  "color" : "rgba(0,0,0,1)"
+                }
+              }
+            },
+            "widget" : "flex-container"
+          }
+        },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 27,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "center",
+        "flex-basis" : "auto",
+        "flex-direction" : "row",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : true,
+        "justify-content" : "center",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-14",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-14",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : true,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "102px",
+          "flex-min-height" : "",
+          "flex-min-width" : "102px",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "prev-align" : "center",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-11",
+            "HorizontalAlignment" : "center",
+            "Id" : "ptcslabel-11",
+            "LabelText" : "変更内容",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 49,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 172.1999969482422,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Width" : 74,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-15",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-15",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "stretch",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "200px",
+          "flex-min-height" : "",
+          "flex-min-width" : "200px",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "prev-align" : "center",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-20",
+            "HorizontalAlignment" : "center",
+            "Id" : "ptcslabel-20",
+            "LabelText" : "構成",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 49,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 172.1999969482422,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Width" : 74,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-16",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-16",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "50px",
+          "flex-min-height" : "",
+          "flex-min-width" : "50px",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-22",
+            "HorizontalAlignment" : "center",
+            "Id" : "ptcslabel-22",
+            "LabelText" : "SFX",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 49,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 172.1999969482422,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Width" : 74,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-17",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-17",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "50px",
+          "flex-min-height" : "",
+          "flex-min-width" : "50px",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-24",
+            "HorizontalAlignment" : "center",
+            "Id" : "ptcslabel-24",
+            "LabelText" : "個数",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 49,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 172.1999969482422,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "flex-start",
+            "Visible" : true,
+            "Width" : 74,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-18",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-18",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "60px",
+          "flex-min-height" : "",
+          "flex-min-width" : "60px",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "DisclosureControl" : "show-more",
+            "DisplayName" : "ptcs-label-26",
+            "HorizontalAlignment" : "center",
+            "Id" : "ptcslabel-26",
+            "LabelText" : "生産拠点",
+            "LabelType" : "label",
+            "LastContainer" : false,
+            "Left" : 49,
+            "Margin" : "5",
+            "MultiLine" : true,
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "Top" : 172.1999969482422,
+            "Type" : "ptcslabel",
+            "UseTheme" : true,
+            "VerticalAlignment" : "center",
+            "Visible" : true,
+            "Width" : 74,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Label",
+            "overflowShowLessTxt" : "[[showLess]]",
+            "overflowShowMoreTxt" : "[[showMore]]"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-27",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-27",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-08-04T07:19:03.001Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-04T07:23:59.933Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-04T07:26:49.621Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-04T07:27:14.817Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-04T07:28:36.862Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-04T07:28:54.822Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-04T07:29:27.321Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-04T07:29:47.144Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-04T07:34:21.463Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-04T07:35:29.317Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:33:44.533Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:34:21.393Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:34:46.557Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:35:39.891Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:37:23.466Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:38:13.001Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:38:45.145Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:39:09.386Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:40:17.431Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:40:59.271Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:41:19.494Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:41:45.951Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="custom-css : value : updated&#10;" timestamp="2023-08-05T07:42:43.496Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:44:00.308Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T07:48:10.259Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:31:20.743Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:31:54.824Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-08-05T08:32:33.581Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups><ScriptFunctionLibraries/><Projects><Project artifactId="" aspect.projectType="Component" dependsOn="{&quot;extensions&quot;:&quot;&quot;,&quot;projects&quot;:&quot;&quot;}" description="" documentationContent="" groupId="" homeMashup="" lastModifiedDate="2023-08-04T07:06:29.158Z" minPlatformVersion="" name="RIC.Sample" packageVersion="1.0.0" projectName="RIC.Sample" publishResult="" state="DRAFT" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-08-04T07:06:29.157Z" user="Administrator"/></ConfigurationChanges></Project></Projects><Users/><DirectoryServices/><Widgets/><MediaEntities/><Groups/><PersistenceProviders/><ModelTags/><LocalizationTables/><Dashboards/><StyleThemes/><DataShapes><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-08-04T07:12:17.918Z" name="RIC.CollectionTable.DS" projectName="RIC.Sample" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="aaa" ordinal="8"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="bbb" ordinal="9"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="ccc" ordinal="10"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="ddd" ordinal="11"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="eee" ordinal="12"/><FieldDefinition aspect.isPrimaryKey="false" baseType="BOOLEAN" description="" name="HasChildren" ordinal="5"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Id" ordinal="6"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="InstructionNo" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Name" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="ParentId" ordinal="7"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2023-08-04T07:12:17.918Z" user="Administrator"/></ConfigurationChanges></DataShape></DataShapes><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-08-05T08:21:16.924Z" name="RIC.CollectionTable.TH" projectName="RIC.Sample" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCostBomList"><ResultType aspect.dataShape="RIC.CollectionTable.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCostInfoList"><ResultType aspect.dataShape="RIC.CollectionTable.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetCostBomList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+// 123
+var obj = new Object();
+obj.InstructionNo = "123";
+obj.Id = "123";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "123/1234";
+obj.Id = "1234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "123/1234/12345";
+obj.Id = "12345";
+result.AddRow(obj);
+//var obj = new Object();
+//obj.InstructionNo = "123/1234/12346";
+//obj.Id = "12346";
+//result.AddRow(obj);
+// 223
+//var obj = new Object();
+//obj.InstructionNo = "223";
+//obj.Id = "223";
+//result.AddRow(obj);
+//var obj = new Object();
+//obj.InstructionNo = "223/2234";
+//obj.Id = "2234";
+//result.AddRow(obj);
+//var obj = new Object();
+//obj.InstructionNo = "223/1234/22345";
+//obj.Id = "22345";
+result.AddRow(obj);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetCostInfoList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+// 123
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = (orderNo || "xxx");
+obj.Name = (partNo || "xxx");
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "123";
+obj.Id = "123/1234";
+obj.Name = "1234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12345";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12345";
+obj.Name = "12345";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12346";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12346";
+obj.Name = "12346";
+result.AddRow(obj);
+// 223
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = "223";
+obj.Name = "223";
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "223";
+obj.Id = "223/2234";
+obj.Name = "2234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "22345";
+obj.ParentId = "223/2234";
+obj.Id = "223/1234/22345";
+obj.Name = "22345";
+result.AddRow(obj);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="services : GetCostInstruction2 : service updated&#10;header : name : updated&#10;" timestamp="2023-08-04T07:11:27.858Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostBomList : output updated&#10;GetCostInstruction : output updated&#10;GetCostInstruction2 : output updated&#10;" timestamp="2023-08-04T07:12:59.991Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction2 : service updated, service deleted&#10;GetCostInstruction : service deleted&#10;GetCostInfos : service added&#10;" timestamp="2023-08-04T07:14:29.874Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInfoList : service added&#10;" timestamp="2023-08-04T07:14:48.125Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInfos : service deleted&#10;" timestamp="2023-08-04T07:14:54.669Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostBomList : service updated&#10;" timestamp="2023-08-05T08:14:08.502Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostBomList : service updated&#10;" timestamp="2023-08-05T08:16:20.670Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostBomList : service updated&#10;" timestamp="2023-08-05T08:21:16.922Z" user="Administrator"/></ConfigurationChanges></Thing><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-08-04T07:11:40.575Z" name="CostServiceTest2" projectName="RIC.Sample" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCostBomList"><ResultType aspect.dataShape="InstructionName.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCostInstruction"><ResultType aspect.dataShape="InstructionName.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCostInstruction2"><ResultType aspect.dataShape="InstructionName.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="orderNo" ordinal="1"/><FieldDefinition aspect.isRequired="false" baseType="STRING" description="" name="partNo" ordinal="2"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetCostBomList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+// 123
+var obj = new Object();
+obj.Id = "123";
+obj.Name = "123";
+result.AddRow(obj);
+var obj = new Object();
+obj.Id = "123/1234";
+obj.Name = "1234";
+result.AddRow(obj);
+var obj = new Object();
+obj.Id = "123/1234/12345";
+obj.Name = "12345";
+result.AddRow(obj);
+var obj = new Object();
+obj.Id = "123/1234/12346";
+obj.Name = "12346";
+result.AddRow(obj);
+// 223
+var obj = new Object();
+obj.Id = "223";
+obj.Name = "223";
+result.AddRow(obj);
+var obj = new Object();
+obj.Id = "223/2234";
+obj.Name = "2234";
+result.AddRow(obj);
+var obj = new Object();
+obj.Id = "223/1234/22345";
+obj.Name = "22345";
+result.AddRow(obj);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetCostInstruction"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+// 123
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = "123";
+obj.Name = "123";
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "123";
+obj.Id = "123/1234";
+obj.Name = "1234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12345";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12345";
+obj.Name = "12345";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12346";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12346";
+obj.Name = "12346";
+result.AddRow(obj);
+// 223
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = "223";
+obj.Name = "223";
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "223";
+obj.Id = "223/2234";
+obj.Name = "2234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "22345";
+obj.ParentId = "223/2234";
+obj.Id = "223/1234/22345";
+obj.Name = "22345";
+result.AddRow(obj);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetCostInstruction2"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(CostInstruction.DataShape)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "InstructionName.DS"
+});
+// 123
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = (orderNo || "xxx");
+obj.Name = (partNo || "xxx");
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "123";
+obj.Id = "123/1234";
+obj.Name = "1234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12345";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12345";
+obj.Name = "12345";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "12346";
+obj.ParentId = "123/1234";
+obj.Id = "123/1234/12346";
+obj.Name = "12346";
+result.AddRow(obj);
+// 223
+var obj = new Object();
+obj.HasChildren = true;
+obj.Id = "223";
+obj.Name = "223";
+result.AddRow(obj);
+var obj = new Object();
+obj.HasChildren = true;
+obj.ParentId = "223";
+obj.Id = "223/2234";
+obj.Name = "2234";
+result.AddRow(obj);
+var obj = new Object();
+obj.InstructionNo = "22345";
+obj.ParentId = "223/2234";
+obj.Id = "223/1234/22345";
+obj.Name = "22345";
+result.AddRow(obj);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2023-08-04T06:53:44.071Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction2 : service added&#10;" timestamp="2023-08-04T07:05:37.317Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : projectName : updated&#10;" timestamp="2023-08-04T07:06:53.148Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostInstruction2 : service updated&#10;GetCostBomList : service added&#10;" timestamp="2023-08-04T07:08:39.090Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetCostBomList : service updated&#10;" timestamp="2023-08-04T07:09:35.660Z" user="Administrator"/></ConfigurationChanges></Thing></Things><Logs/><Authenticators/><ThingPackages/><NotificationDefinitions/><ApplicationKeys/><StateDefinitions/><ThingTemplates/><ExtensionPackages/><Organizations/><Menus/><ThingGroups/><Resources/><DataTags/><ThingShapes/><Subsystems/><NotificationContents/></Entities>
