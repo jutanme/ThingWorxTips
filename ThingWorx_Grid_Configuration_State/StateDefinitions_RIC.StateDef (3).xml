@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><StateDefinitions><StateDefinition description="" documentationContent="" homeMashup="" lastModifiedDate="2023-09-09T13:46:15.230Z" name="RIC.StateDef" projectName="RIC" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><content><![CDATA[{
+  "stateDefinitions" : [ {
+    "defaultStyleDefinition" : "DefaultAutoRefreshToggleStyle",
+    "defaultValue" : "111",
+    "description" : "",
+    "displayString" : "111",
+    "name" : ""
+  }, {
+    "defaultStyleDefinition" : "DefaultChartStyle5",
+    "defaultValue" : "222",
+    "description" : "",
+    "displayString" : "222",
+    "name" : ""
+  }, {
+    "defaultStyleDefinition" : "DefaultChartStyle3",
+    "defaultValue" : "333",
+    "description" : "",
+    "displayString" : "333",
+    "name" : ""
+  }, {
+    "defaultStyleDefinition" : "BulkDownloadGrid",
+    "description" : "",
+    "displayString" : "",
+    "name" : ""
+  } ],
+  "stateType" : "string"
+}]]></content><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2023-09-08T06:27:40.006Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="states : New String/Value State Definition : added&#10;" timestamp="2023-09-08T06:28:33.480Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="states : 111 : updated, Default : updated&#10;" timestamp="2023-09-08T07:24:55.600Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="states : 222 : updated, 333 : updated&#10;" timestamp="2023-09-08T07:25:10.903Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-09-08T08:16:42.104Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-09-08T08:18:35.792Z" user="wcadmin"/><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2023-09-09T13:46:15.230Z" user="Administrator"/></ConfigurationChanges></StateDefinition></StateDefinitions></Entities>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b110" majorVersion="8" minorVersion="5" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="6" schemaVersion="1054" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2023-09-10T01:23:00.345Z" name="RIC.DynaDataShape.TH" projectName="RIC" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateTestDS"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDynaConfig"><ResultType baseType="TEXT" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="name" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDynaDataShape"><ResultType aspect.dataShape="RIC.DynaDataShape.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="name" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="TestFriendlyName"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="fieldname" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="CreateTestDS"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/***** CREATE DATASHAPE ****/
+var params = {
+name: "TestDataShape" /* STRING */,
+description: undefined /* STRING */,
+fields: undefined /* INFOTABLE */,
+tags: undefined /* TAGS */
+};
+
+
+Resources["EntityServices"].CreateDataShape(params);
+
+/******* ADD FIELD DEFINITION TO DATASHAPE *****/
+// Note: Datashape should contain one PrimaryKey for DataTable
+var params = {
+name: "TestField" /* STRING */,
+description: undefined /* STRING */,
+type: "STRING" /* BASETYPENAME */,
+ordinal: undefined /* INTEGER */,
+primaryKey: true /* BOOLEAN */,
+dataShape: undefined /* DATASHAPENAME */
+};
+
+// no return
+DataShapes["TestDataShape"].AddFieldDefinition(params);
+
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "TestDataShape"
+});
+var obj = {"TestField":"テスト"};
+result.AddRow(obj);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDynaConfig"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//var widthStr = name == "test1" ? "300px" : "100px";
+var widthStr = (name.length * 30) + "px";
+var config = {
+    "columns": {
+        "columnDefs": [
+            {
+                "autoWidth": false,
+                "columnFormatter": {
+                    "format": "full",
+                    "type": "string"
+                },
+                "fieldName": "test1",
+                "headerTextAlignment": "left",
+                "hidden": false,
+                "inLayout": true,
+                "overflow": "fitted",
+                "targets": 0,
+                "textAlignment": "left",
+                //"title": me.TestFriendlyName({	fieldname: "test1"}),
+                "title": "test1",
+                "width": "160px"
+//                ,
+//                "columnFormatter": { // Optional
+//                    "type": "string", // {string} the column renderer to use for formatting the column value. Options: 'string', 'number', 'long', 'boolean', 'html', 'hyperlink', 'imagelink', 'default'.
+//                    "format": "text", // {string} format string based on the type of renderer. See Mashup builder UI for format strings per renderer.
+//                    "stateDefinition": { // Optional
+//                        "name": "RIC.StateDef", // {string} name of this state definition.
+//                        "type": "not-fixed", // {string} type of state definition. Options 'fixed', 'not-fixed'.
+//                        "fieldName": "test1", // {string} the column fieldName that drives this state-definition.
+//                        "states": [ // Required.
+//                            {
+//                            "name": "A111", // {string} the name of the state
+//                            "value": "111", // {*} the value of the state that needs to match the fieldName value.
+//                            "comparator": "==", // {string} the comparator. Options: '==', '<', '>', '<=', '>=', '!='
+//                            "styleName": "DefaultAutoRefreshToggleStyle" // {string} the name of the style to apply from the list of styles below when state matches.
+//                            }
+//                        ]
+//                    }
+//                }
+            },
+            {
+                "autoWidth": false,
+                "columnFormatter": {
+                    "format": "full",
+                    "type": "string"
+                },
+                "fieldName": "テスト",
+                "headerTextAlignment": "left",
+                "hidden": false,
+                "inLayout": true,
+                "overflow": "fitted",
+                "targets": 1,
+                "textAlignment": "left",
+                "title": "テスト",
+                "width": widthStr
+            },
+            {
+                "autoWidth": false,
+                "columnFormatter": {
+                    "format": "full",
+                    "type": "string"
+                },
+                "fieldName": "テスト"+name,
+                "headerTextAlignment": "left",
+                "hidden": false,
+                "inLayout": true,
+                "overflow": "fitted",
+                "targets": 2,
+                "textAlignment": "left",
+                "title": "項目"+name,
+                "width": "200px"
+            }
+        ],
+        "enableSorting": false,
+        "header": {
+            "overflow": "fitted",
+            "titleCase": ""
+        },
+//        "idFieldName": "Id"
+//    },
+//    "resetButton": {
+//        "enabled": false,
+//        "location": "top-right"
+//    },
+//    "search": {
+//        "multiColumn": {
+//            "enabled": false,
+//            "location": "top-left"
+//        }
+    },
+    "rows": {
+        "selection": "single",
+        "defaultSelectedRows": "",
+        "minHeight": "30",
+        "autoScroll": true,
+        "rowFormatter": {
+            "stateDefinition": {
+                "name": "RIC.StateDef",
+                "fieldName": "test1",
+                "type": "string",
+                "states": [
+                    {
+                        "comparator": "==",
+                        "name": "",
+                        "styleName": "RIC.111.SD",
+                        "value": "111"
+                    },
+                    {
+                        "comparator": "==",
+                        "name": "",
+                        "styleName": "RIC.222.SD",
+                        "value": "222"
+                    },
+                    {
+                        "comparator": "==",
+                        "name": "",
+                        "styleName": "RIC.333.SD",
+                        "value": "333"
+                },
+                    {
+                        "name": "DefaultCollectionCellAlternateStyle",
+                        "styleName": ""
+                    }
+                ]
+            }
+        },
+        "RowFormat": {
+            "FieldName": "test1",
+            "StateDefinition": "RIC.StateDef",
+            "StateDefinitionType": "string",
+            "StateFormats": [
+                {
+                    "comparator": "==",
+                    "state": "RIC.111.SD",
+                    "stateName": "",
+                    "value": "111"
+                },
+                {
+                    "comparator": "==",
+                    "state": "RIC.222.SD",
+                    "stateName": "",
+                    "value": "222"
+                },
+                {
+                    "comparator": "==",
+                    "state": "RIC.333.SD",
+                    "stateName": "",
+                    "value": "333"
+                },
+                {
+                    "state": "rowBackgroundStyle",
+                    "stateName": ""
+                }
+            ]
+        }
+    },
+    "styles": {     
+        "rowFormatterStyle":             {
+            "backgroundColor": "blue",
+            "fontWeight":          "bold"
+        },
+        "RIC.111.SD": {
+            "backgroundColor": "#FFA500"
+        },
+        "RIC.222.SD": {
+            "backgroundColor": "#DAF7A6"
+        },
+        "RIC.333.SD": {
+            "backgroundColor": "red"
+        },
+        "cellBorderStyle": {
+            "backgroundColor": "",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowAlternateBackgroundStyle": {
+            "backgroundColor": "#ffffff",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowBackgroundStyle": {
+            "backgroundColor": "#ffffff",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowCollapseIconStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomRowIconCollapse",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "rowExpansionIconStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomRowIconExpansion",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "rowHoverStyle": {
+            "backgroundColor": "#719fbf",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#ffffff",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "rowIconStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "",
+            "lineColor": "",
+            "lineStyle": "none",
+            "lineThickness": 0,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "rowSelectedStyle": {
+            "backgroundColor": "#d0dfea",
+            "displayString": "SelectedPartBackGroundSTyle",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "sortAscendingStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomSortArrowAsc",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "sortDescendingStyle": {
+            "backgroundColor": "",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "/Thingworx/MediaEntities/BomSortArrowDesc",
+            "lineColor": "",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "normal"
+        },
+        "tableHeaderStyle": {
+            "backgroundColor": "#f2f4f4",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#232b2d",
+            "image": "",
+            "lineColor": "#dadada",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "tableWrapperStyle": {
+            "backgroundColor": "",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "",
+            "image": "",
+            "lineColor": "#d9dfdf",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        },
+        "toolbarStyle": {
+            "backgroundColor": "#ffffff",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "displayString": "",
+            "fontEmphasisBold": false,
+            "fontEmphasisItalic": false,
+            "fontEmphasisUnderline": false,
+            "foregroundColor": "#4a4a4a",
+            "image": "",
+            "lineColor": "#d9dfdf",
+            "lineStyle": "solid",
+            "lineThickness": 1,
+            "secondaryBackgroundColor": "",
+            "textSize": "large"
+        }
+    }
+};
+var result = JSON.stringify(config);
+
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDynaDataShape"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+
+/******* ADD FIELD DEFINITION TO DATASHAPE *****/
+// Note: Datashape should contain one PrimaryKey for DataTable
+var params1 = {
+name: "テスト"+name /* STRING */,
+description: undefined /* STRING */,
+type: "STRING" /* BASETYPENAME */,
+ordinal: undefined /* INTEGER */,
+primaryKey: false /* BOOLEAN */,
+dataShape: "RIC.DynaDataShape.DS" /* DATASHAPENAME */
+};
+
+let defs = DataShapes["RIC.DynaDataShape.DS"].GetFieldDefinitions();
+if (!name) name = "";
+var isExist = false;
+//defs.rows.forEach(function(row) {
+//    if (row.name == "テスト" + name) isExist = true;
+//});
+//// no return
+//if (isExist === false) {
+//    DataShapes["MEL.DynaDataShape.DS"].AddFieldDefinition(params1);
+////    defs = DataShapes["MEL.DynaDataShape.DS"].GetFieldDefinitions();
+////    logger.warn("row cnt: " + defs.rows.length);
+////    if (name) me.GetDynaDataShape({
+////	name: name /* STRING */
+////});
+//}
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MEL.DynaDataShape.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "RIC.DynaDataShape.DS"
+});
+var obj = {"テスト":name,"test1":name,"test2":name};
+result.AddRow(obj);
+obj["テスト"+name] = "テスト"+name;
+result.AddRow(obj);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="TestFriendlyName"><ConfigurationTables><ConfigurationTable description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//DataShapes["MEL.DynaDataShape.DS"].UpdateFieldDefinition({
+//	name: undefined /* STRING */,
+//	description: undefined /* STRING {"defaultValue":""} */,
+//	type: undefined /* BASETYPENAME */,
+//	ordinal: undefined /* INTEGER {"defaultValue":0} */,
+//	primaryKey: undefined /* BOOLEAN {"defaultValue":false} */,
+//	dataShape: undefined /* DATASHAPENAME */
+//});
+var json = DataShapes["MEL.DynaDataShape.DS"].GetDataShapeMetadataAsJSON();				
+var result = json.fieldDefinitions[fieldname].aspects.friendlyName;			
+//var result = json.fieldDefinitions.test1.aspects.friendlyName;				
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2023-09-10T01:07:32.357Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-09-10T01:07:39.497Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaDataShape : service updated&#10;" timestamp="2023-09-10T01:08:45.980Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2023-09-10T01:12:02.866Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2023-09-10T01:16:11.372Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2023-09-10T01:19:42.225Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2023-09-10T01:21:11.160Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetDynaConfig : service updated&#10;" timestamp="2023-09-10T01:23:00.345Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
