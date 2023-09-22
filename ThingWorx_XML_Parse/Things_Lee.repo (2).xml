@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b30" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="FileRepositoryThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-09-22T09:24:07.695Z" name="Lee.repo" projectName="LIXIL" published="false" tags="" thingTemplate="FileRepository" valueStream=""><Owner name="pat" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetAllusers1Day"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetAllusers1DayLicense"><ResultType baseType="INTEGER" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetUserGroupLicense"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="XMLParse"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="XMLParse2"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="XMLParseCopy"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="GetAllusers1Day"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//var allUserRecords = Logs["SecurityLog"].QueryLogEntries();
+//var allUserRecords = Logs["ApplicationLog"].GetLogEntries();
+////me.LastConnection = Users[Username].lastConnection;
+//var result = allUserRecords;
+var now = new Date();
+var start = new Date(); 
+    start.setDate(start.getDate() - 1);
+// result: INFOTABLE dataShape: "LogEntry"
+let result1 = Logs["ApplicationLog"].QueryLogEntries({
+	maxItems: 100000 /* NUMBER {"defaultValue":500} */,
+	searchExpression: undefined /* STRING */,
+	fromLogLevel: undefined /* STRING */,
+	instance: undefined /* STRING */,
+	isRegex: undefined /* BOOLEAN {"defaultValue":false} */,
+	endDate: now /* DATETIME */,
+	origin: undefined /* STRING */,
+	thread: undefined /* STRING */,
+	platformId: undefined /* STRING */,
+	ascendingSearch: undefined /* BOOLEAN */,
+	oldestFirst: undefined /* BOOLEAN */,
+	toLogLevel: undefined /* STRING */,
+	user: undefined /* USERNAME */,
+	sortFieldName: undefined /* STRING */,
+	startDate: start /* DATETIME */
+});
+// result: INFOTABLE dataShape: ""
+let result = Resources["InfoTableFunctions"].Aggregate({
+	t: result1 /* INFOTABLE */,
+	columns: "user" /* STRING */,
+	aggregates: "user" /* STRING */,
+	groupByColumns: "user" /* STRING */
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetAllusers1DayLicense"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var now = new Date();
+var start = new Date(); 
+    start.setDate(start.getDate() - 1);
+// result: INFOTABLE dataShape: "LogEntry"
+// result: INFOTABLE dataShape: "LicenseUsageDataShapeWithTimeStamp"
+let result1 = Subsystems["LicensingSubsystem"].GetLicenseUsageData();
+var query =
+{
+    "filters": {
+        "type": "And",
+        "filters": [
+            {
+                "type": "GT",
+                "fieldName": "timestamp",
+                "value": start
+            }
+        ]
+    }
+};
+// result: INFOTABLE dataShape: ""
+let result2 = Resources["InfoTableFunctions"].Query({
+	t: result1 /* INFOTABLE */,
+	query: query /* QUERY */
+});
+
+// result: INFOTABLE dataShape: ""
+let result3 = Resources["InfoTableFunctions"].Aggregate({
+	t: result2 /* INFOTABLE */,
+	columns: "source" /* STRING */,
+	aggregates: "source" /* STRING */,
+	groupByColumns: "source" /* STRING */
+});
+//var ug = "Administrators", result = 0;
+var ug = "ConnectedPLM", result = 0;
+for each (var row in result3.rows) {
+    let ugs = Users[row.source].GetGroups();
+    for each (var group in ugs.rows) {
+        if (group.name == ug) {
+            result++;
+            break;
+        }
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetUserGroupLicense"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// result: INFOTABLE dataShape: "LicenseUsageDataShapeWithTimeStamp"
+//let result2 = Subsystems["LicensingSubsystem"].GetLicenseUsageData();
+//var users = "";
+//for each (var row in result2.rows) {
+//    users += row.source; 
+//}
+//logger.warn(users);
+let result = Users["pat"].GetGroups();
+
+// result: INFOTABLE dataShape: "UserStatus"
+//let result2 = Resources["CurrentSessionInfo"].GetActiveUsers({
+//	maxItems: undefined /* NUMBER {"defaultValue":500} */
+//});
+//var result = Users['lixil002'].lastConnection;
+//let result = Users[users].GetGroups();]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="XMLParse"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" headers="SOAPAction=http://www.apriso.com/DELMIAApriso/OLY_O_DD02IN001_IF_MACHINE/Invoke:Content-Type=text/xml" responseHeaders="Cache-Control=privateContent-Length=476Content-Type=text/xml; charset=utf-8Server=Microsoft-IIS/8.5X-AspNet-Version=4.0.30319X-Powered-By=ASP.NETDate=Tue, 19 Sep 2023 07:30:58 GMT" responseStatus="protocolVersion=HTTP/1.1:statusCode=200:reasonPhrase=OK">
+//  <s:Body>
+//    <InvokeResponse xmlns="http://www.apriso.com/DELMIAApriso">
+//      <InvokeResult xmlns:a="http://schemas.datacontract.org/2004/07/FlexNet.WebServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+//        <a:Error/>
+//        <a:IsSuccess>true</a:IsSuccess>
+//        <a:Output_Result_Error/>
+//        <a:Output_Result_ErrorMessage/>
+//        <a:Output_Result_IsSuccess>true</a:Output_Result_IsSuccess>
+//      </InvokeResult>
+//    </InvokeResponse>
+//  </s:Body>
+//</s:Envelope>
+var str = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" headers="SOAPAction=http://www.apriso.com/DELMIAApriso/OLY_O_DD02IN001_IF_MACHINE/Invoke:Content-Type=text/xml" responseHeaders="Cache-Control=privateContent-Length=476Content-Type=text/xml; charset=utf-8Server=Microsoft-IIS/8.5X-AspNet-Version=4.0.30319X-Powered-By=ASP.NETDate=Tue, 19 Sep 2023 07:30:58 GMT" responseStatus="protocolVersion=HTTP/1.1:statusCode=200:reasonPhrase=OK"><s:Body><InvokeResponse xmlns="http://www.apriso.com/DELMIAApriso"><InvokeResult xmlns:a="http://schemas.datacontract.org/2004/07/FlexNet.WebServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:Error/><a:IsSuccess>true</a:IsSuccess><a:Output_Result_Error/><a:Output_Result_ErrorMessage/><a:Output_Result_IsSuccess>true</a:Output_Result_IsSuccess></InvokeResult></InvokeResponse></s:Body></s:Envelope>'; 
+
+var data = new XML(str);
+//var result;
+//var result = data.Body.InvokeResponse.InvokeResult.IsSuccess;
+//var result = data["s:Envelope"]["s:Body"]["InvokeResponse"]["InvokeResult"]["a:IsSuccess"];
+//var result = data["s:Body"];
+
+
+//for each (var element in data["s:Body"]) {
+//    var obj = {};
+////    for each (var attribute in element["InvokeResponse"]) 
+////    for each (var attribute in element["InvokeResult"]) obj["a:IsSuccess"] = attribute["a:IsSuccess"];
+//    logger.warn("XMLParse: " + JSON.stringify(element));
+////    var result =  JSON.stringify(obj); 
+//    //result.AddRow(obj);
+//}
+var dataStr = data.toString();
+//var result = dataStr.replace('<s:','<');//.replace("</s:","</").replace("<s:","<");
+//.replace("</a:","</").replace("<a:","<");
+//var result = "";
+//for each (var menu_item in data.*::Envelope.*::Body) {
+// 	result += "Food Name: " + menu_item.toString() + "." ;
+//}
+var propList = {"<a:Error>":"Error",
+                "<a:IsSuccess>":"IsSuccess",
+                "<a:Output_Result_ErrorMessage>":"ErrorMessage",
+                "<a:Output_Result_IsSuccess>":"Result_IsSuccess"};
+var obj = {};
+Object.keys(propList).forEach(function (key) {
+  if (dataStr.indexOf(key)>-1) {
+      var arr = dataStr.split(key);
+      if (arr.length>1) obj[propList[key]] = arr[1].split("</a:")[0];
+  }
+});
+
+ // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(OLY.XMLParse)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "OLY.XMLParse"
+});
+result.AddRow(obj);
+//var params = {
+//  xml: data /* XML */
+//};
+//// result: INFOTABLE
+//var result = Resources["InfoTableFunctions"].FromXML(params).ToJSON();]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="XMLParse2"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" headers="SOAPAction=http://www.apriso.com/DELMIAApriso/OLY_O_DD02IN001_IF_MACHINE/Invoke:Content-Type=text/xml" responseHeaders="Cache-Control=privateContent-Length=476Content-Type=text/xml; charset=utf-8Server=Microsoft-IIS/8.5X-AspNet-Version=4.0.30319X-Powered-By=ASP.NETDate=Tue, 19 Sep 2023 07:30:58 GMT" responseStatus="protocolVersion=HTTP/1.1:statusCode=200:reasonPhrase=OK">
+//  <s:Body>
+//    <InvokeResponse xmlns="http://www.apriso.com/DELMIAApriso">
+//      <InvokeResult xmlns:a="http://schemas.datacontract.org/2004/07/FlexNet.WebServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+//        <a:Error/>
+//        <a:IsSuccess>true</a:IsSuccess>
+//        <a:Output_Result_Error/>
+//        <a:Output_Result_ErrorMessage/>
+//        <a:Output_Result_IsSuccess>true</a:Output_Result_IsSuccess>
+//      </InvokeResult>
+//    </InvokeResponse>
+//  </s:Body>
+//</s:Envelope>
+var str = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" headers="SOAPAction=http://www.apriso.com/DELMIAApriso/OLY_O_DD02IN001_IF_MACHINE/Invoke:Content-Type=text/xml" responseHeaders="Cache-Control=privateContent-Length=476Content-Type=text/xml; charset=utf-8Server=Microsoft-IIS/8.5X-AspNet-Version=4.0.30319X-Powered-By=ASP.NETDate=Tue, 19 Sep 2023 07:30:58 GMT" responseStatus="protocolVersion=HTTP/1.1:statusCode=200:reasonPhrase=OK"><s:Body><InvokeResponse xmlns="http://www.apriso.com/DELMIAApriso"><InvokeResult xmlns:a="http://schemas.datacontract.org/2004/07/FlexNet.WebServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:Error/><a:IsSuccess>true</a:IsSuccess><a:Output_Result_Error/><a:Output_Result_ErrorMessage/><a:Output_Result_IsSuccess>true</a:Output_Result_IsSuccess></InvokeResult></InvokeResponse></s:Body></s:Envelope>'; 
+
+//var data = new XML(str);
+//var result;
+//var result = data.Body.InvokeResponse.InvokeResult.IsSuccess;
+//var result = data["s:Envelope"]["s:Body"]["InvokeResponse"]["InvokeResult"]["a:IsSuccess"];
+//var result = data["s:Body"];
+
+
+//for each (var element in data["s:Body"]) {
+//    var obj = {};
+////    for each (var attribute in element["InvokeResponse"]) 
+////    for each (var attribute in element["InvokeResult"]) obj["a:IsSuccess"] = attribute["a:IsSuccess"];
+//    logger.warn("XMLParse: " + JSON.stringify(element));
+////    var result =  JSON.stringify(obj); 
+//    //result.AddRow(obj);
+//}
+//var dataStr = data.toString();
+//var result = dataStr.replace('<s:','<');//.replace("</s:","</").replace("<s:","<");
+//.replace("</a:","</").replace("<a:","<");
+//var result = "";
+//for each (var menu_item in data.*::Envelope.*::Body) {
+// 	result += "Food Name: " + menu_item.toString() + "." ;
+//}
+
+var resultXML = new XML(str);
+
+//var xmlresult = resultXML.*::Body.*::InvokeResponse.*::InvokeResult.*;
+
+//var xmltext = String(xmlresult);
+//var result = resultXML..*::IsSuccess;
+//var newXML = new XML(xmltext);
+//var result = String(newXML);
+//xmlresult = newXML.*::ResponseMessage.*::ReturnContent.*::ListOfReturnItem.ReturnItem.ListOfStockBalance;
+
+var obj = {};
+obj.Error = String(resultXML..*::Error);
+obj.IsSuccess =  String(resultXML..*::IsSuccess);
+obj.ErrorMessage = String(resultXML..*::Output_Result_ErrorMessage);
+obj.Result_IsSuccess = String(resultXML..*::Output_Result_IsSuccess);
+ // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(OLY.XMLParse)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "OLY.XMLParse"
+});
+result.AddRow(obj);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="XMLParseCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" headers="SOAPAction=http://www.apriso.com/DELMIAApriso/OLY_O_DD02IN001_IF_MACHINE/Invoke:Content-Type=text/xml" responseHeaders="Cache-Control=privateContent-Length=476Content-Type=text/xml; charset=utf-8Server=Microsoft-IIS/8.5X-AspNet-Version=4.0.30319X-Powered-By=ASP.NETDate=Tue, 19 Sep 2023 07:30:58 GMT" responseStatus="protocolVersion=HTTP/1.1:statusCode=200:reasonPhrase=OK">
+//  <s:Body>
+//    <InvokeResponse xmlns="http://www.apriso.com/DELMIAApriso">
+//      <InvokeResult xmlns:a="http://schemas.datacontract.org/2004/07/FlexNet.WebServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+//        <a:Error/>
+//        <a:IsSuccess>true</a:IsSuccess>
+//        <a:Output_Result_Error/>
+//        <a:Output_Result_ErrorMessage/>
+//        <a:Output_Result_IsSuccess>true</a:Output_Result_IsSuccess>
+//      </InvokeResult>
+//    </InvokeResponse>
+//  </s:Body>
+//</s:Envelope>
+var str = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" headers="SOAPAction=http://www.apriso.com/DELMIAApriso/OLY_O_DD02IN001_IF_MACHINE/Invoke:Content-Type=text/xml" responseHeaders="Cache-Control=privateContent-Length=476Content-Type=text/xml; charset=utf-8Server=Microsoft-IIS/8.5X-AspNet-Version=4.0.30319X-Powered-By=ASP.NETDate=Tue, 19 Sep 2023 07:30:58 GMT" responseStatus="protocolVersion=HTTP/1.1:statusCode=200:reasonPhrase=OK"><s:Body><InvokeResponse xmlns="http://www.apriso.com/DELMIAApriso"><InvokeResult xmlns:a="http://schemas.datacontract.org/2004/07/FlexNet.WebServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:Error/><a:IsSuccess>true</a:IsSuccess><a:Output_Result_Error/><a:Output_Result_ErrorMessage/><a:Output_Result_IsSuccess>true</a:Output_Result_IsSuccess></InvokeResult></InvokeResponse></s:Body></s:Envelope>'; 
+
+var data = new XML(str);
+//var result;
+//var result = data.Body.InvokeResponse.InvokeResult.IsSuccess;
+//var result = data["s:Envelope"]["s:Body"]["InvokeResponse"]["InvokeResult"]["a:IsSuccess"];
+//var result = data["s:Body"];
+
+
+//for each (var element in data["s:Body"]) {
+//    var obj = {};
+////    for each (var attribute in element["InvokeResponse"]) 
+////    for each (var attribute in element["InvokeResult"]) obj["a:IsSuccess"] = attribute["a:IsSuccess"];
+//    logger.warn("XMLParse: " + JSON.stringify(element));
+////    var result =  JSON.stringify(obj); 
+//    //result.AddRow(obj);
+//}
+var result = "";
+var list = data["s:Envelope"];
+result += data["s:Envelope"].toString();
+result += data["Body"].toString();
+result += data["Body"].toString();
+//for each (var element in data["s:Envelope"].*) {
+//    for each(var attribute in element.Attributes.*) result += attribute.Value;
+//}
+
+//var params = {
+//  xml: data /* XML */
+//};
+//// result: INFOTABLE
+//var result = Resources["InfoTableFunctions"].FromXML(params).ToJSON();]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2022-12-12T06:34:05.844Z" user="pat"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2022-12-12T06:35:12.038Z" user="lixil001"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service added&#10;" timestamp="2023-09-20T01:14:34.239Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T01:14:47.818Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T01:16:56.479Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T01:17:42.810Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T01:18:08.588Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T01:50:41.608Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T01:51:13.649Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T02:00:19.928Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T02:01:13.969Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T02:15:10.090Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : output updated&#10;" timestamp="2023-09-20T02:15:25.945Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T02:15:54.431Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T02:16:20.491Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T02:17:05.925Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;GetAllusers1Day : service added&#10;" timestamp="2023-09-20T02:22:02.336Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1Day : service updated&#10;" timestamp="2023-09-20T02:22:39.138Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1Day : service updated&#10;" timestamp="2023-09-20T02:23:48.880Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1Day : service updated&#10;" timestamp="2023-09-20T02:28:32.794Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1Day : service updated&#10;" timestamp="2023-09-20T02:30:53.604Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1Day : service updated&#10;" timestamp="2023-09-20T02:31:16.623Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1Day : service updated&#10;GetAllusers1DayLicense : service added&#10;" timestamp="2023-09-20T02:41:57.873Z" user="wcadmin"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T02:43:26.735Z" user="pm"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T02:57:25.206Z" user="wcadmin"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T02:58:50.374Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;" timestamp="2023-09-20T02:58:50.421Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;" timestamp="2023-09-20T03:03:07.796Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;" timestamp="2023-09-20T03:05:06.921Z" user="wcadmin"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T03:06:27.090Z" user="pm"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T03:25:39.353Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : output updated&#10;" timestamp="2023-09-20T03:25:39.400Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;" timestamp="2023-09-20T03:26:07.654Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : output updated&#10;" timestamp="2023-09-20T03:26:23.776Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetUserGroupLicense : service updated&#10;" timestamp="2023-09-20T03:26:52.356Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;" timestamp="2023-09-20T03:27:15.593Z" user="wcadmin"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T05:23:42.205Z" user="pm"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;" timestamp="2023-09-20T05:29:29.667Z" user="pm"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T06:56:56.611Z" user="wcadmin"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-09-20T06:58:07.470Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service added&#10;" timestamp="2023-09-20T06:58:07.531Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T06:59:18.867Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T06:59:31.336Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T06:59:52.410Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:03:10.872Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:05:15.313Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:05:49.393Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:06:03.704Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:08:15.359Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:08:21.502Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:08:39.359Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:08:53.895Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:09:03.297Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:09:22.564Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:11:37.350Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:11:45.702Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:11:56.179Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:12:05.591Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:24:36.174Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:27:07.992Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:27:25.100Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:27:56.833Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:30:18.337Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:34:58.700Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:35:13.359Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:35:29.250Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:35:39.664Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:36:41.510Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:38:48.806Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:39:53.941Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:45:47.622Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:46:02.095Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:49:01.144Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:50:09.550Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:50:29.682Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T07:52:46.179Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:53:20.818Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T07:53:37.258Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:30:50.191Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:30:58.219Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:31:31.978Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:32:02.272Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:36:16.710Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:39:57.366Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:40:45.542Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:41:16.774Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:41:29.300Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:42:15.057Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:42:29.871Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:42:56.789Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:43:24.569Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:43:36.781Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:46:15.866Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:46:57.273Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:47:27.006Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:47:52.049Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:48:14.556Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:48:27.375Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:49:09.603Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:49:18.250Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:49:25.991Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:49:57.728Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:51:34.743Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T08:52:16.685Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : output updated&#10;" timestamp="2023-09-20T09:17:51.137Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T09:18:30.725Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse : service updated&#10;" timestamp="2023-09-20T09:20:57.095Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetAllusers1DayLicense : service updated&#10;XMLParseCopy : service added, output updated&#10;" timestamp="2023-09-20T09:34:12.320Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-20T09:34:50.961Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-22T08:24:16.412Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-22T08:33:57.000Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-22T08:34:10.279Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-22T08:34:26.581Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-22T08:34:52.857Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;" timestamp="2023-09-22T08:36:13.662Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseCopy : service updated&#10;XMLParse2 : service added, output updated&#10;" timestamp="2023-09-22T08:51:31.548Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T08:51:56.471Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T08:52:13.544Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:00:14.789Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : output updated&#10;" timestamp="2023-09-22T09:00:21.622Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:02:02.085Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:03:28.660Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : output updated&#10;" timestamp="2023-09-22T09:04:02.513Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:05:36.172Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:06:10.877Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:06:20.620Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:06:49.384Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:07:14.018Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:07:32.966Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:07:46.485Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:08:13.534Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:09:07.335Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:09:25.714Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:10:09.967Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:10:48.186Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:11:03.994Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:11:26.550Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:11:38.278Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:14:46.117Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : output updated&#10;" timestamp="2023-09-22T09:18:21.561Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:18:36.220Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:19:52.243Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:20:06.562Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:21:06.737Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:21:27.393Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:21:55.969Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:22:15.997Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:22:35.178Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:22:56.261Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:23:18.529Z" user="wcadmin"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParse2 : service updated&#10;" timestamp="2023-09-22T09:24:07.695Z" user="wcadmin"/></ConfigurationChanges></Thing></Things></Entities>
