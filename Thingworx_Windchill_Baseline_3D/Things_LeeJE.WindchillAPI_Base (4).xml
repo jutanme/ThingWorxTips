@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b49" majorVersion="9" minorVersion="4" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1140" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-10-03T05:02:28.817Z" name="LeeJE.WindchillAPI_Base" projectName="JE" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="pat" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="ApiTest" ordinal="5"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="https://pp-2210040822yn.portal.ptc.io/Windchill/" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUrl" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="wcadmin" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserId" ordinal="6"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.defaultValue="ptc" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="WindchillUserPassword" ordinal="4"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CompareBaselineModel"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="parts1" ordinal="1"/><FieldDefinition aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="parts2" ordinal="2"/><FieldDefinition aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="parts3" ordinal="3"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DownloadContent"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="/test_lee.pdf" baseType="STRING" description="" name="filepath" ordinal="2"/><FieldDefinition baseType="STRING" description="" name="url" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBaselineByNumber"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBaselinePartsByNumber"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBaselinePartsClone"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="parts" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBaselinePartsInfoByNumber"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetBaselinePartsMultiByNumber"><ResultType aspect.dataShape="MKN.BaselineMulti.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetContextList"><ResultType aspect.dataShape="DropdowntDS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetCSRFToken"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDocLinkByDocID"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="docId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetDWGListByDWGNo"><ResultType aspect.dataShape="DescribedByDoc.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetNavigationCriteria"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="ID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartByPartId"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartIDByVariantID"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="OR:com.ptc.wpcfg.doc.VariantSpec:5384955" baseType="STRING" description="" name="VariantID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartInfoByVariantID"><ResultType aspect.dataShape="PartStructureDS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="OR:com.ptc.wpcfg.doc.VariantSpec:5384955" baseType="STRING" description="" name="VariantID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartInfoSelectedNumber"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsByBaselineID"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="baselindID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsByECO"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="baselindID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartsJSONByBaselineID"><ResultType aspect.dataShape="MKN.Baseline.DS" baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="baselindID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartStructureByNavi"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="partId" ordinal="2"/><FieldDefinition aspect.defaultValue="OR:com.ptc.wpcfg.doc.VariantSpec:5384955" baseType="STRING" description="" name="VariantID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPartStructureByNaviBaseline"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="OR:wt.part.WTPart:6772956" baseType="STRING" description="" name="partId" ordinal="2"/><FieldDefinition aspect.defaultValue="OR:com.ptc.wpcfg.doc.VariantSpec:5384955" baseType="STRING" description="" name="VariantID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartStructuresByVariantID"><ResultType aspect.dataShape="PartStructureDS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="VariantID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getPartStructuresByVariantID_BK"><ResultType aspect.dataShape="PartStructureDS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="PartStructureDS" baseType="INFOTABLE" description="" name="PartList" ordinal="2"/><FieldDefinition baseType="QUERY" description="" name="queryFilter" ordinal="3"/><FieldDefinition baseType="STRING" description="" name="VariantID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetPrimaryByDocId"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="objectId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRefDocLinkByDocID"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="docId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetRepresenIdByPartId"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="PartId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThingViewMediaPath"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThingViewMediaPathByOID"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="partID" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetThingViewUrl"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="number" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetValiantPartStructureByPartId"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="partId" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetVariantSpecificationList"><ResultType aspect.dataShape="DropdowntDS" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="context" ordinal="2"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="CompareBaselineModel"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var part1ID, part2ID;
+if (parts1 && parts1.getRowCount()>0) {
+    if (parts2 && parts2.getRowCount()>0) {
+        
+} 
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="DownloadContent"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: url,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// result: BLOB
+let blob = Resources["ContentLoaderFunctions"].LoadBinary(params);
+
+Things["JE.repo"].SaveBinary({
+	path: filepath /* STRING */,
+	content: blob /* BLOB */
+});
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBaselineByNumber"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.Baseline.DS"
+});
+
+var part = me.GetPartInfoSelectedNumber({
+	number: number /* STRING */
+});
+//logger.warn("GetBaselineByNumber: " + part.value[0].ID);
+if (part.value && part.value[0].VersionID) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/object/relatedBaselines?oid=" + encodeURIComponent(part.value[0].VersionID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+    var temp = str.split('initialRows=');
+    if (temp.length>0) {
+        var baseline = temp[1].split(';PTC.ExtJSONTableConfig.totalRows');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+            var obj = {};
+            obj.name = objs[i].name;
+            obj.number = objs[i].number.label;
+            obj.version = objs[i].version.gui.html;
+            obj.oid = objs[i].oid;
+        	result.AddRow(obj);
+        }
+    }
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBaselinePartsByNumber"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.Baseline.DS"
+});
+
+var part = me.GetPartInfoSelectedNumber({
+	number: number /* STRING */
+});
+var baseHd1 = {}, baseHd2 = {}, PartList = {};
+//logger.warn("GetBaselineByNumber: " + part.value[0].ID);
+if (part.value && part.value[0].VersionID) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/object/relatedBaselines?oid=" + encodeURIComponent(part.value[0].VersionID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+    var temp = str.split('initialRows=');
+    if (temp.length>0) {
+        var baseline = temp[1].split(';PTC.ExtJSONTableConfig.totalRows');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+//            var obj = {};
+//            obj.name = objs[i].name;
+//            obj.number = objs[i].number.label;
+//            obj.version = objs[i].version.gui.html;
+//            obj.oid = objs[i].oid;
+            var ecoName = objs[i].name;
+            //let defs = DataShapes["MKN.Baseline.DS"].GetFieldDefinitions();
+			//var isExist = false;
+			//defs.rows.forEach(function(row) {
+    		//	if (row.name == ecoName) isExist = true;
+			//});
+            //if (isExist === false) result.AddField({name : ecoName, baseType : 'STRING'});
+            
+            baseHd1["W" + ecoName] = objs[i].version.gui.html;
+            baseHd2["W" + ecoName] = objs[i].number.label;
+            var parts = me.GetPartsJSONByBaselineID({
+            	baselindID: objs[i].oid /* STRING */
+            }).array;
+            //logger.warn("GetBaselinePartsByNumber: " + JSON.stringify(parts));
+            for (var j=0; j<parts.length; j++) {
+            	var key = parts[j].oid;
+            	if (key.indexOf("OR:wt.part.WTPart") === 0) {
+            		if (PartList[key] === undefined) {
+                        parts[j]["W" + ecoName] = parts[j].version;
+                        PartList[key] = parts[j];
+                    } else {
+                        PartList[key]["W" + ecoName] = parts[j].version; 
+                    }
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+}
+result.AddRow(baseHd1);
+result.AddRow(baseHd2);
+for (var key in PartList) {
+    result.AddRow(PartList[key]);
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBaselinePartsClone"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	t1: parts /* INFOTABLE */
+};
+
+// result: INFOTABLE
+var result = Resources["InfoTableFunctions"].Clone(params);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBaselinePartsInfoByNumber"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.Baseline.DS"
+});
+
+var part = me.GetPartInfoSelectedNumber({
+	number: number /* STRING */
+});
+
+//logger.warn("GetBaselineByNumber: " + part.value[0].ID);
+if (part.value && part.value[0].VersionID) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/object/relatedBaselines?oid=" + encodeURIComponent(part.value[0].VersionID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+    var temp = str.split('initialRows=');
+    if (temp.length>0) {
+        var baseline = temp[1].split(';PTC.ExtJSONTableConfig.totalRows');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+//            var obj = {};
+//            obj.name = objs[i].name;
+//            obj.number = objs[i].number.label;
+//            obj.version = objs[i].version.gui.html;
+//            obj.oid = objs[i].oid;
+            var key = objs[i].oid, ecoName = objs[i].number.label;
+            var parts = me.GetPartsByBaselineID({
+            	baselindID: key /* STRING */
+            });
+            result = Resources["InfoTableFunctions"].Union({
+            	t1: result, // INFOTABLE
+				t2: parts // INFOTABLE
+            });
+            
+            let params = {
+            	t: result /* INFOTABLE */,
+            	columns: name /* STRING */
+            };
+            
+            // result: INFOTABLE
+            result = Resources["InfoTableFunctions"].Distinct(params);
+
+
+        }
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetBaselinePartsMultiByNumber"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.BaselineMulti.DS"
+});
+let datas = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.Baseline.DS"
+});
+
+var part = me.GetPartInfoSelectedNumber({
+	number: number /* STRING */
+});
+var baseHd1 = {}, baseHd2 = {}, PartList = {};
+//logger.warn("GetBaselineByNumber: " + part.value[0].ID);
+if (part.value && part.value[0].VersionID) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/object/relatedBaselines?oid=" + encodeURIComponent(part.value[0].VersionID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+    var temp = str.split('initialRows=');
+    if (temp.length>0) {
+        var baseline = temp[1].split(';PTC.ExtJSONTableConfig.totalRows');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+//            var obj = {};
+//            obj.name = objs[i].name;
+//            obj.number = objs[i].number.label;
+//            obj.version = objs[i].version.gui.html;
+//            obj.oid = objs[i].oid;
+            var ecoName = objs[i].name;
+            //let defs = DataShapes["MKN.Baseline.DS"].GetFieldDefinitions();
+			//var isExist = false;
+			//defs.rows.forEach(function(row) {
+    		//	if (row.name == ecoName) isExist = true;
+			//});
+            //if (isExist === false) datas.AddField({name : ecoName, baseType : 'STRING'});
+            
+            baseHd1[ecoName] = objs[i].version.gui.html;
+            baseHd2[ecoName] = objs[i].number.label;
+            var parts = me.GetPartsJSONByBaselineID({
+            	baselindID: objs[i].oid /* STRING */
+            }).array;
+            //logger.warn("GetBaselinePartsByNumber: " + JSON.stringify(parts));
+            for (var j=0; j<parts.length; j++) {
+            	var key = parts[j].oid;
+            	if (key.indexOf("OR:wt.part.WTPart") === 0) {
+            		if (PartList[key] === undefined) {
+                        parts[j]["W" + ecoName] = parts[j].version;
+                        PartList[key] = parts[j];
+                    } else {
+                        PartList[key]["W" + ecoName] = parts[j].version; 
+                    }
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+}
+datas.AddRow(baseHd1);
+datas.AddRow(baseHd2);
+for (var key in PartList) {
+    datas.AddRow(PartList[key]);
+}
+var dataObj = {};
+dataObj.Parts1 = datas;
+dataObj.Parts2 = datas;
+dataObj.Parts3 = datas;
+dataObj.Parts4 = datas;
+result.AddRow(dataObj);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetContextList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/v5/DataAdmin/Containers?%24select=Name&%24count=false",
+    timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+//var result = response;
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(DropdowntDS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "DropdowntDS"
+});
+for each (var row in response.value) {
+    if (row.Name.includes("UEC")) result.AddRow(row);
+}
+let sort = {
+    name: "Name",
+    ascending: true
+};
+result.Sort(sort);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetCSRFToken"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: true /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/PTC/GetCSRFToken()" /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response["NonceValue"];
+//var result =params;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDocLinkByDocID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/DocMgmt/Documents(\'" + docId + "\')/PrimaryContent",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = "";
+if (response.Content) result = response.Content.URL;
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetDWGListByDWGNo"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "DescribedByDoc.DS"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(DescribedByDoc.DS)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+if (objectId !== undefined) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "servlet/odata/v5/DocMgmt/Documents/PTC.DocMgmt.DieselDrawing?%24filter=DWGNO%20eq%20(\'" + objectId + "\')&%24count=false",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+    
+    // response: JSON
+    var json = Resources["ContentLoaderFunctions"].GetJSON(params);
+    
+    //logger.warn(JSON.stringify(json));
+    var val = json["value"];
+    for (var i = val.length-1; i > -1; i--) {
+            var obj = {};
+            obj.Identity = val[i]["Revision"];   
+            obj.ID = val[i]["ID"];     
+            result.AddRow(obj);
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetNavigationCriteria"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/v3/ProdPlatformMgmt/VariantSpecifications(\'" + ID + "\')/NavigationCriteria",
+    timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getPartByPartId"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+let params = {
+	proxyScheme: undefined /* STRING {"defaultValue":"http"} */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN {"defaultValue":false} */,
+	workstation: undefined /* STRING {"defaultValue":""} */,
+	useProxy: undefined /* BOOLEAN {"defaultValue":false} */,
+	withCookies: undefined /* BOOLEAN {"defaultValue":false} */,
+	proxyHost: undefined /* STRING {"defaultValue":""} */,
+	url: me.WindchillUrl+ "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')?$select=Name,Number,Version,State,Source,TypeIcon,DWGBRNNO,Revision",
+	timeout: undefined /* NUMBER {"defaultValue":60} */,
+	proxyPort: undefined /* INTEGER {"defaultValue":8080} */,
+	password: me.WindchillUserPassword/* STRING */,
+	domain: undefined /* STRING {"defaultValue":""} */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+let result = Resources["ContentLoaderFunctions"].GetJSON(params);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartIDByVariantID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+    proxyScheme: undefined /* STRING */,
+    headers: undefined /* JSON */,
+    ignoreSSLErrors: true /* BOOLEAN */,
+    useNTLM: undefined /* BOOLEAN */,
+    workstation: undefined /* STRING */,
+    useProxy: undefined /* BOOLEAN */,
+    withCookies: undefined /* BOOLEAN */,
+    proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/v3/ProdPlatformMgmt/VariantSpecifications(\'" + VariantID + "\')/ConfigurableModule?$select=ID" /* STRING */,
+    timeout: undefined /* NUMBER */,
+    proxyPort: undefined /* INTEGER */,
+    password: me.WindchillUserPassword /* STRING */,
+    domain: undefined /* STRING */,
+    username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response["ID"];]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getPartInfoByVariantID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//Infotable to hold results
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+  infoTableName: "InfoTable",
+  dataShapeName: "PartStructureDS"
+});
+
+    try {
+        var partId = me.GetPartIDByVariantID({
+            VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */
+        });
+        var parent =  me.getPartByPartId({
+        	partId: partId /* STRING */
+        });
+
+        //grab some additional fields off the parent
+        partStructure.Version = parent.Version;
+        partStructure.State = parent.State.Display;
+        partStructure.Source = parent.Source.Display;
+        partStructure.TypeIconURL = parent.TypeIcon.Path;
+        result.AddRow(partStructure); // add the top node by hand
+    } catch (err) {
+        throw(err);
+    }
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartInfoSelectedNumber"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts?$filter=Number%20eq%20\'" + number + "\'",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsByBaselineID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.Baseline.DS"
+});
+//if (part.value && part.value[0].VersionID) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/baseline/baselineObjects?oid=" + (baselindID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+logger.warn(str);
+    var temp = str.split('"data":');
+    if (temp.length>0) {
+        var baseline = temp[1].split(',"feedback"');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+            var oid = objs[i].oid;
+            if (oid.indexOf("OR:wt.part.WTPart") === 0) {
+                var obj = {};
+                obj.name = objs[i].name;
+                obj.number = objs[i].number.label;
+                obj.version = objs[i].version.gui.html;
+                obj.oid = objs[i].oid;
+            	result.AddRow(obj);
+            } else {
+                break;
+            }
+        }
+    }
+//}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsByECO"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "MKN.Baseline.DS"
+});
+//if (part.value && part.value[0].VersionID) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/baseline/baselineObjects?oid=" + (baselindID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+logger.warn(str);
+    var temp = str.split('"data":');
+    if (temp.length>0) {
+        var baseline = temp[1].split(',"feedback"');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+            var oid = objs[i].oid;
+            if (oid.indexOf("OR:wt.part.WTPart") === 0) {
+                var obj = {};
+                obj.name = objs[i].name;
+                obj.number = objs[i].number.label;
+                obj.version = objs[i].version.gui.html;
+                obj.oid = objs[i].oid;
+            	result.AddRow(obj);
+            } else {
+                break;
+            }
+        }
+    }
+//}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartsJSONByBaselineID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(MKN.Baseline.DS)
+//let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+//    infoTableName: "InfoTable",
+//    dataShapeName: "MKN.Baseline.DS"
+//});
+var result = [];
+if (baselindID !== undefined) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "ptc1/baseline/baselineObjects?oid=" + (baselindID) + "&u8=1&AjaxEnabled=thirdLevelNav",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var str = Resources["ContentLoaderFunctions"].GetText(params);
+//logger.warn(str);
+    var temp = str.split('"data":');
+    if (temp.length>0) {
+        var baseline = temp[1].split(',"feedback"');
+        var objs = JSON.parse(baseline[0]);
+        for (var i=0; i<objs.length; i++) {
+            var oid = objs[i].oid;
+            if (oid.indexOf("OR:wt.part.WTPart") === 0) {
+                var obj = {};
+                obj.name = objs[i].name;
+                obj.number = objs[i].number.label;
+                obj.version = objs[i].version.gui.html;
+                obj.oid = objs[i].oid;
+            	result.push(obj);
+            } else {
+                break;
+            }
+        }
+    }
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartStructureByNavi"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.GetCSRFToken();
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+var navObj = me.GetNavigationCriteria({
+	ID: VariantID /* STRING */
+});
+//var navObj = me.GetNavigationCriteriaCondByID({
+//	NaviID: navInfo.ID /* STRING */
+//});
+
+logger.warn(JSON.stringify(navObj));
+if (navObj !== undefined) {
+    delete navObj["headers"];
+    delete navObj["ID"];
+    //delete navObj["ApplicationName"];
+    delete navObj["@PTC.AppliedContainerContext.LocalTimeZone"];
+    for (var i=0; i<navObj.Filters.length; i++) { 
+        delete navObj.Filters[i]["DisableRuleChecking"];
+    }
+    //navStr = JSON.stringify({ "NavigationCriteria" : navObj });
+}
+// Build Body
+var bodyObject = {
+    "NavigationCriteria" : navObj
+};
+var body = JSON.stringify(bodyObject);
+if (!partId) {
+    partId = me.GetPartIDByVariantID({
+        VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */
+    });
+}
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number,Version,State,Source,TypeIcon,DWGBRNNO,Revision),PartUse($select=Quantity,Unit);$levels=max)",
+//    url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part,PartUse;$levels=max)",
+	//url: me.WindchillUrl + "servlet/odata/v6/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=*);$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPartStructureByNaviBaseline"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.GetCSRFToken();
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+var navObj = {
+  "@odata.context": "https://PP-2307270551Z6.portal.ptc.io/Windchill/servlet/odata/v3/NavCriteria/$metadata#NavigationCriterias/$entity",
+  "ApplicableType": "PTC.ProdMgmt.Part",
+  "ApplicationName": null,
+  "ApplyToTopLevelObject": true,
+  "Centricity": false,
+  "ConfigSpecs": [
+    {
+      "@odata.type": "#PTC.NavCriteria.WTPartBaselineConfigSpec",
+      "Baseline": "wt.vc.baseline.ManagedBaseline:6769472"
+    }
+  ],
+  "CreatedOn": "2023-09-27T04:56:40Z",
+  "Filters": [],
+  "HideUnresolvedDependents": false,
+  //"ID": "OR:wt.filter.NavigationCriteria:6769964",
+  "LastModified": "2023-09-27T04:56:40Z",
+  "Name": "ECO-003",
+  "SharedToAll": false,
+  "UseDefaultForUnresolved": false,
+  //"@PTC.AppliedContainerContext.LocalTimeZone": "UTC"
+};
+//if (navObj !== undefined) {
+    //delete navObj["headers"];
+    //delete navObj["ID"];
+    //delete navObj["ApplicationName"];
+    //delete navObj["@PTC.AppliedContainerContext.LocalTimeZone"];
+    //for (var i=0; i<navObj.Filters.length; i++) { 
+    //    delete navObj.Filters[i]["DisableRuleChecking"];
+    //}
+    //navStr = JSON.stringify({ "NavigationCriteria" : navObj });
+//}
+// Build Body
+var bodyObject = {
+    "NavigationCriteria" : navObj
+};
+var body = JSON.stringify(bodyObject);
+if (!partId) {
+    partId = me.GetPartIDByVariantID({
+        VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */
+    });
+}
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number,Version,State,Revision),PartUse($select=Quantity,Unit);$levels=max)",
+//    url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part,PartUse;$levels=max)",
+	//url: me.WindchillUrl + "servlet/odata/v6/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=*);$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+logger.warn("GetPartStructureByNaviBaseline: " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getPartStructuresByVariantID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+    function formatPartStructure(JSONObject) {
+        JSONObject.Components.forEach(loopFunction);
+
+        function loopFunction(item) {
+            var newTableEntry = {};
+            newTableEntry = item; // grab all the "tree" fields
+            newTableEntry.Version = item.Part.Version;
+            newTableEntry.State = item.Part.State.Display;
+            newTableEntry.Source = item.Part.Source.Display;
+            newTableEntry.TypeIconURL = item.Part.TypeIcon.Path;
+            newTableEntry.Quantity = item.PartUse.Quantity;
+            newTableEntry.Unit = item.PartUse.Unit.Display;
+            newTableEntry.DWGBRNNO = (item.Part.DWGBRNNO || "");
+            newTableEntry.Revision = (item.Part.Revision || "");
+            result.AddRow(newTableEntry);
+            if (item.Components !== undefined && item.Components.length > 0) {
+                formatPartStructure(item);
+            }
+        }
+    }
+
+    //Infotable to hold results
+    var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+      infoTableName: "InfoTable",
+      dataShapeName: "PartStructureDS"
+    });
+
+    try {
+        var partId = me.GetPartIDByVariantID({
+            VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */
+        });
+        var parent =  me.getPartByPartId({
+        	partId: partId /* STRING */
+        });
+        
+        // Get Child Node
+        var partStructure = me.GetPartStructureByNavi({
+            VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */,
+            partId: partId /* STRING */
+        });
+
+        //grab some additional fields off the parent
+        partStructure.Version = parent.Version;
+        partStructure.State = parent.State.Display;
+        partStructure.Source = parent.Source.Display;
+        partStructure.TypeIconURL = parent.TypeIcon.Path;
+        partStructure.DWGBRNNO = (parent.DWGBRNNO || "");
+        partStructure.Revision = (parent.Revision || "");
+        result.AddRow(partStructure); // add the top node by hand
+        formatPartStructure(partStructure); // add the children
+    } catch (err) {
+        throw(err);
+    }
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getPartStructuresByVariantID_BK"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//var partstructure = [];
+
+function compare(a, b) {
+    var PARTUSE = "PartUse";
+    var LINENUMBER = "LineNumber";
+    var NUMBER = "PartNumber";
+
+    var r = 0;
+//    if (PARTUSE in a && LINENUMBER in a[PARTUSE] && PARTUSE in b && LINENUMBER in b[PARTUSE]) {
+//        if (a[PARTUSE][LINENUMBER] < b[PARTUSE][LINENUMBER]) { r = -1; }
+//        if (a[PARTUSE][LINENUMBER] > b[PARTUSE][LINENUMBER]) { r = 1; }
+//    } else {
+        if (a[NUMBER] < b[NUMBER]) { r = -1; }
+        if (a[NUMBER] > b[NUMBER]) { r = 1; }
+//    }
+    return r;
+}
+
+function getpartinfo(jsonbom, hierarchy, path) {
+//    var partid;
+//  	if ("PartId" in jsonbom) { 
+//        partid = jsonbom["PartId"];
+//    }
+
+    var components;
+    if ("Components" in jsonbom) {
+        components = jsonbom["Components"];
+    }
+
+//    if ("PartNumber" in jsonbom) { 
+//        var part = new Object();
+//
+//        var partnumber = jsonbom["PartNumber"];
+//
+//        var hasChildren = false;
+//        if (components !== undefined && components.length > 0) {
+//            hasChildren = true;
+//        }
+//
+//        part["PartNumber"] = partnumber;
+//        part["PartName"] = jsonbom["PartName"];
+//        part["PartId"] = jsonbom["PartId"];
+//        part["Level"] = hierarchy;
+//        part["LineNumber"] = 0;
+//        part["PartNO"] = "";
+//        part["OdataType"] = "";
+//        part["Revision"] = "";
+//        part["State"] = "";
+//        //part["ParentChildId"] = "";
+//        //part["PVTreeId"] = jsonbom["PVTreeId"];
+//        //if (hierarchy > 1) {
+//        //    part["ParentChildId"] = parent + "/" + partnumber;
+//        //}
+//        if ("PartUse" in jsonbom) {
+//            var partUse = jsonbom["PartUse"];
+//            if ("Quantity" in partUse) {
+//                part["Quantity"] = partUse.Quantity;
+//            }
+//            if ("LineNumber" in partUse) {
+//                part["LineNumber"] = partUse.LineNumber ? parseInt(partUse.LineNumber,10) : 0;
+//            }
+//            //part["OrderUnitNumber"] = partUse["ORDERUNITNUMBER"];
+//            //part["OrderUnitName"] = partUse["ORDERUNITNAME"];
+//        }
+//        part["HasChildren"] = hasChildren;
+//
+//        if ("Part" in jsonbom) {
+//            var partObj = jsonbom["Part"];
+//        	//part["PartNO"] = (partObj["PartNO"] || "");
+//            part["PartNO"] = (partObj["Mh3masterpartno"] || "");
+//            part["OdataType"] = (partObj["@odata.type"] || "");
+//            part["Revision"] = (partObj["Revision"] || "");
+//        	if ("State" in partObj) part["State"] = (partObj["State"]["Value"] || "");
+//        }
+//        part["ParentId"] = path;
+//        part["Id"] = path + "/" + partnumber + "#" + part["Level"] + "#" + part["LineNumber"];
+//        partstructure.push(part);
+//    }
+    
+    if (components !== undefined) {
+        components.sort(compare);
+        for (var i = 0; i < components.length; i++) {
+            getpartinfo(components[i], hierarchy + 1, path + "/" + jsonbom["PartNumber"]);
+        }
+    }
+    return "";
+}
+
+if ((queryFilter !== undefined && queryFilter.filters !== undefined) && (PartList !== undefined && PartList.getRowCount()>0)) {
+    var params = {
+      t: PartList /* INFOTABLE */,
+      query: queryFilter  /* QUERY */
+    };
+    // result: INFOTABLE
+    var result = Resources["InfoTableFunctions"].Query(params);
+} else {
+    function formatPartStructure(JSONObject) {
+        JSONObject.Components.forEach(loopFunction);
+
+        function loopFunction(item) {
+            var newTableEntry = {};
+            newTableEntry = item; // grab all the "tree" fields
+            newTableEntry.Version = item.Part.Version;
+            newTableEntry.State = item.Part.State.Display;
+            newTableEntry.Source = item.Part.Source.Display;
+            newTableEntry.TypeIconURL = item.Part.TypeIcon.Path;
+            newTableEntry.Quantity = item.PartUse.Quantity;
+            newTableEntry.Unit = item.PartUse.Unit.Display;
+            newTableEntry.DWGBRNNO = (item.Part.DWGBRNNO || "");
+            newTableEntry.Revision = (item.Part.Revision || "");
+            result.AddRow(newTableEntry);
+            if (item.Components !== undefined && item.Components.length > 0) {
+                //item.Components.sort(compare);
+                formatPartStructure(item);
+            }
+        }
+    }
+
+    //Infotable to hold results
+    var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+      infoTableName: "InfoTable",
+      dataShapeName: "PartStructureDS"
+    });
+
+    try {
+        if (VariantID) {
+            var partId = me.GetPartIDByVariantID({
+                VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */
+            });
+            var parent =  me.getPartByPartId({
+                partId: partId /* STRING */
+            });
+
+            // Get Child Node
+            var partStructure = me.GetPartStructureByNavi({
+                VariantID: VariantID /* STRING {"defaultValue":"OR:com.ptc.wpcfg.doc.VariantSpec:5384955"} */,
+                partId: partId /* STRING */
+            });
+
+            //grab some additional fields off the parent
+            partStructure.Version = parent.Version;
+            partStructure.State = parent.State.Display;
+            partStructure.Source = parent.Source.Display;
+            partStructure.TypeIconURL = parent.TypeIcon.Path;
+            partStructure.DWGBRNNO = (parent.DWGBRNNO || "");
+            partStructure.Revision = (parent.Revision || "");
+            result.AddRow(partStructure); // add the top node by hand
+
+            getpartinfo(partStructure, 1, "", "");
+            formatPartStructure(partStructure); // add the children
+        }
+    } catch (err) {
+        throw(err);
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetPrimaryByDocId"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = "";
+if (objectId !== undefined) {
+    var params = {
+    	proxyScheme: undefined /* STRING */,
+    	headers: undefined /* JSON */,
+    	ignoreSSLErrors: undefined /* BOOLEAN */,
+    	useNTLM: undefined /* BOOLEAN */,
+    	workstation: undefined /* STRING */,
+    	useProxy: undefined /* BOOLEAN */,
+    	withCookies: undefined /* BOOLEAN */,
+    	proxyHost: undefined /* STRING */,
+    	url: me.WindchillUrl + "servlet/odata/v5/DocMgmt/Documents(\'" + objectId + "\')/PrimaryContent",
+    	timeout: undefined /* NUMBER */,
+    	proxyPort: undefined /* INTEGER */,
+    	password: me.WindchillUserPassword /* STRING */,
+    	domain: undefined /* STRING */,
+    	username: me.WindchillUserId /* STRING */
+    };
+
+    // response: JSON
+    var json = Resources["ContentLoaderFunctions"].GetJSON(params);
+    //if (json && json.Content) result = (json.Content.URL || "");
+    if (json && json.Content && json.Content.URL) {
+        //result = "https://pat:ptc@" + result.slice(8);
+        me.DownloadContent({
+            url: json.Content.URL /* STRING */,
+            filepath: "/" + json.FileName /* STRING {"defaultValue":"/test_lee.pdf"} */
+        });
+        //result = "https://pp-2208270236nn.portal.ptc.io:8443/Thingworx/FileRepositoryDownloader?download-repository=JE.repo&directRender=true&download-path=/" + json.FileName;
+        result = "https://pp-2208270236nn.portal.ptc.io:8443/Thingworx/documents/" + json.FileName;
+        
+    }
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetRefDocLinkByDocID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+	url: me.WindchillUrl + "servlet/odata/v5/DocMgmt/Documents(\'" + docId + "\')/PrimaryContent",
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+//logger.trace("GetPart: " + params.url);
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+var result = response;
+//if (response.Content) result = response.Content.URL;
+//logger.trace("GetPart(response): " + JSON.stringify(result));
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetRepresenIdByPartId"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var json, objId, val, i, partNo;
+var result;
+
+// オブジェクト番号の検索
+if (PartId) {
+    var params = {
+        proxyScheme: undefined /* STRING */,
+        headers: undefined /* JSON */,
+        ignoreSSLErrors: true /* BOOLEAN */,
+        useNTLM: undefined /* BOOLEAN */,
+        workstation: undefined /* STRING */,
+        useProxy: undefined /* BOOLEAN */,
+        withCookies: undefined /* BOOLEAN */,
+        proxyHost: undefined /* STRING */,
+        url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + PartId + "\')/Representations?%24count=false",
+        timeout: undefined /* NUMBER */,
+        proxyPort: undefined /* INTEGER */,
+        password: me.WindchillUserPassword /* STRING */,
+        domain: undefined /* STRING */,
+        username: me.WindchillUserId /* STRING */
+    };
+    // response: JSON
+    json = Resources["ContentLoaderFunctions"].GetJSON(params);
+
+    logger.trace("Representation json:" + JSON.stringify(json));
+    result = json.value[0].ID;
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThingViewMediaPath"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result;
+// オブジェクト番号の検索
+if (number) {
+    // json: JSON
+    json =  me.GetPartInfoSelectedNumber({
+        number: number /* STRING */
+    });
+    var partid = json.value[0].ID;
+    var repid = me.GetRepresenIdByPartId({
+        PartId: partid /* STRING */
+    });
+    
+    result = "/Thingworx/MediaEntities/Lee.Media/Content//Windchill/servlet/odata/v2/Visualization/Representations(\'" + repid + "\')/PTC.Visualization.GetPVZ(IncludeAnnotations=true)";
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThingViewMediaPathByOID"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result;
+// オブジェクト番号の検索
+if (partID) {
+    var repid = me.GetRepresenIdByPartId({
+        PartId: partID /* STRING */
+    });
+    
+    result = "/Thingworx/MediaEntities/Lee.Media/Content//Windchill/servlet/odata/v2/Visualization/Representations(\'" + repid + "\')/PTC.Visualization.GetPVZ(IncludeAnnotations=true)";
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetThingViewUrl"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = "";
+// オブジェクト番号の検索
+if (number) {
+    // json: JSON
+    json =  me.GetPartInfoSelectedNumber({
+        number: number /* STRING */
+    });
+    var partid = json.value[0].ID;
+    var resource = Things["PartStructureAccessAppThing"].GetRepresentableInfoForUniqueResource({
+        addtionalAttributesFromSelectedResource: undefined /* STRING */,
+        number: "WindchillDemoPartResourceProvider:" + partid /* STRING */,
+        userSpecifiedFilterCriteria: undefined /* STRING */,
+        resourceDataShape: undefined /* DATASHAPENAME */,
+        accessAppConfigThingName: undefined /* STRING */
+    });
+    result = resource.StructureUrl;
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetValiantPartStructureByPartId"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Build Headers
+var headerObject = new Object();
+headerObject["Content-Type"] = "application/json";
+headerObject["CSRF_NONCE"] = me.GetCSRFToken();
+headerObject["Accept"] = "application/json;odata.metadata=full";
+var header = JSON.stringify(headerObject);
+
+// Build Body
+var bodyObject = new Object();
+var body = JSON.stringify(bodyObject);
+
+var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: header /* JSON */,
+	ignoreSSLErrors: true /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/v5/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name);$levels=max)",
+    //    url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number),PartUse($select=Quantity,Unit);$levels=max)",
+    //	url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=Name,Number,Version,State,Source,TypeIcon),PartUse($select=Quantity,Unit);$levels=max)",
+//    url: me.WindchillUrl + "servlet/odata/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part,PartUse;$levels=max)",
+	//url: me.WindchillUrl + "servlet/odata/v6/ProdMgmt/Parts(\'" + partId + "\')/PTC.ProdMgmt.GetPartStructure?$expand=Components($expand=Part($select=*);$levels=max)",
+	content: body /* JSON */,
+	timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId/* STRING */
+};
+
+// result: JSON
+var result = Resources["ContentLoaderFunctions"].PostJSON(params);
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetVariantSpecificationList"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	proxyScheme: undefined /* STRING */,
+	headers: undefined /* JSON */,
+	ignoreSSLErrors: undefined /* BOOLEAN */,
+	useNTLM: undefined /* BOOLEAN */,
+	workstation: undefined /* STRING */,
+	useProxy: undefined /* BOOLEAN */,
+	withCookies: undefined /* BOOLEAN */,
+	proxyHost: undefined /* STRING */,
+    url: me.WindchillUrl + "servlet/odata/v3/ProdPlatformMgmt/VariantSpecifications?%24select=Name&%24filter=Context%2FName%20eq%20\'" + context + "\'&%24count=false",
+    timeout: undefined /* NUMBER */,
+	proxyPort: undefined /* INTEGER */,
+	password: me.WindchillUserPassword /* STRING */,
+	domain: undefined /* STRING */,
+	username: me.WindchillUserId /* STRING */
+};
+
+// response: JSON
+var response = Resources["ContentLoaderFunctions"].GetJSON(params);
+//var result = response;
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(DropdowntDS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "DropdowntDS"
+});
+for each (var row in response.value) {
+	result.AddRow(row);
+}
+
+let sort = {
+    name: "Name",
+    ascending: true
+};
+result.Sort(sort);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="ApiTest"/><AlertDefinitions name="WindchillUrl"/><AlertDefinitions name="WindchillUserId"/><AlertDefinitions name="WindchillUserPassword"/></AlertConfigurations><ImplementedShapes/><ThingProperties><WindchillUserId><Value><![CDATA[pat]]></Value><Timestamp>2023-09-28T11:27:55.357Z</Timestamp><Quality>GOOD</Quality></WindchillUserId><WindchillUserPassword><Value><![CDATA[ptc]]></Value><Timestamp>1970-01-01T00:00:00.000Z</Timestamp><Quality>UNKNOWN</Quality></WindchillUserPassword><WindchillUrl><Value><![CDATA[https://pp-2307270551z6.portal.ptc.io/Windchill/]]></Value><Timestamp>2023-09-28T11:27:47.992Z</Timestamp><Quality>GOOD</Quality></WindchillUrl><ApiTest><Value/><Timestamp>2023-09-03T09:13:01.626Z</Timestamp><Quality>GOOD</Quality></ApiTest></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2023-09-28T11:26:10.086Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartStructureByNavi : service updated&#10;GetBaselineByNumber : service added&#10;" timestamp="2023-09-28T11:31:13.861Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T11:33:27.056Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T11:37:49.058Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T11:40:49.826Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T11:41:16.785Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T11:42:13.610Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:09:32.739Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:10:08.567Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : output updated&#10;" timestamp="2023-09-28T12:13:41.029Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:15:33.202Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:16:19.949Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:17:14.726Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:17:27.973Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:17:41.101Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:17:56.085Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : output updated&#10;" timestamp="2023-09-28T12:18:35.379Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:20:09.468Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:21:37.442Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T12:23:14.275Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : input parameter number updated, inputs updated&#10;" timestamp="2023-09-28T12:27:22.685Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:29:13.469Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:30:37.078Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:32:18.247Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:39:18.788Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:40:59.265Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:41:19.952Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:41:28.368Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:46:35.111Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:46:54.931Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T12:58:54.989Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartInfoSelectedNumber : service updated&#10;" timestamp="2023-09-28T13:01:52.281Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:02:37.893Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:05:02.732Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:05:51.427Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:06:42.379Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:12:13.059Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:12:27.002Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:12:39.893Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:13:30.220Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : output updated&#10;" timestamp="2023-09-28T13:23:42.888Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;" timestamp="2023-09-28T13:24:23.101Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;GetPartStructureByNaviBaseline : service added&#10;" timestamp="2023-09-30T11:29:51.271Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartStructureByNaviBaseline : input parameter partId updated, inputs updated&#10;" timestamp="2023-09-30T11:32:57.213Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartStructureByNaviBaseline : service updated&#10;" timestamp="2023-09-30T11:33:29.052Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartStructureByNaviBaseline : input parameter partId updated, inputs updated&#10;" timestamp="2023-09-30T11:38:56.885Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartStructureByNaviBaseline : service updated&#10;" timestamp="2023-09-30T11:45:55.819Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartStructureByNaviBaseline : service updated&#10;" timestamp="2023-09-30T11:46:53.413Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service added, output updated&#10;" timestamp="2023-09-30T14:02:58.233Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : output updated&#10;" timestamp="2023-09-30T14:04:26.745Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:12:39.860Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:12:57.697Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : output updated&#10;" timestamp="2023-09-30T14:13:23.299Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:20:50.877Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:25:52.641Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : output updated&#10;" timestamp="2023-09-30T14:29:20.207Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : input parameter oid updated, inputs updated&#10;" timestamp="2023-09-30T14:30:49.555Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : input parameter oid updated, inputs updated&#10;" timestamp="2023-09-30T14:31:07.831Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:32:03.883Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:34:33.553Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:34:56.847Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:36:46.940Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:41:44.683Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:41:57.427Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:42:06.179Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:42:14.201Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:42:32.591Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : input parameter baselindID updated, inputs updated&#10;" timestamp="2023-09-30T14:43:49.442Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:44:23.040Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;" timestamp="2023-09-30T14:44:41.990Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByECO : service updated&#10;GetPartsByBaselineID : service added&#10;" timestamp="2023-09-30T14:45:07.384Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselineByNumber : service updated&#10;GetBaselinePartsByNumber : service added&#10;" timestamp="2023-09-30T14:52:57.847Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;GetPartsJSONByBaselineID : service added, output updated&#10;" timestamp="2023-10-01T03:25:50.230Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : output updated&#10;" timestamp="2023-10-01T03:52:53.313Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : output updated&#10;" timestamp="2023-10-01T03:56:45.294Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T03:57:01.722Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T03:57:13.452Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T03:59:53.020Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : output updated&#10;" timestamp="2023-10-01T04:10:47.140Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsByBaselineID : service updated&#10;" timestamp="2023-10-01T04:12:07.243Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : output updated&#10;" timestamp="2023-10-01T04:12:36.279Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T04:14:34.332Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsJSONByBaselineID : service updated&#10;GetBaselinePartsInfoByNumber : service added, output updated&#10;" timestamp="2023-10-01T04:18:10.092Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsInfoByNumber : service updated&#10;" timestamp="2023-10-01T04:32:47.083Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsInfoByNumber : service updated&#10;" timestamp="2023-10-01T04:33:11.244Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsInfoByNumber : service updated&#10;" timestamp="2023-10-01T04:39:18.080Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T04:41:49.682Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T04:44:14.770Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T04:47:06.429Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetPartsJSONByBaselineID : service updated&#10;" timestamp="2023-10-01T04:48:25.807Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T04:48:36.070Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T05:53:04.128Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : output updated&#10;" timestamp="2023-10-01T05:53:18.736Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T05:53:57.843Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T05:56:02.489Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-01T05:56:59.780Z" user="pat"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2023-10-01T05:57:57.642Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;GetBaselinePartsMultiByNumber : service added, output updated&#10;" timestamp="2023-10-02T11:17:35.464Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsMultiByNumber : service updated&#10;" timestamp="2023-10-02T11:19:19.881Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsMultiByNumber : service updated&#10;" timestamp="2023-10-02T11:22:08.961Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsMultiByNumber : service updated&#10;" timestamp="2023-10-02T11:28:43.643Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsByNumber : service updated&#10;" timestamp="2023-10-02T11:29:35.627Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsMultiByNumber : service updated&#10;GetBaselinePartsClone : service added, input parameter parts updated, inputs updated&#10;" timestamp="2023-10-02T11:36:37.801Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetBaselinePartsClone : service updated&#10;CompareBaselineModel : service added, input parameter parts1 updated, inputs updated, input parameter parts2 added, inputs updated, input parameter parts3 added, inputs updated&#10;GetThingViewMediaPathByOID : service added, input parameter PartID updated, inputs updated, input parameter partID updated, inputs updated&#10;" timestamp="2023-10-03T04:36:04.835Z" user="pat"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetThingViewMediaPathByOID : service updated&#10;" timestamp="2023-10-03T05:02:28.801Z" user="pat"/></ConfigurationChanges></Thing></Things></Entities>
