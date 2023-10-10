@@ -1,0 +1,34 @@
+<%@page language="java" access="http"%>
+<%@page language="java" session="false"%>
+<%@taglib uri="http://www.ptc.com/infoengine/taglib/core" prefix="ie"%>
+<% 
+	String instance =wt.util.WTProperties.getLocalProperties().getProperty("wt.federation.ie.VMName");
+	String baseobid = (String)getParam("baseobid");
+%>
+
+<ie:webject name="Get-Properties" type="MGT">
+	<ie:param name="ATTRIBUTE" data="wt.federation.ie.VMName"/>
+	<ie:param name="GROUP_OUT" data="properties"/>
+</ie:webject>
+
+ <ie:webject name="Query-Links" type="OBJ">
+    <ie:param name="INSTANCE" data="<%=instance%>"/>
+    <ie:param name="TYPE" data="wt.vc.baseline.BaselineMember"/>
+    <ie:param name="OBJECT_REF" data="<%=baseobid%>" />
+    <ie:param name="DIRECTION" data="theBaselineable"/>
+    <ie:param name="ATTRIBUTE" data="*" delim="," />
+    <ie:param name="GROUP_OUT" data="members" />
+</ie:webject>
+
+//Get WTPart Member
+
+<ie:forEach groupIn="members" groupOut="single_member">
+    // Get WTPart
+    <ie:webject name="Query-Objects" type="OBJ">
+        <ie:param name="INSTANCE" data="<%=instance%>"/>
+        <ie:param name="TYPE" data="WCTYPE|wt.part.WTPart"/>
+        <ie:param name="ATTRIBUTE" data="name,number,IBA_NAME" delim="," />
+        <ie:param name="GROUP_IN" data="single_member" />
+        <ie:param name="GROUP_OUT" data="part" />
+    </ie:webject>
+</ie:forEach>

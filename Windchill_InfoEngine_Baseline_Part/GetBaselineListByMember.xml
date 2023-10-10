@@ -1,0 +1,57 @@
+<%@page language="java" access="http"%>
+<%@page language="java" session="false"%>
+<%@taglib uri="http://www.ptc.com/infoengine/taglib/core" prefix="ie"%>
+
+<% 
+	String instance =wt.util.WTProperties.getLocalProperties().getProperty("wt.federation.ie.VMName");
+	String partNumber = (String)getParam("partnumber");
+	Group group = new Group("output");
+%>　
+
+<ie:webject name="Search-Objects" type="OBJ">
+	<ie:param name="INSTANCE" data="<%=instance%>" />
+	<ie:param name="ATTRIBUTE" data="number,version" delim=","/>
+	<ie:param name="WHERE" data="(number='<%=partNumber%>')"/>
+	<ie:param name="TYPE" data="wt.part.WTPart"/>
+	<ie:param name="ITERATION" data="ALL"/>
+	<ie:param name="VERSION" data="ALL"/>
+	<ie:param name="GROUP_OUT" data="wtpartversions"/>
+</ie:webject>
+
+<%
+	for (int i=0;i<getGroup("wtpartversions").getElementCount();i++){
+		String partobid = (String)getGroup("wtpartversions").getElementAt(i).getAtt("obid").getRawValue();
+		//System.out.println("GetBaselineListByMember.xml ----> partobid = " + partobid);		
+%>
+
+<ie:webject name="Query-Links" type="OBJ">
+    <ie:param name="instance" data="<%=instance%>" />
+    <ie:param name="TYPE" data="wt.vc.baseline.BaselineMember"/>
+    <ie:param name="OBJECT_REF" data="<%=partobid%>" />
+    <ie:param name="DIRECTION" data="theBaseline"/>
+    <ie:param name="ATTRIBUTE" data="*" delim="," />
+    <ie:param name="GROUP_OUT" data="members" />
+</ie:webject>
+
+<%
+		for (int j=0;j<getGroup("members").getElementCount();j++){
+			String baseclass = (String)getGroup("members").getElementAt(j).getAtt("class").getRawValue();
+			System.out.println("GetBaselineListByMember.xml ----> baseclass = " + j + baseclass);
+			if (baseclass.equals("wt.vc.baseline.ManagedBaseline")) {
+				System.out.println("GetBaselineListByMember.xml ----> obid = " + j + (String)getGroup("members").getElementAt(j).getAtt("obid").getRawValue());
+				Element elm = new Element();
+				Att att = new Att("obid", (String)getGroup("members").getElementAt(j).getAtt("obid").getRawValue());
+				elm.addAtt(att);
+				att = new Att("name", (String)getGroup("members").getElementAt(j).getAtt("name").getRawValue());
+				elm.addAtt(att);
+				group.addElement(elm);
+			}
+		}
+	}
+
+addGroup (group);
+%>
+
+<ie:webject name="Return-Groups" type="GRP">
+	<ie:param name="GROUP_IN" data="output"/>
+</ie:webject>
