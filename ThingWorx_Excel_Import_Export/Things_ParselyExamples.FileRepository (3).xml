@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="FileRepositoryThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2023-03-23T04:33:07.637Z" name="ParselyExamples.FileRepository" projectName="ParselyExamples" published="false" tags="" thingTemplate="FileRepository" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="BrowseJSONInComposer"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="/JSON/Actioncards48.json" baseType="STRING" description="" name="Path" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="BrowseXMLInComposer"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="/XML/WIP_OnDemandResponse_Clean.xml" baseType="STRING" description="" name="Path" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CSVParseExample"><ResultType aspect.dataShape="ParselyExamples.CSVParseShape" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="/CSV/TerminalData.csv" baseType="STRING" description="" name="Path" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="ImportExcel"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="JSONParseExample"><ResultType aspect.dataShape="ParselyExamples.JSONParseShape" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.defaultValue="Actioncards48.json" baseType="STRING" description="" name="Path" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="JSONToString"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="Path" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="XMLParseExample"><ResultType aspect.dataShape="ParselyExamples.XMLParseShape" baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="Path" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="BrowseJSONInComposer"><ConfigurationTables><ConfigurationTable dataShapeName="" description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	path: Path /* STRING */
+};
+
+// result: JSON
+var JSONResult = me.LoadJSON(params);
+
+var params = {
+	minDateMilliseconds: undefined /* LONG */,
+	dateFormat: undefined /* STRING */,
+	json: JSONResult /* JSON */,
+	dataShape: undefined /* DATASHAPENAME */
+};
+
+// result: INFOTABLE
+var result = Resources["Parsley"].ParseJSON(params);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="BrowseXMLInComposer"><ConfigurationTables><ConfigurationTable dataShapeName="" description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	path: Path /* STRING */
+};
+
+// result: XML
+var XMLContent = me.LoadXML(params);
+
+var params = {
+	minDateMilliseconds: undefined /* LONG */,
+	dateFormat: undefined /* STRING */,
+	xml: XMLContent /* XML */,
+	dataShape: undefined /* DATASHAPENAME */
+};
+
+// result: INFOTABLE
+var result = Resources["Parsley"].ParseXML(params);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="CSVParseExample"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[
+var params = {
+	path: Path /* STRING */,
+	columnMappings: undefined /* STRING */,
+	hasHeader: true /* BOOLEAN */,
+	longitudeField: undefined /* NUMBER */,
+	dateFormat: undefined /* STRING */,
+	fileRepository: me.name /* THINGNAME */,
+	latitudeField: undefined /* NUMBER */,
+	fieldDelimiter: undefined /* STRING */,
+	stringDelimiter: undefined /* STRING */,
+	customFieldNames: undefined /* STRING */,
+	dataShape: undefined /* DATASHAPENAME */
+};
+
+// result: INFOTABLE
+var result = Resources["Parsley"].ParseCSV(params);
+
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="ImportExcel"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// result: INFOTABLE dataShape: ""
+let result = Resources["Parsley"].ParseXLSX({
+	path: "test3.xlsx" /* STRING */,
+	hasHeader: undefined /* BOOLEAN {"defaultValue":false} */,
+	sheetName: "PageSeqStep" /* STRING */,
+	dateFormat: undefined /* STRING */,
+	fileRepository: "ParselyExamples.FileRepository" /* THINGNAME */,
+	dataShape: undefined /* DATASHAPENAME */
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="JSONParseExample"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//read the JSON
+var JSONContent =  me.LoadJSON({
+	path: Path /* STRING */
+});
+
+//parse the JSON
+var params = {
+	minDateMilliseconds: undefined /* LONG */,
+	dateFormat: undefined /* STRING */,
+	json: JSONContent /* JSON */,
+	dataShape: undefined /* DATASHAPENAME */
+};
+
+// result: INFOTABLE
+var ParsedJSONresult = Resources["Parsley"].ParseJSON(params);
+
+//create empty result infotable
+var params = {
+    infoTableName : "InfoTable",
+    dataShapeName : "ParselyExamples.JSONParseShape"
+};
+
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(ParselyExamples.JSONParseShape)
+var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+
+//get the array records from the JSON content
+var JSONArrayRecords = ParsedJSONresult.array;
+
+//iterate through the array records
+
+var tableLength = JSONArrayRecords.rows.length;
+for (var x=0; x < tableLength; x++) {
+    var row = JSONArrayRecords.rows[x];
+
+    //create the result row object
+    var NewRow = {};
+    
+    //set the name from the current array record
+    NewRow.name = row.name;
+    
+    //grab the message
+    var array_row_message = ParsedJSONresult.array[x].props.status.reference.props.message.value;
+    NewRow.message = array_row_message;
+    
+    //grab the status
+    var array_row_severity = ParsedJSONresult.array[x].props.status.reference.props.severity.value;
+    NewRow.severity = array_row_severity;
+    
+    //add the row
+    result.AddRow(NewRow);
+}
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="JSONToString"><ConfigurationTables><ConfigurationTable dataShapeName="" description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[// Content: JSON
+var Content =  me.LoadJSON({
+	path: Path /* STRING */
+});
+
+var result = JSON.stringify(Content);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="XMLParseExample"><ConfigurationTables><ConfigurationTable dataShapeName="" description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var params = {
+	path: Path /* STRING */
+};
+
+// result: XML
+var XMLContent = me.LoadXML(params);
+
+var params = {
+	minDateMilliseconds: undefined /* LONG */,
+	dateFormat: "yyyy-MM-dd'T'HH:mm:ss" /* STRING */,
+	xml: XMLContent /* XML */,
+	dataShape: undefined /* DATASHAPENAME */
+};
+
+// result: INFOTABLE
+var ParsedXML = Resources["Parsley"].ParseXML(params);
+var result = ParsedXML.rows[0]["soapenv:Envelope"].rows[0]["env:Body"].rows[0]["ns1:ShopFloorWIPResp"].rows[0].WIP;]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2023-03-18T08:45:58.355Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : XMLParseExample : service updated&#10;ImportExcel : service added&#10;" timestamp="2023-03-18T08:54:44.910Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
