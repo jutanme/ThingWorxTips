@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-10-14T02:06:54.912Z" name="CollectionTest" projectName="PTCDefaultProject" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions><FieldDefinition aspect.bindingDirection="IN" aspect.isMandatory="false" baseType="NUMBER" description="" name="ConfigForm_maxNum" ordinal="0"/><FieldDefinition aspect.bindingDirection="BOTH" aspect.isMandatory="false" baseType="NUMBER" description="" name="maxNum2" ordinal="0"/></ParameterDefinitions><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_SEPPEN_NEWNESS_COMPARISON_LIST_DT3" : {
+      "DataName" : "Things_SEPPEN_NEWNESS_COMPARISON_LIST_DT3",
+      "EntityName" : "SEPPEN_NEWNESS_COMPARISON_LIST_DT3",
+      "EntityType" : "Things",
+      "Id" : "7d9ff82f-3843-446d-bb7f-6ab05c800f27",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "eda1be4b-0a02-44f6-b7ab-9ce996e69b09",
+        "Name" : "QueryDataTableEntries",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "QueryDataTableEntries"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "44e29e1d-ec08-4e72-bea7-83077452cc82",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "QueryDataTableEntries",
+    "SourceName" : "QueryDataTableEntries",
+    "SourceSection" : "Things_SEPPEN_NEWNESS_COMPARISON_LIST_DT3",
+    "TargetArea" : "UI",
+    "TargetId" : "gridadvanced-3",
+    "TargetSection" : ""
+  }, {
+    "Id" : "3bc1709c-faa2-4b01-9527-1588ae315db3",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "ConfigForm_maxNum",
+      "SourcePropertyBaseType" : "NUMBER",
+      "SourcePropertyType" : "property",
+      "TargetProperty" : "Text",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcstextfield-10",
+    "TargetSection" : ""
+  }, {
+    "Id" : "01de0529-71c2-4084-965b-629f486f55d7",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Text",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "maxItems",
+      "TargetPropertyBaseType" : "NUMBER",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcstextfield-10",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "QueryDataTableEntries",
+    "TargetSection" : "Things_SEPPEN_NEWNESS_COMPARISON_LIST_DT3"
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_SEPPEN_NEWNESS_COMPARISON_LIST_DT3",
+    "EventHandlerService" : "QueryDataTableEntries",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Clicked",
+    "EventTriggerId" : "ptcsbutton-9",
+    "EventTriggerSection" : "",
+    "Id" : "e2d60d25-22d5-42f8-9d43-ef135ceaf30c"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigurationMashup" : "RIC.MashupConfigurationForm",
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "_currentParameterDefs" : [ {
+        "Aspects" : {
+          "bindingDirection" : "BOTH",
+          "isMandatory" : false
+        },
+        "BaseType" : "NUMBER",
+        "Description" : "",
+        "ParameterName" : "maxNum2"
+      }, {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "isMandatory" : false
+        },
+        "BaseType" : "NUMBER",
+        "Description" : "",
+        "ParameterName" : "ConfigForm_maxNum"
+      } ],
+      "id_index" : 10,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "row",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : false,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-8",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-8",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "column",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "125px",
+          "flex-min-height" : "",
+          "flex-min-width" : "125px",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "ButtonType" : "primary",
+            "ContextID" : "",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-button-9",
+            "Id" : "ptcsbutton-9",
+            "Label" : "検索",
+            "LabelAlignment" : "center",
+            "LastContainer" : false,
+            "Left" : 44,
+            "Margin" : "5",
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "Top" : 86.66666412353516,
+            "Type" : "ptcsbutton",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Button"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "Counter" : false,
+            "Disabled" : false,
+            "DisplayName" : "ptcs-textfield-10",
+            "Id" : "ptcstextfield-10",
+            "Label" : "",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 19,
+            "Margin" : "5",
+            "MaxNumberOfCharacters" : 100,
+            "Password" : false,
+            "ReadOnly" : false,
+            "ResponsiveLayout" : false,
+            "ShowClearText" : true,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "TextAlignment" : "left",
+            "Top" : 156.66666412353516,
+            "Type" : "ptcstextfield",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Width" : 273,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Text Field"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-7",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-7",
+          "LastContainer" : true,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "flex-start",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : true,
+          "justify-content" : "flex-start",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "AutoScroll" : true,
+            "CellBorderStyle" : "DefaultGridAdvancedCellBorderStyle",
+            "CellValidationErrorStyle" : "DefaultGridAdvancedCellValidationErrorStyle",
+            "CellValidationErrorTooltipStyle" : "DefaultGridAdvancedCellValidationErrorTooltipStyle",
+            "ColumnFormat" : {
+              "formatInfo" : [ {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "ECA_NO",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "ECA_NO",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "sourceType",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "sourceType",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "location",
+                "FormatOptions" : {
+                  "FormatString" : "0.0000",
+                  "renderer" : "LOCATION"
+                },
+                "Title" : "location",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "RENBAN",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "RENBAN",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "PBUBN",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "PBUBN",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "source",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "source",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "CBUBN",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "CBUBN",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "key",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "key",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "tags",
+                "FormatOptions" : {
+                  "FormatString" : "plain",
+                  "renderer" : "TAGS"
+                },
+                "Title" : "tags",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "TOP_CHANGED_BUBN",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "TOP_CHANGED_BUBN",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "CHANGE_ITEM_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "CHANGE_ITEM_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "timestamp",
+                "FormatOptions" : {
+                  "FormatString" : "[[dateTimeFormat_Default]]",
+                  "renderer" : "DATETIME"
+                },
+                "Title" : "timestamp",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "right",
+                "AllowEdit" : false,
+                "FieldName" : "OUTPUT_ORDER",
+                "FormatOptions" : {
+                  "FormatString" : "0.00",
+                  "renderer" : "NUMBER"
+                },
+                "Title" : "OUTPUT_ORDER",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "BUBN_OLD",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "BUBN_OLD",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "right",
+                "AllowEdit" : false,
+                "FieldName" : "BUBN_OLD_KOUSEI_LEVEL",
+                "FormatOptions" : {
+                  "FormatString" : "0.00",
+                  "renderer" : "NUMBER"
+                },
+                "Title" : "BUBN_OLD_KOUSEI_LEVEL",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "BUBN_OLD_KOUSEI_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "BUBN_OLD_KOUSEI_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "SFX_OLD_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "SFX_OLD_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "right",
+                "AllowEdit" : false,
+                "FieldName" : "KOSU_OLD",
+                "FormatOptions" : {
+                  "FormatString" : "0.00",
+                  "renderer" : "NUMBER"
+                },
+                "Title" : "KOSU_OLD",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "MANUFACTURING_SITE_OLD_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "MANUFACTURING_SITE_OLD_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "ARRANGEMENT_OLD_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "ARRANGEMENT_OLD_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "STANI_OLD_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "STANI_OLD_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "BUBN_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "BUBN_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "right",
+                "AllowEdit" : false,
+                "FieldName" : "BUBN_NEW_KOUSEI_LEVEL",
+                "FormatOptions" : {
+                  "FormatString" : "0.00",
+                  "renderer" : "NUMBER"
+                },
+                "Title" : "BUBN_NEW_KOUSEI_LEVEL",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "BUBN_NEW_KOUSEI_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "BUBN_NEW_KOUSEI_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "SFX_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "SFX_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "right",
+                "AllowEdit" : false,
+                "FieldName" : "KOSU_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "0.00",
+                  "renderer" : "NUMBER"
+                },
+                "Title" : "KOSU_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "MANUFACTURING_SITE_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "MANUFACTURING_SITE_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "ARRANGEMENT_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "ARRANGEMENT_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "STANI_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "STANI_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "WHETHER_PART_NUM_CHAGED_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "WHETHER_PART_NUM_CHAGED_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "PREVIOUS_PN_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "PREVIOUS_PN_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "REPLACE_PART_FLAG_DISP_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "REPLACE_PART_FLAG_DISP_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "OLD_BUBN_REPLACE",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "OLD_BUBN_REPLACE",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "COMPATIBILITY_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "COMPATIBILITY_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "COMBINATION_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "COMBINATION_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "PREV_PN_ACTION_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "PREV_PN_ACTION_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "PART_NAME_J_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "PART_NAME_J_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "LIFECYCLE_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "LIFECYCLE_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "RESULT_OBJ_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "RESULT_OBJ_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "SFX_UP_FLG_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "SFX_UP_FLG_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "ZHAN_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "ZHAN_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "TANI_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "TANI_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "right",
+                "AllowEdit" : false,
+                "FieldName" : "AMOUNT_NEW",
+                "FormatOptions" : {
+                  "FormatString" : "0.00",
+                  "renderer" : "NUMBER"
+                },
+                "Title" : "AMOUNT_NEW",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "PROTO_MASS_NEW_DISP",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "PROTO_MASS_NEW_DISP",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "PARENT_BUBN",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "PARENT_BUBN",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              }, {
+                "Align" : "left",
+                "AllowEdit" : false,
+                "FieldName" : "ID",
+                "FormatOptions" : {
+                  "FormatString" : "full",
+                  "renderer" : "STRING"
+                },
+                "Title" : "ID",
+                "ValidationExpression" : "",
+                "ValidationMessage" : "",
+                "Width" : "auto"
+              } ]
+            },
+            "Configuration" : "",
+            "ConfigurationId" : 0,
+            "CookiePersistence" : true,
+            "DataOverflow" : "clipped",
+            "DataServiceBindingDef" : {
+              "dataName" : "Things_SEPPEN_NEWNESS_COMPARISON_LIST_DT3",
+              "entityName" : "SEPPEN_NEWNESS_COMPARISON_LIST_DT3",
+              "entityType" : "Things",
+              "sourceId" : "QueryDataTableEntries",
+              "target" : "QueryDataTableEntries"
+            },
+            "DefaultSelectedRows" : "",
+            "DisplayName" : "gridadvanced-3",
+            "DisplayOnlyMode" : false,
+            "EditButtonsLocation" : "top-right",
+            "EnableAddDeleteButtons" : false,
+            "EnableCallbackOnSelectedRowsChange" : true,
+            "EnableContextMenu" : true,
+            "EnableEditButtons" : false,
+            "EnableFilterEventOnConfigChange" : true,
+            "EnableFooter" : false,
+            "EnableGridReset" : false,
+            "EnableGridSearch" : false,
+            "EnableKeyboardNavigation" : true,
+            "EnableSorting" : false,
+            "FocusStyle" : "DefaultFocusStyle",
+            "GridResetButtonLocation" : "top-right",
+            "GridSearchLocation" : "top-left",
+            "HeaderOverflow" : "tooltip",
+            "Height" : 200,
+            "IDFieldName" : "id",
+            "Id" : "gridadvanced-3",
+            "IsEditable" : false,
+            "LastContainer" : false,
+            "Left" : 174,
+            "MaxHeaderHeight" : 100,
+            "MinRowHeight" : 30,
+            "ResponsiveLayout" : true,
+            "RowAlternateBackgroundStyle" : "DefaultGridAdvancedRowAlternateBackgroundStyle",
+            "RowBackgroundStyle" : "DefaultGridAdvancedRowBackgroundStyle",
+            "RowBorderStyle" : "DefaultGridAdvancedRowBorderStyle",
+            "RowFormat_StateParameters" : [ ],
+            "RowHoverStyle" : "DefaultGridAdvancedRowHoverStyle",
+            "RowSelectedStyle" : "DefaultGridAdvancedRowSelectedStyle",
+            "RowSelection" : "none",
+            "SelectedRows" : "",
+            "ShowDataLoading" : true,
+            "SortAscendingStyle" : "DefaultSortAscendingStyle",
+            "SortDescendingStyle" : "DefaultSortDescendingStyle",
+            "TableFooterStyle" : "DefaultGridAdvancedFooterStyle",
+            "TableHeaderStyle" : "DefaultGridAdvancedHeaderStyle",
+            "TableWrapperStyle" : "DefaultGridAdvancedWrapperStyle",
+            "ToolbarStyle" : "DefaultToolbarStyle",
+            "TooltipStyle" : "DefaultTooltipStyle",
+            "Top" : 107.19999694824219,
+            "Type" : "gridadvanced",
+            "UseTheme" : false,
+            "Visible" : true,
+            "Width" : 400,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Grid Advanced"
+          },
+          "Widgets" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2023-10-13T10:53:50.139Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-13T11:22:31.973Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:40:16.293Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:43:10.318Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:45:06.326Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:53:33.684Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:54:33.780Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:55:01.795Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T01:57:27.650Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-10-14T02:04:06.340Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T02:05:59.464Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-14T02:06:54.912Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups></Entities>
