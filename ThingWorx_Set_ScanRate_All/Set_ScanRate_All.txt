@@ -1,0 +1,26 @@
+prop = me.GetPropertyDefinitions({
+	category: undefined /* STRING */,
+	type: undefined /* BASETYPENAME */,
+	dataShape: undefined /* DATASHAPENAME */
+});
+//logger.warn("PROP: " + prop.ToJSON());
+for each (var row in prop.rows) {
+    try {
+        var bind = me.GetRemotePropertyBinding({
+        	propertyName: row.name /* STRING */
+        });
+        if (bind.getRowCount()>0) {
+            bind.aspects.scanRate = 5555;
+            var property = {
+                "propertyName": bind.name,
+                "pushThreshold": bind.pushThreshold,
+                "aspects": bind.aspects,
+                "timeout": bind.timeout,
+                "pushType": bind.pushType
+            };
+            me.SetRemotePropertyBinding(property);
+        }
+    } catch(err) {
+    	// TODO
+    }
+}
