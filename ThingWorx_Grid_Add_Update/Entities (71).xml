@@ -1,0 +1,1319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><StyleDefinitions/><Networks/><PersistenceProviderPackages/><Mashups><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-10-19T05:25:39.908Z" name="OLY.GridSample.Mash" projectName="OLY.SAM" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions/><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_OLY.GridSample.DT" : {
+      "DataName" : "Things_OLY.GridSample.DT",
+      "EntityName" : "OLY.GridSample.DT",
+      "EntityType" : "Things",
+      "Id" : "a2cc7471-3939-4eff-b272-938f8cb08b6c",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "963fde54-66c2-43df-a6f7-111d99be33d0",
+        "Name" : "GetDataTableEntries",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetDataTableEntries"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "26d8f043-1ecd-43b6-893e-bb92c269488b",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetDataTableEntries",
+    "SourceName" : "GetDataTableEntries",
+    "SourceSection" : "Things_OLY.GridSample.DT",
+    "TargetArea" : "UI",
+    "TargetId" : "gridadvanced-5",
+    "TargetSection" : ""
+  }, {
+    "Id" : "b1f24bf9-2e3c-4679-8724-95f8a51bfaff",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectedRows",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "SelectRow",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "gridadvanced-5",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "navigationfunction-11",
+    "TargetSection" : ""
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_OLY.GridSample.DT",
+    "EventHandlerService" : "GetDataTableEntries",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "9c700b5a-11b3-428f-b39c-2d0b943ea794"
+  }, {
+    "EventHandlerArea" : "UI",
+    "EventHandlerId" : "navigationfunction-11",
+    "EventHandlerService" : "Navigate",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "DoubleClicked",
+    "EventTriggerId" : "gridadvanced-5",
+    "EventTriggerSection" : "",
+    "Id" : "5875be17-be7e-4e71-af31-25a28d24255b"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_OLY.GridSample.DT",
+    "EventHandlerService" : "GetDataTableEntries",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "WindowClosed",
+    "EventTriggerId" : "navigationfunction-11",
+    "EventTriggerSection" : "",
+    "Id" : "ef043061-1de5-4c69-af74-e93960293a87"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "id_index" : 11,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "row",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : false,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "AutoScroll" : true,
+          "CellBorderStyle" : "DefaultGridAdvancedCellBorderStyle",
+          "CellValidationErrorStyle" : "DefaultGridAdvancedCellValidationErrorStyle",
+          "CellValidationErrorTooltipStyle" : "DefaultGridAdvancedCellValidationErrorTooltipStyle",
+          "ColumnFormat" : {
+            "formatInfo" : [ {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "",
+              "FieldName" : "PartNo",
+              "FormatOptions" : {
+                "FormatString" : "full",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "STRING",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "PartNo",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : false,
+              "inLayout" : true
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "Source type",
+              "FieldName" : "sourceType",
+              "FormatOptions" : {
+                "FormatString" : "full",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "STRING",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "sourceType",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : true,
+              "inLayout" : false
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "Location of last modification",
+              "FieldName" : "location",
+              "FormatOptions" : {
+                "FormatString" : "0.0000",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "LOCATION",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "location",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : true,
+              "inLayout" : false
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "",
+              "FieldName" : "ParentNo",
+              "FormatOptions" : {
+                "FormatString" : "full",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "STRING",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "ParentNo",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : false,
+              "inLayout" : true
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "",
+              "FieldName" : "Cost",
+              "FormatOptions" : {
+                "FormatString" : "0",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "INTEGER",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "Cost",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : false,
+              "inLayout" : true
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "Source of last modification",
+              "FieldName" : "source",
+              "FormatOptions" : {
+                "FormatString" : "full",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "STRING",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "source",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : true,
+              "inLayout" : false
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "",
+              "FieldName" : "Description",
+              "FormatOptions" : {
+                "FormatString" : "full",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "STRING",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "Description",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : false,
+              "inLayout" : true
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "Internal key value",
+              "FieldName" : "key",
+              "FormatOptions" : {
+                "FormatString" : "full",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "STRING",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "key",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : true,
+              "inLayout" : false
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "Tags",
+              "FieldName" : "tags",
+              "FormatOptions" : {
+                "FormatString" : "plain",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "TAGS",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "tags",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : true,
+              "inLayout" : false
+            }, {
+              "Align" : "left",
+              "AllowEdit" : false,
+              "Description" : "Time of last modification",
+              "FieldName" : "timestamp",
+              "FormatOptions" : {
+                "FormatString" : "[[dateTimeFormat_Default]]",
+                "formatInfo" : {
+                  "StateFormats" : [ ]
+                },
+                "formatText" : "View",
+                "renderer" : "DATETIME",
+                "roundingEnabled" : true,
+                "showDependentField" : false
+              },
+              "Title" : "timestamp",
+              "ValidationExpression" : "",
+              "ValidationMessage" : "",
+              "Width" : "auto",
+              "headerTextAlignment" : "left",
+              "hidden" : true,
+              "inLayout" : false
+            } ]
+          },
+          "Configuration" : "",
+          "ConfigurationId" : 0,
+          "CookiePersistence" : true,
+          "DataOverflow" : "clipped",
+          "DataServiceBindingDef" : {
+            "dataName" : "Things_OLY.GridSample.DT",
+            "entityName" : "OLY.GridSample.DT",
+            "entityType" : "Things",
+            "sourceId" : "GetDataTableEntries",
+            "target" : "GetDataTableEntries"
+          },
+          "DefaultSelectedRows" : "",
+          "DisplayName" : "gridadvanced-5",
+          "DisplayOnlyMode" : false,
+          "EditButtonsLocation" : "top-right",
+          "EnableAddDeleteButtons" : false,
+          "EnableCallbackOnSelectedRowsChange" : true,
+          "EnableContextMenu" : true,
+          "EnableEditButtons" : false,
+          "EnableFilterEventOnConfigChange" : true,
+          "EnableFooter" : false,
+          "EnableGridReset" : false,
+          "EnableGridSearch" : false,
+          "EnableKeyboardNavigation" : true,
+          "EnableSorting" : false,
+          "FocusStyle" : "DefaultFocusStyle",
+          "GridResetButtonLocation" : "top-right",
+          "GridSearchLocation" : "top-left",
+          "HeaderOverflow" : "tooltip",
+          "Height" : 200,
+          "IDFieldName" : "id",
+          "Id" : "gridadvanced-5",
+          "IsEditable" : false,
+          "LastContainer" : false,
+          "Left" : 104,
+          "MaxHeaderHeight" : 100,
+          "MinRowHeight" : 30,
+          "ResponsiveLayout" : true,
+          "RowAlternateBackgroundStyle" : "DefaultGridAdvancedRowAlternateBackgroundStyle",
+          "RowBackgroundStyle" : "DefaultGridAdvancedRowBackgroundStyle",
+          "RowBorderStyle" : "DefaultGridAdvancedRowBorderStyle",
+          "RowFormat_StateParameters" : [ ],
+          "RowHoverStyle" : "DefaultGridAdvancedRowHoverStyle",
+          "RowSelectedStyle" : "DefaultGridAdvancedRowSelectedStyle",
+          "RowSelection" : "single",
+          "SelectedRows" : "",
+          "ShowDataLoading" : true,
+          "SortAscendingStyle" : "DefaultSortAscendingStyle",
+          "SortDescendingStyle" : "DefaultSortDescendingStyle",
+          "TableFooterStyle" : "DefaultGridAdvancedFooterStyle",
+          "TableHeaderStyle" : "DefaultGridAdvancedHeaderStyle",
+          "TableWrapperStyle" : "DefaultGridAdvancedWrapperStyle",
+          "ToolbarStyle" : "DefaultToolbarStyle",
+          "TooltipStyle" : "DefaultTooltipStyle",
+          "Top" : 92.19999694824219,
+          "Type" : "gridadvanced",
+          "UseTheme" : false,
+          "Visible" : true,
+          "Width" : 400,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Grid Advanced"
+        },
+        "Widgets" : [ ]
+      } ]
+    }, {
+      "Properties" : {
+        "Area" : "UI",
+        "ClickOutsideToClose" : false,
+        "CloseButton" : true,
+        "DisplayName" : "naviEdit",
+        "Id" : "navigationfunction-11",
+        "LastContainer" : false,
+        "Left" : null,
+        "MashupParameters" : [ {
+          "BaseType" : "INFOTABLE",
+          "Description" : "",
+          "ParameterName" : "SelectRow",
+          "ParmDef" : {
+            "aspects" : {
+              "bindingDirection" : "IN",
+              "dataShape" : "OLY.GridSample.DS",
+              "isMandatory" : "false"
+            },
+            "baseType" : "INFOTABLE",
+            "description" : "",
+            "name" : "SelectRow",
+            "ordinal" : 0
+          }
+        } ],
+        "MissingMashupMessage" : "",
+        "PopupHeight" : 0,
+        "PopupScrollbar" : "auto",
+        "PopupTitle" : "",
+        "PopupWidth" : 0,
+        "ReloadOnReplace" : false,
+        "ResponsiveLayout" : false,
+        "ShowDataLoading" : true,
+        "TargetMashup" : "OLY.GridSamplePopup.Mash",
+        "TargetWindowType" : "popup",
+        "Text" : "tw.navigationfunction-ide.properties.text.default-value",
+        "Top" : null,
+        "Type" : "navigationfunction",
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "navigationfunction",
+        "_currentParameterDefs" : [ {
+          "BaseType" : "INFOTABLE",
+          "DefaultValue" : {
+            "dataShape" : {
+              "name" : "OLY.GridSample.DS"
+            },
+            "rows" : [ ]
+          },
+          "Description" : "",
+          "ParameterName" : "SelectRow",
+          "bindingDirection" : "Target",
+          "bindingType" : "Property",
+          "isBindingSource" : false,
+          "isBindingTarget" : true,
+          "shown" : true
+        } ]
+      },
+      "Widgets" : [ ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2023-10-19T04:55:55.878Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T04:59:17.314Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T04:59:55.666Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T05:24:21.415Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T05:24:49.802Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T05:25:39.907Z" user="Administrator"/></ConfigurationChanges></Mashup><Mashup aspect.isFlex="true" aspect.isResponsive="true" aspect.mashupType="mashup" columns="0.0" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-10-19T05:28:09.101Z" name="OLY.GridSamplePopup.Mash" projectName="OLY.SAM" rows="0.0" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Mashup Mobile Settings" isHidden="true" isMultiRow="false" name="MobileSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="false" aspect.friendlyName="Disable Zoom" baseType="BOOLEAN" description="Disables zooming in and out within the mashup" name="disableZoom" ordinal="0"/><FieldDefinition aspect.defaultValue="true" aspect.friendlyName="Full Screen Mode" baseType="BOOLEAN" description="Open the mashup in full screen mode" name="fullScreenMode" ordinal="0"/><FieldDefinition aspect.friendlyName="Height" baseType="STRING" description="The height of the mashup page" name="height" ordinal="0"/><FieldDefinition aspect.defaultValue="device-height" aspect.friendlyName="Height Type" baseType="STRING" description="Use the height of the device display, or a custom height (in px)" name="heightType" ordinal="0"/><FieldDefinition aspect.defaultValue="1.0" aspect.friendlyName="Initial Scale" baseType="NUMBER" description="The initial zoom scale when the mashup is loaded for the first time" name="initialScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Shortcut Icon Title" baseType="STRING" description="A title for the mashup shortcut on the iOS home screen" name="iosShortcutIconTitle" ordinal="0"/><FieldDefinition aspect.defaultValue="black-translucent" aspect.friendlyName="Status Bar Appearance" baseType="STRING" description="The style of the iOS status bar" name="iosStatusBarAppearance" ordinal="0"/><FieldDefinition aspect.defaultValue="10.0" aspect.friendlyName="Maximum Scale" baseType="NUMBER" description="The maximum scale that users can zoom out to" name="maximumScale" ordinal="0"/><FieldDefinition aspect.defaultValue="0.1" aspect.friendlyName="Minimum Scale" baseType="NUMBER" description="The minimum scale that users can zoom out to" name="minimumScale" ordinal="0"/><FieldDefinition aspect.friendlyName="Width" baseType="STRING" description="The width of the mashup page" name="width" ordinal="0"/><FieldDefinition aspect.defaultValue="device-width" aspect.friendlyName="Width Type" baseType="STRING" description="Use the width of the device display, or a custom width (in px)" name="widthType" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><disableZoom>false</disableZoom><fullScreenMode>true</fullScreenMode><height><![CDATA[device-height]]></height><heightType><![CDATA[device-height]]></heightType><initialScale>1.0</initialScale><iosShortcutIconTitle/><iosStatusBarAppearance><![CDATA[black-translucent]]></iosStatusBarAppearance><maximumScale>10.0</maximumScale><minimumScale>0.1</minimumScale><width><![CDATA[device-width]]></width><widthType><![CDATA[device-width]]></widthType></Row></Rows></ConfigurationTable></ConfigurationTables><ParameterDefinitions><FieldDefinition aspect.bindingDirection="IN" aspect.dataShape="OLY.GridSample.DS" aspect.isMandatory="false" baseType="INFOTABLE" description="" name="SelectRow" ordinal="0"/></ParameterDefinitions><Things/><ThingShapes/><ThingTemplates/><mashupContent><![CDATA[{
+  "CustomMashupCss" : "",
+  "Data" : {
+    "Session" : {
+      "DataName" : "Session",
+      "EntityName" : "",
+      "EntityType" : "Session",
+      "Id" : "session",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "SessionInterface",
+        "Name" : "GetGlobalSessionValues",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetGlobalSessionValues"
+      } ]
+    },
+    "Things_OLY.GridSample.DT" : {
+      "DataName" : "Things_OLY.GridSample.DT",
+      "EntityName" : "OLY.GridSample.DT",
+      "EntityType" : "Things",
+      "Id" : "ea351a62-cb2d-4c0c-a590-2e67c4229237",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "9c08f777-e7f8-406a-a999-7374107cb61a",
+        "Name" : "AddUpdateData",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "AddUpdateData"
+      } ]
+    },
+    "Things_OLY.GridSamplePa.DT" : {
+      "DataName" : "Things_OLY.GridSamplePa.DT",
+      "EntityName" : "OLY.GridSamplePa.DT",
+      "EntityType" : "Things",
+      "Id" : "d081500e-b685-41d4-91c1-c45f579ce1e9",
+      "RefreshInterval" : 0,
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "d8326cc5-df0c-4141-89cc-129912b3388e",
+        "Name" : "GetDataTableEntries",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetDataTableEntries"
+      } ]
+    },
+    "UserExtensions" : {
+      "DataName" : "UserExtensions",
+      "EntityName" : "",
+      "EntityType" : "UserExtensions",
+      "Id" : "UserExtensions",
+      "Services" : [ {
+        "APIMethod" : "post",
+        "Characteristic" : "Services",
+        "Id" : "UserExtensionInterface",
+        "Name" : "GetCurrentUserExtensionProperties",
+        "Parameters" : { },
+        "RefreshInterval" : 0,
+        "Target" : "GetCurrentUserExtensionProperties"
+      } ]
+    }
+  },
+  "DataBindings" : [ {
+    "Id" : "cc507b36-f111-4e38-9117-b825e4cad3d2",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectRow",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "property",
+      "SubProperty" : "Description",
+      "TargetProperty" : "Text",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "AllData",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcstextfield-29",
+    "TargetSection" : ""
+  }, {
+    "Id" : "301fee3d-abc0-49fa-958e-2d920e7b7e67",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectRow",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "property",
+      "SubProperty" : "PartNo",
+      "TargetProperty" : "Text",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "AllData",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcstextfield-26",
+    "TargetSection" : ""
+  }, {
+    "Id" : "48ce6b95-7c9a-4339-9a46-0f99681501c4",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectRow",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "property",
+      "SubProperty" : "ParentNo",
+      "TargetProperty" : "SelectedText",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "AllData",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-30",
+    "TargetSection" : ""
+  }, {
+    "Id" : "035a2b1d-6ec6-4bfe-bdef-382e3e1c20e9",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectRow",
+      "SourcePropertyBaseType" : "INTEGER",
+      "SourcePropertyType" : "property",
+      "SubProperty" : "Cost",
+      "TargetProperty" : "Text",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Mashup",
+    "SourceDetails" : "AllData",
+    "SourceId" : "mashup-root",
+    "SourceSection" : "",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcstextfield-28",
+    "TargetSection" : ""
+  }, {
+    "Id" : "90f2dc7b-698e-4bfe-bc6e-6a3a83a8c6c0",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "",
+      "SourcePropertyBaseType" : "INFOTABLE",
+      "SourcePropertyType" : "InfoTable",
+      "TargetProperty" : "Data",
+      "TargetPropertyBaseType" : "INFOTABLE",
+      "TargetPropertyType" : "property"
+    } ],
+    "SourceArea" : "Data",
+    "SourceDetails" : "AllData",
+    "SourceId" : "GetDataTableEntries",
+    "SourceSection" : "Things_OLY.GridSamplePa.DT",
+    "TargetArea" : "UI",
+    "TargetId" : "ptcsdropdown-30",
+    "TargetSection" : ""
+  }, {
+    "Id" : "a08a32fa-da18-44d4-9b64-82b85b283e3c",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Text",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "Cost",
+      "TargetPropertyBaseType" : "INTEGER",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcstextfield-28",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "AddUpdateData",
+    "TargetSection" : "Things_OLY.GridSample.DT"
+  }, {
+    "Id" : "ac904ba3-d4a2-45de-bedc-d7357cae72be",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Text",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "PartNo",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcstextfield-26",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "AddUpdateData",
+    "TargetSection" : "Things_OLY.GridSample.DT"
+  }, {
+    "Id" : "5f7073e3-ddc9-44ed-9605-88e3b0d01510",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "SelectedText",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "ParentNo",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcsdropdown-30",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "AddUpdateData",
+    "TargetSection" : "Things_OLY.GridSample.DT"
+  }, {
+    "Id" : "90f02625-765f-415a-a0d7-a8890fb912ad",
+    "PropertyMaps" : [ {
+      "SourceProperty" : "Text",
+      "SourcePropertyBaseType" : "STRING",
+      "SourcePropertyType" : "Property",
+      "TargetProperty" : "Description",
+      "TargetPropertyBaseType" : "STRING",
+      "TargetPropertyType" : "Parameter"
+    } ],
+    "SourceArea" : "UI",
+    "SourceDetails" : "",
+    "SourceId" : "ptcstextfield-29",
+    "SourceSection" : "",
+    "TargetArea" : "Data",
+    "TargetId" : "AddUpdateData",
+    "TargetSection" : "Things_OLY.GridSample.DT"
+  } ],
+  "DesignTimePermissions" : { },
+  "Events" : [ {
+    "EventHandlerArea" : "Mashup",
+    "EventHandlerId" : "mashup-root",
+    "EventHandlerService" : "CloseIfPopup",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Clicked",
+    "EventTriggerId" : "ptcsbutton-10",
+    "EventTriggerSection" : "",
+    "Id" : "1978901c-d4c2-4887-9e8c-e08e1155d8d2"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_OLY.GridSamplePa.DT",
+    "EventHandlerService" : "GetDataTableEntries",
+    "EventTriggerArea" : "Mashup",
+    "EventTriggerEvent" : "Loaded",
+    "EventTriggerId" : "mashup-root",
+    "EventTriggerSection" : "",
+    "Id" : "c136296a-eb6a-4f2d-8771-9664d71d6409"
+  }, {
+    "EventHandlerArea" : "Data",
+    "EventHandlerId" : "Things_OLY.GridSample.DT",
+    "EventHandlerService" : "AddUpdateData",
+    "EventTriggerArea" : "UI",
+    "EventTriggerEvent" : "Clicked",
+    "EventTriggerId" : "ptcsbutton-9",
+    "EventTriggerSection" : "",
+    "Id" : "57283934-b68c-4cf7-9b1b-084bb162790e"
+  }, {
+    "EventHandlerArea" : "Mashup",
+    "EventHandlerId" : "mashup-root",
+    "EventHandlerService" : "CloseIfPopup",
+    "EventTriggerArea" : "Data",
+    "EventTriggerEvent" : "ServiceInvokeCompleted",
+    "EventTriggerId" : "AddUpdateData",
+    "EventTriggerSection" : "Things_OLY.GridSample.DT",
+    "Id" : "89447bc7-bb81-4363-9450-7263db5daa6b"
+  } ],
+  "RunTimePermissions" : { },
+  "UI" : {
+    "Properties" : {
+      "AddToDashboardButton" : "SimplePlus",
+      "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+      "Area" : "Mashup",
+      "BGImage" : "",
+      "BGImageRepeat" : "no-repeat",
+      "BGImageSize" : "auto",
+      "Columns" : 0,
+      "ConfigureGadgetButton" : "SimpleGear",
+      "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+      "DisplayName" : "Mashup",
+      "EnableParameterEditing" : false,
+      "Height" : 618,
+      "Id" : "mashup-root",
+      "IgnoreWarningsInViewMashup" : false,
+      "IsPrintLayout" : false,
+      "Left" : 0,
+      "MashupToEditGadget" : "DefaultMashupToEditGadget",
+      "MinHeight" : 0,
+      "MinWidth" : 0,
+      "ResponsiveLayout" : true,
+      "Rows" : 0,
+      "ShowDataLoading" : true,
+      "Style" : "DefaultMashupStyle",
+      "StyleProperties" : {
+        "data" : { },
+        "meta" : {
+          "type" : "WidgetStyler",
+          "version" : "1.0"
+        }
+      },
+      "StyleTheme" : "PTC Convergence Theme",
+      "Title" : "",
+      "TitleBar" : false,
+      "TitleBarStyle" : "DefaultTitleBarStyle",
+      "TitleBarText" : "Gadget Title Here",
+      "Top" : 0,
+      "Type" : "mashup",
+      "UseMasterTheme" : false,
+      "UseTheme" : false,
+      "UseThemeForHybrids" : false,
+      "Visible" : true,
+      "Width" : 1024,
+      "Z-index" : 10,
+      "__TypeDisplayName" : "Mashup",
+      "_currentParameterDefs" : [ {
+        "Aspects" : {
+          "bindingDirection" : "IN",
+          "dataShape" : "OLY.GridSample.DS",
+          "isMandatory" : false
+        },
+        "BaseType" : "INFOTABLE",
+        "Description" : "",
+        "ParameterName" : "SelectRow"
+      } ],
+      "id_index" : 30,
+      "supportsAutoResize" : true
+    },
+    "Widgets" : [ {
+      "Properties" : {
+        "Area" : "UI",
+        "DisplayName" : "container-2",
+        "EnableExpandCollapse" : false,
+        "ExpandCollapseTabLocation" : "inside",
+        "Expanded" : true,
+        "Id" : "flexcontainer-2",
+        "LastContainer" : true,
+        "Overlay" : false,
+        "ResponsiveLayout" : true,
+        "ShowDataLoading" : true,
+        "ShowExpandCollapseTab" : false,
+        "SourceURL" : "",
+        "Style" : "DefaultContainerStyle",
+        "StyleProperties" : { },
+        "Type" : "flexcontainer",
+        "UseTheme" : true,
+        "Visible" : true,
+        "Z-index" : 10,
+        "__TypeDisplayName" : "Responsive Container",
+        "align-content" : "flex-start",
+        "align-items" : "flex-start",
+        "flex-basis" : "auto",
+        "flex-direction" : "column",
+        "flex-grow" : 1,
+        "flex-max-height" : "",
+        "flex-max-width" : "",
+        "flex-min-height" : "",
+        "flex-min-width" : "",
+        "flex-shrink" : 1,
+        "flex-size" : "default",
+        "flex-wrap" : "nowrap",
+        "iconClass" : "widgets-flexcontainer",
+        "isLocked" : false,
+        "justify-content" : "flex-start",
+        "positioning" : "responsive",
+        "userCannotRemove" : true
+      },
+      "Widgets" : [ {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-12",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-12",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "Counter" : false,
+            "Disabled" : false,
+            "DisplayName" : "ptcs-textfield-26",
+            "Id" : "ptcstextfield-26",
+            "Label" : "PartNo",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 194,
+            "Margin" : "5",
+            "MaxNumberOfCharacters" : 100,
+            "Password" : false,
+            "ReadOnly" : false,
+            "ResponsiveLayout" : false,
+            "ShowClearText" : true,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "TextAlignment" : "left",
+            "Top" : 57.19999694824219,
+            "Type" : "ptcstextfield",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Width" : 273,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Text Field"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-23",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-23",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : true,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Alignment" : "left",
+            "AllLabel" : "[[all]]",
+            "Area" : "UI",
+            "AutoSelectFirstRow" : false,
+            "ClearSelectedItemsLabel" : "[[clearSelectedItems]]",
+            "ClearSelectionItem" : true,
+            "ClearSelectionLabel" : "(None)",
+            "Disabled" : false,
+            "DisplayField" : "ParentNo",
+            "DisplayFieldBaseType" : "STRING",
+            "DisplayName" : "ptcs-dropdown-30",
+            "FilterHintText" : "Filter",
+            "HintText" : "Select...",
+            "Id" : "ptcsdropdown-30",
+            "ItemMeta" : {
+              "type" : "text"
+            },
+            "Label" : "ParentNo",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 294,
+            "ListFormat_StateParameters" : [ ],
+            "Margin" : "5",
+            "MultiSelect" : false,
+            "ResponsiveLayout" : false,
+            "RowHeight" : 34,
+            "SelectAllLabel" : "[[selectAll]]",
+            "SelectedLabel" : "[[selected]]",
+            "ShowDataLoading" : true,
+            "ShowListFilter" : false,
+            "TabSequence" : 0,
+            "Top" : 47.19999694824219,
+            "Type" : "ptcsdropdown",
+            "UseTheme" : true,
+            "ValueField" : "ParentNo",
+            "Visible" : true,
+            "Width" : 273,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "DropDown"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-24",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-24",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : true,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "Counter" : false,
+            "Disabled" : false,
+            "DisplayName" : "ptcs-textfield-28",
+            "Id" : "ptcstextfield-28",
+            "Label" : "Cost",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 184,
+            "Margin" : "5",
+            "MaxNumberOfCharacters" : 100,
+            "Password" : false,
+            "ReadOnly" : false,
+            "ResponsiveLayout" : false,
+            "ShowClearText" : true,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "TextAlignment" : "left",
+            "Top" : 42.19999694824219,
+            "Type" : "ptcstextfield",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Width" : 273,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Text Field"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-25",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-25",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : true,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "",
+          "flex-max-width" : "",
+          "flex-min-height" : "",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "default",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "Counter" : false,
+            "Disabled" : false,
+            "DisplayName" : "ptcs-textfield-29",
+            "Id" : "ptcstextfield-29",
+            "Label" : "Description",
+            "LabelAlignment" : "left",
+            "LastContainer" : false,
+            "Left" : 79,
+            "Margin" : "5",
+            "MaxNumberOfCharacters" : 100,
+            "Password" : false,
+            "ReadOnly" : false,
+            "ResponsiveLayout" : false,
+            "ShowClearText" : true,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "TextAlignment" : "left",
+            "Top" : 37.19999694824219,
+            "Type" : "ptcstextfield",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Width" : 273,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Text Field"
+          },
+          "Widgets" : [ ]
+        } ]
+      }, {
+        "Properties" : {
+          "Area" : "UI",
+          "DisplayName" : "container-11",
+          "EnableExpandCollapse" : false,
+          "ExpandCollapseTabLocation" : "inside",
+          "Expanded" : true,
+          "Id" : "flexcontainer-11",
+          "LastContainer" : false,
+          "Overlay" : false,
+          "ResponsiveLayout" : false,
+          "ShowDataLoading" : true,
+          "ShowExpandCollapseTab" : false,
+          "SourceURL" : "",
+          "Style" : "DefaultContainerStyle",
+          "StyleProperties" : { },
+          "Type" : "flexcontainer",
+          "UseTheme" : true,
+          "Visible" : true,
+          "Z-index" : 10,
+          "__TypeDisplayName" : "Responsive Container",
+          "align-content" : "flex-start",
+          "align-items" : "center",
+          "flex-basis" : "auto",
+          "flex-direction" : "row",
+          "flex-grow" : 1,
+          "flex-max-height" : "58px",
+          "flex-max-width" : "",
+          "flex-min-height" : "58px",
+          "flex-min-width" : "",
+          "flex-shrink" : 1,
+          "flex-size" : "fixed",
+          "flex-wrap" : "nowrap",
+          "iconClass" : "widgets-flexcontainer-fixed",
+          "isLocked" : false,
+          "justify-content" : "center",
+          "positioning" : "responsive",
+          "userCannotRemove" : false
+        },
+        "Widgets" : [ {
+          "Properties" : {
+            "Area" : "UI",
+            "ButtonType" : "primary",
+            "ContextID" : "",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-button-9",
+            "Id" : "ptcsbutton-9",
+            "Label" : "AddUpdate",
+            "LabelAlignment" : "center",
+            "LastContainer" : false,
+            "Left" : 74,
+            "Margin" : "5",
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "Top" : 2.1999969482421875,
+            "Type" : "ptcsbutton",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Button"
+          },
+          "Widgets" : [ ]
+        }, {
+          "Properties" : {
+            "Area" : "UI",
+            "ButtonType" : "primary",
+            "ContextID" : "",
+            "Disabled" : false,
+            "DisplayName" : "ptcs-button-10",
+            "Id" : "ptcsbutton-10",
+            "Label" : "Cancel",
+            "LabelAlignment" : "center",
+            "LastContainer" : false,
+            "Left" : 144,
+            "Margin" : "5",
+            "ResponsiveLayout" : false,
+            "ShowDataLoading" : true,
+            "TabSequence" : 0,
+            "Top" : 27.199996948242188,
+            "Type" : "ptcsbutton",
+            "UseTheme" : true,
+            "Visible" : true,
+            "Z-index" : 10,
+            "__TypeDisplayName" : "Button"
+          },
+          "Widgets" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "mashupType" : "mashup"
+}]]></mashupContent><preview/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-10-19T04:56:50.039Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T04:57:29.486Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T05:11:18.594Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T05:19:34.436Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="Mashup : design : updated&#10;" timestamp="2023-10-19T05:28:09.101Z" user="Administrator"/></ConfigurationChanges></Mashup></Mashups><ScriptFunctionLibraries/><Projects><Project artifactId="" aspect.projectType="Component" dependsOn="{&quot;extensions&quot;:&quot;&quot;,&quot;projects&quot;:&quot;MKN.Demo:1.0.0&quot;}" description="" documentationContent="" groupId="" homeMashup="" lastModifiedDate="2023-10-19T04:55:56.072Z" minPlatformVersion="" name="OLY.SAM" packageVersion="1.0.0" projectName="OLY.SAM" publishResult="" state="DRAFT" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-10-19T04:53:32.980Z" user="Administrator"/></ConfigurationChanges></Project></Projects><Users/><DirectoryServices/><Widgets/><MediaEntities/><Groups/><PersistenceProviders/><ModelTags/><LocalizationTables/><Dashboards/><StyleThemes/><DataShapes><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-10-19T05:16:57.760Z" name="OLY.GridSamplePa.DS" projectName="OLY.SAM" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="true" baseType="STRING" description="" name="ParentNo" ordinal="2"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;" timestamp="2023-10-19T05:16:23.598Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : PartNo : deleted, Cost : deleted, Description : deleted, ParentNo : updated&#10;" timestamp="2023-10-19T05:16:57.760Z" user="Administrator"/></ConfigurationChanges></DataShape><DataShape baseDataShape="" description="" documentationContent="" homeMashup="" lastModifiedDate="2023-10-19T04:53:47.456Z" name="OLY.GridSample.DS" projectName="OLY.SAM" tags=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="Cost" ordinal="3"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Description" ordinal="4"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="ParentNo" ordinal="2"/><FieldDefinition aspect.isPrimaryKey="true" baseType="STRING" description="" name="PartNo" ordinal="1"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;" timestamp="2023-10-19T04:53:47.456Z" user="Administrator"/></ConfigurationChanges></DataShape></DataShapes><Things><Thing description="" documentationContent="" effectiveThingPackage="DataTableThing" enabled="true" homeMashup="DataTableEditor" identifier="" inheritedValueStream="" lastModifiedDate="2023-10-19T05:17:59.066Z" name="OLY.GridSamplePa.DT" projectName="OLY.SAM" published="false" tags="" thingTemplate="DataTable" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Data Thing Configuration" isMultiRow="false" name="DataThingSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="Persistence Provider Name" name="persistenceProvider" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><persistenceProvider><![CDATA[ThingworxPersistenceProvider]]></persistenceProvider></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Data Shape Configuration" isMultiRow="false" name="Settings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Data Shape" baseType="DATASHAPENAME" description="Data shape" name="dataShape" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><accumulatedDataShape><json><![CDATA[{"fieldDefinitions":{"ParentNo":{"name":"ParentNo","aspects":{"isPrimaryKey":true},"description":"","baseType":"STRING","ordinal":0}}}]]></json></accumulatedDataShape><dataShape><![CDATA[OLY.GridSamplePa.DS]]></dataShape></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Index Settings" isMultiRow="true" name="Indexes" ordinal="1"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Index Field Names" baseType="STRING" description="Index fields" name="fieldNames" ordinal="1"/><FieldDefinition aspect.friendlyName="Index Name" baseType="STRING" description="Index name" name="name" ordinal="0"/></FieldDefinitions></DataShape><Rows/></ConfigurationTable><ConfigurationTable dataShapeName="" description="Configurable options to tune Data Table performance" isMultiRow="false" name="PersistenceProviderCustomSettings" ordinal="2"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Persistence Provider Custom Settings Table" baseType="INFOTABLE" description="Persistence Provider Custom Config Table" name="customConfigTable" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><customConfigTable><infoTable><DataShape><FieldDefinitions/></DataShape><Rows/></infoTable></customConfigTable></Row></Rows></ConfigurationTable></ConfigurationTables><ThingShape><PropertyDefinitions/><ServiceDefinitions/><EventDefinitions/><ServiceMappings/><ServiceImplementations/><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;configuration : dataShape : updated&#10;" timestamp="2023-10-19T05:17:33.127Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-10-19T05:17:59.065Z" user="Administrator"/></ConfigurationChanges></Thing><Thing description="" documentationContent="" effectiveThingPackage="DataTableThing" enabled="true" homeMashup="DataTableEditor" identifier="" inheritedValueStream="" lastModifiedDate="2023-10-19T05:23:47.771Z" name="OLY.GridSample.DT" projectName="OLY.SAM" published="false" tags="" thingTemplate="DataTable" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Data Thing Configuration" isMultiRow="false" name="DataThingSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="Persistence Provider Name" name="persistenceProvider" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><persistenceProvider><![CDATA[ThingworxPersistenceProvider]]></persistenceProvider></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Data Shape Configuration" isMultiRow="false" name="Settings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Data Shape" baseType="DATASHAPENAME" description="Data shape" name="dataShape" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><accumulatedDataShape><json><![CDATA[{"fieldDefinitions":{"Description":{"name":"Description","aspects":{"isPrimaryKey":false},"description":"","baseType":"STRING","ordinal":1},"PartNo":{"name":"PartNo","aspects":{"isPrimaryKey":true},"description":"","baseType":"STRING","ordinal":3},"Cost":{"name":"Cost","aspects":{"isPrimaryKey":false},"description":"","baseType":"INTEGER","ordinal":0},"ParentNo":{"name":"ParentNo","aspects":{"isPrimaryKey":false},"description":"","baseType":"STRING","ordinal":2}}}]]></json></accumulatedDataShape><dataShape><![CDATA[OLY.GridSample.DS]]></dataShape></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Index Settings" isMultiRow="true" name="Indexes" ordinal="1"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Index Field Names" baseType="STRING" description="Index fields" name="fieldNames" ordinal="1"/><FieldDefinition aspect.friendlyName="Index Name" baseType="STRING" description="Index name" name="name" ordinal="0"/></FieldDefinitions></DataShape><Rows/></ConfigurationTable><ConfigurationTable dataShapeName="" description="Configurable options to tune Data Table performance" isMultiRow="false" name="PersistenceProviderCustomSettings" ordinal="2"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Persistence Provider Custom Settings Table" baseType="INFOTABLE" description="Persistence Provider Custom Config Table" name="customConfigTable" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><customConfigTable><infoTable><DataShape><FieldDefinitions/></DataShape><Rows/></infoTable></customConfigTable></Row></Rows></ConfigurationTable></ConfigurationTables><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="AddUpdateData"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="INTEGER" description="" name="Cost" ordinal="3"/><FieldDefinition baseType="STRING" description="" name="Description" ordinal="4"/><FieldDefinition baseType="STRING" description="" name="ParentNo" ordinal="2"/><FieldDefinition baseType="STRING" description="" name="PartNo" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="AddUpdateData"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[if (PartNo) {
+    // OLY.GridSample.DS entry object
+    let newEntry = {
+        PartNo: PartNo, // STRING [Primary Key]
+        ParentNo: ParentNo, // STRING
+        Cost: Cost, // INTEGER
+        Description: Description // STRING
+    };
+    // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(OLY.GridSample.DS)
+    let value = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+        infoTableName: "InfoTable",
+        dataShapeName: "OLY.GridSample.DS"
+    });
+	value.AddRow(newEntry);
+
+    me.AddOrUpdateDataTableEntry({
+    	tags: undefined /* TAGS */,
+    	location: undefined /* LOCATION */,
+    	source: undefined /* STRING */,
+    	sourceType: undefined /* STRING */,
+    	values: value /* INFOTABLE */
+    });
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, projectName : updated&#10;configuration : dataShape : updated&#10;" timestamp="2023-10-19T04:55:23.302Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateData : service added&#10;" timestamp="2023-10-19T05:23:47.769Z" user="Administrator"/></ConfigurationChanges></Thing></Things><Logs/><Authenticators/><ThingPackages/><NotificationDefinitions/><ApplicationKeys/><StateDefinitions/><ThingTemplates/><ExtensionPackages/><Organizations/><Menus/><ThingGroups/><Resources/><DataTags/><ThingShapes/><Subsystems/><NotificationContents/></Entities>
