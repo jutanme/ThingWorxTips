@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b112" majorVersion="9" minorVersion="2" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="1" schemaVersion="1120" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="StreamThing" enabled="true" homeMashup="StreamMashup" identifier="" inheritedValueStream="" lastModifiedDate="2023-10-21T08:44:19.536Z" name="OLY.Stream.ST" projectName="OLY.SAM" published="false" tags="" thingTemplate="Stream" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="Data Thing Configuration" isMultiRow="false" name="DataThingSettings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="Persistence Provider Name" name="persistenceProvider" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><persistenceProvider><![CDATA[ThingworxPersistenceProvider]]></persistenceProvider></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Data Shape Configuration" isMultiRow="false" name="Settings" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Data Shape" baseType="DATASHAPENAME" description="Data shape" name="dataShape" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><accumulatedDataShape><json><![CDATA[{"fieldDefinitions":{"aaa":{"name":"aaa","aspects":{"isPrimaryKey":false},"description":"","baseType":"STRING","ordinal":0},"bbb":{"name":"bbb","aspects":{"isPrimaryKey":false},"description":"","baseType":"NUMBER","ordinal":1},"timestamp":{"name":"timestamp","aspects":{"isPrimaryKey":false},"description":"","baseType":"DATETIME","ordinal":2}}}]]></json></accumulatedDataShape><dataShape><![CDATA[OLY.Stream.DS]]></dataShape></Row></Rows></ConfigurationTable><ConfigurationTable dataShapeName="" description="Configurable options to tune Stream performance" isMultiRow="false" name="PersistenceProviderCustomSettings" ordinal="2"><DataShape><FieldDefinitions><FieldDefinition aspect.friendlyName="Persistence Provider Custom Settings Table" baseType="INFOTABLE" description="Persistence Provider Custom Config Table" name="customConfigTable" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><customConfigTable><infoTable><DataShape><FieldDefinitions/></DataShape><Rows/></infoTable></customConfigTable></Row></Rows></ConfigurationTable></ConfigurationTables><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="STRING" category="" description="" isLocalOnly="false" name="aaa" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.isPersistent="true" baseType="NUMBER" category="" description="" isLocalOnly="false" name="bbb" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="AddUpdateStream"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getEntryId"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="getStreams"><ResultType baseType="INFOTABLE" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="updateStream"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="AddUpdateStream"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var date = new Date();
+let newEntry = {
+    timestamp: date, // DATETIME
+    aaa: me.aaa, // NUMBER
+    bbb: me.bbb // NUMBER
+};
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(OLY.3DChart.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "OLY.Stream.DS"
+});
+result.AddRow(newEntry);
+// Provide your filter using the format as described in the help topic "Query Parameter for Query Services"
+
+var stData = me.QueryStreamEntries({
+	maxItems: 1 /* NUMBER {"defaultValue":500} */,
+	source: me.aaa /* STRING */,
+	tags: undefined /* TAGS */,
+	sourceTags: undefined /* TAGS */,
+	startDate: undefined /* DATETIME */,
+	endDate: undefined /* DATETIME */,
+	oldestFirst: undefined /* BOOLEAN */,
+	query: undefined /* QUERY */
+});
+
+if (stData == undefined || stData.getRowCount()<1) { 
+    me.AddStreamEntry({
+    	timestamp: date /* DATETIME */,
+    	location: undefined /* LOCATION */,
+    	source: me.aaa /* STRING */,
+    	sourceType: "DeviUserce" /* STRING */,
+    	tags: undefined /* TAGS */,
+    	values: result /* INFOTABLE */
+    });
+} else { 
+    logger.warn("EntID: " + stData.id);
+    //logger.warn("EntID: " + result.To);
+    me.UpdateStreamEntry({
+    	streamEntryId: stData.id /* STRING */,
+    	location: undefined /* LOCATION */,
+    	source: me.aaa /* STRING */,
+    	tags: undefined /* TAGS */,
+    	values: result /* INFOTABLE */
+    });
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getEntryId"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = me.QueryStreamEntries({
+	maxItems: 1 /* NUMBER {"defaultValue":500} */,
+	source: me.aaa /* STRING */,
+	tags: undefined /* TAGS */,
+	sourceTags: undefined /* TAGS */,
+	startDate: undefined /* DATETIME */,
+	endDate: undefined /* DATETIME */,
+	oldestFirst: undefined /* BOOLEAN */,
+	query: undefined /* QUERY */
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="getStreams"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = me.QueryStreamEntries({
+	maxItems: 1 /* NUMBER {"defaultValue":500} */,
+	source: "aaa" /* STRING */,
+	tags: undefined /* TAGS */,
+	sourceTags: undefined /* TAGS */,
+	startDate: undefined /* DATETIME */,
+	endDate: undefined /* DATETIME */,
+	oldestFirst: undefined /* BOOLEAN */,
+	query: undefined /* QUERY */
+});]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="updateStream"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var date = new Date();
+let newEntry = {
+    timestamp: date, // DATETIME
+    aaa: "aaa", // NUMBER
+    bbb: 123 // NUMBER
+};
+// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(OLY.3DChart.DS)
+let result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+    infoTableName: "InfoTable",
+    dataShapeName: "OLY.Stream.DS"
+});
+result.AddRow(newEntry);
+
+me.UpdateStreamEntry({
+    	streamEntryId: 761 /* STRING */,
+    	location: undefined /* LOCATION */,
+    	source: me.aaa /* STRING */,
+    	tags: undefined /* TAGS */,
+    	values: result /* INFOTABLE */
+    });]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions><Subscription description="" enabled="true" eventName="AnyDataChange" name="AnyChangeSub" source="" sourceProperty="" sourceType="Thing"><ServiceImplementation description="" handlerName="Script" name="AnyChangeSub"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[me.AddUpdateStream();]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></Subscription></Subscriptions></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="aaa"/><AlertDefinitions name="bbb"/></AlertConfigurations><ImplementedShapes/><ThingProperties><aaa><Value><![CDATA[eee]]></Value><Timestamp>2023-10-21T11:26:38.197Z</Timestamp><Quality>GOOD</Quality></aaa><bbb><Value>55555.0</Value><Timestamp>2023-10-21T11:26:52.869Z</Timestamp><Quality>GOOD</Quality></bbb></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated&#10;configuration : dataShape : updated&#10;" timestamp="2023-10-21T08:04:24.636Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:04:43.120Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="properties : aaa : updated&#10;" timestamp="2023-10-21T08:05:00.597Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-10-21T08:05:10.050Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:06:08.785Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2023-10-21T08:06:32.597Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:26:16.048Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:26:43.579Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:27:03.860Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:27:25.674Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:27:47.642Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:28:25.616Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:29:21.176Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:30:46.429Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:31:12.328Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;updateStream : service added&#10;" timestamp="2023-10-21T08:33:06.667Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : updateStream : service updated&#10;" timestamp="2023-10-21T08:33:35.558Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : updateStream : service updated&#10;" timestamp="2023-10-21T08:34:36.085Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : getStreams : service updated&#10;" timestamp="2023-10-21T08:34:51.493Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : output updated&#10;" timestamp="2023-10-21T08:37:42.926Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:38:20.811Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:40:13.671Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:41:37.639Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:42:54.490Z" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : AddUpdateStream : service updated&#10;" timestamp="2023-10-21T08:44:19.536Z" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
