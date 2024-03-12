@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b49" majorVersion="9" minorVersion="4" modelPersistenceProviderPackage="PostgresPersistenceProviderPackage" revision="0" schemaVersion="1140" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="FTP_Server" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2024-03-12T13:12:32.148Z" name="ftop" projectName="PTCDefaultProject" published="false" tags="" thingTemplate="FTPServer" valueStream=""><Owner name="ptcuser" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables><ConfigurationTable dataShapeName="" description="FTP Server Connection Parameters" isMultiRow="false" name="ConnectionInfo" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition aspect.defaultValue="" aspect.friendlyName="FTP Password" baseType="PASSWORD" description="FTP password" name="FTPPass" ordinal="3"/><FieldDefinition aspect.defaultValue="21" aspect.friendlyName="FTP Server Port" baseType="INTEGER" description="FTP server port" name="FTPPort" ordinal="1"/><FieldDefinition aspect.defaultValue="ftp.domain.com" aspect.friendlyName="FTP Server Address" baseType="STRING" description="FTP server name" name="FTPServer" ordinal="0"/><FieldDefinition aspect.defaultValue="" aspect.friendlyName="FTP Username" baseType="STRING" description="FTP username" name="FTPUser" ordinal="2"/></FieldDefinitions></DataShape><Rows><Row><FTPPass/><FTPPort>21</FTPPort><FTPServer><![CDATA[ftp.domain.com]]></FTPServer><FTPUser><![CDATA[ttt]]></FTPUser></Row></Rows></ConfigurationTable></ConfigurationTables><ThingShape><PropertyDefinitions><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="RCH.Navi.THEMEWG.FileUpdate_DS" aspect.defaultValue="{&quot;rows&quot;:[{&quot;path&quot;:&quot;1&quot;,&quot;LinkURL&quot;:&quot;1&quot;,&quot;Numbering&quot;:1,&quot;User&quot;:&quot;1&quot;,&quot;FileName&quot;:&quot;1&quot;,&quot;TrueFileName&quot;:&quot;1&quot;},{&quot;path&quot;:&quot;2&quot;,&quot;LinkURL&quot;:&quot;2&quot;,&quot;Numbering&quot;:2,&quot;User&quot;:&quot;2&quot;,&quot;FileName&quot;:&quot;2&quot;,&quot;TrueFileName&quot;:&quot;2&quot;}],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;path&quot;:{&quot;name&quot;:&quot;path&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:6},&quot;LinkURL&quot;:{&quot;name&quot;:&quot;LinkURL&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;HYPERLINK&quot;,&quot;ordinal&quot;:5},&quot;Numbering&quot;:{&quot;name&quot;:&quot;Numbering&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:true},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2},&quot;User&quot;:{&quot;name&quot;:&quot;User&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;FileName&quot;:{&quot;name&quot;:&quot;FileName&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:3},&quot;TrueFileName&quot;:{&quot;name&quot;:&quot;TrueFileName&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:7}}}}" aspect.isIndexed="false" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data" ordinal="2"/><PropertyDefinition aspect.cacheTime="0.0" aspect.dataChangeType="VALUE" aspect.dataShape="TestGrid" aspect.defaultValue="{&quot;rows&quot;:[{&quot;TotalCost&quot;:1,&quot;HasChildren&quot;:true,&quot;order01&quot;:1,&quot;Id&quot;:&quot;1&quot;,&quot;order02&quot;:1,&quot;order03&quot;:1,&quot;Name&quot;:&quot;テスト&quot;},{&quot;ParentId&quot;:&quot;1&quot;,&quot;TotalCost&quot;:11,&quot;HasChildren&quot;:true,&quot;order01&quot;:11,&quot;Id&quot;:&quot;11&quot;,&quot;order02&quot;:11,&quot;order03&quot;:11,&quot;Name&quot;:&quot;滑川&quot;},{&quot;ParentId&quot;:&quot;1/11&quot;,&quot;TotalCost&quot;:111,&quot;order01&quot;:111,&quot;Id&quot;:&quot;111&quot;,&quot;order02&quot;:111,&quot;order03&quot;:111,&quot;Name&quot;:&quot;sfsd&quot;}],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;ParentId&quot;:{&quot;name&quot;:&quot;ParentId&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:3},&quot;TotalCost&quot;:{&quot;name&quot;:&quot;TotalCost&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;HasChildren&quot;:{&quot;name&quot;:&quot;HasChildren&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:2},&quot;order01&quot;:{&quot;name&quot;:&quot;order01&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:6},&quot;Id&quot;:{&quot;name&quot;:&quot;Id&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:4},&quot;order02&quot;:{&quot;name&quot;:&quot;order02&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:7},&quot;order03&quot;:{&quot;name&quot;:&quot;order03&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:8},&quot;Name&quot;:{&quot;name&quot;:&quot;Name&quot;,&quot;aspects&quot;:{&quot;isPrimaryKey&quot;:false},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1}}}}" aspect.isIndexed="false" aspect.isPersistent="true" baseType="INFOTABLE" category="" description="" isLocalOnly="false" name="data2" ordinal="3"/></PropertyDefinitions><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="AddUserTest"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetConfiguration"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="GetConfigurationCopy"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="AddUserTest"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[for (i=1; i<500; i++) {
+    Resources["EntityServices"].CreateUser({
+        password: "ptcuserptcuser" /* STRING */,
+        name: i + "junichi_ishizuka@jp.ricoh.com" /* STRING */,
+        description: undefined /* STRING */,
+        projectName: "RCH.THEMEWG.Project" /* PROJECTNAME */,
+        tags: undefined /* TAGS */
+    });
+}]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetConfiguration"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = 
+ 	{
+	    "treeSettings": {
+	        "idPathSeparator": ":;",
+	        "expandAllLoadedLevels": false,
+	        "hasChildrenFieldName": "HasChildren",
+	        "parentIdFieldName": "ParentId",
+	        "maxRowCacheSize": 100000,
+	        "expandRowOnDoubleClick": false,
+	        "preserveRowExpansion": false,
+	        "includeRowExpansionParents": false
+	    },
+        "rows":       {                               // Optional
+         // "selection":                  "single",      // *{string} row selection setting. Options: 'none, 'single', 'multi'
+         // "defaultSelectedRows":        "",           // *{string} default row selection setting starting with row 1. Options: '1', '1,2,3', '1-5,10'
+          "minHeight":                  "30",         // {string} row height setting in px.
+          "maxHeight":                  "30",         // {string} row height setting in px.
+         // "autoScroll":                 true  ,        // {boolean} scroll to the selected rows on update or resize
+          "verticalAlignment":          "middle"
+        },
+	    "columns": {
+            "header": {
+                "hide": false,
+                "singleLine": true,
+//                "maxHeight": 30,
+                "selectionCheckboxAlignment": "bottom",
+                "sortSelectionColumn": true
+               },
+//	        "header": {
+//	            "titleCase": "",
+//	            "overflow": "fitted"
+//	        },
+	        "idFieldName": "Id",
+	        "enableSorting": false,
+
+	        "columnDefs": [
+	            {
+	                //"overflow": "fitted",
+	                "fieldName": "Name",
+	                "columnFormatter": {
+	                    "format": "full",
+	                    "type": "string"
+	                },
+	                "hidden": false,
+	                "textAlignment": "left",
+	                //"inLayout": true,
+	                "width": "300px",
+                     "maxHeight":30, 
+	                "autoWidth": false,
+	                "headerTextAlignment": "left",
+	                "title": "階層",
+	                "targets": 1
+	            },
+	            {
+	                "overflow": "fitted",
+	                "fieldName": "HasChildren",
+	                "columnFormatter": {
+	                    "format": "",
+	                    "type": "boolean"
+	                },
+	                "hidden": false,
+	                "textAlignment": "left",
+	                "inLayout": false,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "HasChildren",
+	                "targets": 2
+	            },
+	            {
+	                "overflow": "fitted",
+	                "fieldName": "ParentId",
+	                "columnFormatter": {
+	                    "format": "full",
+	                    "type": "string"
+	                },
+	                "hidden": false,
+	                "textAlignment": "left",
+	                "inLayout": false,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "ParentId",
+	                "targets": 3
+	            },
+	            {
+	                "overflow": "fitted",
+	                "fieldName": "Id",
+	                "columnFormatter": {
+	                    "format": "full",
+	                    "type": "string"
+	                },
+	                "hidden": false,
+	                "textAlignment": "left",
+	                "inLayout": false,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "Id",
+	                "targets": 4
+	            },
+	            {
+	                "overflow": "fitted",
+	                "fieldName": "TotalCost",
+	                "columnFormatter": {
+	                    "format": "¥0,000,000,000",
+	                    "type": "integer"
+	                },
+	                "hidden": false,
+	                "textAlignment": "right",
+	                "inLayout": false,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "コスト",
+	                "targets": 5
+	            },
+	            {
+	                "overflow": "fitted",
+	                "fieldName": "order01",
+	                "columnFormatter": {
+	                    "format": "¥0,000,000,000",
+	                    "type": "integer"
+	                },
+	                "hidden": false,
+	                "textAlignment": "right",
+	                "inLayout": true,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "aaa",
+	                "targets": 6
+	            },
+                {
+	                "overflow": "fitted",
+	                "fieldName": "order02",
+	                "columnFormatter": {
+	                    "format": "full",
+	                    "type": "string"
+	                },
+	                "hidden": false,
+	                "textAlignment": "right",
+	                "inLayout": true,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "bbb",
+	                "targets": 7
+	            },
+                {
+	                "overflow": "fitted",
+	                "fieldName": "order03",
+	                "columnFormatter": {
+	                    "format": "¥0,000,000,000",
+	                    "type": "integer"
+	                },
+	                "hidden": false,
+	                "textAlignment": "right",
+	                "inLayout": true,
+	                "width": "*",
+	                "autoWidth": true,
+	                "headerTextAlignment": "left",
+	                "title": "ccc",
+	                "targets": 8
+	            }
+	        ]
+	    },
+//	    "styles": {
+//	        "tableHeaderStyle": {
+//	            "image": "",
+//	            "backgroundColor": "#f2f4f4",
+//	            "textSize": "large",
+//	            "fontEmphasisUnderline": false,
+//	            "lineThickness": 1,
+//	            "lineColor": "#dadada",
+//	            "foregroundColor": "#232b2d",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": "",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "borderWidth": "1px",
+//	            "borderStyle": "solid"
+//	        },
+//	        "sortDescendingStyle": {
+//	            "image": "/Thingworx/MediaEntities/BomSortArrowDesc",
+//	            "backgroundColor": "",
+//	            "textSize": "normal",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisUnderline": false,
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 1,
+//	            "foregroundColor": "",
+//	            "lineColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "rowSelectedStyle": {
+//	            "image": "",
+//	            "backgroundColor": "#d0dfea",
+//	            "textSize": "large",
+//	            "lineStyle": "solid",
+//	            "displayString": "SelectedPartBackGroundSTyle",
+//	            "fontEmphasisUnderline": false,
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 1,
+//	            "foregroundColor": "#232b2d",
+//	            "lineColor": "#dadada",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "rowCollapseIconStyle": {
+//	            "image": "/Thingworx/MediaEntities/MHI.GT.CostAggregationJuuki.GridRowCollapseIcon",
+//	            "backgroundColor": "",
+//	            "textSize": "normal",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "fontEmphasisUnderline": false,
+//	            "lineThickness": 1,
+//	            "foregroundColor": "",
+//	            "lineColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "toolbarStyle": {
+//	            "image": "",
+//	            "backgroundColor": "#ffffff",
+//	            "textSize": "large",
+//	            "fontEmphasisUnderline": false,
+//	            "lineThickness": 1,
+//	            "lineColor": "#d9dfdf",
+//	            "foregroundColor": "#4a4a4a",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": "",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "borderWidth": "1px",
+//	            "borderStyle": "solid"
+//	        },
+//	        "rowAlternateBackgroundStyle": {
+//	            "image": "",
+//	            "backgroundColor": "#ffffff",
+//	            "textSize": "large",
+//	            "lineStyle": "solid",
+//	            "fontEmphasisUnderline": false,
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 1,
+//	            "lineColor": "",
+//	            "foregroundColor": "#232b2d",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "tableWrapperStyle": {
+//	            "image": "",
+//	            "backgroundColor": "",
+//	            "textSize": "large",
+//	            "fontEmphasisUnderline": false,
+//	            "lineThickness": 1,
+//	            "lineColor": "#d9dfdf",
+//	            "foregroundColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": "",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "borderWidth": "1px",
+//	            "borderStyle": "solid"
+//	        },
+//	        "rowIconStyle": {
+//	            "image": "",
+//	            "backgroundColor": "",
+//	            "textSize": "normal",
+//	            "lineStyle": "none",
+//	            "displayString": "",
+//	            "fontEmphasisUnderline": false,
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 0,
+//	            "foregroundColor": "",
+//	            "lineColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "rowBackgroundStyle": {
+//	            "image": "",
+//	            "backgroundColor": "#ffffff",
+//	            "textSize": "large",
+//	            "lineStyle": "solid",
+//	            "fontEmphasisUnderline": false,
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 1,
+//	            "lineColor": "",
+//	            "foregroundColor": "#232b2d",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "cellBorderStyle": {
+//	            "image": "",
+//	            "backgroundColor": "",
+//	            "textSize": "large",
+//	            "fontEmphasisUnderline": false,
+//	            "lineThickness": 1,
+//	            "lineColor": "#dadada",
+//	            "foregroundColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": "",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "borderWidth": "1px",
+//	            "borderStyle": "solid"
+//	        },
+//	        "rowExpansionIconStyle": {
+//	            "image": "/Thingworx/MediaEntities/MHI.GT.CostAggregationJuuki.GridRowExpansionIcon",
+//	            "backgroundColor": "",
+//	            "textSize": "normal",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisItalic": false,
+//	            "fontEmphasisUnderline": false,
+//	            "lineThickness": 1,
+//	            "foregroundColor": "",
+//	            "lineColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "rowHoverStyle": {
+//	            "image": "",
+//	            "backgroundColor": "#719fbf",
+//	            "textSize": "large",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisUnderline": false,
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 1,
+//	            "foregroundColor": "#ffffff",
+//	            "lineColor": "#dadada",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        },
+//	        "sortAscendingStyle": {
+//	            "image": "/Thingworx/MediaEntities/BomSortArrowAsc",
+//	            "backgroundColor": "",
+//	            "textSize": "normal",
+//	            "lineStyle": "solid",
+//	            "displayString": "",
+//	            "fontEmphasisUnderline": false,
+//	            "fontEmphasisItalic": false,
+//	            "lineThickness": 1,
+//	            "foregroundColor": "",
+//	            "lineColor": "",
+//	            "fontEmphasisBold": false,
+//	            "secondaryBackgroundColor": ""
+//	        }
+//	    },
+//	    "resetButton": {
+//	        "location": "top-right",
+//	        "enabled": false
+//	    },
+//	    "search": {
+//	        "multiColumn": {
+//	            "location": "top-left",
+//	            "enabled": false
+//	        }
+//	    }
+	};
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="GetConfigurationCopy"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var result = 
+    {
+    
+      "fontSize":                 "20px",
+  "cellEditingEnabled": false,                  // {boolean} Optional. Specifies whether Cell editing is enabled by default for the grid, required for auto-save use-case. Disable for manual save; enable 'editButtons' in config below instead.
+  "columns":    {                               // Required   
+    "idFieldName": "id",                        // {string} Required. The name of the 'id' column containing the primary key.
+    "header":       {                           // Optional
+      "titleCase":   "",                        // *{string} header title case setting. Options: 'lower', 'upper', 'camel'
+      "overflow":    "tooltip"                  // *{string} header overflow setting. Options: 'fitted', 'wrapped', 'clipped', 'ellipsis'
+    },
+      
+      "fontSize":                 "20px",
+    "enableSorting":    true,                   // Optional. Enable sorting capabilities for the grid.
+    "multiColumnSortOrder": [                   // Optional. Sorts grid by multiple columns. The most prominent column is listed last.
+      {
+        "id":         'id',                     // {string} column 'fieldName'
+        "direction":  'asc'                     // {string} direction of the sort, e.g. ascending or descending. Options: 'asc', 'des'
+      }
+    ]
+  },
+  "rows":       {                               // Optional
+                "maxHeight" : "50",
+      "fontSize":                 "20px",
+          "verticalAlignment" : "bottom",
+    "selection":                  "multi",      // *{string} row selection setting. Options: 'none, 'single', 'multi'
+    "defaultSelectedRows":        "",           // *{string} default row selection setting starting with row 1. Options: '1', '1,2,3', '1-5,10'
+    "minHeight":                  "50",         // {string} row height setting in px.
+    "autoScroll":                 true          // {boolean} scroll to the selected rows on update or resize
+  },
+  "styles":     {                               // Optional unless styles are defined in state formatters
+    "tableWrapperStyle":              {         // {string} name of the style.
+      "backgroundColor":          "#e6e6e6",    // {string} the background style color
+      "secondaryBackgroundColor": "",           // {string} the secondary background style color for a gradient.
+      "foregroundColor":          "",           // {string} the font color.
+      "textDecoration":           "",           // {string} text decoration settings. Options: 'underline', 'line-through', 'overline'
+      "image":                    "",           // {string} MediaEntity url
+      "lineColor":                "#b3b3b3",    // {string} the color of the cell outline.
+      "borderStyle":              "solid",      // {string} the style of the cell outline. Options: 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', hidden.
+      "borderWidth":              "1px",        // {string} the width of cell border in px.
+      "fontFamily":               ["helvetica", "arial","sans-serif"],  // {string[]} array of fonts.
+      "fontStyle":                "normal",     // {string} the style of the font. Options: 'normal', 'italic', 'oblique'
+      "fontSize":                 "20px",       // {string} font size.
+      "fontWeight":               "normal"      // {string} font weight. Options: 'normal', 'bold', 'bolder', 'lighter', number
+    },
+    "tableHeaderStyle":              {
+      "backgroundColor":          "#202020",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#ffffff",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "#c0c0c0",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial","sans-serif"],
+      "fontStyle":                "normal",
+      "fontSize":                 "20px",
+      "fontWeight":               "bold"
+    },
+    "rowBorderStyle":                {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "",
+      "fontWeight":               ""
+    },
+    "cellBorderStyle":               {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "underline",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "2px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "20px",
+      "fontWeight":               "bold"
+    },
+    "rowBackgroundStyle":            {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "2px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "11px",
+      "fontWeight":               ""
+    },
+    "rowAlternateBackgroundStyle":   {
+      "backgroundColor":          "#f5f5f5",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "20px",
+      "fontWeight":               ""
+    },
+    "rowHoverStyle":                 {
+      "backgroundColor":          "#dddddd",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#333333",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "20px",
+      "fontWeight":               "normal"
+    },
+    "rowSelectedStyle":              {
+      "backgroundColor":          "#0088cc",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#ffffff",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "20px",
+      "fontWeight":               "bold"
+    },
+    "paginationButtonStyle": {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#202020",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "12px",
+      "fontWeight":               "bold"
+    },
+    "paginationHoverStyle": {
+      "backgroundColor":          "#252525",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#ffffff",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "12px",
+      "fontWeight":               "bold"
+    },
+    "paginationSelectedStyle": {
+      "backgroundColor":          "#0088cc",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#ffffff",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "12px",
+      "fontWeight":               "bold"
+    },
+    "toolbarStyle": {
+      "backgroundColor":          "#fafafa",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#202020",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "12px",
+      "fontWeight":               ""
+    },
+    "rowFormatterStyle":             {
+      "backgroundColor":          "#636262",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "white",
+      "textDecoration":           "underline",
+      "image":                    "",
+      "lineColor":                "black",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "20px",
+      "fontWeight":               "bold"
+    },
+    "sortAscendingStyle": {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "/Thingworx/MediaEntities/GridSortAscendingArrow",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "",
+      "fontWeight":               ""
+    },
+    "sortDescendingStyle": {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "/Thingworx/MediaEntities/GridSortDescendingArrow",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "",
+      "fontWeight":               ""
+    },
+    "rowIconStyle": {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "/Thingworx/MediaEntities/GridRowIcon",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "",
+      "fontWeight":               ""
+    },
+    "rowExpansionIconStyle": {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "/Thingworx/MediaEntities/GridRowExpansionIcon",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "",
+      "fontWeight":               ""
+    },
+    "rowCollapseIconStyle": {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "",
+      "textDecoration":           "",
+      "image":                    "/Thingworx/MediaEntities/GridRowCollapseIcon",
+      "lineColor":                "",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               "",
+      "fontStyle":                "",
+      "fontSize":                 "",
+      "fontWeight":               ""
+    },
+    "snowFormatterStyle":             {
+      "backgroundColor":          "#00ffff",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "white",
+      "textDecoration":           "underline",
+      "image":                    "",
+      "lineColor":                "black",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "14px",
+      "fontWeight":               "bold"
+    },
+    "coldFormatterStyle":             {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "black",
+      "textDecoration":           "underline",
+      "image":                    "/Thingworx/MediaEntities/SubsystemNotRunning",
+      "lineColor":                "black",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "20px",
+      "fontWeight":               "bold"
+    },
+    "warmFormatterStyle":             {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "black",
+      "textDecoration":           "underline",
+      "image":                    "/Thingworx/MediaEntities/SubsystemRunning",
+      "lineColor":                "black",
+      "borderStyle":              "",
+      "borderWidth":              "",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "14px",
+      "fontWeight":               "bold"
+    },
+    "cellValidationErrorStyle":             {
+      "backgroundColor":          "",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "black",
+      "textDecoration":           "none",
+      "image":                    "",
+      "lineColor":                "red",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "11px",
+      "fontWeight":               "normal"
+    },
+    "cellValidationErrorTooltipStyle":             {
+      "backgroundColor":          "red",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "white",
+      "textDecoration":           "none",
+      "image":                    "",
+      "lineColor":                "white",
+      "borderStyle":              "solid",
+      "borderWidth":              "1px",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "11px",
+      "fontWeight":               "normal"
+    },
+    "tooltipStyle": {
+      "backgroundColor":          "#0000ff",
+      "secondaryBackgroundColor": "",
+      "foregroundColor":          "#ffffff",
+      "textDecoration":           "",
+      "image":                    "",
+      "lineColor":                "",
+      "borderStyle":              "none",
+      "borderWidth":              "",
+      "fontFamily":               ["helvetica", "arial"],
+      "fontStyle":                "normal",
+      "fontSize":                 "12px",
+      "fontWeight":               ""
+    },
+  } 
+};
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations><AlertDefinitions name="data"/><AlertDefinitions name="data2"/></AlertConfigurations><ImplementedShapes/><ThingProperties><data><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="FileName" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="HYPERLINK" description="" name="LinkURL" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="true" baseType="INTEGER" description="" name="Numbering" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="path" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="TrueFileName" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="User" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><FileName><![CDATA[1]]></FileName><LinkURL><![CDATA[1]]></LinkURL><Numbering>1</Numbering><TrueFileName><![CDATA[1]]></TrueFileName><User><![CDATA[1]]></User><path><![CDATA[1]]></path></Row><Row><FileName><![CDATA[File名]]></FileName><LinkURL><![CDATA[2]]></LinkURL><Numbering>2</Numbering><TrueFileName><![CDATA[2]]></TrueFileName><User><![CDATA[テスト]]></User><path><![CDATA[益々]]></path></Row><Row><FileName><![CDATA[ああ]]></FileName><User><![CDATA[テスト]]></User><path><![CDATA[パス内容]]></path></Row></Rows></infoTable></Value><Timestamp>2024-02-29T09:44:27.121Z</Timestamp><Quality>GOOD</Quality></data><data2><Value><infoTable><DataShape><FieldDefinitions><FieldDefinition aspect.isPrimaryKey="false" baseType="BOOLEAN" description="" name="HasChildren" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Id" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="Name" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="order01" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="order02" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="order03" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" description="" name="ParentId" ordinal="0"/><FieldDefinition aspect.isPrimaryKey="false" baseType="INTEGER" description="" name="TotalCost" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><HasChildren>true</HasChildren><Id><![CDATA[1]]></Id><Name><![CDATA[テスト]]></Name><ParentId/><TotalCost>1</TotalCost><order01>1</order01><order02><![CDATA[1]]></order02><order03>1</order03></Row><Row><HasChildren>true</HasChildren><Id><![CDATA[11]]></Id><Name><![CDATA[滑川]]></Name><ParentId><![CDATA[1]]></ParentId><TotalCost>11</TotalCost><order01>11</order01><order02><![CDATA[滑川]]></order02><order03>11</order03></Row><Row><HasChildren>false</HasChildren><Id><![CDATA[111]]></Id><Name><![CDATA[sfsd]]></Name><ParentId><![CDATA[1/11]]></ParentId><TotalCost>111</TotalCost><order01>111</order01><order02><![CDATA[AASDF]]></order02><order03>111</order03></Row></Rows></infoTable></Value><Timestamp>2024-03-01T05:33:00.525Z</Timestamp><Quality>GOOD</Quality></data2></ThingProperties><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="" timestamp="2024-03-01T06:34:53.174Z" user="ptcuser"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetConfiguration : service updated&#10;" timestamp="2024-03-01T08:25:49.191Z" user="ptcuser"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2024-03-01T08:25:51.896Z" user="ptcuser"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetConfiguration : service updated&#10;" timestamp="2024-03-01T08:40:24.138Z" user="ptcuser"/><ConfigurationChange changeAction="MODIFY" changeReason="services : GetConfiguration : service updated&#10;" timestamp="2024-03-01T08:43:04.743Z" user="ptcuser"/><ConfigurationChange changeAction="FORCEEDIT" changeReason="ForceEdit" timestamp="2024-03-12T13:12:32.164Z" user="ptcuser"/></ConfigurationChanges></Thing></Things></Entities>
